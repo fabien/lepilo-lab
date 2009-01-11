@@ -1,0 +1,7 @@
+h1. lepilo lab
+
+Refactoring of "lepilo":https://github.com/smoofles/lepilo/tree by Samo and Fabien 
+
+h2. Licence & Copyright
+
+lepilo is licenced under the MIT Licence, so you are free to do whatever you want with it.
