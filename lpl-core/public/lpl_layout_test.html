@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>lepilo • content mingler</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.cookie.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.dimensions.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.livequery.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.autogrow-textarea.js"></script>
+    <script type="text/javascript" src="/javascripts/lowpro.jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/swfupload.js"></script>
+    
+    <script type="text/javascript" src="/javascripts/lpl.app.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.layout.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.uploadrz.js"></script>
+    
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/reset.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_base.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_ui.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_buttons.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_forms.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_content.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_header.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_footer.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_modal.css" />
+  </head>
+  <body>
+    
+    <div id='lpl_content'>
+      adsada
+    </div>
+    
+    <div class='lpl_infopop uploader' id='lpl_uploadpop'>
+      <div class='content'>
+        <h1>Uploading files</h1>
+        <div class='file_cont'></div>
+        <div class='file'>
+          <h2>File 1</h2>
+          <div class='lpl_progress_bar_bg'>
+            <div class='lpl_progress_bar'></div>
+          </div>
+          <div class='info'>
+            asdasd
+          </div>
+        </div>
+        <div class='buttons'>
+          <div class='lpl_btn_basic red wide right' onclick='lpl.uploadrz.cancelUploads()'>
+            Cancel upload
+            <span></span>
+          </div>
+        </div>
+        <br class='clr' />
+      </div>
+    </div>
+    
+    <script type='text/javascript'>
+      //<![CDATA[
+        var construct_params = null;
+      //]]>
+    </script>
+    
+    <script type='text/javascript'>
+      //<![CDATA[
+        var swfu;
+        
+        window.onload = function () {
+          $("#lpl_uploadpop").hide();
+          $("#lpl_uploadpop").css("top","150px");
+        
+          console.log("SWFUpload initialized");
+          swfu = new SWFUpload({
+            //debug: true
+            upload_url : "/lepilo/media_resources",
+            flash_url : "/swfs/swfupload_f10.swf",
+            file_size_limit : "10 MB",
+            file_types : "*.jpg;*.jpeg;*.gif;*.png;*.tif;*.tiff",
+            file_post_name : "media_resource[file]",
+            post_params: construct_params ? construct_params : "",
+            // swfupload_loaded_handler : swfupload_loaded_function,
+            // file_dialog_start_handler : file_dialog_start_function,
+            // file_queued_handler : file_queued_function,
+            
+            // Button settings (as of SWFUploas 2.2, which adds Flash 10 support)
+            button_image_url : "/images/lpl/upload-button.png",
+            button_placeholder_id : "lpl_upload_button",
+            button_width: 61,
+            button_height: 27,
+            button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+            // Moving on...
+            
+            file_queue_error_handler : lpl.uploadrz.fileQueueError,
+            file_dialog_complete_handler : lpl.uploadrz.fileDialogComplete,
+            upload_start_handler : lpl.uploadrz.uploadStarted,
+            upload_progress_handler : lpl.uploadrz.uploadProgress,
+            upload_error_handler : lpl.uploadrz.uploadError,
+            upload_success_handler : lpl.uploadrz.uploadSuccess,
+            upload_complete_handler : lpl.uploadrz.uploadComplete
+          });
+        };
+        
+        // console.log("boom!");
+      //]]>
+    </script>
+    <div id='lpl_inplace_ui'>
+      
+    </div>
+    
+    <div id='lpl_app_header'>
+      <div class="icon">
+        <img src="/images/lpl/icons/40x40_articles.png" alt="articles icon">
+      </div>
+
+      <div class="icon active">
+        <img src="/images/lpl/icons/40x40_articles.png" alt="articles icon">
+      </div>
+
+      <div >
+        
+        
+        
+        <a href="#" id="toggle_sidebar">sidebar</a> | 
+        <a href="#" id="toggle_shelf">shelf</a> | 
+        <a href="#" id="toggle_inspector">inspector</a>
+        
+        <div class='lpl_right'>
+          <div class='lpl_btn_square red' onclick="window.location = '/logout'">
+            Log out
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id='lpl_app_left'>
+
+      <h1 class='lpl_sidebar'>
+        smart folders
+      </h1>
+
+      <div class='lpl_sidebar_folders'>
+        <ul class='lpl_folders'>
+          <ul>
+            <li>topics</li>
+          </ul>
+          <ul>
+            <li>articles</li>
+          </ul>
+          <ul>
+            <li>media</li>
+          </ul>
+          <ul>
+            <li>text</li>
+            
+            <ul>
+              <li>text</li>
+            </ul>
+          </ul>
+          <ul>
+            <li>tags</li>
+          </ul>
+        </ul>
+
+      </div>
+
+      <h1 class='lpl_sidebar'>
+        content types
+      </h1>
+
+      <div class='lpl_container_inset'>
+        <ul class='lpl_tree'>
+          <ul onclick="window.location = '/lepilo/topics'">
+            topics
+          </ul>
+          <ul onclick="window.location = '/lepilo/articles'">
+            articles
+          </ul>
+          <ul onclick="window.location = '/lepilo/media_resources'">
+            media
+          </ul>
+          <ul onclick="window.location = '/lepilo/text_containers'">
+            text
+          </ul>
+          <ul onclick="window.location = '/lepilo/tags'">
+            tags
+          </ul>
+        </ul>
+      </div>
+      <h1 class='lpl_sidebar'>
+        tags
+      </h1>
+      <div class='lpl_container_inset'>
+        <div class='lpl_list'>
+          <div class='lpl_tag plain'>
+            lulz
+          </div>
+          <div class='lpl_tag plain'>
+            A longer kind of Tag
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id='lpl_app_center'></div>
+    
+    <div id='lpl_app_right'>
+      <h1 class='lpl_inspector'>
+        for_inspector, thrown out of @controllers
+      </h1>
+    </div>
+
+    <div id='lpl_app_shelf'>
+      <div class='border'>
+        <div class='handle hor'></div>
+      </div>
+      shelf
+    </div>
+
+    <div id='lpl_modal'>
+      <div id='lpl_modal_dialog'>
+        <div class='info'>
+          <h1>
+            Hier kommen Infos rein
+          </h1>
+        </div>
+        <div class='content'>
+          doodles
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
