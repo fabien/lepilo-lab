@@ -1,0 +1,9 @@
+<strong><%= slice.description %></strong> (v. <%= slice.version %>)
+<p><em>in lpl-core/app/views/main/index.html.erb</em></p>
+
+<h2>Extensions</h2>
+<ul>
+<% LplCore.extensions.each do |ext| %>
+	<li><%= ext.name %></li>
+<% end %>
+</ul>

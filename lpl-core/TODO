@@ -1,0 +1,15 @@
+TODO:
+
+- Fix LplCore.description and LplCore.version
+- Fix LICENSE with your name
+- Fix Rakefile with your name and contact info
+- Add your code to lib/lpl-core.rb
+- Add your Merb rake tasks to lib/lpl-core/merbtasks.rb
+
+Remove anything that you don't need:
+
+- app/controllers/main.rb LplCore::Main controller
+- app/views/layout/lpl-core.html.erb
+- spec/controllers/main_spec.rb controller specs
+- public/* any public files
+- stubs/* any stub files

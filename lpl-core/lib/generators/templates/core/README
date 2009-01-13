@@ -1,0 +1,11 @@
+<%= module_name %>
+<%= "=" * module_name.size %>
+
+An extension for the Lepilo framework.
+
+------------------------------------------------------------------------------
+   
+
+To see all available tasks for <%= module_name %> run:
+
+rake -T slices:<%= symbol_name %>
