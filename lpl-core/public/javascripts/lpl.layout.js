@@ -8,7 +8,7 @@ lpl.layout = function() {
   //  Holds a reference to the Instance of lpl.layout
   self = this;
   var headerHeight = 54;
-  var shelfHeight = 264;
+  var shelfHeight = 200;
   var leftPanelWidth = 254;
   var rightPanelWidth = 304;
   var centerWidth;
@@ -41,6 +41,9 @@ lpl.layout = function() {
     $("#toggle_shelf").mouseup(function(a) {
       lpl.app.layout.toggleShelf()
     });
+
+    $("#lpl_app_left").width(leftPanelWidth);
+    $("#lpl_app_right").width(rightPanelWidth);
     
     // 
     // $("#cancel_layout").mouseup(function() {
@@ -58,9 +61,6 @@ lpl.layout = function() {
     var wW = $(window).width();
     var wH = $(window).height();
     
-    var leftPanelWidth = $("#lpl_app_left").width();
-    var rightPanelWidth = $("#lpl_app_right").width();
-    
     //  Resize the layout elements according to their current settings
     
     //  Here's where the juggling starts;
@@ -71,7 +71,7 @@ lpl.layout = function() {
     // $("#lpl_app_center").css({"left": leftPanelWidth + $(window).scrollLeft(), "top": $(window).scrollTop() + headerHeight - 3});
     $("#lpl_app_right").css({"height": dH - 51});
     
-    centerWidth = wW - leftPanelWidth - (wW - $("#lpl_app_right").offset().left);
+    this.centerWidth = wW - leftPanelWidth - (wW - $("#lpl_app_right").offset().left);
     // $("#lpl_app_center").width(centerWidth - $(window).scrollLeft());
     
     $("#lpl_content").css({"left": $("#lpl_app_left").width(), "top": headerHeight, "width": $(document).width() - $("#lpl_app_left").width() - $("#lpl_app_right").width()});
@@ -92,29 +92,29 @@ lpl.layout = function() {
   };
 
   this.toggleSidebar = function() {
-    if (!inspectorOpen) {
+    if (!sidebarOpen) {
       $("#lpl_app_left").css({ "overflow" : "auto" });
       $("#lpl_app_left").width(leftPanelWidth);
-      inspectorOpen = true;
+      sidebarOpen = true;
       this.reLayout();
     } else {
       $("#lpl_app_left").css({ "overflow" : "hidden" });
       $("#lpl_app_left").width(0);
-      inspectorOpen = false;
+      sidebarOpen = false;
       this.reLayout();
     }
   };
 
   this.toggleShelf = function() {
-    if (!inspectorOpen) {
+    if (!shelfOpen) {
       $("#lpl_app_shelf").css({ "overflow" : "auto" });
-      $("#lpl_app_shelf").height(leftPanelWidth);
-      inspectorOpen = true;
+      $("#lpl_app_shelf").height(shelfHeight);
+      shelfOpen = true;
       this.reLayout();
     } else {
       $("#lpl_app_shelf").css({ "overflow" : "hidden" });
       $("#lpl_app_shelf").height(10);
-      inspectorOpen = false;
+      shelfOpen = false;
       this.reLayout();
     }
   };
