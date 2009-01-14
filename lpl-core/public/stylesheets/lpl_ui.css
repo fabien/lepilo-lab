@@ -187,8 +187,8 @@ div.lpl_tag.plain.active {
 }
 
 /* -------------------------------------------------------- */
-/*    VARIOUS                                               */
-/*    One-off Styles                                        */
+/*    SHELF                                                 */
+/*    Shelf Styles                                          */
 /* -------------------------------------------------------- */
 
 div#lpl_app_shelf div.border {
@@ -215,10 +215,75 @@ div#lpl_app_shelf div.border div.handle.hor {
   background: transparent url(/images/lpl/handle-hor.png) repeat-x;
 }
 
-div#lpl_app_shelf > div.container {
+div#lpl_app_shelf > div.content {
   position:relative;
   top:11px;
-  background:rgba(200,255,150,1);
+  height:190px;
+  overflow:auto;
+  /*background:rgba(0,0,0,0.25);*/
+}
+
+div#lpl_app_shelf div.icon-container {
+  position:relative;
+  float:left;
+  margin:5px 0 0 5px;
+  padding:5px;
+  width:128px;
+  overflow:hidden;
+  color:#fff;
+  font-size:12px;
+  line-height:14px;
+  font-weight:bold;
+  text-shadow:0px 1px 1px rgba(0,0,0,0.75);
+  text-align:center;
+}
+
+div#lpl_app_shelf div.icon-container:hover {
+  background:rgba(0,0,0,0.25);
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.1);
+  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
+}
+
+div#lpl_app_shelf div.icon-container div.image {
+  position:relative;
+  height:135px;
+  text-align:center;
+}
+
+div#lpl_app_shelf div.icon-container div.image img {
+  display:block;
+  margin:0 auto 0 auto;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
+}
+
+div#lpl_app_shelf div.icon-container div.text {
+  position:relative;
+  height:123px;
+  margin:0 0 4px 0;
+  padding:4px;
+  color:#222;
+  font-size:9px;
+  line-height:10px;
+  font-weight:bold;
+  text-align:left;
+  text-shadow:0px 1px 1px rgba(255,255,255,0.75);
+  background: #eee url("/images/lpl/gradient-bright.png");
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
+}
+
+div#lpl_app_shelf div.icon-container div.metadata {
+  position:relative;
+  color:#b5d63e;
+  margin:0;
+  padding:0;
+  font-size:10px;
+  line-height:12px;
 }
   
 /* -------------------------------------------------------- */

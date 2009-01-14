@@ -107,8 +107,9 @@ lpl.layout = function() {
 
   this.toggleShelf = function() {
     if (!shelfOpen) {
-      $("#lpl_app_shelf").css({ "overflow" : "auto" });
+      $("#lpl_app_shelf").css({ "overflow" : "hidden" });
       $("#lpl_app_shelf").height(shelfHeight);
+      $("#lpl_app_shelf").width("100%");
       shelfOpen = true;
       this.reLayout();
     } else {
