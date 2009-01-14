@@ -30,6 +30,50 @@ div.lpl_pop_in h1 {
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.75);
 }
 
+/* -------------------------------------------------------- */
+/*    FOLDERS LIST                                          */
+/*    Styles for a list of folders                          */
+/* -------------------------------------------------------- */
+
+.lpl_sidebar_folders {
+  margin:0 -4px 0 0;
+}
+
+.lpl_sidebar_folders ul.lpl_folders {
+}
+
+.lpl_sidebar_folders ul::-moz-selection{
+ background:transparent;
+}
+
+.lpl_sidebar_folders ul::selection {
+ background:transparent;
+}
+
+.lpl_sidebar_folders ul.lpl_folders li {
+  height:28px;
+  cursor: pointer;
+  padding:2px 0 2px 0;
+  font-weight:bold;
+  text-indent:25px;
+  line-height:28px;
+}
+
+.lpl_sidebar_folders ul.lpl_folders li:hover {
+  background:rgba(255, 255, 255, 0.25);
+}
+
+.lpl_sidebar_folders ul.lpl_folders li:active {
+  color:#fff;
+  text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
+  background: transparent url(/images/lpl/speed-stripesi.png) repeat-x 0px -160px;
+}
+
+.lpl_sidebar_folders ul.lpl_folders li.active {
+  color:#fff;
+  text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
+  background: transparent url(/images/lpl/speed-stripesi.png) repeat-x 0px 0px;
+}
 
 /* -------------------------------------------------------- */
 /*    TREE LIST                                             */
@@ -229,6 +273,7 @@ div#lpl_app_shelf div.icon-container {
   margin:5px 0 0 5px;
   padding:5px;
   width:128px;
+  height:175px;
   overflow:hidden;
   color:#fff;
   font-size:12px;
