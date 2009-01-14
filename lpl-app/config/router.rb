@@ -42,5 +42,3 @@ Merb::Router.prepare do
   # Change this for your home page to be available at /
   # match('/').to(:controller => 'whatever', :action =>'index')
 end
-
-p Merb::Router.named_routes

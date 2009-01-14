@@ -61,11 +61,6 @@ if defined?(Merb::Plugins)
       scope.default_routes
     end
     
-    # This sets up a structure for working with LplCore.
-    def self.setup_default_structure!
-      inherit_structure_from_slice(LplCore)
-    end
-    
   end
   
   # Setup the slice layout for <%= module_name %>

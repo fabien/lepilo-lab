@@ -7,8 +7,6 @@ if defined?(Merb::Plugins)
   
   Merb::Plugins.add_rakefiles "lpl-core/merbtasks", "lpl-core/slicetasks", "lpl-core/spectasks"
   
-  require 'lpl-core' / 'support' / 'merb-slices' / 'module_mixin'
-
   # Register the Slice for the current host application
   Merb::Slices::register(__FILE__)
   
