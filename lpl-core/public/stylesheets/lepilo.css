@@ -1,0 +1,1661 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* -------------------------------------------------------- */
+/*    HTML TAG STYLES                                       */
+/*    Setting some base styles                              */
+/* -------------------------------------------------------- */
+
+body {
+  background-color:#e3e3e3;
+  font: normal 15px/1.4em "Helvetica", Helvetica, "Lucida Grande", Lucida, Helvetica, sans-serif;
+  background: #3a3a3a;
+  overflow-x:hidden;
+}
+
+h1 {
+  margin-bottom:5px;
+  font-size:22px;
+  font-weight:normal;
+  color:#333;
+  text-shadow: 1px 1px 1px #000;
+}
+
+h2 {
+  margin-bottom:5px;
+  font-size:18px;
+  font-weight:normal;
+  color:#a4c622;
+  text-shadow: 1px 1px 1px #000;
+}
+
+a {
+  color:#84bd15;
+}
+
+/* -------------------------------------------------------- */
+/*    LEPILO APP LAYOUT                                     */
+/*    Divide the lepilo app layout into the main views      */
+/*    that are arranged and managed with JavaScript         */
+/* -------------------------------------------------------- */
+
+div#lpl_app_header {
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:56px;
+  /*background: rgba(250, 250, 50, 0.1);*/
+  background: transparent url(/images/lpl/header-bg.png) repeat-x;
+  z-index:25000;
+}
+
+div#lpl_app_left {
+  position:fixed;
+  top:51px;
+  left:0px;
+  width:254px;
+  padding:0 4px 0 0;
+  background: transparent url(/images/lpl/sidebar-bg.png) no-repeat top right;
+  overflow:auto;
+  z-index:26000;
+}
+
+div#lpl_app_center {
+  position:absolute;
+  height:1px;
+  width:50px;
+  background:rgba(0, 0, 0, 0.01);
+  z-index:24000;
+}
+
+div#lpl_app_right {
+  position:fixed;
+  top:51px;
+  right:0px;
+  width:354px;
+  padding:0 0 0 4px;
+  background: transparent url(/images/lpl/sidebar-bg.png) no-repeat top left;
+  overflow:auto;
+  z-index:26000;
+}
+
+div#lpl_app_shelf {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  height:7px;
+  /*background:rgba(150, 100, 250, 0.1);*/
+  background: transparent url(/images/lpl/shelf-bg.png) repeat-x top;
+  z-index:27000;
+}
+
+div#lpl_inplace_ui {
+  position:absolute;
+  overflow:visible;
+  display:block;
+  z-index:34000;
+}
+
+/* lepilo interface layout */
+
+
+div.lpl_edit_container {
+  position:relative;
+  clear:both;
+  overflow:hidden;
+  margin:0 50px 50px 50px;
+  background-color:#fff;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+/* Content SETTINGS layout*/
+
+div.lpl_settings {
+  padding:5px;
+  clear:both;
+  overflow:hidden;
+}
+
+div.lpl_settings label {
+  display:block;
+}
+
+div.lpl_settings div.third {
+  float:left;
+  width:32%;
+  overflow:hidden;
+}
+
+/* GENERAL lepilo UI */
+
+div.lpl_action {
+  float:left;
+  height:22px;
+  padding-left:7px;
+  padding-right:7px;
+  margin-bottom:2px;
+  margin-right:2px;
+  font-size:14px;
+  line-height:20px;
+  background-color:#a4c622;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+div.lpl_action a {
+  color:#fff;
+  font-weight:bold;
+  text-decoration:none;
+  text-shadow: 1px 1px 1px #3b5504;
+}
+
+div.lpl_action.red {
+  background-color:#cc362a;
+}
+
+div.lpl_action.red a {
+  text-shadow: 1px 1px 1px #661109;
+}
+
+div.lpl_action.blue {
+  background-color:#32bbee;
+}
+
+div.lpl_action.blue a {
+  text-shadow: 1px 1px 1px #082c47;
+}
+
+
+/* LIST STYLES */
+
+div.lpl_image_list {
+  float:left;
+  margin:10px;
+  padding:5px;
+  width:250px;
+  overflow:hidden;
+  background-color:#eee;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+div.lpl_image_list img {
+  float:none;
+}
+
+div.lpl_tag_list {
+  float:left;
+  margin:10px;
+  padding:5px;
+  background-color:#eee;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+/* -------------------------------------------------------- */
+/*    VARIOUS HELPERS                                       */
+/* -------------------------------------------------------- */
+
+div.lpl_right {
+  float:right;
+}
+
+br.clr {
+  clear:both;
+}
+
+.lpl_shadow {
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75);
+}
+
+.lpl_black_50 {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.green-text {
+  color:#b5d63e;
+}
+
+.red-text {
+  color:#d83726;
+}
+
+.blue-text {
+  color:#88d6ec;
+}
+
+.pink-text {
+  color:#c63b69;
+}
+
+.purple-text {
+  color:#ad81f9;
+}
+
+.bigger {
+  font-size:1.5em;
+}
+
+.min350 {
+  min-width:350px;
+}
+
+.isDragged {
+/*  border: 2px solid rgba(166, 226, 46, 1);*/
+}
+/* -------------------------------------------------------- */
+/*    IN-PLACE POP-UP                                       */
+/*    Non-modal pop-ups for editing content                 */
+/* -------------------------------------------------------- */
+
+div.lpl_pop_in {
+  position:absolute;
+  min-width:250px;
+  background: #ced0cf url(/images/lpl/gradient-bright.png) repeat-x;
+  -webkit-border-radius: 10px;
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.75);
+  -moz-border-radius: 10px;
+  -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.75);
+  overflow:hidden;
+  z-index:24000;
+}
+
+div.lpl_pop_in div.container {
+  position:relative;
+  margin: 5px;
+  overflow:hidden;
+}
+
+div.lpl_pop_in h1 {
+  margin: 5px 15px 0 15px;
+  font-weight:bold;
+  font-size:12px;
+  text-align:center;
+  color:#333;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.75);
+}
+
+
+/* -------------------------------------------------------- */
+/*    TREE LIST                                             */
+/*    Styles for a general tree-like list                   */
+/* -------------------------------------------------------- */
+
+h1.lpl_sidebar {
+  margin: 5px 15px 0 15px;
+  font-weight:bold;
+  font-size:12px;
+  text-align:right;
+  color:#333;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+h1.lpl_inspector {
+  margin: 5px 15px 0 10px;
+  font-weight:bold;
+  font-size:12px;
+  color:#333;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+ul.lpl_tree {
+  font-size:12px;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+ul.lpl_tree ul::-moz-selection{
+ background:transparent;
+}
+
+ul.lpl_tree ul::selection {
+ background:transparent;
+}
+
+
+ul.lpl_tree ul {
+  cursor: pointer;
+  padding:0 0 0 20px;
+  margin:0 0 5px 0;
+  background: transparent url(/images/lpl/list-closed.png) no-repeat 0px 4px;
+}
+
+ul.lpl_tree ul:hover {
+  background: rgba(0, 0, 0, 0.1) url(/images/lpl/list-closed.png) no-repeat 0px 4px;
+}
+
+ul.lpl_tree ul:active {
+  background: rgba(0, 0, 0, 0.1) url(/images/lpl/list-open.png) no-repeat 2px 2px;
+}
+
+ul.lpl_tree ul.open {
+  padding:0 0 5px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.05) url(/images/lpl/list-open.png) no-repeat 2px 2px;
+}
+
+ul.lpl_tree ul li, ul.lpl_tree ul.open li {
+  cursor: pointer;
+  margin:0 10px 2px -10px;
+  padding:0 0 0 30px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+ul.lpl_tree ul li:hover, ul.lpl_tree ul.open li:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+ul.lpl_tree ul li:active, ul.lpl_tree ul.open li:active {
+  color:#fff;
+  background:#666 url(/images/lpl/speed-stripesi.png) repeat-x 0px -160px;
+  text-shadow: 1px 1px 1px #333;
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: 0px 2px 1px rgba(255, 255, 255, 0.25);
+}
+
+ul.lpl_tree li.active {
+  color:#fff;
+  font-weight:bold;
+  background:#9bc019 url(/images/lpl/speed-stripesi.png) repeat-x 0px 0px;
+  text-shadow: 1px 1px 1px #346700;
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
+}
+
+ul.lpl_tree li.active:hover, ul.lpl_tree ul.open li.active:hover {
+  background:#9bc019 url(/images/lpl/speed-stripes.png) repeat-x 0px -160px;
+  text-shadow: 1px 1px 1px #333;
+}
+
+/* -------------------------------------------------------- */
+/*    TAGS                                                  */
+/*    Styles for Tags                                       */
+/* -------------------------------------------------------- */
+
+div.lpl_tag {
+  position:relative;
+  float:left;
+  margin:1px 10px 2px 3px;
+  padding:0 0 0 20px;
+  font-size:13px;
+  font-weight:bold;
+  height:26px;
+  color:#fff;
+  text-shadow: 1px 1px 1px rgba(0, 75, 0, 0.9);
+  background: transparent url(/images/lpl/tag-bg.png) no-repeat;
+}
+
+div.lpl_tag::-moz-selection{
+ background:transparent;
+}
+
+div.lpl_tag::selection {
+ background:transparent;
+}
+
+div.lpl_tag span {
+  position:absolute;
+  float:right;
+  top:0px;
+  right:0px;
+  width:15px;
+  height:26px;
+  margin-right:-15px;
+  background: transparent url(/images/lpl/tag-bg.png) no-repeat top right;
+}
+div.lpl_tag.plain {
+  position:relative;
+  float:left;
+  margin:2px 0px 3px 5px;
+  padding:0 7px 0 7px;
+  font-size:11px;
+  font-weight:bold;
+  height:18px;
+  line-height:18px;
+  color:#fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+  -webkit-border-radius: 4px;
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
+  -moz-border-radius: 4px;
+  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
+  background:#666 url(/images/lpl/speed-stripesi.png) repeat-x 0px -160px;
+}
+
+div.lpl_tag.plain span {
+  display:none;
+}
+
+div.lpl_tag.plain.active {
+  text-shadow: 1px 1px 1px rgba(0, 75, 0, 0.75);
+  background:#9bc019 url(/images/lpl/speed-stripesi.png) repeat-x 0px -10px;
+}
+
+/* -------------------------------------------------------- */
+/*    VARIOUS                                               */
+/*    One-off Styles                                        */
+/* -------------------------------------------------------- */
+
+div#lpl_app_shelf div.border {
+  position:absolute;
+  top:4px;
+  left:0px;
+  height:7px;
+  width:100%;
+  text-align: center;
+  cursor: n-resize;
+  background: transparent url(/images/lpl/separator-hor.png) repeat-x;
+}
+
+div#lpl_app_shelf.open div.border {
+  cursor: s-resize;
+}
+
+div#lpl_app_shelf div.border div.handle.hor {
+  position:relative;
+  margin:0 auto 0 auto;
+  top:2px;
+  height:3px;
+  width:18px;
+  background: transparent url(/images/lpl/handle-hor.png) repeat-x;
+}
+  
+/* -------------------------------------------------------- */
+/*    AJAX STYLES                                           */
+/*    Styles for Elements used with AJAX calls              */
+/* -------------------------------------------------------- */
+
+
+div.processing.gray {
+  width:100%;
+  text-align:center;
+  font-size:11px;
+  font-weight:bold;
+  color:#545454;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
+}
+
+div.processing.dark {
+  width:100%;
+  text-align:center;
+  font-size:11px;
+  font-weight:bold;
+  color:#999;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.75);
+}
+
+div.processing.topics {
+  position:relative;
+  float:left;
+  top:10px;
+  width:30px;
+  text-align:center;
+  font-size:11px;
+  font-weight:bold;
+  color:#999;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.75);
+}
+
+div.processing.topics_edit {
+  position:relative;
+  top:3px;
+  left:5px;
+  text-align:center;
+  background:none;
+}
+
+/* lepilo UI Feedback Components */
+
+/* lepilo UI Information Pop-up */
+
+div.lpl_infopop {
+/*  display:none;*/
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  width:600px;
+  top:-1000px;
+  overflow:visible;
+  padding:10px;
+  background: transparent url(/images/lpl/black-50alpha.png);
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  z-index:28000;
+}
+
+div.lpl_infopop div.content {
+  position:relative;
+  padding:10px;
+  background-color:#333;
+/*  background: transparent url(/images/lpl/gray-50alpha.png);
+*/  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+
+div.lpl_infopop div.content div.file {
+  color:#ddd;
+  font-size: 12px;
+  line-height:20px;
+  text-indent:7px;
+  text-shadow: 1px 1px 1px #000;
+  padding:5px;
+  margin-bottom:5px;
+  margin-left:auto;
+  margin-right:auto;
+  background: transparent url(/images/lpl/gradient-info-medium.png);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 4px;
+}
+
+div.lpl_infopop div.content div.file.yay {
+  background: transparent url(/images/lpl/gradient-yay.png);
+}
+
+div.lpl_infopop div.content div.file.fail {
+  background: transparent url(/images/lpl/gradient-fail.png);
+}
+
+div.lpl_infopop div.content div.file div.info {
+  color:#fff;
+  font-size: 12px;
+  line-height:20px;
+  text-indent:7px;
+  text-shadow: 1px 1px 1px #000;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 4px;
+}
+
+div.lpl_infopop h1 {
+  margin-bottom:15px;
+  font-size: 18px;
+  color:#fff;
+  text-shadow: 1px 1px 1px #000;
+}
+
+div.lpl_infopop h2 {
+  color:#fff;
+  text-shadow: 1px 1px 1px #000;
+}
+
+/**/
+
+div.lpl_editpop {
+/*  display:none;*/
+  position:absolute;
+  margin-left:auto;
+  margin-right:auto;
+  width:600px;
+/*  top:-1000px;*/
+  top:100px;
+  overflow:visible;
+  padding:10px;
+  background: transparent url(/images/lpl/black-50alpha.png);
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
+div.lpl_editpop div.content {
+  position:relative;
+  padding:10px;
+  background: #ced0cf url(/images/lpl/gradient-bright.png);
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+
+/* lepilo UI Information Stripes */
+
+div.lpl_infostripe {
+  position:relative;
+  height:48px;
+  margin-bottom:5px;
+  overflow:hidden;
+  font-size: 18px;
+  line-height:42px;
+  color:#333;
+  text-indent:64px;
+  text-shadow: 1px 1px 1px #eee;
+  background: transparent url(/images/lpl/stripe-blank.png) repeat-x top left;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+div.lpl_infostripe.yay {
+  font-weight:bold;
+  color:#fff;
+  text-shadow: 1px 1px 2px #2b610a;
+  background: transparent url(/images/lpl/stripe-ok.png) repeat-x top left;
+}
+
+div.lpl_infostripe.fail {
+  font-weight:bold;
+  color:#fff;
+  text-shadow: 1px 1px 2px #a80a27;
+  background: transparent url(/images/lpl/stripe-fail.png) repeat-x top left;
+}
+
+/* lepilo UI Progress Bar */
+
+div.lpl_progress_bar_bg {
+  width:100%;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:10px;
+  height:15px;
+  background: transparent url(/images/lpl/progress-bg.png) repeat-x center left;
+  overflow:hidden;
+}
+
+div.lpl_progress_bar {
+  position:relative;
+  float:left;
+  width:1%;
+  height:15px;
+  background: #93c119 url(/images/lpl/progress-ani.gif) repeat-x top;
+}
+/* -------------------------------------------------------- */
+/*    BASIC BUTTON                                          */
+/*    gray, green, red pill-style buttons                   */
+/* -------------------------------------------------------- */
+
+/* gray */
+
+div.lpl_btn_basic {
+  outline:none;
+  position:relative;
+  float:left;
+  cursor:pointer;
+  top:0px;
+  height:30px;
+  padding-left:20px;
+  padding-right:5px;
+  margin-right:20px;
+  font-size:12px;
+  line-height:28px;
+  font-weight:bold;
+  text-shadow: 1px 1px 1px #ddd;
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -80px;
+}
+
+div.lpl_btn_basic::-moz-selection{
+ background:transparent;
+}
+
+div.lpl_btn_basic::selection {
+ background:transparent;
+}
+
+
+div.lpl_btn_basic span {
+  position:absolute;
+  float:right;
+  top:0px;
+  right:0px;
+  width:15px;
+  height:30px;
+  margin-right:-15px;
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -80px;
+}
+
+div.lpl_btn_basic:hover {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -40px;
+}
+
+div.lpl_btn_basic:hover span {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -40px;
+}
+
+
+div.lpl_btn_basic:active {
+  line-height:30px;
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px 0px;
+}
+
+div.lpl_btn_basic:active span {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px 0px;
+}
+
+/* green */
+
+div.lpl_btn_basic.green {
+  text-shadow: 1px 1px 1px #cbe14a;
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -200px;
+}
+
+div.lpl_btn_basic.green span {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -200px;
+}
+
+div.lpl_btn_basic.green:hover {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -160px;
+}
+
+div.lpl_btn_basic.green:hover span {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -160px;
+}
+
+
+div.lpl_btn_basic.green:active {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -120px;
+}
+
+div.lpl_btn_basic.green:active span {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -120px;
+}
+
+/* red */
+
+div.lpl_btn_basic.red {
+  color:#fff;
+  text-shadow: 1px 1px 1px #980a07;
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -320px;
+}
+
+div.lpl_btn_basic.red span {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -320px;
+}
+
+div.lpl_btn_basic.wide {
+  text-align:center;
+  width:150px;
+}
+
+div.lpl_btn_basic.right {
+  float:right;
+}
+
+div.lpl_btn_basic.red:hover {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -280px;
+}
+
+div.lpl_btn_basic.red:hover span {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -280px;
+}
+
+
+div.lpl_btn_basic.red:active {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -240px;
+}
+
+div.lpl_btn_basic.red:active span {
+  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -240px;
+}
+
+/* -------------------------------------------------------- */
+/*    BIG SQUARE BUTTON                                     */
+/*    gray, green, red square buttons                       */
+/*    with rounded corners and a matte finish               */
+/* -------------------------------------------------------- */
+
+/* gray */
+
+div.lpl_btn_square {
+  outline:none;
+  position:relative;
+  float:left;
+  cursor:pointer;
+  top:0px;
+  height:30px;
+  padding-left:15px;
+  padding-right:1px;
+  margin-right:15px;
+  font-size:12px;
+  line-height:26px;
+  font-weight:bold;
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -10px;
+}
+
+div.lpl_btn_square a {
+  text-decoration:none;
+  color:#000;
+}
+
+div.lpl_btn_square::-moz-selection{
+ background:transparent;
+}
+
+div.lpl_btn_square::selection {
+ background:transparent;
+}
+
+div.lpl_btn_square span {
+  position:absolute;
+  float:right;
+  top:0px;
+  right:0px;
+  width:15px;
+  height:30px;
+  margin-right:-15px;
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -10px;
+}
+
+div.lpl_btn_square:hover {
+  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -50px;
+}
+
+div.lpl_btn_square:hover span {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -50px;
+}
+
+div.lpl_btn_square:active {
+  line-height:28px;
+  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -90px;
+}
+
+div.lpl_btn_square:active span {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -90px;
+}
+
+/* green */
+
+div.lpl_btn_square.green {
+  text-shadow: 0px 1px 1px #cbe14a;
+  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -130px;
+}
+
+div.lpl_btn_square.green span {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -130px;
+}
+
+div.lpl_btn_square.green:hover {
+  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -170px;
+}
+
+div.lpl_btn_square.green:hover span {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -170px;
+}
+
+div.lpl_btn_square.green:active {
+  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -210px;
+}
+
+div.lpl_btn_square.green:active span {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -210px;
+}
+
+/* red */
+
+div.lpl_btn_square.red {
+  color:#fff;
+  text-shadow: 0px 1px 1px #980a07;
+  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -250px;
+}
+
+div.lpl_btn_square.red span {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -250px;
+}
+
+div.lpl_btn_square.red:hover {
+  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -290px;
+}
+
+div.lpl_btn_square.red:hover span {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -290px;
+}
+
+
+div.lpl_btn_square.red:active {
+  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -330px;
+}
+
+div.lpl_btn_square.red:active span {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -330px;
+}
+
+/* -------------------------------------------------------- */
+/*    ICON BUTTON 30x26                                     */
+/*    black and white icon buttons                          */
+/* -------------------------------------------------------- */
+
+div.lpl_btn_30x26 {
+  outline:none;
+  position:relative;
+  float:left;
+  cursor:pointer;
+  top:0px;
+  width:30px;
+  height:28px;
+  margin:2px;
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -370px;
+}
+
+div.lpl_btn_30x26::-moz-selection, div.lpl_btn_30x26 img::-moz-selection {
+ background:transparent;
+}
+
+div.lpl_btn_30x26::selection, div.lpl_btn_30x26 img::selection {
+ background:transparent;
+}
+
+div.lpl_btn_30x26:hover {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -410px;
+}
+
+div.lpl_btn_30x26:active {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -450px;
+}
+
+div.lpl_btn_30x26 img {
+  margin:3px 0 0 5px;
+}
+
+div.lpl_btn_30x26:active img {
+  margin:4px 0 0 5px;
+}
+
+div.lpl_btn_30x26.black {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -490px;
+}
+
+div.lpl_btn_30x26.black:hover {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -530px;
+}
+
+div.lpl_btn_30x26.black:active {
+  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -570px;
+}
+
+
+/* -------------------------------------------------------- */
+/*    LIST BUTTON                                           */
+/*    List button styles used for Topics                    */
+/* -------------------------------------------------------- */
+
+ul.lpl_topics_container {
+  display:block;
+  position:relative;
+  float:left;
+  font-size:13px;
+  margin:0 5px 5px 0;
+  min-width:125px;
+  max-width:274px;
+  border: 2px solid transparent;
+}
+
+ul.lpl_topics_container.active {
+  background:#333;
+  border: 2px dashed #96c800; /* 96c800 or d0e454 */
+}
+
+ul.lpl_topics_container div.title {
+  display:block;
+  position:relative;
+  padding:0 0 0 10px;
+  background: transparent url(/images/lpl/topics-tl.png) no-repeat top left;
+}
+
+ul.lpl_topics_container div.title div.encapsulate {
+  position:relative;
+  text-align:center;
+  color:#333;
+  text-shadow: 1px 1px 1px #fff;
+  padding:2px 10px 2px 0;
+  font-size:10px;
+  font-weight:bold;
+  background: transparent url(/images/lpl/topics-tr.png) no-repeat top right;
+}
+
+ul.lpl_topics_container div.container {
+  display:block;
+  position:relative;
+  padding:0 0 0 10px;
+  background: transparent url(/images/lpl/topics-bl.png) no-repeat bottom left;
+}
+
+ul.lpl_topics_container div.container div.encapsulate {
+  position:relative;
+  padding:0 0 15px 0;
+  text-align:center;
+  background: transparent url(/images/lpl/topics-br.png) no-repeat bottom right;
+}
+
+ul.lpl_topics_container div.container li {
+  display:block;
+  position:relative;
+  cursor:pointer;
+  min-width:120px;
+  min-height:30px;
+  margin:0 1px 0 -9px;
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid #dadada;
+  background: transparent url(/images/lpl/topic-idle.png) no-repeat center left;
+}
+
+ul.lpl_topics_container div.container li div.encapsulate {
+  position:relative;
+  text-align:left;
+  font-weight:bold;
+  line-height:20px;
+  color:#222;
+  text-shadow: 1px 1px 1px #fff;
+  padding:5px 25px 5px 10px;
+  background: transparent url(/images/lpl/topic-idle.png) no-repeat center right;
+}
+
+ul.lpl_topics_container div.container li div.encapsulate::-moz-selection{
+ background:transparent;
+}
+
+ul.lpl_topics_container div.container li div.encapsulate::selection {
+ background:transparent;
+}
+
+ul.lpl_topics_container div.container li:hover {
+  cursor:pointer;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #d9d9d9;
+  background: transparent url(/images/lpl/topic-hover.png) no-repeat center left;
+}
+
+ul.lpl_topics_container div.container li:hover div.encapsulate {
+  background: transparent url(/images/lpl/topic-hover.png) no-repeat center right;
+}
+
+ul.lpl_topics_container div.container li:active {
+  cursor:pointer;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #999;
+  background: transparent url(/images/lpl/topic-down.png) no-repeat center left;
+}
+
+ul.lpl_topics_container div.container li:active div.encapsulate {
+  color:#fff;
+  text-shadow: 1px 1px 1px #666;
+  background: transparent url(/images/lpl/topic-down.png) no-repeat center right;
+  z-index:10000;
+}
+
+ul.lpl_topics_container div.container li.selected,
+ul.lpl_topics_container div.container li:active.selected {
+  cursor:pointer;
+  border-top: 1px solid #64a700;
+  border-bottom: 1px solid #96c800;
+  background: transparent url(/images/lpl/topic-selected.png) no-repeat center left;
+}
+
+ul.lpl_topics_container div.container li.selected div.encapsulate {
+  color:#fff;
+  text-shadow: 1px 1px 1px #64a700;
+  background: transparent url(/images/lpl/topic-selected.png) no-repeat center right;
+}
+
+/* -------------------------------------------------------- */
+/*    LIST MENU                                             */
+/*    List button styles used for general menus             */
+/* -------------------------------------------------------- */
+
+ul.lpl_list_menu {
+  display:block;
+  position:relative;
+  float:left;
+  font-size:13px;
+  margin:5px;
+  padding:0 0 7px 0;
+  min-width:100px;
+  max-width:400px;
+  z-index:20000;
+  background: #e7e8e7 url(/images/lpl/gradient-brighter.png) repeat-x;
+  -webkit-border-radius: 7px;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-border-radius: 7px;
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+ul.lpl_list_menu div.title {
+  position:relative;
+  text-align:center;
+  color:#555;
+  font-weight:bold;
+  text-shadow: 1px 1px 1px #fff;
+  padding:2px 5px 2px 5px;
+  border-bottom: 1px solid #dadada;
+}
+
+ul.lpl_list_menu li {
+  display:block;
+  position:relative;
+  cursor:pointer;
+  font-weight:bold;
+  color:#333;
+  padding:1px 7px 1px 7px;
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid #dadada;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 1.75);
+}
+
+ul.lpl_list_menu li:hover {
+  cursor:pointer;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color:#333;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+  background:#999 url(/images/lpl/gradient-bright.png) repeat-x 0px -30px;
+}
+
+ul.lpl_list_menu li:active {
+  cursor:pointer;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  color:#111;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.25);
+  background:#666 url(/images/lpl/speed-stripesi.png) repeat-x 0px -170px;
+}
+
+ul.lpl_list_menu li.selected {
+  cursor:pointer;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  color:#fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  background:#9bc019 url(/images/lpl/gradient-yay.png) repeat-x 0px -2px;
+}
+
+ul.lpl_list_menu li.selected:active {
+  cursor:pointer;
+  background:#9bc019 url(/images/lpl/speed-stripesi.png) repeat-x 0px 0px;
+}
+
+/* -------------------------------------------------------- */
+/*    BUTTON CONTAINERS                                     */
+/*    button lay out helpers                                */
+/* -------------------------------------------------------- */
+
+div.buttons {
+  margin:5px;
+  clear:both;
+  overflow:hidden;
+}
+
+div.buttons.center {
+  text-align:center;
+  clear:both;
+}
+
+div.buttons.right {
+  text-align:right;
+  clear:both;
+}
+
+div#lpl_toolbar {
+  position:fixed;
+  left:0px;
+  top:100px;
+  width:50px;
+  height:150px;
+  overflow:hidden;
+  background:#eee;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+
+div#lpl_shelf {
+  position:fixed;
+  right:0px;
+  top:100px;
+  width:50px;
+  height:150px;
+  overflow:hidden;
+  background:#eee;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+/* -------------------------------------------------------- */
+/*    BASE FORM STYLES                                      */
+/*    some default styles for lepilo's form rendering       */
+/* -------------------------------------------------------- */
+
+.form-container {
+  position:relative;
+  min-width:250px;
+  background: #ced0cf url(/images/lpl/gradient-bright.png) repeat-x;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.75);
+  overflow:hidden;
+}
+
+label {
+  display:block;
+  clear:both;
+  font-size:11px;
+  margin:4px 0 0 10px;
+  color:rgba(0, 0, 0, 0.75);
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
+}
+
+textarea, input[type='text'], input[type='password'] {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  font-size:12px;
+  padding:2px;
+  width:96%;
+  background: #fff url(/images/lpl/gradient-inputs.png) repeat-x top left;
+  border: 2px transparent #999;
+}
+
+textarea:focus, input[type='text']:focus, input[type='password']:focus {
+  border: 2px solid #93c119;
+}
+/* -------------------------------------------------------- */
+/*    lepilo CONTENT                                        */
+/*    (maybe the div#article stuff is not needed anymore?)  */
+/* -------------------------------------------------------- */
+
+div#lpl_content {
+  position:absolute;
+  top:62px;
+  overflow:hidden;
+  border-bottom:40px solid transparent;
+  padding-bottom:50px;
+  overflow:hidden;
+}
+
+/* -------------------------------------------------------- */
+/*    GENERIC LIST                                          */
+/*    generic list list styles                              */
+/* -------------------------------------------------------- */
+
+div.lpl_list {
+  display:table;
+  position:relative;
+  width:100%;
+  clear:both;
+  overflow:hidden;
+}
+
+div.lpl_list_entry {
+  display:table-row;
+  position:relative;
+  width:100%;
+  clear:both;
+  margin:0 0 10px 0;
+  overflow:hidden;
+}
+
+div.lpl_list_entry h3 {
+  color:#333;
+  font-size:12px;
+  line-height:14px;
+  text-shadow: 0px 1px 0px #fff;
+}
+
+
+/* -------------------------------------------------------- */
+/*    CONTENT LISTS                                         */
+/*    list styles used when representing the different      */
+/*    blocks in a list-like view                            */
+/* -------------------------------------------------------- */
+
+div.lpl_list_entry.articles, 
+div.lpl_list_entry.media_resources, 
+div.lpl_list_entry.text_containers {
+}
+
+div.lpl_list_entry.articles div, 
+div.lpl_list_entry.media_resources div, 
+div.lpl_list_entry.text_containers div {
+  display:table-cell;
+  padding:4px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  background: #ddd url(/images/lpl/gradient-bright.png) repeat-x;
+}
+
+div.lpl_list_entry div.description {
+  padding:4px 10px 4px 10px;
+  color:#111;
+  font-size:11px;
+  line-height:14px;
+  text-shadow: 0px 1px 0px #fff;
+}
+
+div.lpl_list_entry.articles div.thumbnail {
+  width:32px;
+}
+
+div.lpl_list_entry.articles div.description {
+  width:45%;
+  overflow:hidden;
+}
+
+div.lpl_list_entry.media_resources div.thumbnail {
+  width:64px;
+  height:64px;
+}
+
+div.lpl_list_entry.media_resources div.description {
+  width:40%;
+  overflow:hidden;
+}
+
+div.lpl_list_entry div.date {
+  font-size:12px;
+  width:75px;
+}
+
+div.lpl_list_entry div.status {
+  overflow:hidden;
+}
+  
+div.lpl_list_entry div.actions {
+  width:25%;
+  overflow:hidden;
+}
+
+/* -------------------------------------------------------- */
+/*    SIMPLE CONTAINERS                                     */
+/*    rounded corners + dropshadow containers               */
+/* -------------------------------------------------------- */
+
+.lpl_container_inset {
+  position:relative;
+  display:block;
+  margin:5px;
+  padding:5px 0 5px 0;
+  clear:both;
+  /*background: #e7e8e7 url(/images/lpl/gradient-brighter.png) repeat-x;*/
+  /*border: 1px solid rgba(0, 0, 0, 0.2);*/
+  background:rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+  -moz-border-radius: 5px;
+  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+  overflow:hidden;
+}
+
+/* -------------------------------------------------------- */
+/*    CONTAINERS                                            */
+/*    white, rounded corners & dropshadow goodness          */
+/* -------------------------------------------------------- */
+
+div#lpl_article_container {
+  position:relative;
+  margin:0 10px 0 10px;
+  padding:10px;
+  background: #fafafa;
+  -webkit-border-radius: 7px;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-border-radius: 7px;
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  overflow:hidden;
+}
+
+#lpl_article_container ul {
+  list-style-type:disc;
+}
+
+#lpl_article_container ul li {
+  text-indent:20px;
+  list-style-type:circle;
+  list-style-position: outside;
+}
+
+div#lpl_textblock_container {
+  position:relative;
+  margin:5px;
+  padding:20px;
+  background: #fafafa;
+  -webkit-border-radius: 7px;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-border-radius: 7px;
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  overflow:hidden;
+  clear:both;
+}
+
+div#lpl_mediablock_container {
+  position:relative;
+  margin:5px;
+  padding:20px;
+  text-align:center;
+  background: #333;
+  -webkit-border-radius: 7px;
+  -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+  -moz-border-radius: 7px;
+  -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+  overflow:hidden;
+  clear:both;
+}
+
+div#lpl_mediablock_container div {
+  color:#fff;
+  font-size:12px;
+  font-weight:bold;
+  text-shadow: 0px 1px 1px #000;
+}
+/* lepilo Header */
+
+div#lpl_header {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:64px;
+  background: transparent url(/images/lpl/header_bg.png) repeat-x;
+  z-index:19000;
+}
+
+div.lpl_header_btn {
+  position:relative;
+  float:left;
+  top:0px;
+  width:51px;
+  height:50px;
+  text-indent:-5000px;
+  background: transparent url(/images/lpl/header_button.png) no-repeat -130px 0px;
+}
+
+
+div.lpl_header_btn::-moz-selection, div.lpl_header_icn::-moz-selection {
+ background:transparent;
+}
+
+div.lpl_header_btn::selection, div.lpl_header_icn::selection {
+ background:transparent;
+}
+
+
+div.lpl_header_btn:hover {
+  cursor: pointer;
+  background: transparent url(/images/lpl/header_button.png) no-repeat -190px 0px;
+}
+
+div.lpl_header_btn:active {
+  cursor: pointer;
+  background: transparent url(/images/lpl/header_button.png) no-repeat -250px 0px;
+}
+
+div.lpl_header_btn {
+  position:relative;
+  float:left;
+  top:0px;
+  width:51px;
+  height:50px;
+  background: transparent url(/images/lpl/header_button.png) no-repeat -130px 0px;
+}
+
+div.lpl_header_btn.logo {
+  width:110px;
+  background: transparent url(/images/lpl/header_button.png) no-repeat 0px 0px;
+}
+
+div.lpl_header_btn.current {
+  width:51px;
+  background: transparent url(/images/lpl/header_button.png) no-repeat -310px 0px;
+}
+
+div.lpl_header_btn.start {
+  width:5px;
+  background: transparent url(/images/lpl/header_button.png) no-repeat -110px 0px;
+}
+
+div.lpl_header_btn.end {
+  width:5px;
+  background: transparent url(/images/lpl/header_button.png) no-repeat -120px 0px;
+}
+
+div.lpl_header_btn.spacer {
+  width:51px;
+  background: transparent;
+}
+
+div.lpl_header.logout {
+  float:right;
+}
+
+div.lpl_header_icn {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:50px;
+  height:50px;
+  color:#fff;
+  font-size:0.65em;
+  font-weight:bold;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+  text-indent:0px;
+  line-height:80px;
+}
+/* lepilo Footer */
+
+div#lpl_footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  height:42px;
+  background: transparent url(/images/lpl/bg-footer.png) repeat-x;
+  z-index:19500;
+}
+
+div#lpl_footer div.container {
+  position:relative;
+  height:35px;
+  margin:10px 50px 0 50px;
+}
+/* -------------------------------------------------------- */
+/*    MODAL DIALOG                                          */
+/*    Simple modal dialog that slides into view             */
+/*    and overlays the content                              */
+/* -------------------------------------------------------- */
+
+div#lpl_modal {
+  position:fixed;
+  left:0px;
+  top:-5000px;
+  width:100%;
+  height:100%;
+  background: transparent url(/images/lpl/black-50alpha.png) repeat;
+  z-index:30000;
+}
+
+div#lpl_modal_dialog {
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  width:524px;
+  background: transparent url(/images/lpl/modal-dialog.png) no-repeat bottom center;
+  z-index:30001;
+  overflow:hidden;
+}
+
+div#lpl_modal_dialog div.info {
+  height:40px;
+  background: transparent url(/images/lpl/modal-dialog.png) no-repeat -22px 0px;
+  margin:0 22px 10px 22px;
+  overflow:hidden;
+}
+
+div#lpl_modal_dialog div.info h1 {
+  margin:8px 0 0 0;
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+  color:#fff;
+  text-shadow: 1px 1px 1px #222;
+}
+
+div#lpl_modal_dialog div.info.fail {
+  background: transparent url(/images/lpl/modal-dialog.png) no-repeat -22px -50px;
+}
+
+div#lpl_modal_dialog div.info.fail h1 {
+  color:#fff;
+  text-shadow: 1px 1px 1px #980a07;
+}
+
+
+div#lpl_modal_dialog div.info.yay {
+  background: transparent url(/images/lpl/modal-dialog.png) no-repeat -22px -100px;
+}
+
+div#lpl_modal_dialog div.info.yay h1 {
+  color:#fff;
+  text-shadow: 1px 1px 1px #3b811a;
+}
+
+
+div#lpl_modal_dialog div.content   {
+  margin:20px 40px 40px 40px;
+}
+
+div#lpl_modal_dialog div.confirm {
+  position:relative;
+  height:25px;
+  margin:10px 10px 0 10px;
+}

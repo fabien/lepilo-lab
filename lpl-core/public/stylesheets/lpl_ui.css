@@ -1,0 +1,416 @@
+/* -------------------------------------------------------- */
+/*    IN-PLACE POP-UP                                       */
+/*    Non-modal pop-ups for editing content                 */
+/* -------------------------------------------------------- */
+
+div.lpl_pop_in {
+  position:absolute;
+  min-width:250px;
+  background: #ced0cf url(/images/lpl/gradient-bright.png) repeat-x;
+  -webkit-border-radius: 10px;
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.75);
+  -moz-border-radius: 10px;
+  -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.75);
+  overflow:hidden;
+  z-index:24000;
+}
+
+div.lpl_pop_in div.container {
+  position:relative;
+  margin: 5px;
+  overflow:hidden;
+}
+
+div.lpl_pop_in h1 {
+  margin: 5px 15px 0 15px;
+  font-weight:bold;
+  font-size:12px;
+  text-align:center;
+  color:#333;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.75);
+}
+
+
+/* -------------------------------------------------------- */
+/*    TREE LIST                                             */
+/*    Styles for a general tree-like list                   */
+/* -------------------------------------------------------- */
+
+h1.lpl_sidebar {
+  margin: 5px 15px 0 15px;
+  font-weight:bold;
+  font-size:12px;
+  text-align:right;
+  color:#333;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+h1.lpl_inspector {
+  margin: 5px 15px 0 10px;
+  font-weight:bold;
+  font-size:12px;
+  color:#333;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+ul.lpl_tree {
+  font-size:12px;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+ul.lpl_tree ul::-moz-selection{
+ background:transparent;
+}
+
+ul.lpl_tree ul::selection {
+ background:transparent;
+}
+
+
+ul.lpl_tree ul {
+  cursor: pointer;
+  padding:0 0 0 20px;
+  margin:0 0 5px 0;
+  background: transparent url(/images/lpl/list-closed.png) no-repeat 0px 4px;
+}
+
+ul.lpl_tree ul:hover {
+  background: rgba(0, 0, 0, 0.1) url(/images/lpl/list-closed.png) no-repeat 0px 4px;
+}
+
+ul.lpl_tree ul:active {
+  background: rgba(0, 0, 0, 0.1) url(/images/lpl/list-open.png) no-repeat 2px 2px;
+}
+
+ul.lpl_tree ul.open {
+  padding:0 0 5px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.05) url(/images/lpl/list-open.png) no-repeat 2px 2px;
+}
+
+ul.lpl_tree ul li, ul.lpl_tree ul.open li {
+  cursor: pointer;
+  margin:0 10px 2px -10px;
+  padding:0 0 0 30px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+ul.lpl_tree ul li:hover, ul.lpl_tree ul.open li:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+ul.lpl_tree ul li:active, ul.lpl_tree ul.open li:active {
+  color:#fff;
+  background:#666 url(/images/lpl/speed-stripesi.png) repeat-x 0px -160px;
+  text-shadow: 1px 1px 1px #333;
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: 0px 2px 1px rgba(255, 255, 255, 0.25);
+}
+
+ul.lpl_tree li.active {
+  color:#fff;
+  font-weight:bold;
+  background:#9bc019 url(/images/lpl/speed-stripesi.png) repeat-x 0px 0px;
+  text-shadow: 1px 1px 1px #346700;
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
+}
+
+ul.lpl_tree li.active:hover, ul.lpl_tree ul.open li.active:hover {
+  background:#9bc019 url(/images/lpl/speed-stripes.png) repeat-x 0px -160px;
+  text-shadow: 1px 1px 1px #333;
+}
+
+/* -------------------------------------------------------- */
+/*    TAGS                                                  */
+/*    Styles for Tags                                       */
+/* -------------------------------------------------------- */
+
+div.lpl_tag {
+  position:relative;
+  float:left;
+  margin:1px 10px 2px 3px;
+  padding:0 0 0 20px;
+  font-size:13px;
+  font-weight:bold;
+  height:26px;
+  color:#fff;
+  text-shadow: 1px 1px 1px rgba(0, 75, 0, 0.9);
+  background: transparent url(/images/lpl/tag-bg.png) no-repeat;
+}
+
+div.lpl_tag::-moz-selection{
+ background:transparent;
+}
+
+div.lpl_tag::selection {
+ background:transparent;
+}
+
+div.lpl_tag span {
+  position:absolute;
+  float:right;
+  top:0px;
+  right:0px;
+  width:15px;
+  height:26px;
+  margin-right:-15px;
+  background: transparent url(/images/lpl/tag-bg.png) no-repeat top right;
+}
+div.lpl_tag.plain {
+  position:relative;
+  float:left;
+  margin:2px 0px 3px 5px;
+  padding:0 7px 0 7px;
+  font-size:11px;
+  font-weight:bold;
+  height:18px;
+  line-height:18px;
+  color:#fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+  -webkit-border-radius: 4px;
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
+  -moz-border-radius: 4px;
+  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
+  background:#666 url(/images/lpl/speed-stripesi.png) repeat-x 0px -160px;
+}
+
+div.lpl_tag.plain span {
+  display:none;
+}
+
+div.lpl_tag.plain.active {
+  text-shadow: 1px 1px 1px rgba(0, 75, 0, 0.75);
+  background:#9bc019 url(/images/lpl/speed-stripesi.png) repeat-x 0px -10px;
+}
+
+/* -------------------------------------------------------- */
+/*    VARIOUS                                               */
+/*    One-off Styles                                        */
+/* -------------------------------------------------------- */
+
+div#lpl_app_shelf div.border {
+  position:absolute;
+  top:4px;
+  left:0px;
+  height:7px;
+  width:100%;
+  text-align: center;
+  cursor: n-resize;
+  background: transparent url(/images/lpl/separator-hor.png) repeat-x;
+}
+
+div#lpl_app_shelf.open div.border {
+  cursor: s-resize;
+}
+
+div#lpl_app_shelf div.border div.handle.hor {
+  position:relative;
+  margin:0 auto 0 auto;
+  top:2px;
+  height:3px;
+  width:18px;
+  background: transparent url(/images/lpl/handle-hor.png) repeat-x;
+}
+
+div#lpl_app_shelf > div.container {
+  position:relative;
+  top:11px;
+  background:rgba(200,255,150,1);
+}
+  
+/* -------------------------------------------------------- */
+/*    AJAX STYLES                                           */
+/*    Styles for Elements used with AJAX calls              */
+/* -------------------------------------------------------- */
+
+
+div.processing.gray {
+  width:100%;
+  text-align:center;
+  font-size:11px;
+  font-weight:bold;
+  color:#545454;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
+}
+
+div.processing.dark {
+  width:100%;
+  text-align:center;
+  font-size:11px;
+  font-weight:bold;
+  color:#999;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.75);
+}
+
+div.processing.topics {
+  position:relative;
+  float:left;
+  top:10px;
+  width:30px;
+  text-align:center;
+  font-size:11px;
+  font-weight:bold;
+  color:#999;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.75);
+}
+
+div.processing.topics_edit {
+  position:relative;
+  top:3px;
+  left:5px;
+  text-align:center;
+  background:none;
+}
+
+/* lepilo UI Feedback Components */
+
+/* lepilo UI Information Pop-up */
+
+div.lpl_infopop {
+/*  display:none;*/
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  width:600px;
+  top:-1000px;
+  overflow:visible;
+  padding:10px;
+  background: transparent url(/images/lpl/black-50alpha.png);
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  z-index:28000;
+}
+
+div.lpl_infopop div.content {
+  position:relative;
+  padding:10px;
+  background-color:#333;
+/*  background: transparent url(/images/lpl/gray-50alpha.png);
+*/  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+
+div.lpl_infopop div.content div.file {
+  color:#ddd;
+  font-size: 12px;
+  line-height:20px;
+  text-indent:7px;
+  text-shadow: 1px 1px 1px #000;
+  padding:5px;
+  margin-bottom:5px;
+  margin-left:auto;
+  margin-right:auto;
+  background: transparent url(/images/lpl/gradient-info-medium.png);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 4px;
+}
+
+div.lpl_infopop div.content div.file.yay {
+  background: transparent url(/images/lpl/gradient-yay.png);
+}
+
+div.lpl_infopop div.content div.file.fail {
+  background: transparent url(/images/lpl/gradient-fail.png);
+}
+
+div.lpl_infopop div.content div.file div.info {
+  color:#fff;
+  font-size: 12px;
+  line-height:20px;
+  text-indent:7px;
+  text-shadow: 1px 1px 1px #000;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 4px;
+}
+
+div.lpl_infopop h1 {
+  margin-bottom:15px;
+  font-size: 18px;
+  color:#fff;
+  text-shadow: 1px 1px 1px #000;
+}
+
+div.lpl_infopop h2 {
+  color:#fff;
+  text-shadow: 1px 1px 1px #000;
+}
+
+/**/
+
+div.lpl_editpop {
+/*  display:none;*/
+  position:absolute;
+  margin-left:auto;
+  margin-right:auto;
+  width:600px;
+/*  top:-1000px;*/
+  top:100px;
+  overflow:visible;
+  padding:10px;
+  background: transparent url(/images/lpl/black-50alpha.png);
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
+div.lpl_editpop div.content {
+  position:relative;
+  padding:10px;
+  background: #ced0cf url(/images/lpl/gradient-bright.png);
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+
+/* lepilo UI Information Stripes */
+
+div.lpl_infostripe {
+  position:relative;
+  height:48px;
+  margin-bottom:5px;
+  overflow:hidden;
+  font-size: 18px;
+  line-height:42px;
+  color:#333;
+  text-indent:64px;
+  text-shadow: 1px 1px 1px #eee;
+  background: transparent url(/images/lpl/stripe-blank.png) repeat-x top left;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+div.lpl_infostripe.yay {
+  font-weight:bold;
+  color:#fff;
+  text-shadow: 1px 1px 2px #2b610a;
+  background: transparent url(/images/lpl/stripe-ok.png) repeat-x top left;
+}
+
+div.lpl_infostripe.fail {
+  font-weight:bold;
+  color:#fff;
+  text-shadow: 1px 1px 2px #a80a27;
+  background: transparent url(/images/lpl/stripe-fail.png) repeat-x top left;
+}
+
+/* lepilo UI Progress Bar */
+
+div.lpl_progress_bar_bg {
+  width:100%;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:10px;
+  height:15px;
+  background: transparent url(/images/lpl/progress-bg.png) repeat-x center left;
+  overflow:hidden;
+}
+
+div.lpl_progress_bar {
+  position:relative;
+  float:left;
+  width:1%;
+  height:15px;
+  background: #93c119 url(/images/lpl/progress-ani.gif) repeat-x top;
+}
