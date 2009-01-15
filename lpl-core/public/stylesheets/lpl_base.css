@@ -43,7 +43,7 @@ div#lpl_app_header {
   width:100%;
   height:56px;
   /*background: rgba(250, 250, 50, 0.1);*/
-  background: transparent url(/images/lpl/header-bg.png) repeat-x;
+  background: transparent url(assets/lpl/header-bg.png) repeat-x;
   z-index:25000;
 }
 
@@ -53,19 +53,17 @@ div#lpl_app_left {
   left:0px;
   width:254px;
   padding:0 4px 0 0;
-  background: transparent url(/images/lpl/sidebar-bg.png) no-repeat top right;
+  background: transparent url(assets/lpl/sidebar-bg.png) no-repeat top right;
   overflow:auto;
   z-index:26000;
 }
 
 div#lpl_app_center {
   position:absolute;
+  height:1px;
   width:50px;
   background:rgba(0, 0, 0, 0.01);
-  overflow:hidden;
-  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-  z-index:30000;
+  z-index:24000;
 }
 
 div#lpl_app_right {
@@ -74,7 +72,7 @@ div#lpl_app_right {
   right:0px;
   width:354px;
   padding:0 0 0 4px;
-  background: transparent url(/images/lpl/sidebar-bg.png) no-repeat top left;
+  background: transparent url(assets/lpl/sidebar-bg.png) no-repeat top left;
   overflow:auto;
   z-index:26000;
 }
@@ -85,7 +83,7 @@ div#lpl_app_shelf {
   bottom:0px;
   width:100%;
   height:10px;
-  background: transparent url(/images/lpl/shelf-bg.png) repeat-x top;
+  background: transparent url(assets/lpl/shelf-bg.png) repeat-x top;
   z-index:27000;
   overflow:hidden;
 }

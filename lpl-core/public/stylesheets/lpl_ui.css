@@ -6,7 +6,7 @@
 div.lpl_pop_in {
   position:absolute;
   min-width:250px;
-  background: #ced0cf url(/images/lpl/gradient-bright.png) repeat-x;
+  background: #ced0cf url(assets/lpl/gradient-bright.png) repeat-x;
   -webkit-border-radius: 10px;
   -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.75);
   -moz-border-radius: 10px;
@@ -69,13 +69,13 @@ div.lpl_pop_in h1 {
 .lpl_sidebar_folders ul.lpl_folders li:active {
   color:#fff;
   text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
-  background: transparent url(/images/lpl/speed-stripesi.png) repeat-x 0px -160px;
+  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
 }
 
 .lpl_sidebar_folders ul.lpl_folders li.active {
   color:#fff;
   text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
-  background: transparent url(/images/lpl/speed-stripesi.png) repeat-x 0px 0px;
+  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px;
 }
 
 /* -------------------------------------------------------- */
@@ -118,22 +118,22 @@ ul.lpl_tree ul {
   cursor: pointer;
   padding:0 0 0 20px;
   margin:0 0 5px 0;
-  background: transparent url(/images/lpl/list-closed.png) no-repeat 0px 4px;
+  background: transparent url(assets/lpl/list-closed.png) no-repeat 0px 4px;
 }
 
 ul.lpl_tree ul:hover {
-  background: rgba(0, 0, 0, 0.1) url(/images/lpl/list-closed.png) no-repeat 0px 4px;
+  background: rgba(0, 0, 0, 0.1) url(assets/lpl/list-closed.png) no-repeat 0px 4px;
 }
 
 ul.lpl_tree ul:active {
-  background: rgba(0, 0, 0, 0.1) url(/images/lpl/list-open.png) no-repeat 2px 2px;
+  background: rgba(0, 0, 0, 0.1) url(assets/lpl/list-open.png) no-repeat 2px 2px;
 }
 
 ul.lpl_tree ul.open {
   padding:0 0 5px 20px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(0, 0, 0, 0.05) url(/images/lpl/list-open.png) no-repeat 2px 2px;
+  background: rgba(0, 0, 0, 0.05) url(assets/lpl/list-open.png) no-repeat 2px 2px;
 }
 
 ul.lpl_tree ul li, ul.lpl_tree ul.open li {
@@ -150,7 +150,7 @@ ul.lpl_tree ul li:hover, ul.lpl_tree ul.open li:hover {
 
 ul.lpl_tree ul li:active, ul.lpl_tree ul.open li:active {
   color:#fff;
-  background:#666 url(/images/lpl/speed-stripesi.png) repeat-x 0px -160px;
+  background:#666 url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
   text-shadow: 1px 1px 1px #333;
   -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
   -moz-box-shadow: 0px 2px 1px rgba(255, 255, 255, 0.25);
@@ -159,14 +159,14 @@ ul.lpl_tree ul li:active, ul.lpl_tree ul.open li:active {
 ul.lpl_tree li.active {
   color:#fff;
   font-weight:bold;
-  background:#9bc019 url(/images/lpl/speed-stripesi.png) repeat-x 0px 0px;
+  background:#9bc019 url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px;
   text-shadow: 1px 1px 1px #346700;
   -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
   -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
 }
 
 ul.lpl_tree li.active:hover, ul.lpl_tree ul.open li.active:hover {
-  background:#9bc019 url(/images/lpl/speed-stripes.png) repeat-x 0px -160px;
+  background:#9bc019 url(assets/lpl/speed-stripes.png) repeat-x 0px -160px;
   text-shadow: 1px 1px 1px #333;
 }
 
@@ -185,7 +185,7 @@ div.lpl_tag {
   height:26px;
   color:#fff;
   text-shadow: 1px 1px 1px rgba(0, 75, 0, 0.9);
-  background: transparent url(/images/lpl/tag-bg.png) no-repeat;
+  background: transparent url(assets/lpl/tag-bg.png) no-repeat;
 }
 
 div.lpl_tag::-moz-selection{
@@ -204,7 +204,7 @@ div.lpl_tag span {
   width:15px;
   height:26px;
   margin-right:-15px;
-  background: transparent url(/images/lpl/tag-bg.png) no-repeat top right;
+  background: transparent url(assets/lpl/tag-bg.png) no-repeat top right;
 }
 div.lpl_tag.plain {
   position:relative;
@@ -221,7 +221,7 @@ div.lpl_tag.plain {
   -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
   -moz-border-radius: 4px;
   -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
-  background:#666 url(/images/lpl/speed-stripesi.png) repeat-x 0px -160px;
+  background:#666 url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
 }
 
 div.lpl_tag.plain span {
@@ -230,7 +230,7 @@ div.lpl_tag.plain span {
 
 div.lpl_tag.plain.active {
   text-shadow: 1px 1px 1px rgba(0, 75, 0, 0.75);
-  background:#9bc019 url(/images/lpl/speed-stripesi.png) repeat-x 0px -10px;
+  background:#9bc019 url(assets/lpl/speed-stripesi.png) repeat-x 0px -10px;
 }
 
 /* -------------------------------------------------------- */
@@ -246,7 +246,7 @@ div#lpl_app_shelf div.border {
   width:100%;
   text-align: center;
   cursor: n-resize;
-  background: transparent url(/images/lpl/separator-hor.png) repeat-x;
+  background: transparent url(assets/lpl/separator-hor.png) repeat-x;
 }
 
 div#lpl_app_shelf.open div.border {
@@ -259,7 +259,7 @@ div#lpl_app_shelf div.border div.handle.hor {
   top:2px;
   height:3px;
   width:18px;
-  background: transparent url(/images/lpl/handle-hor.png) repeat-x;
+  background: transparent url(assets/lpl/handle-hor.png) repeat-x;
 }
 
 div#lpl_app_shelf > div.content {
@@ -318,7 +318,7 @@ div#lpl_app_shelf div.icon-container div.text {
   font-weight:bold;
   text-align:left;
   text-shadow:0px 1px 1px rgba(255,255,255,0.75);
-  background: #eee url("/images/lpl/gradient-bright.png");
+  background: #eee url(assets/lpl/gradient-bright.png);
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
@@ -348,15 +348,15 @@ div#lpl_app_shelf div.icon-container div.metadata {
   color:#fff;
   font-weight:bold;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.75);
-  background:#41433f url(/images/lpl/gradient-info-medium.png) repeat-x;
+  background:#41433f url(assets/lpl/gradient-info-medium.png) repeat-x;
 }
 
 #lpl_flash.yay {
-  background:#64a40b url(/images/lpl/gradient-yay.png) repeat-x;
+  background:#64a40b url(assets/lpl/gradient-yay.png) repeat-x;
 }
 
 #lpl_flash.fail {
-  background:#c52e1f url(/images/lpl/gradient-fail.png) repeat-x;
+  background:#c52e1f url(assets/lpl/gradient-fail.png) repeat-x;
 }
 
 #lpl_flash .lpl_right {
@@ -423,7 +423,7 @@ div.lpl_infopop {
   top:-1000px;
   overflow:visible;
   padding:10px;
-  background: transparent url(/images/lpl/black-50alpha.png);
+  background: transparent url(assets/lpl/black-50alpha.png);
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   z-index:28000;
@@ -433,7 +433,7 @@ div.lpl_infopop div.content {
   position:relative;
   padding:10px;
   background-color:#333;
-/*  background: transparent url(/images/lpl/gray-50alpha.png);
+/*  background: transparent url(assets/lpl/gray-50alpha.png);
 */  -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
 }
@@ -448,17 +448,17 @@ div.lpl_infopop div.content div.file {
   margin-bottom:5px;
   margin-left:auto;
   margin-right:auto;
-  background: transparent url(/images/lpl/gradient-info-medium.png);
+  background: transparent url(assets/lpl/gradient-info-medium.png);
   -moz-border-radius: 3px;
   -webkit-border-radius: 4px;
 }
 
 div.lpl_infopop div.content div.file.yay {
-  background: transparent url(/images/lpl/gradient-yay.png);
+  background: transparent url(assets/lpl/gradient-yay.png);
 }
 
 div.lpl_infopop div.content div.file.fail {
-  background: transparent url(/images/lpl/gradient-fail.png);
+  background: transparent url(assets/lpl/gradient-fail.png);
 }
 
 div.lpl_infopop div.content div.file div.info {
@@ -495,7 +495,7 @@ div.lpl_editpop {
   top:100px;
   overflow:visible;
   padding:10px;
-  background: transparent url(/images/lpl/black-50alpha.png);
+  background: transparent url(assets/lpl/black-50alpha.png);
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
 }
@@ -503,7 +503,7 @@ div.lpl_editpop {
 div.lpl_editpop div.content {
   position:relative;
   padding:10px;
-  background: #ced0cf url(/images/lpl/gradient-bright.png);
+  background: #ced0cf url(assets/lpl/gradient-bright.png);
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
 }
@@ -520,7 +520,7 @@ div.lpl_infostripe {
   color:#333;
   text-indent:64px;
   text-shadow: 1px 1px 1px #eee;
-  background: transparent url(/images/lpl/stripe-blank.png) repeat-x top left;
+  background: transparent url(assets/lpl/stripe-blank.png) repeat-x top left;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
@@ -529,14 +529,14 @@ div.lpl_infostripe.yay {
   font-weight:bold;
   color:#fff;
   text-shadow: 1px 1px 2px #2b610a;
-  background: transparent url(/images/lpl/stripe-ok.png) repeat-x top left;
+  background: transparent url(assets/lpl/stripe-ok.png) repeat-x top left;
 }
 
 div.lpl_infostripe.fail {
   font-weight:bold;
   color:#fff;
   text-shadow: 1px 1px 2px #a80a27;
-  background: transparent url(/images/lpl/stripe-fail.png) repeat-x top left;
+  background: transparent url(assets/lpl/stripe-fail.png) repeat-x top left;
 }
 
 /* lepilo UI Progress Bar */
@@ -548,7 +548,7 @@ div.lpl_progress_bar_bg {
   margin-right:auto;
   margin-bottom:10px;
   height:15px;
-  background: transparent url(/images/lpl/progress-bg.png) repeat-x center left;
+  background: transparent url(assets/lpl/progress-bg.png) repeat-x center left;
   overflow:hidden;
 }
 
@@ -557,5 +557,5 @@ div.lpl_progress_bar {
   float:left;
   width:1%;
   height:15px;
-  background: #93c119 url(/images/lpl/progress-ani.gif) repeat-x top;
+  background: #93c119 url(assets/lpl/progress-ani.gif) repeat-x top;
 }

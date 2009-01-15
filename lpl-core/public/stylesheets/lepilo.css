@@ -93,7 +93,7 @@ div#lpl_app_header {
   width:100%;
   height:56px;
   /*background: rgba(250, 250, 50, 0.1);*/
-  background: transparent url(/images/lpl/header-bg.png) repeat-x;
+  background: transparent url(assets/lpl/header-bg.png) repeat-x;
   z-index:25000;
 }
 
@@ -103,7 +103,7 @@ div#lpl_app_left {
   left:0px;
   width:254px;
   padding:0 4px 0 0;
-  background: transparent url(/images/lpl/sidebar-bg.png) no-repeat top right;
+  background: transparent url(assets/lpl/sidebar-bg.png) no-repeat top right;
   overflow:auto;
   z-index:26000;
 }
@@ -122,7 +122,7 @@ div#lpl_app_right {
   right:0px;
   width:354px;
   padding:0 0 0 4px;
-  background: transparent url(/images/lpl/sidebar-bg.png) no-repeat top left;
+  background: transparent url(assets/lpl/sidebar-bg.png) no-repeat top left;
   overflow:auto;
   z-index:26000;
 }
@@ -134,7 +134,7 @@ div#lpl_app_shelf {
   width:100%;
   height:7px;
   /*background:rgba(150, 100, 250, 0.1);*/
-  background: transparent url(/images/lpl/shelf-bg.png) repeat-x top;
+  background: transparent url(assets/lpl/shelf-bg.png) repeat-x top;
   z-index:27000;
 }
 
@@ -302,7 +302,7 @@ br.clr {
 div.lpl_pop_in {
   position:absolute;
   min-width:250px;
-  background: #ced0cf url(/images/lpl/gradient-bright.png) repeat-x;
+  background: #ced0cf url(assets/lpl/gradient-bright.png) repeat-x;
   -webkit-border-radius: 10px;
   -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.75);
   -moz-border-radius: 10px;
@@ -367,22 +367,22 @@ ul.lpl_tree ul {
   cursor: pointer;
   padding:0 0 0 20px;
   margin:0 0 5px 0;
-  background: transparent url(/images/lpl/list-closed.png) no-repeat 0px 4px;
+  background: transparent url(assets/lpl/list-closed.png) no-repeat 0px 4px;
 }
 
 ul.lpl_tree ul:hover {
-  background: rgba(0, 0, 0, 0.1) url(/images/lpl/list-closed.png) no-repeat 0px 4px;
+  background: rgba(0, 0, 0, 0.1) url(assets/lpl/list-closed.png) no-repeat 0px 4px;
 }
 
 ul.lpl_tree ul:active {
-  background: rgba(0, 0, 0, 0.1) url(/images/lpl/list-open.png) no-repeat 2px 2px;
+  background: rgba(0, 0, 0, 0.1) url(assets/lpl/list-open.png) no-repeat 2px 2px;
 }
 
 ul.lpl_tree ul.open {
   padding:0 0 5px 20px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(0, 0, 0, 0.05) url(/images/lpl/list-open.png) no-repeat 2px 2px;
+  background: rgba(0, 0, 0, 0.05) url(assets/lpl/list-open.png) no-repeat 2px 2px;
 }
 
 ul.lpl_tree ul li, ul.lpl_tree ul.open li {
@@ -399,7 +399,7 @@ ul.lpl_tree ul li:hover, ul.lpl_tree ul.open li:hover {
 
 ul.lpl_tree ul li:active, ul.lpl_tree ul.open li:active {
   color:#fff;
-  background:#666 url(/images/lpl/speed-stripesi.png) repeat-x 0px -160px;
+  background:#666 url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
   text-shadow: 1px 1px 1px #333;
   -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
   -moz-box-shadow: 0px 2px 1px rgba(255, 255, 255, 0.25);
@@ -408,14 +408,14 @@ ul.lpl_tree ul li:active, ul.lpl_tree ul.open li:active {
 ul.lpl_tree li.active {
   color:#fff;
   font-weight:bold;
-  background:#9bc019 url(/images/lpl/speed-stripesi.png) repeat-x 0px 0px;
+  background:#9bc019 url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px;
   text-shadow: 1px 1px 1px #346700;
   -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
   -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
 }
 
 ul.lpl_tree li.active:hover, ul.lpl_tree ul.open li.active:hover {
-  background:#9bc019 url(/images/lpl/speed-stripes.png) repeat-x 0px -160px;
+  background:#9bc019 url(assets/lpl/speed-stripes.png) repeat-x 0px -160px;
   text-shadow: 1px 1px 1px #333;
 }
 
@@ -434,7 +434,7 @@ div.lpl_tag {
   height:26px;
   color:#fff;
   text-shadow: 1px 1px 1px rgba(0, 75, 0, 0.9);
-  background: transparent url(/images/lpl/tag-bg.png) no-repeat;
+  background: transparent url(assets/lpl/tag-bg.png) no-repeat;
 }
 
 div.lpl_tag::-moz-selection{
@@ -453,7 +453,7 @@ div.lpl_tag span {
   width:15px;
   height:26px;
   margin-right:-15px;
-  background: transparent url(/images/lpl/tag-bg.png) no-repeat top right;
+  background: transparent url(assets/lpl/tag-bg.png) no-repeat top right;
 }
 div.lpl_tag.plain {
   position:relative;
@@ -470,7 +470,7 @@ div.lpl_tag.plain {
   -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
   -moz-border-radius: 4px;
   -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
-  background:#666 url(/images/lpl/speed-stripesi.png) repeat-x 0px -160px;
+  background:#666 url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
 }
 
 div.lpl_tag.plain span {
@@ -479,7 +479,7 @@ div.lpl_tag.plain span {
 
 div.lpl_tag.plain.active {
   text-shadow: 1px 1px 1px rgba(0, 75, 0, 0.75);
-  background:#9bc019 url(/images/lpl/speed-stripesi.png) repeat-x 0px -10px;
+  background:#9bc019 url(assets/lpl/speed-stripesi.png) repeat-x 0px -10px;
 }
 
 /* -------------------------------------------------------- */
@@ -495,7 +495,7 @@ div#lpl_app_shelf div.border {
   width:100%;
   text-align: center;
   cursor: n-resize;
-  background: transparent url(/images/lpl/separator-hor.png) repeat-x;
+  background: transparent url(assets/lpl/separator-hor.png) repeat-x;
 }
 
 div#lpl_app_shelf.open div.border {
@@ -508,7 +508,7 @@ div#lpl_app_shelf div.border div.handle.hor {
   top:2px;
   height:3px;
   width:18px;
-  background: transparent url(/images/lpl/handle-hor.png) repeat-x;
+  background: transparent url(assets/lpl/handle-hor.png) repeat-x;
 }
   
 /* -------------------------------------------------------- */
@@ -568,7 +568,7 @@ div.lpl_infopop {
   top:-1000px;
   overflow:visible;
   padding:10px;
-  background: transparent url(/images/lpl/black-50alpha.png);
+  background: transparent url(assets/lpl/black-50alpha.png);
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   z-index:28000;
@@ -578,7 +578,7 @@ div.lpl_infopop div.content {
   position:relative;
   padding:10px;
   background-color:#333;
-/*  background: transparent url(/images/lpl/gray-50alpha.png);
+/*  background: transparent url(assets/lpl/gray-50alpha.png);
 */  -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
 }
@@ -593,17 +593,17 @@ div.lpl_infopop div.content div.file {
   margin-bottom:5px;
   margin-left:auto;
   margin-right:auto;
-  background: transparent url(/images/lpl/gradient-info-medium.png);
+  background: transparent url(assets/lpl/gradient-info-medium.png);
   -moz-border-radius: 3px;
   -webkit-border-radius: 4px;
 }
 
 div.lpl_infopop div.content div.file.yay {
-  background: transparent url(/images/lpl/gradient-yay.png);
+  background: transparent url(assets/lpl/gradient-yay.png);
 }
 
 div.lpl_infopop div.content div.file.fail {
-  background: transparent url(/images/lpl/gradient-fail.png);
+  background: transparent url(assets/lpl/gradient-fail.png);
 }
 
 div.lpl_infopop div.content div.file div.info {
@@ -640,7 +640,7 @@ div.lpl_editpop {
   top:100px;
   overflow:visible;
   padding:10px;
-  background: transparent url(/images/lpl/black-50alpha.png);
+  background: transparent url(assets/lpl/black-50alpha.png);
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
 }
@@ -648,7 +648,7 @@ div.lpl_editpop {
 div.lpl_editpop div.content {
   position:relative;
   padding:10px;
-  background: #ced0cf url(/images/lpl/gradient-bright.png);
+  background: #ced0cf url(assets/lpl/gradient-bright.png);
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
 }
@@ -665,7 +665,7 @@ div.lpl_infostripe {
   color:#333;
   text-indent:64px;
   text-shadow: 1px 1px 1px #eee;
-  background: transparent url(/images/lpl/stripe-blank.png) repeat-x top left;
+  background: transparent url(assets/lpl/stripe-blank.png) repeat-x top left;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
@@ -674,14 +674,14 @@ div.lpl_infostripe.yay {
   font-weight:bold;
   color:#fff;
   text-shadow: 1px 1px 2px #2b610a;
-  background: transparent url(/images/lpl/stripe-ok.png) repeat-x top left;
+  background: transparent url(assets/lpl/stripe-ok.png) repeat-x top left;
 }
 
 div.lpl_infostripe.fail {
   font-weight:bold;
   color:#fff;
   text-shadow: 1px 1px 2px #a80a27;
-  background: transparent url(/images/lpl/stripe-fail.png) repeat-x top left;
+  background: transparent url(assets/lpl/stripe-fail.png) repeat-x top left;
 }
 
 /* lepilo UI Progress Bar */
@@ -693,7 +693,7 @@ div.lpl_progress_bar_bg {
   margin-right:auto;
   margin-bottom:10px;
   height:15px;
-  background: transparent url(/images/lpl/progress-bg.png) repeat-x center left;
+  background: transparent url(assets/lpl/progress-bg.png) repeat-x center left;
   overflow:hidden;
 }
 
@@ -702,7 +702,7 @@ div.lpl_progress_bar {
   float:left;
   width:1%;
   height:15px;
-  background: #93c119 url(/images/lpl/progress-ani.gif) repeat-x top;
+  background: #93c119 url(assets/lpl/progress-ani.gif) repeat-x top;
 }
 /* -------------------------------------------------------- */
 /*    BASIC BUTTON                                          */
@@ -725,7 +725,7 @@ div.lpl_btn_basic {
   line-height:28px;
   font-weight:bold;
   text-shadow: 1px 1px 1px #ddd;
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -80px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -80px;
 }
 
 div.lpl_btn_basic::-moz-selection{
@@ -745,53 +745,53 @@ div.lpl_btn_basic span {
   width:15px;
   height:30px;
   margin-right:-15px;
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -80px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -80px;
 }
 
 div.lpl_btn_basic:hover {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -40px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -40px;
 }
 
 div.lpl_btn_basic:hover span {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -40px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -40px;
 }
 
 
 div.lpl_btn_basic:active {
   line-height:30px;
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px 0px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px 0px;
 }
 
 div.lpl_btn_basic:active span {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px 0px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px 0px;
 }
 
 /* green */
 
 div.lpl_btn_basic.green {
   text-shadow: 1px 1px 1px #cbe14a;
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -200px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -200px;
 }
 
 div.lpl_btn_basic.green span {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -200px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -200px;
 }
 
 div.lpl_btn_basic.green:hover {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -160px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -160px;
 }
 
 div.lpl_btn_basic.green:hover span {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -160px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -160px;
 }
 
 
 div.lpl_btn_basic.green:active {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -120px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -120px;
 }
 
 div.lpl_btn_basic.green:active span {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -120px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -120px;
 }
 
 /* red */
@@ -799,11 +799,11 @@ div.lpl_btn_basic.green:active span {
 div.lpl_btn_basic.red {
   color:#fff;
   text-shadow: 1px 1px 1px #980a07;
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -320px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -320px;
 }
 
 div.lpl_btn_basic.red span {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -320px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -320px;
 }
 
 div.lpl_btn_basic.wide {
@@ -816,20 +816,20 @@ div.lpl_btn_basic.right {
 }
 
 div.lpl_btn_basic.red:hover {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -280px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -280px;
 }
 
 div.lpl_btn_basic.red:hover span {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -280px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -280px;
 }
 
 
 div.lpl_btn_basic.red:active {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat -15px -240px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -240px;
 }
 
 div.lpl_btn_basic.red:active span {
-  background: transparent url(/images/lpl/capsule-button.png) no-repeat 0px -240px;
+  background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -240px;
 }
 
 /* -------------------------------------------------------- */
@@ -854,7 +854,7 @@ div.lpl_btn_square {
   line-height:26px;
   font-weight:bold;
   text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
-  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -10px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -10px;
 }
 
 div.lpl_btn_square a {
@@ -878,51 +878,51 @@ div.lpl_btn_square span {
   width:15px;
   height:30px;
   margin-right:-15px;
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -10px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -10px;
 }
 
 div.lpl_btn_square:hover {
-  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -50px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -50px;
 }
 
 div.lpl_btn_square:hover span {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -50px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -50px;
 }
 
 div.lpl_btn_square:active {
   line-height:28px;
-  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -90px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -90px;
 }
 
 div.lpl_btn_square:active span {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -90px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -90px;
 }
 
 /* green */
 
 div.lpl_btn_square.green {
   text-shadow: 0px 1px 1px #cbe14a;
-  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -130px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -130px;
 }
 
 div.lpl_btn_square.green span {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -130px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -130px;
 }
 
 div.lpl_btn_square.green:hover {
-  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -170px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -170px;
 }
 
 div.lpl_btn_square.green:hover span {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -170px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -170px;
 }
 
 div.lpl_btn_square.green:active {
-  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -210px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -210px;
 }
 
 div.lpl_btn_square.green:active span {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -210px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -210px;
 }
 
 /* red */
@@ -930,28 +930,28 @@ div.lpl_btn_square.green:active span {
 div.lpl_btn_square.red {
   color:#fff;
   text-shadow: 0px 1px 1px #980a07;
-  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -250px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -250px;
 }
 
 div.lpl_btn_square.red span {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -250px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -250px;
 }
 
 div.lpl_btn_square.red:hover {
-  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -290px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -290px;
 }
 
 div.lpl_btn_square.red:hover span {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -290px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -290px;
 }
 
 
 div.lpl_btn_square.red:active {
-  background: transparent url(/images/lpl/square-button.png) no-repeat -15px -330px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -330px;
 }
 
 div.lpl_btn_square.red:active span {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -330px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -330px;
 }
 
 /* -------------------------------------------------------- */
@@ -968,7 +968,7 @@ div.lpl_btn_30x26 {
   width:30px;
   height:28px;
   margin:2px;
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -370px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -370px;
 }
 
 div.lpl_btn_30x26::-moz-selection, div.lpl_btn_30x26 img::-moz-selection {
@@ -980,11 +980,11 @@ div.lpl_btn_30x26::selection, div.lpl_btn_30x26 img::selection {
 }
 
 div.lpl_btn_30x26:hover {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -410px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -410px;
 }
 
 div.lpl_btn_30x26:active {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -450px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -450px;
 }
 
 div.lpl_btn_30x26 img {
@@ -996,15 +996,15 @@ div.lpl_btn_30x26:active img {
 }
 
 div.lpl_btn_30x26.black {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -490px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -490px;
 }
 
 div.lpl_btn_30x26.black:hover {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -530px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -530px;
 }
 
 div.lpl_btn_30x26.black:active {
-  background: transparent url(/images/lpl/square-button.png) no-repeat 0px -570px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat 0px -570px;
 }
 
 
@@ -1033,7 +1033,7 @@ ul.lpl_topics_container div.title {
   display:block;
   position:relative;
   padding:0 0 0 10px;
-  background: transparent url(/images/lpl/topics-tl.png) no-repeat top left;
+  background: transparent url(assets/lpl/topics-tl.png) no-repeat top left;
 }
 
 ul.lpl_topics_container div.title div.encapsulate {
@@ -1044,21 +1044,21 @@ ul.lpl_topics_container div.title div.encapsulate {
   padding:2px 10px 2px 0;
   font-size:10px;
   font-weight:bold;
-  background: transparent url(/images/lpl/topics-tr.png) no-repeat top right;
+  background: transparent url(assets/lpl/topics-tr.png) no-repeat top right;
 }
 
 ul.lpl_topics_container div.container {
   display:block;
   position:relative;
   padding:0 0 0 10px;
-  background: transparent url(/images/lpl/topics-bl.png) no-repeat bottom left;
+  background: transparent url(assets/lpl/topics-bl.png) no-repeat bottom left;
 }
 
 ul.lpl_topics_container div.container div.encapsulate {
   position:relative;
   padding:0 0 15px 0;
   text-align:center;
-  background: transparent url(/images/lpl/topics-br.png) no-repeat bottom right;
+  background: transparent url(assets/lpl/topics-br.png) no-repeat bottom right;
 }
 
 ul.lpl_topics_container div.container li {
@@ -1070,7 +1070,7 @@ ul.lpl_topics_container div.container li {
   margin:0 1px 0 -9px;
   border-top: 1px solid #f8f8f8;
   border-bottom: 1px solid #dadada;
-  background: transparent url(/images/lpl/topic-idle.png) no-repeat center left;
+  background: transparent url(assets/lpl/topic-idle.png) no-repeat center left;
 }
 
 ul.lpl_topics_container div.container li div.encapsulate {
@@ -1081,7 +1081,7 @@ ul.lpl_topics_container div.container li div.encapsulate {
   color:#222;
   text-shadow: 1px 1px 1px #fff;
   padding:5px 25px 5px 10px;
-  background: transparent url(/images/lpl/topic-idle.png) no-repeat center right;
+  background: transparent url(assets/lpl/topic-idle.png) no-repeat center right;
 }
 
 ul.lpl_topics_container div.container li div.encapsulate::-moz-selection{
@@ -1096,24 +1096,24 @@ ul.lpl_topics_container div.container li:hover {
   cursor:pointer;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #d9d9d9;
-  background: transparent url(/images/lpl/topic-hover.png) no-repeat center left;
+  background: transparent url(assets/lpl/topic-hover.png) no-repeat center left;
 }
 
 ul.lpl_topics_container div.container li:hover div.encapsulate {
-  background: transparent url(/images/lpl/topic-hover.png) no-repeat center right;
+  background: transparent url(assets/lpl/topic-hover.png) no-repeat center right;
 }
 
 ul.lpl_topics_container div.container li:active {
   cursor:pointer;
   border-top: 1px solid #666;
   border-bottom: 1px solid #999;
-  background: transparent url(/images/lpl/topic-down.png) no-repeat center left;
+  background: transparent url(assets/lpl/topic-down.png) no-repeat center left;
 }
 
 ul.lpl_topics_container div.container li:active div.encapsulate {
   color:#fff;
   text-shadow: 1px 1px 1px #666;
-  background: transparent url(/images/lpl/topic-down.png) no-repeat center right;
+  background: transparent url(assets/lpl/topic-down.png) no-repeat center right;
   z-index:10000;
 }
 
@@ -1122,13 +1122,13 @@ ul.lpl_topics_container div.container li:active.selected {
   cursor:pointer;
   border-top: 1px solid #64a700;
   border-bottom: 1px solid #96c800;
-  background: transparent url(/images/lpl/topic-selected.png) no-repeat center left;
+  background: transparent url(assets/lpl/topic-selected.png) no-repeat center left;
 }
 
 ul.lpl_topics_container div.container li.selected div.encapsulate {
   color:#fff;
   text-shadow: 1px 1px 1px #64a700;
-  background: transparent url(/images/lpl/topic-selected.png) no-repeat center right;
+  background: transparent url(assets/lpl/topic-selected.png) no-repeat center right;
 }
 
 /* -------------------------------------------------------- */
@@ -1146,7 +1146,7 @@ ul.lpl_list_menu {
   min-width:100px;
   max-width:400px;
   z-index:20000;
-  background: #e7e8e7 url(/images/lpl/gradient-brighter.png) repeat-x;
+  background: #e7e8e7 url(assets/lpl/gradient-brighter.png) repeat-x;
   -webkit-border-radius: 7px;
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
   -moz-border-radius: 7px;
@@ -1181,7 +1181,7 @@ ul.lpl_list_menu li:hover {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color:#333;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
-  background:#999 url(/images/lpl/gradient-bright.png) repeat-x 0px -30px;
+  background:#999 url(assets/lpl/gradient-bright.png) repeat-x 0px -30px;
 }
 
 ul.lpl_list_menu li:active {
@@ -1190,7 +1190,7 @@ ul.lpl_list_menu li:active {
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   color:#111;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.25);
-  background:#666 url(/images/lpl/speed-stripesi.png) repeat-x 0px -170px;
+  background:#666 url(assets/lpl/speed-stripesi.png) repeat-x 0px -170px;
 }
 
 ul.lpl_list_menu li.selected {
@@ -1199,12 +1199,12 @@ ul.lpl_list_menu li.selected {
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   color:#fff;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  background:#9bc019 url(/images/lpl/gradient-yay.png) repeat-x 0px -2px;
+  background:#9bc019 url(assets/lpl/gradient-yay.png) repeat-x 0px -2px;
 }
 
 ul.lpl_list_menu li.selected:active {
   cursor:pointer;
-  background:#9bc019 url(/images/lpl/speed-stripesi.png) repeat-x 0px 0px;
+  background:#9bc019 url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px;
 }
 
 /* -------------------------------------------------------- */
@@ -1259,7 +1259,7 @@ div#lpl_shelf {
 .form-container {
   position:relative;
   min-width:250px;
-  background: #ced0cf url(/images/lpl/gradient-bright.png) repeat-x;
+  background: #ced0cf url(assets/lpl/gradient-bright.png) repeat-x;
   -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.75);
   overflow:hidden;
@@ -1281,7 +1281,7 @@ textarea, input[type='text'], input[type='password'] {
   font-size:12px;
   padding:2px;
   width:96%;
-  background: #fff url(/images/lpl/gradient-inputs.png) repeat-x top left;
+  background: #fff url(assets/lpl/gradient-inputs.png) repeat-x top left;
   border: 2px transparent #999;
 }
 
@@ -1351,7 +1351,7 @@ div.lpl_list_entry.text_containers div {
   border-left: 1px solid rgba(255, 255, 255, 0.25);
   border-right: 1px solid rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  background: #ddd url(/images/lpl/gradient-bright.png) repeat-x;
+  background: #ddd url(assets/lpl/gradient-bright.png) repeat-x;
 }
 
 div.lpl_list_entry div.description {
@@ -1406,7 +1406,7 @@ div.lpl_list_entry div.actions {
   margin:5px;
   padding:5px 0 5px 0;
   clear:both;
-  /*background: #e7e8e7 url(/images/lpl/gradient-brighter.png) repeat-x;*/
+  /*background: #e7e8e7 url(assets/lpl/gradient-brighter.png) repeat-x;*/
   /*border: 1px solid rgba(0, 0, 0, 0.2);*/
   background:rgba(0, 0, 0, 0.05);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -1485,7 +1485,7 @@ div#lpl_header {
   top:0px;
   width:100%;
   height:64px;
-  background: transparent url(/images/lpl/header_bg.png) repeat-x;
+  background: transparent url(assets/lpl/header_bg.png) repeat-x;
   z-index:19000;
 }
 
@@ -1496,7 +1496,7 @@ div.lpl_header_btn {
   width:51px;
   height:50px;
   text-indent:-5000px;
-  background: transparent url(/images/lpl/header_button.png) no-repeat -130px 0px;
+  background: transparent url(assets/lpl/header_button.png) no-repeat -130px 0px;
 }
 
 
@@ -1511,12 +1511,12 @@ div.lpl_header_btn::selection, div.lpl_header_icn::selection {
 
 div.lpl_header_btn:hover {
   cursor: pointer;
-  background: transparent url(/images/lpl/header_button.png) no-repeat -190px 0px;
+  background: transparent url(assets/lpl/header_button.png) no-repeat -190px 0px;
 }
 
 div.lpl_header_btn:active {
   cursor: pointer;
-  background: transparent url(/images/lpl/header_button.png) no-repeat -250px 0px;
+  background: transparent url(assets/lpl/header_button.png) no-repeat -250px 0px;
 }
 
 div.lpl_header_btn {
@@ -1525,27 +1525,27 @@ div.lpl_header_btn {
   top:0px;
   width:51px;
   height:50px;
-  background: transparent url(/images/lpl/header_button.png) no-repeat -130px 0px;
+  background: transparent url(assets/lpl/header_button.png) no-repeat -130px 0px;
 }
 
 div.lpl_header_btn.logo {
   width:110px;
-  background: transparent url(/images/lpl/header_button.png) no-repeat 0px 0px;
+  background: transparent url(assets/lpl/header_button.png) no-repeat 0px 0px;
 }
 
 div.lpl_header_btn.current {
   width:51px;
-  background: transparent url(/images/lpl/header_button.png) no-repeat -310px 0px;
+  background: transparent url(assets/lpl/header_button.png) no-repeat -310px 0px;
 }
 
 div.lpl_header_btn.start {
   width:5px;
-  background: transparent url(/images/lpl/header_button.png) no-repeat -110px 0px;
+  background: transparent url(assets/lpl/header_button.png) no-repeat -110px 0px;
 }
 
 div.lpl_header_btn.end {
   width:5px;
-  background: transparent url(/images/lpl/header_button.png) no-repeat -120px 0px;
+  background: transparent url(assets/lpl/header_button.png) no-repeat -120px 0px;
 }
 
 div.lpl_header_btn.spacer {
@@ -1579,7 +1579,7 @@ div#lpl_footer {
   bottom:0px;
   width:100%;
   height:42px;
-  background: transparent url(/images/lpl/bg-footer.png) repeat-x;
+  background: transparent url(assets/lpl/bg-footer.png) repeat-x;
   z-index:19500;
 }
 
@@ -1600,7 +1600,7 @@ div#lpl_modal {
   top:-5000px;
   width:100%;
   height:100%;
-  background: transparent url(/images/lpl/black-50alpha.png) repeat;
+  background: transparent url(assets/lpl/black-50alpha.png) repeat;
   z-index:30000;
 }
 
@@ -1609,14 +1609,14 @@ div#lpl_modal_dialog {
   margin-left:auto;
   margin-right:auto;
   width:524px;
-  background: transparent url(/images/lpl/modal-dialog.png) no-repeat bottom center;
+  background: transparent url(assets/lpl/modal-dialog.png) no-repeat bottom center;
   z-index:30001;
   overflow:hidden;
 }
 
 div#lpl_modal_dialog div.info {
   height:40px;
-  background: transparent url(/images/lpl/modal-dialog.png) no-repeat -22px 0px;
+  background: transparent url(assets/lpl/modal-dialog.png) no-repeat -22px 0px;
   margin:0 22px 10px 22px;
   overflow:hidden;
 }
@@ -1631,7 +1631,7 @@ div#lpl_modal_dialog div.info h1 {
 }
 
 div#lpl_modal_dialog div.info.fail {
-  background: transparent url(/images/lpl/modal-dialog.png) no-repeat -22px -50px;
+  background: transparent url(assets/lpl/modal-dialog.png) no-repeat -22px -50px;
 }
 
 div#lpl_modal_dialog div.info.fail h1 {
@@ -1641,7 +1641,7 @@ div#lpl_modal_dialog div.info.fail h1 {
 
 
 div#lpl_modal_dialog div.info.yay {
-  background: transparent url(/images/lpl/modal-dialog.png) no-repeat -22px -100px;
+  background: transparent url(assets/lpl/modal-dialog.png) no-repeat -22px -100px;
 }
 
 div#lpl_modal_dialog div.info.yay h1 {
