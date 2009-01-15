@@ -8,7 +8,7 @@ if defined?(Merb::Plugins)
   Merb::Plugins.add_rakefiles "lpl-core/merbtasks", "lpl-core/slicetasks", "lpl-core/spectasks"
   
   require dirname / 'lpl-core' / 'support'
-  require dirname / '..' / 'app' / 'helpers' / 'global_helper'
+  require dirname / 'lpl-core' / 'behaviour'
   require dirname / 'lpl-core' / 'extension'  
   
   # Register the Slice for the current host application

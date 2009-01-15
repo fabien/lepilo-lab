@@ -1,26 +1,13 @@
-module Merb
-  module LplCore
-    module GlobalHelper
+module LplCore
+  module Behaviour
+    module Helpers
       
-      # This module is mixed into LplCore controllers and Extension controllers.
+      # This module is mixed into LplCore::Application, as well as into any
+      # LplCore::Extension's Application controller. It contains functionality
+      # that's usually related to the view.
       
-      def self.included(base)
-        base.extend(ClassMethods)
-        base.send(:attr_writer, :page_title, :page_description, :page_keywords)
-        base.send(:attr_writer, :page_copyright, :page_author, :page_generator)
-      end
-
-      module ClassMethods
-
-        def require_authentication
-          before :ensure_authenticated
-        end
-
-        def require_core_assets
-          before :require_core_assets
-        end
-
-      end
+      attr_writer :page_title, :page_description, :page_keywords
+      attr_writer :page_copyright, :page_author, :page_generator
       
       def bodytag_id(prefix = '')
         "#{prefix}#{controller_name.hyphenize}-#{action_name.hyphenize}"
@@ -41,7 +28,7 @@ module Merb
       end
       
       def page_title
-        Array(@page_title || info[:title]).compact.join(' • ')
+        (Array(info[:title]) + Array(@page_title)).flatten.compact.join(' • ')
       end
       
       def page_description
