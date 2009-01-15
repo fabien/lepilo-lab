@@ -36,30 +36,33 @@ div.lpl_pop_in h1 {
 /* -------------------------------------------------------- */
 
 .lpl_sidebar_folders {
-  margin:0 -4px 0 0;
+  overflow:hidden;
 }
 
 .lpl_sidebar_folders ul.lpl_folders {
 }
 
-.lpl_sidebar_folders ul::-moz-selection{
- background:transparent;
+.lpl_sidebar_folders ul::-moz-selection, .lpl_sidebar_folders li::-moz-selection {
+  background:transparent;
 }
 
-.lpl_sidebar_folders ul::selection {
- background:transparent;
+.lpl_sidebar_folders ul::selection, .lpl_sidebar_folders li::selection {
+  background:transparent;
 }
 
 .lpl_sidebar_folders ul.lpl_folders li {
-  height:28px;
+  position:relative;
+  height:24px;
   cursor: pointer;
   padding:2px 0 2px 0;
+  font-size:12px;
   font-weight:bold;
-  text-indent:25px;
-  line-height:28px;
+  text-indent:35px;
+  line-height:24px;
 }
 
 .lpl_sidebar_folders ul.lpl_folders li:hover {
+  width:100%;
   background:rgba(255, 255, 255, 0.25);
 }
 

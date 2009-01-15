@@ -74,7 +74,7 @@ lpl.layout = function() {
     this.centerWidth = wW - leftPanelWidth - (wW - $("#lpl_app_right").offset().left);
     // $("#lpl_app_center").width(centerWidth - $(window).scrollLeft());
     
-    $("#lpl_content").css({"left": $("#lpl_app_left").width(), "top": headerHeight, "width": $(document).width() - $("#lpl_app_left").width() - $("#lpl_app_right").width()});
+    $("#lpl_content").css({"left": $("#lpl_app_left").width() + 5, "top": headerHeight, "width": $(document).width() - $("#lpl_app_left").width() - $("#lpl_app_right").width() - 10});
   };
   
   this.toggleInspector = function() {

@@ -48,6 +48,101 @@ div.lpl_list_entry h3 {
 /*    blocks in a list-like view                            */
 /* -------------------------------------------------------- */
 
+ul.lpl_content_list {
+  position:relative;
+  padding:10px 0 10px 0;
+  background: #e7e8e7 url(/images/lpl/gradient-brighter.png) repeat-x;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+ul.lpl_content_list h1 {
+  color:#333;
+  padding:5px 20px 5px 20px;
+  text-shadow:0px 1px 0px rgba(255, 255, 255, 0.75);
+}
+
+ul.lpl_content_list > li {
+  position:relative;
+  padding:10px 20px 10px 20px;
+  border-bottom:1px solid #ccc;
+  overflow:hidden;
+}
+
+ul.lpl_content_list > li:nth-child(2) {
+  border-top:1px solid #ccc;
+}
+
+ul.lpl_content_list > li h2 {
+  color:#000;
+  font-size:16px;
+  margin:0;
+  text-shadow:0px 1px 0px rgba(255, 255, 255, 0.75);
+}
+
+ul.lpl_content_list > li div.thumbnail {
+  position:relative;
+  float:left;
+  width:64px;
+  height:64px;
+  margin:0 10px 0 0;
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
+  -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+  overflow:hidden;
+}
+
+ul.lpl_content_list > li div.metadata {
+  margin:0 0 5px 0;
+  font-size:10px;
+  line-height:12px;
+  color:#999;
+}
+
+ul.lpl_content_list > li div.description {
+  font-size:11px;
+  line-height:13px;
+}
+
+ul.lpl_content_list > li div.reorder {
+  position:absolute;
+  top:5px;
+  left:0px;
+  width:15px;
+  height:25px;
+  background:rgba(0,0,0,0.05);
+  cursor:ns-resize;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+}
+
+ul.lpl_content_list > li div.reorder:hover {
+  background:rgba(0,0,0,0.2);
+}
+
+ul.lpl_content_list > li div.edit {
+  position:relative;
+  float:right;
+  top:-10px;
+  right:-10px;
+  height:20px;
+  padding:0 5px 0 5px;
+  font-size:11px;
+  line-height:18px;
+  background:rgba(0,0,0,0.1);
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
+  -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+/* old content list styles */
+
 div.lpl_list_entry.articles, 
 div.lpl_list_entry.media_resources, 
 div.lpl_list_entry.text_containers {

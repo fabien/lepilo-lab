@@ -21,6 +21,10 @@
 }
 
 
-#lpl_app_header div.icon::-moz-selection, #lpl_app_header div.icon::selection {
+#lpl_app_header div.icon::-moz-selection {
+  background:transparent;
+}
+
+#lpl_app_header div.icon::selection {
   background:transparent;
 }
