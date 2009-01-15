@@ -60,10 +60,10 @@ div#lpl_core_sidebar {
 
 div#lpl_core_feedback {
   position:absolute;
-  height:1px;
   width:50px;
   background:rgba(0, 0, 0, 0.01);
-  z-index:24000;
+  overflow:hidden;
+  z-index:30000;
 }
 
 div#lpl_core_inspector {

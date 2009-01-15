@@ -125,6 +125,10 @@ lpl.layout = function() {
       this.reLayout();
     }
   };
+
+  this.hideFlash = function() {
+    $("#lpl_flash").hide("slide", { direction: "up" }, 350, this.reLayout );
+  }
   
   return this;
 };
