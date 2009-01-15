@@ -333,6 +333,38 @@ div#lpl_app_shelf div.icon-container div.metadata {
   font-size:10px;
   line-height:12px;
 }
+
+/* -------------------------------------------------------- */
+/*    FLASH MESSAGE STYLES                                  */
+/*    Styles for the merb Flash Messages                    */
+/* -------------------------------------------------------- */
+
+
+#lpl_flash {
+  position:relative;
+  top:0px;
+  left:0px;
+  padding:10px;
+  color:#fff;
+  font-weight:bold;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.75);
+  background:#41433f url(/images/lpl/gradient-info-medium.png) repeat-x;
+}
+
+#lpl_flash.yay {
+  background:#64a40b url(/images/lpl/gradient-yay.png) repeat-x;
+}
+
+#lpl_flash.fail {
+  background:#c52e1f url(/images/lpl/gradient-fail.png) repeat-x;
+}
+
+#lpl_flash .lpl_right {
+  position:absolute;
+  color:#333;
+  bottom:4px;
+  right:5px;
+}
   
 /* -------------------------------------------------------- */
 /*    AJAX STYLES                                           */

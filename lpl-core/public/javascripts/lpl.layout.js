@@ -42,6 +42,10 @@ lpl.layout = function() {
       lpl.app.layout.toggleShelf()
     });
 
+    $("#close_flash").mouseup(function(a) {
+      lpl.app.layout.hideFlash()
+    });
+
     $("#lpl_app_left").width(leftPanelWidth);
     $("#lpl_app_right").width(rightPanelWidth);
     
@@ -65,16 +69,16 @@ lpl.layout = function() {
     
     //  Here's where the juggling starts;
     //  
-    $("#lpl_app_center").height(1);
+    //$("#lpl_app_center").height(1);
     
     $("#lpl_app_left").css({"height": dH - 51});
-    // $("#lpl_app_center").css({"left": leftPanelWidth + $(window).scrollLeft(), "top": $(window).scrollTop() + headerHeight - 3});
+    $("#lpl_app_center").css({"left": leftPanelWidth + $(window).scrollLeft() + 1, "top": $(window).scrollTop() + headerHeight - 3});
     $("#lpl_app_right").css({"height": dH - 51});
     
     this.centerWidth = wW - leftPanelWidth - (wW - $("#lpl_app_right").offset().left);
-    // $("#lpl_app_center").width(centerWidth - $(window).scrollLeft());
+    $("#lpl_app_center").width(dW - $("#lpl_app_left").width() - $("#lpl_app_right").width() - 2);
     
-    $("#lpl_content").css({"left": $("#lpl_app_left").width() + 5, "top": headerHeight, "width": $(document).width() - $("#lpl_app_left").width() - $("#lpl_app_right").width() - 10});
+    $("#lpl_content").css({"left": $("#lpl_app_left").width() + 5, "top": headerHeight + $("#lpl_app_center").height(), "width": $(document).width() - $("#lpl_app_left").width() - $("#lpl_app_right").width() - 10});
   };
   
   this.toggleInspector = function() {
@@ -119,6 +123,10 @@ lpl.layout = function() {
       this.reLayout();
     }
   };
+  
+  this.hideFlash = function() {
+    $("#lpl_flash").hide("slide", { direction: "up" }, 350, this.reLayout );
+  }
   
   return this;
 };
