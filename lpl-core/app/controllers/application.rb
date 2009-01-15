@@ -1,7 +1,7 @@
 class LplCore::Application < Merb::Controller
   
-  include Merb::LplCore::GlobalHelper
-  
+  include LplCore::Behaviour::Controller
+    
   # Enable slice Behaviour
   controller_for_slice
   

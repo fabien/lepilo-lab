@@ -11,4 +11,6 @@ dependency "merb-slices", merb_gems_version
 dependency "merb-param-protection", merb_gems_version
 dependency "merb-exceptions", merb_gems_version
 
+dependency "merb-haml", merb_gems_version
+
 dependency 'lpl-core'

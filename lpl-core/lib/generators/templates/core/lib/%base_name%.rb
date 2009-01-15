@@ -13,9 +13,13 @@ if defined?(Merb::Plugins)
   # LplExtension configuration - set this in a before_app_loads callback.
   # By default the main layout of LplCore is used.
   Merb::Slices::config[:<%= symbol_name %>][:layout] ||= :lpl_core
+  
   # You can set the default slice route prefix here.
   Merb::Slices::config[:<%= symbol_name %>][:path_prefix] ||= '<%= base_name %>'
   
+  # Some general settings/metadata
+  Merb::Slices::config[:<%= symbol_name %>][:info] ||= {}
+    
   # All Slice code is expected to be namespaced inside a module
   module <%= module_name %>
     

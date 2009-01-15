@@ -8,7 +8,7 @@ if defined?(Merb::Plugins)
   Merb::Plugins.add_rakefiles "lpl-core/merbtasks", "lpl-core/slicetasks", "lpl-core/spectasks"
   
   require dirname / 'lpl-core' / 'support'
-  require dirname / '..' / 'app' / 'helpers' / 'global_helper'
+  require dirname / 'lpl-core' / 'behaviour'
   require dirname / 'lpl-core' / 'extension'  
   
   # Register the Slice for the current host application
@@ -37,6 +37,15 @@ if defined?(Merb::Plugins)
     stylesheets = []
     stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl_modal], { :bundle => :lpl }]
   end
+  
+  # Some general settings/metadata
+  Merb::Slices::config[:lpl_core][:info] ||= {}
+  Merb::Slices::config[:lpl_core][:info][:title]        ||= 'lepilo • content mingler'
+  Merb::Slices::config[:lpl_core][:info][:description]  ||= ''
+  Merb::Slices::config[:lpl_core][:info][:keywords]     ||= ''
+  Merb::Slices::config[:lpl_core][:info][:copyright]    ||= "(c) #{Date.today.year} Samo Korosec - Fabien Franzen"
+  Merb::Slices::config[:lpl_core][:info][:author]       ||= "Samo Korosec - Fabien Franzen"
+  Merb::Slices::config[:lpl_core][:info][:generator]    ||= Merb::Slices::config[:lpl_core][:info][:title]
   
   # All Slice code is expected to be namespaced inside a module
   module LplCore
