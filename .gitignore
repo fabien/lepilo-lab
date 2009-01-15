@@ -1,0 +1,3 @@
+.DS_Store
+lpl-core/pkg
+lpl-core/pkg/*.gem
