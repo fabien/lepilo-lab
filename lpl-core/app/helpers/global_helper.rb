@@ -6,6 +6,8 @@ module Merb
       
       def self.included(base)
         base.extend(ClassMethods)
+        base.send(:attr_writer, :page_title, :page_description, :page_keywords)
+        base.send(:attr_writer, :page_copyright, :page_author, :page_generator)
       end
 
       module ClassMethods
@@ -27,6 +29,42 @@ module Merb
       def bodytag_classname
         "#{slice.name.hyphenize} #{controller_name.hyphenize}"
       end
+      
+      # page head/metadata
+      
+      def core_info
+        ::LplCore[:info] || {}
+      end
+      
+      def info
+        @_info ||= core_info.merge(self.slice[:info] || {})
+      end
+      
+      def page_title
+        Array(@page_title || info[:title]).compact.join(' • ')
+      end
+      
+      def page_description
+        @page_description || info[:description]
+      end
+      
+      def page_keywords
+        (Array(info[:keywords]) + Array(@page_keywords || [])).join(', ')
+      end
+      
+      def page_copyright
+        @page_copyright || info[:copyright]
+      end
+      
+      def page_author
+        @page_generator || info[:author]
+      end
+      
+      def page_generator
+        @page_generator || info[:generator]
+      end
+      
+      # asset handling
       
       def insert_css(string = nil, &block)
         if self.slice == LplCore
