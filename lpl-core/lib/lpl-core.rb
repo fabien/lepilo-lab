@@ -1,11 +1,15 @@
 if defined?(Merb::Plugins)
 
-  $:.unshift File.dirname(__FILE__)
+  $:.unshift(dirname = File.dirname(__FILE__))
 
   dependency 'merb-slices', :immediate => true
-  dependency 'merb-auth-slice-password'
+  dependency 'merb-auth-slice-password', :immediate => true
   
   Merb::Plugins.add_rakefiles "lpl-core/merbtasks", "lpl-core/slicetasks", "lpl-core/spectasks"
+  
+  require dirname / 'lpl-core' / 'support'
+  require dirname / '..' / 'app' / 'helpers' / 'global_helper'
+  require dirname / 'lpl-core' / 'extension'  
   
   # Register the Slice for the current host application
   Merb::Slices::register(__FILE__)
@@ -15,10 +19,24 @@ if defined?(Merb::Plugins)
   # the main application layout or no layout at all if needed.
   # 
   # Configuration options:
-  # :layout - the layout to use; defaults to :lpl-core
-  # :mirror - which path component types to use on copy operations; defaults to all
+  # :layout       - the layout to use; defaults to :lpl-core
+  # :mirror       - which path component types to use on copy operations; defaults to all
+  # :path_prefix  - what path to use in the slice's url
   Merb::Slices::config[:lpl_core][:layout]      ||= :lpl_core
   Merb::Slices::config[:lpl_core][:path_prefix] ||= 'core'
+  
+  # List all core javascripts here - the array items are passed as args to require_core_js
+  Merb::Slices::config[:lpl_core][:javascripts] ||= begin
+    javascripts = []
+    javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery jquery.autogrow-textarea lowpro.jquery swfupload], { :bundle => :jquery }]
+    javascripts << [%w[lpl.app lpl.layout lpl.uploadrz], { :bundle => :lpl }]
+  end
+  
+  # List all core stylesheets here - the array items are passed as args to require_core_css
+  Merb::Slices::config[:lpl_core][:stylesheets] ||= begin
+    stylesheets = []
+    stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl_modal], { :bundle => :lpl }]
+  end
   
   # All Slice code is expected to be namespaced inside a module
   module LplCore
@@ -26,7 +44,7 @@ if defined?(Merb::Plugins)
     # Slice metadata
     self.description = "LplCore is a chunky Merb slice!"
     self.version = "0.0.1"
-    self.author = "Engine Yard"
+    self.author = "Samo Korosec - Fabien Franzen"
     
     # Stub classes loaded hook - runs before LoadClasses BootLoader
     # right after a slice's classes have been loaded internally.
@@ -65,6 +83,24 @@ if defined?(Merb::Plugins)
     
     def self.extensions
       @@extensions ||= Set.new
+    end
+    
+    # Extension loaded hook - runs before LoadClasses BootLoader
+    def self.load_extension(extension)
+    end
+    
+    # Extension initialization hook - runs before AfterAppLoads BootLoader
+    def self.init_extension(extension)
+    end
+    
+    # Extension activation hook - runs after AfterAppLoads BootLoader
+    def self.activate_extension(extension)
+      self.extensions.add(extension)
+    end
+    
+    # Extension deactivation hook - triggered by Merb::Slices.deactivate(extension)
+    def self.deactivate_extension(extension)
+      self.extensions.delete(extension)
     end
     
   end

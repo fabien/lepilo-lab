@@ -1,9 +1,12 @@
-class <%= module_name %>::Application < Merb::Controller
+class <%= module_name %>::Application < LplCore::Extension
   
-  # Enable Slice behaviour
-  controller_for_slice :templates_from => LplCore
+  # Setup the extension
+  setup_extension
   
   # By default authentication is required
-  before :ensure_authenticated
+  require_authentication
+  
+  # Load all core javascript and css requirements
+  require_core_assets
   
 end

@@ -27,20 +27,22 @@ if defined?(Merb::Plugins)
     # Stub classes loaded hook - runs before LoadClasses BootLoader
     # right after a slice's classes have been loaded internally.
     def self.loaded
+      LplCore.load_extension(self)
     end
     
     # Initialization hook - runs before AfterAppLoads BootLoader
     def self.init
+      LplCore.init_extension(self)
     end
     
     # Activation hook - runs after AfterAppLoads BootLoader
     def self.activate
-      LplCore.extensions.add(self)
+      LplCore.activate_extension(self)   
     end
     
-    # Deactivation hook - triggered by Merb::Slices.deactivate(<%= module_name %>)
+    # Deactivation hook - triggered by Merb::Slices.deactivate(Fooz)
     def self.deactivate
-      LplCore.extensions.delete(self)
+      LplCore.deactivate_extension(self)
     end
     
     # Setup routes inside the host application

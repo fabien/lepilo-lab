@@ -3,14 +3,359 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Fresh LplCore Slice</title>
+		<%= include_required_css %>
+		<%= include_required_js  %>
+		<%= include_inline_css 	 %>
+		<%= include_inline_js    %>
   </head>
   <!-- you can override this layout at slices/lpl-core/app/views/layout/lpl-core.html.erb -->
-  <body class="lpl-core-slice">
+  <body id="<%= bodytag_id %>" class="<%= bodytag_classname %>">
   <div id="container">
-		<%= catch_content(:lpl_header) %>
 	
+		<div id='lpl_content'>
+      
+      <ul class="lpl_content_list">
+        <h1>Articles List</h1>
+        <li>
+          <div class="reorder"></div>
+          <div class="edit">preview | edit | delete</div>
+          <h2>Article Name</h2>
+          <div class="metadata">24.01.2009 | by: Samo Korosec | Posted in: Random Aricles</div>
+          <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+            deserunt mollit anim id est laborum.
+          </div>
+        </li>
+        
+        <li>
+          <div class="reorder"></div>
+          <div class="thumbnail">
+            <img src="/images/thumbnail-02.png" alt="icon" />
+          </div>
+          <div class="edit">preview | edit | delete</div>
+          <h2>Another Article</h2>
+          <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
+          <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. 
+          </div>
+        </li>
+
+        <li>
+          <div class="reorder"></div>
+          <div class="edit">preview | edit | delete</div>
+          <h2>An Article Which Holds An Exceptionally Long Title</h2>
+          <div class="metadata"></div>
+          <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. 
+          </div>
+        </li>
+
+        <li>
+          <div class="reorder"></div>
+          <div class="thumbnail">
+            <img src="/images/thumbnail-02.png" alt="icon" />
+          </div>
+          <div class="edit">preview | edit | delete</div>
+          <h2>Another Article</h2>
+          <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
+          <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. 
+          </div>
+        </li>
+
+        <li>
+          <div class="reorder"></div>
+          <div class="thumbnail">
+            <img src="/images/thumbnail-02.png" alt="icon" />
+          </div>
+          <div class="edit">preview | edit | delete</div>
+          <h2>Another Article</h2>
+          <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
+          <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+            deserunt mollit anim id est laborum.
+          </div>
+        </li>
+
+      </ul>
+      
+      
+    </div>
+    <!-- lpl_content END -->
+    
+    
+    <div class='lpl_infopop uploader' id='lpl_uploadpop'>
+      <div class='content'>
+        <h1>Uploading files</h1>
+        <div class='file_cont'></div>
+        <div class='file'>
+          <h2>File 1</h2>
+          <div class='lpl_progress_bar_bg'>
+            <div class='lpl_progress_bar'></div>
+          </div>
+          <div class='info'>
+            asdasd
+          </div>
+        </div>
+        <div class='buttons'>
+          <div class='lpl_btn_basic red wide right' onclick='lpl.uploadrz.cancelUploads()'>
+            Cancel upload
+            <span></span>
+          </div>
+        </div>
+        <br class='clr' />
+      </div>
+    </div>
+    
+    <script type='text/javascript'>
+      //<![CDATA[
+        var construct_params = null;
+      //]]>
+    </script>
+    
+    <script type='text/javascript'>
+      //<![CDATA[
+        var swfu;
+        
+        window.onload = function () {
+          $("#lpl_uploadpop").hide();
+          $("#lpl_uploadpop").css("top","150px");
+        
+          console.log("SWFUpload initialized");
+          swfu = new SWFUpload({
+            //debug: true
+            upload_url : "/lepilo/media_resources",
+            flash_url : "/swfs/swfupload_f10.swf",
+            file_size_limit : "10 MB",
+            file_types : "*.jpg;*.jpeg;*.gif;*.png;*.tif;*.tiff",
+            file_post_name : "media_resource[file]",
+            post_params: construct_params ? construct_params : "",
+            // swfupload_loaded_handler : swfupload_loaded_function,
+            // file_dialog_start_handler : file_dialog_start_function,
+            // file_queued_handler : file_queued_function,
+            
+            // Button settings (as of SWFUploas 2.2, which adds Flash 10 support)
+            button_image_url : "/images/lpl/upload-button.png",
+            button_placeholder_id : "lpl_upload_button",
+            button_width: 61,
+            button_height: 27,
+            button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+            // Moving on...
+            
+            file_queue_error_handler : lpl.uploadrz.fileQueueError,
+            file_dialog_complete_handler : lpl.uploadrz.fileDialogComplete,
+            upload_start_handler : lpl.uploadrz.uploadStarted,
+            upload_progress_handler : lpl.uploadrz.uploadProgress,
+            upload_error_handler : lpl.uploadrz.uploadError,
+            upload_success_handler : lpl.uploadrz.uploadSuccess,
+            upload_complete_handler : lpl.uploadrz.uploadComplete
+          });
+        };
+        
+        // console.log("boom!");
+      //]]>
+    </script>
+    <div id='lpl_inplace_ui'>
+      
+    </div>
+    
+    <div id='lpl_app_header'>
+      <div class="icon">
+        <img src="/images/lpl/icons/40x40_articles.png" alt="articles icon">
+      </div>
+
+      <div class="icon active">
+        <img src="/images/lpl/icons/40x40_articles.png" alt="articles icon">
+      </div>
+
+      <div >
+        
+        <a href="#" id="toggle_sidebar">sidebar</a> | 
+        <a href="#" id="toggle_shelf">shelf</a> | 
+        <a href="#" id="toggle_inspector">inspector</a>
+        
+        <div class='lpl_right'>
+          <div class='lpl_btn_square red' onclick="window.location = '/logout'">
+            Log out
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id='lpl_app_left'>
+      
+      
+      <h1 class='lpl_sidebar'>
+        smart folders
+      </h1>
+
+      <div class='lpl_sidebar_folders'>
+        <ul class='lpl_folders'>
+          <ul>
+            <li>topics</li>
+          </ul>
+          <ul>
+            <li>articles</li>
+          </ul>
+          <ul>
+            <li>media</li>
+          </ul>
+          <ul>
+            <li class="active">text</li>
+            
+            <ul>
+              <li>text</li>
+            </ul>
+          </ul>
+          <ul>
+            <li>tags</li>
+          </ul>
+        </ul>
+
+      </div>
+      <!-- FOLDERS END -->
+      
+      <h1 class='lpl_sidebar'>
+        content types
+      </h1>
+
+      <div class='lpl_container_inset'>
+        <ul class='lpl_tree'>
+          <ul onclick="window.location = '/lepilo/topics'">
+            topics
+          </ul>
+          <ul onclick="window.location = '/lepilo/articles'">
+            articles
+          </ul>
+          <ul onclick="window.location = '/lepilo/media_resources'">
+            media
+          </ul>
+          <ul onclick="window.location = '/lepilo/text_containers'">
+            text
+          </ul>
+          <ul onclick="window.location = '/lepilo/tags'">
+            tags
+          </ul>
+        </ul>
+      </div>
+      <!-- TREE VIEW END -->
+      
+      <h1 class='lpl_sidebar'>
+        tags
+      </h1>
+      <div class='lpl_container_inset'>
+        <div class='lpl_list'>
+          <div class='lpl_tag plain'>
+            lulz
+          </div>
+          <div class='lpl_tag plain'>
+            A longer kind of Tag
+          </div>
+        </div>
+      </div>
+      <!-- TAGS END -->
+      
+    </div>
+    
+    <div id='lpl_app_center'></div>
+    
+    <div id='lpl_app_right'>
+      <h1 class='lpl_inspector'>
+        for_inspector, thrown out of @controllers
+      </h1>
+    </div>
+
+    <div id='lpl_app_shelf'>
+      <div class='border'>
+        <div class='handle hor'></div>
+      </div>
+      
+      <div class="content">
+        
+        <div class="icon-container">
+          <div class="image">
+            <img src="/images/thumbnail-01.png" alt="icon" />
+          </div>
+          stuff blah .jpg
+          <div class="metadata">1200 x 817, PNG</div>
+        </div>
+
+        <div class="icon-container">
+          <div class="image">
+            <img src="/images/thumbnail-02.png" alt="icon" />
+          </div>
+          stuff blah .jpg
+          <div class="metadata">1200 x 817, PNG</div>
+        </div>
+
+        <div class="icon-container">
+          <div class="image">
+            <img src="/images/thumbnail-03.png" alt="icon" />
+          </div>
+          stuff blah .jpg
+          <div class="metadata">1200 x 817, PNG</div>
+        </div>
+
+        <div class="icon-container">
+          <div class="icon">
+            <img src="/images/lpl/icons/128x128_file.png" alt="icon" />
+          </div>
+          PHAT file.cbr
+          <div class="metadata">876kb, unknown</div>
+        </div>
+
+        <div class="icon-container">
+          <div class="image">
+            <img src="/images/thumbnail-03.png" alt="icon" />
+          </div>
+          some long ass name image from a windows XP user.jpg
+          <div class="metadata">640 x 480, BMP, uncompressed, fake metadata and such</div>
+        </div>
+
+        <div class="icon-container">
+          <div class="text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </div>
+          Short textblock part...
+          <div class="metadata">876 words</div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div id='lpl_modal'>
+      <div id='lpl_modal_dialog'>
+        <div class='info'>
+          <h1>
+            Hier kommen Infos rein
+          </h1>
+        </div>
+        <div class='content'>
+          doodles
+        </div>
+      </div>
+    </div>
+	
+	
+		<% if false -%>
+		<%= catch_content(:lpl_header) %>
 	  <h1>LplCore Slice</h1>
     <div id="main"><%= catch_content :for_layout %></div>
+		<% end %>
   </div>
   </body>
 </html>
