@@ -21,10 +21,10 @@ lpl.layout = function() {
   /*  
       The layout elements to manage: 
       
-      div#lpl_app_left      – Holds the lepilo modules
-      div#lpl_app_center    – Holds the content
-      div#lpl_app_right     – Holds the Inspector
-      div#lpl_app_shelf   – Holds the lepilo Content Library
+      div#lpl_core_sidebar      – Holds the lepilo modules
+      div#lpl_core_feedback    – Holds the content
+      div#lpl_core_inspector     – Holds the Inspector
+      div#lpl_core_shelf   – Holds the lepilo Content Library
   */
   
   this.init = function() {
@@ -42,12 +42,8 @@ lpl.layout = function() {
       lpl.app.layout.toggleShelf()
     });
 
-    $("#close_flash").mouseup(function(a) {
-      lpl.app.layout.hideFlash()
-    });
-
-    $("#lpl_app_left").width(leftPanelWidth);
-    $("#lpl_app_right").width(rightPanelWidth);
+    $("#lpl_core_sidebar").width(leftPanelWidth);
+    $("#lpl_core_inspector").width(rightPanelWidth);
     
     // 
     // $("#cancel_layout").mouseup(function() {
@@ -69,29 +65,27 @@ lpl.layout = function() {
     
     //  Here's where the juggling starts;
     //  
-    //$("#lpl_app_center").height(1);
+    $("#lpl_core_feedback").height(1);
     
-    $("#lpl_app_left").css({"height": dH - 51});
-    $("#lpl_app_center").css({"left": $("#lpl_app_left").width() + $(window).scrollLeft() + 1, "top": $(window).scrollTop() + headerHeight - 3});
-    $("#lpl_app_right").css({"height": dH - 51});
+    $("#lpl_core_sidebar").css({"height": dH - 51});
+    // $("#lpl_core_feedback").css({"left": leftPanelWidth + $(window).scrollLeft(), "top": $(window).scrollTop() + headerHeight - 3});
+    $("#lpl_core_inspector").css({"height": dH - 51});
     
-    widthDelta = wW - dW;
-    this.centerWidth = dW - $("#lpl_app_left").width() - (wW - $("#lpl_app_right").offset().left) + widthDelta + 2;
-    $("#lpl_app_center").width(dW - $("#lpl_app_left").width() - $("#lpl_app_right").width() - 2);
-    $("#lpl_app_center").width(this.centerWidth);
+    this.centerWidth = wW - leftPanelWidth - (wW - $("#lpl_core_inspector").offset().left);
+    // $("#lpl_core_feedback").width(centerWidth - $(window).scrollLeft());
     
-    $("#lpl_content").css({"left": $("#lpl_app_left").width() + 5, "top": headerHeight + $("#lpl_app_center").height(), "width": wW - $("#lpl_app_left").width() - $("#lpl_app_right").width() - 10});
+    $("#lpl_core_main").css({"left": $("#lpl_core_sidebar").width(), "top": headerHeight, "width": $(document).width() - $("#lpl_core_sidebar").width() - $("#lpl_core_inspector").width()});
   };
   
   this.toggleInspector = function() {
     if (!inspectorOpen) {
-      $("#lpl_app_right").css({ "overflow" : "auto" });
-      $("#lpl_app_right").width(rightPanelWidth);
+      $("#lpl_core_inspector").css({ "overflow" : "auto" });
+      $("#lpl_core_inspector").width(rightPanelWidth);
       inspectorOpen = true;
       this.reLayout();
     } else {
-      $("#lpl_app_right").css({ "overflow" : "hidden" });
-      $("#lpl_app_right").width(0);
+      $("#lpl_core_inspector").css({ "overflow" : "hidden" });
+      $("#lpl_core_inspector").width(0);
       inspectorOpen = false;
       this.reLayout();
     }
@@ -99,13 +93,13 @@ lpl.layout = function() {
 
   this.toggleSidebar = function() {
     if (!sidebarOpen) {
-      $("#lpl_app_left").css({ "overflow" : "auto" });
-      $("#lpl_app_left").width(leftPanelWidth);
+      $("#lpl_core_sidebar").css({ "overflow" : "auto" });
+      $("#lpl_core_sidebar").width(leftPanelWidth);
       sidebarOpen = true;
       this.reLayout();
     } else {
-      $("#lpl_app_left").css({ "overflow" : "hidden" });
-      $("#lpl_app_left").width(0);
+      $("#lpl_core_sidebar").css({ "overflow" : "hidden" });
+      $("#lpl_core_sidebar").width(0);
       sidebarOpen = false;
       this.reLayout();
     }
@@ -113,22 +107,18 @@ lpl.layout = function() {
 
   this.toggleShelf = function() {
     if (!shelfOpen) {
-      $("#lpl_app_shelf").css({ "overflow" : "hidden" });
-      $("#lpl_app_shelf").height(shelfHeight);
-      $("#lpl_app_shelf").width("100%");
+      $("#lpl_core_shelf").css({ "overflow" : "hidden" });
+      $("#lpl_core_shelf").height(shelfHeight);
+      $("#lpl_core_shelf").width("100%");
       shelfOpen = true;
       this.reLayout();
     } else {
-      $("#lpl_app_shelf").css({ "overflow" : "hidden" });
-      $("#lpl_app_shelf").height(10);
+      $("#lpl_core_shelf").css({ "overflow" : "hidden" });
+      $("#lpl_core_shelf").height(10);
       shelfOpen = false;
       this.reLayout();
     }
   };
-  
-  this.hideFlash = function() {
-    $("#lpl_flash").hide("slide", { direction: "up" }, 350, this.reLayout );
-  }
   
   return this;
 };

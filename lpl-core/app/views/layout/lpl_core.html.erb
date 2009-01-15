@@ -16,7 +16,40 @@
   <!-- you can override this layout at slices/lpl-core/app/views/layout/lpl-core.html.erb -->
   <body id="<%= bodytag_id %>" class="<%= bodytag_classname %>">
   <div id="container">
-
+    <div id="lpl_core_main">
+			<!-- this is where the main views go to, like index/list, edit, view actions -->
+      <%= catch_content :for_layout %>
+    </div>
+    <div id="lpl_core_header">
+			<div class="icon">
+			  <!-- image goes here --> 
+			</div>
+			<div class="icon active">
+			  <!-- image goes here --> 
+			</div>
+      <%= catch_content(:lpl_app_header) %>
+    </div>
+    <div id="lpl_core_sidebar">
+      
+    </div>
+    <div id="lpl_core_feedback">
+      
+    </div>
+    <div id="lpl_core_inspector">
+      
+    </div>
+    <div id="lpl_core_shelf">
+      
+    </div>
+    <div id="lpl_modal">
+      <div class="border">
+        <div class="handle hor"></div>
+      </div>
+      
+      <div class="content">
+  
+      </div>
+    </div>
   </div>
 </body>
 </html>

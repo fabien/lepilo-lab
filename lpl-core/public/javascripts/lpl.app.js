@@ -50,12 +50,12 @@ $(document).ready(function(){
   //$('.lpl_pop_in').attach(lpl.popin);
   
   // Initialize the shelf
-  //$('#lpl_app_shelf').attach(lpl.shelf);
+  //$('#lpl_core_shelf').attach(lpl.shelf);
   
   //  Initialize the app layout functionality
   
   //$("textarea").autogrow();
   //$("ul.lpl_topics_container").attach(lpl.topic, {});
   
-  $(document).animate({opacity: 1.0}, 3000).scrollTop(10);
+  $(document).scrollTop(1);
 });

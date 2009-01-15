@@ -1,6 +1,6 @@
 /* lepilo Header */
 
-#lpl_app_header div.icon {
+#lpl_core_header div.icon {
   margin:0 0 0 5px;
   padding:2px;
   position:relative;
@@ -8,23 +8,19 @@
   top:0px;
 }
 
-#lpl_app_header div.icon:hover {
+#lpl_core_header div.icon:hover {
   background:rgba(255,255,255,0.5);
 }
 
-#lpl_app_header div.icon:active {
+#lpl_core_header div.icon:active {
   background:rgba(0,0,0,0.25);
 }
 
-#lpl_app_header div.icon.active {
+#lpl_core_header div.icon.active {
   background:rgba(0,0,0,0.1);
 }
 
 
-#lpl_app_header div.icon::-moz-selection {
-  background:transparent;
-}
-
-#lpl_app_header div.icon::selection {
+#lpl_core_header div.icon::-moz-selection, #lpl_core_header div.icon::selection {
   background:transparent;
 }

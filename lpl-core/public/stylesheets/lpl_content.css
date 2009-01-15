@@ -3,7 +3,7 @@
 /*    (maybe the div#article stuff is not needed anymore?)  */
 /* -------------------------------------------------------- */
 
-div#lpl_content {
+div#lpl_core_main {
   position:absolute;
   top:62px;
   overflow:hidden;
