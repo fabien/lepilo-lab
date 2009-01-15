@@ -57,5 +57,5 @@ $(document).ready(function(){
   //$("textarea").autogrow();
   //$("ul.lpl_topics_container").attach(lpl.topic, {});
   
-  $(document).scrollTop(1);
+  $(document).animate({opacity: 1.0}, 3000).scrollTop(10);
 });

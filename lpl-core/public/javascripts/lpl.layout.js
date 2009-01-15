@@ -72,13 +72,15 @@ lpl.layout = function() {
     //$("#lpl_app_center").height(1);
     
     $("#lpl_app_left").css({"height": dH - 51});
-    $("#lpl_app_center").css({"left": leftPanelWidth + $(window).scrollLeft() + 1, "top": $(window).scrollTop() + headerHeight - 3});
+    $("#lpl_app_center").css({"left": $("#lpl_app_left").width() + $(window).scrollLeft() + 1, "top": $(window).scrollTop() + headerHeight - 3});
     $("#lpl_app_right").css({"height": dH - 51});
     
-    this.centerWidth = wW - leftPanelWidth - (wW - $("#lpl_app_right").offset().left);
+    widthDelta = wW - dW;
+    this.centerWidth = dW - $("#lpl_app_left").width() - (wW - $("#lpl_app_right").offset().left) + widthDelta + 2;
     $("#lpl_app_center").width(dW - $("#lpl_app_left").width() - $("#lpl_app_right").width() - 2);
+    $("#lpl_app_center").width(this.centerWidth);
     
-    $("#lpl_content").css({"left": $("#lpl_app_left").width() + 5, "top": headerHeight + $("#lpl_app_center").height(), "width": $(document).width() - $("#lpl_app_left").width() - $("#lpl_app_right").width() - 10});
+    $("#lpl_content").css({"left": $("#lpl_app_left").width() + 5, "top": headerHeight + $("#lpl_app_center").height(), "width": wW - $("#lpl_app_left").width() - $("#lpl_app_right").width() - 10});
   };
   
   this.toggleInspector = function() {

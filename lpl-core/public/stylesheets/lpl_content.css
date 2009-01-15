@@ -7,7 +7,6 @@ div#lpl_content {
   position:absolute;
   top:62px;
   overflow:hidden;
-  border-bottom:40px solid transparent;
   padding-bottom:50px;
   overflow:hidden;
 }

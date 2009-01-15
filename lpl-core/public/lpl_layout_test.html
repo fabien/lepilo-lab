@@ -72,21 +72,7 @@
           </div>
         </li>
 
-        <li>
-          <div class="reorder"></div>
-          <div class="thumbnail">
-            <img src="/images/thumbnail-02.png" alt="icon" />
-          </div>
-          <div class="edit">preview | edit | delete</div>
-          <h2>Another Article</h2>
-          <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. 
-          </div>
-        </li>
-
-        <li>
+          <li>
           <div class="reorder"></div>
           <div class="thumbnail">
             <img src="/images/thumbnail-02.png" alt="icon" />
@@ -109,9 +95,32 @@
       
       
       <div class="lpl_container_rounded">
-        
+
+        <form action='/lepilo/articles/2' method='post'>
+          <input name='_method' type='hidden' value='put' />
+          <p>
+            <label for='article[title]'>Belongs to</label>
+            <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+          </p>
+          <p>
+            <label for='article[title]'>Title</label>
+            <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
+          </p>
+          <p>
+            <label for='article[description]'>Description</label>
+            <textarea name="article[description]" rows="4" id="article[description]">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
+          </p>
+          <div class='buttons right'>
+            <div class='lpl_btn_square'>
+              Update Article
+              <span></span>
+            </div>
+          </div>
+          <input class='button' type='submit' value='Update Article' />
+        </form>
+
       </div>
-      
+      <!-- div.lpl_container_rounded END -->
       
     </div>
     <!-- lpl_content END -->
