@@ -29,7 +29,8 @@ if defined?(Merb::Plugins)
   # List all core javascripts here - the array items are passed as args to core.require_js
   Merb::Slices::config[:lpl_core][:javascripts] ||= begin
     javascripts = []
-    javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery jquery.autogrow-textarea lowpro.jquery swfupload], { :bundle => :jquery }]
+    javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery], { :bundle => :jquery }]
+    javascripts << [%w[jquery.autogrow-textarea lowpro.jquery swfupload], { :bundle => :extensions }]
     javascripts << [%w[lpl.app lpl.layout lpl.uploadrz], { :bundle => :lpl }]
   end
   
