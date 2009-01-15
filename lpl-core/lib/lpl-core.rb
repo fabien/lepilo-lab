@@ -8,6 +8,7 @@ if defined?(Merb::Plugins)
   Merb::Plugins.add_rakefiles "lpl-core/merbtasks", "lpl-core/slicetasks", "lpl-core/spectasks"
   
   require dirname / 'lpl-core' / 'support'
+  require dirname / 'lpl-core' / 'proxy'
   require dirname / 'lpl-core' / 'behaviour'
   require dirname / 'lpl-core' / 'extension'  
   
@@ -25,14 +26,14 @@ if defined?(Merb::Plugins)
   Merb::Slices::config[:lpl_core][:layout]      ||= :lpl_core
   Merb::Slices::config[:lpl_core][:path_prefix] ||= 'core'
   
-  # List all core javascripts here - the array items are passed as args to require_core_js
+  # List all core javascripts here - the array items are passed as args to core.require_js
   Merb::Slices::config[:lpl_core][:javascripts] ||= begin
     javascripts = []
     javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery jquery.autogrow-textarea lowpro.jquery swfupload], { :bundle => :jquery }]
     javascripts << [%w[lpl.app lpl.layout lpl.uploadrz], { :bundle => :lpl }]
   end
   
-  # List all core stylesheets here - the array items are passed as args to require_core_css
+  # List all core stylesheets here - the array items are passed as args to core.require_css
   Merb::Slices::config[:lpl_core][:stylesheets] ||= begin
     stylesheets = []
     stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl_modal], { :bundle => :lpl }]

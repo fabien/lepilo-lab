@@ -16,9 +16,30 @@
   <!-- you can override this layout at slices/lpl-core/app/views/layout/lpl-core.html.erb -->
   <body id="<%= bodytag_id %>" class="<%= bodytag_classname %>">
   <div id="container">
-		<%= catch_content(:lpl_header) %>
-	  <h1>LplCore Slice</h1>
-    <div id="main"><%= catch_content :for_layout %></div>
+		<div id="lpl_content">
+			<%= catch_content :for_layout %>			
+		</div>
+		<div id="lpl_inplace_ui">
+			
+		</div>
+		<div id="lpl_app_header">
+			<%= catch_content(:lpl_app_header) %>
+		</div>
+		<div id="lpl_app_left">
+			
+		</div>
+		<div id="lpl_app_center">
+			
+		</div>
+		<div id="lpl_app_right">
+			
+		</div>
+		<div id="lpl_app_shelf">
+			
+		</div>
+		<div id="lpl_modal">
+			
+		</div>
   </div>
-  </body>
+</body>
 </html>

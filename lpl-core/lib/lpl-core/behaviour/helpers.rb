@@ -19,12 +19,8 @@ module LplCore
       
       # page head/metadata
       
-      def core_info
-        ::LplCore[:info] || {}
-      end
-      
       def info
-        @_info ||= core_info.merge(self.slice[:info] || {})
+        @_info ||= core.info.merge(self.slice[:info] || {})
       end
       
       def page_title
@@ -93,51 +89,6 @@ module LplCore
           end
           acc
         end.join("\n")
-      end
-      
-      def require_core_assets
-        ::LplCore[:javascripts].each { |args| require_core_js(*args)  }
-        ::LplCore[:stylesheets].each { |args| require_core_css(*args) }
-      end
-      
-      def require_core_js(*js)
-        js.flatten!
-        options = js.last.is_a?(Hash) ? js.pop : {}
-        assets = js.map { |asset| core_javascript_path("#{asset}.js") }
-        require_js(*(assets << options))
-      end
-      
-      def require_core_css(*css)
-        css.flatten!
-        options = css.last.is_a?(Hash) ? css.pop : {}
-        assets = css.map { |asset| core_stylesheet_path("#{asset}.css") }
-        require_css(*(assets << options))
-      end
-      
-      # paths to the LplCore slice
-      
-      def core_image_path(*segments)
-        core_public_path_for(:image, *segments)
-      end
-      
-      def core_javascript_path(*segments)
-        core_public_path_for(:javascript, *segments)
-      end
-      
-      def core_stylesheet_path(*segments)
-        core_public_path_for(:stylesheet, *segments)
-      end
-      
-      def core_public_path_for(type, *segments)
-        ::LplCore.public_path_for(type, *segments)
-      end
-      
-      def core_app_path_for(type, *segments)
-        ::LplCore.app_path_for(type, *segments)
-      end
-      
-      def core_slice_path_for(type, *segments)
-        ::LplCore.slice_path_for(type, *segments)
       end
       
     end
