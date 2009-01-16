@@ -22,4 +22,9 @@ describe "LplView" do
     c.body.should == "<div>\n  <h1>Hello World [some ivar value] (sample_helper output)</h1>\n</div>\n<hr/>\n<strong>some ivar value</strong>\n"
   end
   
+  it "should be compatible with Merb's display API" do
+    c = dispatch_to(LplViewSample, :runtime)
+    c.body.should == "<h1>Created at runtime</h1>\n"
+  end
+  
 end

@@ -23,6 +23,10 @@ class LplViewSample < Merb::Controller
     render
   end
   
+  def runtime
+    display widget { |builder| builder.h1 'Created at runtime' }
+  end
+  
   protected
   
   def sample_helper

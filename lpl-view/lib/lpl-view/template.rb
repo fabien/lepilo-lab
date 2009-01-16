@@ -53,6 +53,15 @@ module Merb::Template
     end
   
     module Mixin
+      
+      def widget(&block)
+        LplView::Widget.new(&block)
+      end
+      
+      def view(&block)
+        LplView::View.new(&block)
+      end
+      
     end
     
     Merb::Template.register_extensions(self, %w[rb]) 
