@@ -59,7 +59,8 @@ div#lpl_core_sidebar {
 }
 
 div#lpl_core_feedback {
-  position:absolute;
+  position:fixed;
+  top:51px;
   width:50px;
   background:rgba(0, 0, 0, 0.01);
   overflow:hidden;
