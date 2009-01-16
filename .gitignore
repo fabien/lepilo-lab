@@ -1,4 +1,1 @@
 .DS_Store
-lpl-app/public/slices
-lpl-core/pkg
-lpl-core/pkg/*.gem
