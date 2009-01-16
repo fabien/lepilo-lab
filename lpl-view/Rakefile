@@ -4,12 +4,12 @@ require 'rake/gempackagetask'
 require 'merb-core'
 require 'merb-core/tasks/merb'
 
-GEM_NAME = "lpl-core"
-AUTHOR = "Your Name"
-EMAIL = "Your Email"
-HOMEPAGE = "http://merbivore.com/"
-SUMMARY = "Merb Slice that provides ..."
+GEM_NAME = "lpl-view"
 GEM_VERSION = "0.0.1"
+AUTHOR = "Fabien Franzen"
+EMAIL = "info@atelierfabien.be"
+HOMEPAGE = "http://merbivore.com/"
+SUMMARY = "Merb plugin that provides class-based views templates"
 
 spec = Gem::Specification.new do |s|
   s.rubyforge_project = 'merb'
@@ -23,18 +23,17 @@ spec = Gem::Specification.new do |s|
   s.author = AUTHOR
   s.email = EMAIL
   s.homepage = HOMEPAGE
-  s.add_dependency('merb-slices', '>= 1.0.7.1')
-  s.add_dependency('merb-auth-slice-password', '>= 1.0.7.1')
-  
+  s.add_dependency('merb', '>= 1.0.7.1')
+  s.add_dependency('builder', '>= 2.1.2')
   s.require_path = 'lib'
-  s.files = %w(LICENSE README Rakefile TODO Generators) + Dir.glob("{lib,spec,app,public}/**/*")
+  s.files = %w(LICENSE README Rakefile TODO) + Dir.glob("{lib,spec}/**/*")
 end
 
 Rake::GemPackageTask.new(spec) do |pkg|
   pkg.gem_spec = spec
 end
 
-desc "Install the gem"
+desc "install the plugin as a gem"
 task :install do
   Merb::RakeHelper.install(GEM_NAME, :version => GEM_VERSION)
 end
@@ -50,8 +49,3 @@ task :gemspec do
     file.puts spec.to_ruby
   end
 end
-
-require 'spec/rake/spectask'
-require 'merb-core/test/tasks/spectasks'
-desc 'Default: run spec examples'
-task :default => 'spec'

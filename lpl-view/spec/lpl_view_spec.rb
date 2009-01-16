@@ -1,0 +1,25 @@
+require File.dirname(__FILE__) + '/spec_helper'
+
+describe "LplView" do
+  
+  it "should be able to render View templates" do
+    c = dispatch_to(LplViewSample, :index)
+    c.body.should == "<h1>Hello World [value of @ivar_value &amp;] (sample_helper output)</h1>\n<hr/>\n<strong>value of @ivar_value &amp;</strong>\n"
+  end
+  
+  it "should be able to render View templates with subwidgets" do
+    c = dispatch_to(LplViewSample, :show)
+    c.body.should == "<ul>\n  <li>\n    <a href=\"#a-link\">Awesome</a>\n  </li>\n  <li>\n    <a href=\"#a-link\">Excellent</a>\n  </li>\n  <li>\n    <a href=\"#some-link\">Runtime builder</a>\n  </li>\n</ul>\n<hr/>\n"
+  end
+  
+  it "should be able to :halt rendering of View templates" do
+    c = dispatch_to(LplViewSample, :halt)
+    c.body.should == "FAIL! Say whut?!"
+  end
+  
+  it "should offer template inheritance" do
+    c = dispatch_to(LplViewSample, :inherit)
+    c.body.should == "<div>\n  <h1>Hello World [some ivar value] (sample_helper output)</h1>\n</div>\n<hr/>\n<strong>some ivar value</strong>\n"
+  end
+  
+end
