@@ -27,7 +27,7 @@ module Merb::Template
         ::LplView.template_lookup[path] || 'Merb::Template::LplViewHandler::Failure'
       end
       
-      raise 'LplView could not determine the class of the requested template' if view_class_name.nil?
+      raise "LplView could not determine the class of the requested template: #{path}" if view_class_name.nil?
       
       code = <<-CODE
         def #{name}(_lpl_view_locals={})
@@ -41,7 +41,7 @@ module Merb::Template
           assigns[:_template] = #{path.inspect}
           
           view = if thrown_content?(:for_layout)
-            ::#{view_class_name}.new { |builder| builder << catch_content(:for_layout) }
+            ::#{view_class_name}.new { |view| view << catch_content(:for_layout) }
           else
             ::#{view_class_name}.new
           end

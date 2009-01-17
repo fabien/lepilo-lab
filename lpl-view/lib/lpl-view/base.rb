@@ -34,7 +34,7 @@ module LplView
         obj.builder.level = builder.level if obj.respond_to?(:builder)
         builder << obj.to_html
       else
-        builder << obj.to_s
+        builder << indent(obj.to_s)
       end
     end
     alias :<< :concat
@@ -132,13 +132,21 @@ module LplView
       "<strong style=\"color: red\">#{msg.to_xs}</strong>"
     end
 
+    def indent(str, increment = 0)
+      str.gsub(/(^|\n( +)?$)/, "#{indentation(increment)}\\1")
+    end
+    
+    def indentation(increment = 0)
+      ' ' * ((builder.level + increment) * builder.indent)
+    end
+
     private
 
     # Render the block that has been set from #initialize;
-    # it recieves the builder instance.
+    # it recieves the view/widget instance.
     def render_inner
       if @render_inner_proc.respond_to?(:call)
-        @render_inner_proc.call(builder)
+        @render_inner_proc.call(self)
       end
     end
 
