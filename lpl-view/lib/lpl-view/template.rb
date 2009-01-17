@@ -12,25 +12,22 @@ module Merb::Template
     def self.compile_template(io, name, locals, mod)
       path = File.expand_path(io.path)
       
-      relative_path_parts = path.split('/')[-2,2]
+      path_parts = path.split('/')
+      path_views_idx = path_parts.index('views') + 1
+      
+      relative_path_parts = path_parts[path_views_idx, path_parts.length - path_views_idx]
       is_partial = relative_path_parts.last =~ /^_/
       
-      namespace = Merb::Plugins.config[:lpl_view][:namespace] ? Array(Merb::Plugins.config[:lpl_view][:namespace]) : ['Views']
+      # Load the class file from path.
+      load(path)
       
-      view_class_parts = relative_path_parts.inject(namespace) do |class_parts, node|
-        class_parts << node.gsub(/^_/, "").gsub(/(\.(html|xml|json|js|text))?\.rb$/, '').to_const_string
-        class_parts
+      view_class_name = if Merb.env?(:development)
+        ::LplView.template_lookup[path]        
+      else
+        ::LplView.template_lookup[path] || 'Merb::Template::LplViewHandler::Failure'
       end
       
-      view_module_name = view_class_parts[0, view_class_parts.length - 1].join("::")
-      view_class_name = view_class_parts.join("::")
-      method = mod.is_a?(Module) ? :module_eval : :instance_eval
-      
-      view_module = Object.full_const_get(view_module_name) rescue nil
-      Object.make_module(view_module_name) if view_module.nil?
-      
-      view_class = Object.full_const_get(view_class_name) rescue nil
-      mod.send(method, io.read, path) if view_class.nil?
+      raise 'LplView could not determine the class of the requested template' if view_class_name.nil?
       
       code = <<-CODE
         def #{name}(_lpl_view_locals={})
@@ -43,7 +40,12 @@ module Merb::Template
           
           assigns[:_template] = #{path.inspect}
           
-          view = ::#{view_class_name}.new
+          view = if thrown_content?(:for_layout)
+            ::#{view_class_name}.new { |builder| builder << catch_content(:for_layout) }
+          else
+            ::#{view_class_name}.new
+          end
+          
           view.assign(assigns.merge(_lpl_view_locals), self)
           
           case content_type
@@ -57,6 +59,7 @@ module Merb::Template
         end
       CODE
             
+      method = mod.is_a?(Module) ? :module_eval : :instance_eval
       mod.send(method, code)
       
       name
@@ -75,6 +78,14 @@ module Merb::Template
     end
     
     Merb::Template.register_extensions(self, %w[rb]) 
+    
+    class Failure < LplView::Widget
+      
+      def render
+        self << failure("LplView could not determine the class of the requested template")
+      end
+      
+    end
   
   end
 end

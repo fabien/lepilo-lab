@@ -7,6 +7,8 @@ if defined?(Merb::Plugins)
   
   Merb::Plugins.add_rakefiles "lpl-core/merbtasks", "lpl-core/slicetasks", "lpl-core/spectasks"
   
+  Object.make_module("Views::LplCore")
+  
   require dirname / 'lpl-core' / 'support'
   require dirname / 'lpl-core' / 'proxy'
   require dirname / 'lpl-core' / 'behaviour'

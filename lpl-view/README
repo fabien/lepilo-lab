@@ -1,4 +1,47 @@
 lpl-view
 ========
 
-Merb plugin that provides class-based views templates.
+Merb plugin that provides class-based views templates to LplCore.
+
+Each view template should have it's own subclass of LplView::View; by inheriting
+from this class, or any of it's subclasses, the template path will be registered
+with LplView.template_lookup. 
+
+This lookup Hash is used by LplViewHandler.compile_template to determine the
+actual class that is available within the template file. So inheriting is 
+mandatory, meaning each template has its own unique class. This all works, based
+on Merb's Merb.load_path mechanism, where all view paths are added to. During
+BootLoader::LoadClasses, all views will be loaded accordingly.
+
+The naming convention for view classes is as follows:
+
+module Views
+  module ControllerClassName
+    class ControllerActionName
+    end
+  end
+end
+
+For namespaced controllers (which is the case for slices), this should be:
+
+module Views
+  module ModuleName
+    module ControllerClassName
+      class ControllerActionName
+      end
+    end
+  end
+end
+
+Note that this isn't strictly necessary, but you will have to maintain the class
+hierarchy yourself. Also note that View classes generally load before Controller
+and Model classes have been loaded by BootLoader::LoadClasses.
+
+In case you want to override an existing template from the application-level 
+(in Merb.root/slices) you can do so like this:
+
+class Views::LplCore::Main::IndexOverride < Views::LplCore::Main::Index
+
+  ... # override code here
+
+end

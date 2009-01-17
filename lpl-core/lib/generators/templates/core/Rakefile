@@ -8,8 +8,8 @@ GEM_NAME = "<%= base_name %>"
 AUTHOR = "Your Name"
 EMAIL = "Your Email"
 HOMEPAGE = "http://merbivore.com/"
-SUMMARY = "Merb Slice that provides ..."
-GEM_VERSION = "<%= Merb::VERSION %>"
+SUMMARY = "LplCore extension that provides ..."
+GEM_VERSION = "0.0.1"
 
 spec = Gem::Specification.new do |s|
   s.rubyforge_project = 'merb'

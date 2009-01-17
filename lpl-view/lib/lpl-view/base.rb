@@ -1,4 +1,11 @@
 module LplView
+  
+  TEMPLATE_EXT_REGEXP = /(\.(html|xml|json|js|text))?\.rb$/
+  
+  def self.template_lookup
+    @@template_lookup ||= {}
+  end
+  
   class Base
     
     attr_reader :_template
@@ -53,7 +60,7 @@ module LplView
       reset!
       html
     rescue NameError => e
-      failure(e)
+      handle_exception(e)
     end
     alias :to_s :to_html
     
@@ -120,8 +127,9 @@ module LplView
     
     # This method is called when method_missing can't find a suitable
     # assigned variable or helper method.
-    def failure(exception)
-      "<strong style=\"color: red\">#{exception.message.to_xs}</strong>"
+    def failure(msg = nil)
+      msg = "Error in #{self.class}" if msg.nil?
+      "<strong style=\"color: red\">#{msg.to_xs}</strong>"
     end
 
     private
@@ -157,6 +165,17 @@ module LplView
       else        
         super
       end          
+    end
+    
+    def handle_exception(exception)
+      failure(exception.message)
+    end
+    
+    def self.inherited(klass)
+      template_path = caller.first.sub(/:\d+$/, '')
+      if template_path =~ ::LplView::TEMPLATE_EXT_REGEXP
+        ::LplView.template_lookup[template_path] = klass
+      end
     end
 
     register_instance_hooks :render

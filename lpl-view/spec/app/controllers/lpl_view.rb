@@ -35,5 +35,12 @@ class LplViewSample < Merb::Controller
   
 end
 
-class PartialViewSample < LplViewSample
+class LayoutViewSample < Merb::Controller
+  
+  layout :main_layout
+  
+  def index
+    render
+  end
+  
 end

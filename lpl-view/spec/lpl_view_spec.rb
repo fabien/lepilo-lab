@@ -28,4 +28,9 @@ describe "LplView" do
     c.body.should == "<h1>Created at runtime</h1>\n"
   end
   
+  it "should be able to render templates in a layout view" do
+    c = dispatch_to(LayoutViewSample, :index)
+    c.body.should == "<h3>BEFORE CONTENT</h3>\n<hr/>\n<h1>Hello from LayoutViewSample</h1>\n<hr/>\n<h3>AFTER CONTENT</h3>\n"
+  end
+  
 end
