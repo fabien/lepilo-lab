@@ -76,10 +76,8 @@ lpl.layout = function() {
     $("#lpl_core_inspector").css({"height": dH - 51});
     
     widthDelta = wW - dW;
-    this.centerWidth = dW - $("#lpl_core_sidebar").width() - (wW - $("#lpl_core_inspector").offset().left) + widthDelta + 2;
     //$("#lpl_core_feedback").width(dW - $("#lpl_core_sidebar").width() - $("#lpl_core_inspector").width() - 2);
-    $("#lpl_core_feedback").width(this.centerWidth);
-    
+    $("#lpl_core_feedback").width(dW - $("#lpl_core_sidebar").width() - (wW - $("#lpl_core_inspector").offset().left) + widthDelta + 2);
     $("#lpl_core_main").css({"left": $("#lpl_core_sidebar").width() + 5, "top": headerHeight + $("#lpl_core_feedback").height(), "width": dW - $("#lpl_core_sidebar").width() - $("#lpl_core_inspector").width() - 10});
   };
   
@@ -149,7 +147,7 @@ $(document).ready(function(){
   $(document).scroll(function() {
     lpl.app.layout.reLayout();
   });
-
+  
   lpl.app.layout.reLayout();
   
 });

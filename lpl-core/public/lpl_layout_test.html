@@ -400,8 +400,8 @@
           </div>
 
           <div class="half">
-            <label for='article[title]'>Belongs to</label>
-            <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+            <label for='article[title]'>Family Name</label>
+            <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
           </div>
 
         </div>
@@ -409,20 +409,6 @@
         <div class="lpl_form_elements">
           <label for='article[title]'>Belongs to</label>
           <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
-        </div>
-
-        <div class="lpl_form_elements split2">
-
-          <div class="half">
-            <label for='article[title]'>First Name</label>
-            <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
-          </div>
-
-          <div class="half">
-            <label for='article[title]'>Family Name</label>
-            <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
-          </div>
-
         </div>
 
         <div class="lpl_form_elements">
@@ -492,6 +478,13 @@
         </div>
         
         yada
+        
+        <input type="text" name="shelf_search" value="" id="shelf_search" class="search" />
+        
+        <div id="shelf-ajax-search-indicator" class="loading">
+          <img src="/stylesheets/assets/lpl/loading-small-bright.gif" alt="loading indicator">
+        </div>
+        
       </div>
       <!-- #lpl_core_shelf .header END -->
       
