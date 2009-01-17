@@ -17,5 +17,7 @@ src/*
 .hg/*
 .svn/*
 gems/gems/*
+gems/doc/
 gems/specifications/*
 merb_profile_results
+public/slices/*

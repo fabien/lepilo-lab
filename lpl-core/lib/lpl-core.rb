@@ -2,8 +2,8 @@ if defined?(Merb::Plugins)
 
   $:.unshift(dirname = File.dirname(__FILE__))
 
-  dependency 'merb-slices', :immediate => true
-  dependency 'merb-auth-slice-password', :immediate => true
+  dependency 'merb-slices', '1.0.8', :immediate => true
+  dependency 'merb-auth-slice-password', '1.0.8', :immediate => true
   
   Merb::Plugins.add_rakefiles "lpl-core/merbtasks", "lpl-core/slicetasks", "lpl-core/spectasks"
   
