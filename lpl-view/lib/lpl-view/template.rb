@@ -18,7 +18,7 @@ module Merb::Template
       namespace = Merb::Plugins.config[:lpl_view][:namespace] ? Array(Merb::Plugins.config[:lpl_view][:namespace]) : ['Views']
       
       view_class_parts = relative_path_parts.inject(namespace) do |class_parts, node|
-        class_parts << node.gsub(/^_/, "").gsub(/(\.html)?\.rb$/, '').to_const_string
+        class_parts << node.gsub(/^_/, "").gsub(/(\.(html|xml|json|js|text))?\.rb$/, '').to_const_string
         class_parts
       end
       
@@ -41,9 +41,19 @@ module Merb::Template
             hash
           end
           
+          assigns[:_template] = #{path.inspect}
+          
           view = ::#{view_class_name}.new
           view.assign(assigns.merge(_lpl_view_locals), self)
-          view.to_html        
+          
+          case content_type
+          when :html then view.to_html
+          when :xml  then view.to_xml
+          when :json then view.to_json
+          when :js   then view.to_js
+          when :text then view.to_text 
+          else view.to_s
+          end    
         end
       CODE
             

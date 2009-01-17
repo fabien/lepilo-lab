@@ -1,6 +1,8 @@
 module LplView
   class Base
     
+    attr_reader :_template
+    
     # You can specify before/after hooks for the #render method.
     # Feel free to add additional hooks for methods you add.
     # Syntax: register_instance_hooks :your_method 
@@ -44,7 +46,7 @@ module LplView
       html = case caught
         when nil    then ''
         when String then caught
-        when Symbol then __send__(caught).to_s
+        when Symbol then send(caught).to_s
         when Proc   then self.instance_eval(&caught).to_s
         else builder.target!
       end
@@ -55,24 +57,45 @@ module LplView
     end
     alias :to_s :to_html
     
+    # This is a stub method to generate an xml representation.
+    # It will be used for templates like: index.xml.rb
+    def to_xml
+    end
+    
+    # This is a stub method to generate a json representation.
+    # It will be used for templates like: index.json.rb
+    def to_json
+    end
+    
+    # This is a stub method to generate a js/ajax representation.
+    # It will be used for templates like: index.js.rb
+    def to_js
+    end
+    
+    # This is a stub method to generate a js/ajax representation.
+    # It will be used for templates like: index.text.rb
+    def to_text
+    end
+    
+    # Assign instance variables from Hash; optionally supply context for
+    # helper method delegation.
     def assign(hsh, context = nil)
       self.context = context unless context.nil?
-      self.assigns = hsh if hsh.respond_to?(:each_pair)
+      if hsh.respond_to?(:each_pair)
+        @_template = hsh[:_template]
+        self.assigns.clear
+        hsh.each_pair do |key, value|
+          next if key.to_s =~ /^_/
+          self.assigns << (ivar = "@#{key}")
+          instance_variable_set(ivar, value)
+        end
+      end
     end
     
-    # Controller instance variables (like @ivar) are available as assigns[:ivar]
-    # but method_missing will try to catch method calls that refer to ivars.
+    # Controller instance variables are tracked, so they can be reset later.
     def assigns
-      @assigns ||= {}
+      @assigns ||= []
     end
-    alias :vars :assigns
-    
-    def assigns=(hsh)
-      values = {}
-      hsh.each_pair { |key, value| values[(key.to_sym rescue key)] = value }
-      assigns.replace(values)
-    end
-    alias :vars= :assigns=
     
     def context=(target)
       @context = target
@@ -111,23 +134,27 @@ module LplView
       end
     end
 
-    # Reset the builder - a subsequent render call will have a new
-    # instance of Builder::XmlMarkup created.
+    # Reset the builder - a subsequent render call will have a new instance 
+    # of Builder::XmlMarkup created. Assigned variables are cleared.
     def reset!
       @builder = nil
+      self.assigns.each do |ivar|
+        next unless instance_variable_defined?(ivar)
+        remove_instance_variable(ivar)
+      end
     end
     
     def method_missing(method_name, *args, &block)
       if context.respond_to?(method_name)
         self.class.send(:define_method, method_name) do
-          context.__send__(method_name, *args, &block)
+          context.send(method_name, *args, &block)
         end
         send(method_name)
-      elsif assigns.key?(method_name)
-        assigns[method_name]
+      elsif assigns.include?(ivar = "@#{method_name}")
+        instance_variable_get(ivar)
       elsif caller.first.match(/\.lpl$/)
         nil
-      else
+      else        
         super
       end          
     end

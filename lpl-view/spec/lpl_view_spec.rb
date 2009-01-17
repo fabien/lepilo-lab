@@ -9,12 +9,13 @@ describe "LplView" do
   
   it "should be able to render View templates with subwidgets" do
     c = dispatch_to(LplViewSample, :show)
-    c.body.should == "<ul>\n  <li>\n    <a href=\"#a-link\">Awesome</a>\n  </li>\n  <li>\n    <a href=\"#a-link\">Excellent</a>\n  </li>\n  <li>\n    <a href=\"#some-link\">Runtime builder</a>\n  </li>\n</ul>\n<hr/>\n"
+    c.body.should == "<h1>Rendered from lpl_view_sample/show</h1>\n<ul>\n  <li>\n    <a href=\"#a-link\">Awesome</a>\n  </li>\n  <li>\n    <a href=\"#a-link\">Excellent</a>\n  </li>\n  <li>\n    <a href=\"#some-link\">Runtime builder</a>\n  </li>\n</ul>\n<hr/>\n"
   end
   
   it "should be able to :halt rendering of View templates" do
+    template = File.expand_path(File.dirname(__FILE__) / 'app' / 'views' / 'lpl_view_sample' / 'halt.html.rb')
     c = dispatch_to(LplViewSample, :halt)
-    c.body.should == "FAIL! Say whut?!"
+    c.body.should == "FAIL! Say whut?! (at #{template})"
   end
   
   it "should offer template inheritance" do

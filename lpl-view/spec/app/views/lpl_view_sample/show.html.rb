@@ -1,7 +1,7 @@
 class Views::LplViewSample::Show < LplView::View
   
   def buttons
-    vars[:buttons] || []
+    @buttons || []
   end
   
   def render
@@ -11,6 +11,7 @@ class Views::LplViewSample::Show < LplView::View
   end
   
   def header
+    builder.h1 "Rendered from #{controller_name}/#{action_name}"
     builder.ul do |ul|
       buttons.each do |button|
         ul.li { self << button }        
@@ -20,7 +21,7 @@ class Views::LplViewSample::Show < LplView::View
   
   def footer
     builder.hr
-    builder.strong(vars[:ivar_value]) if vars[:ivar_value]
+    builder.strong(@ivar_value) if @ivar_value
   end
 
 end

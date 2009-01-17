@@ -12,7 +12,7 @@ class Views::LplViewSample::Index < LplView::View
   
   def footer
     builder.hr
-    builder.strong vars[:ivar_value]
+    builder.strong @ivar_value
   end
 
 end
