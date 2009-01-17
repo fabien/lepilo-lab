@@ -21,14 +21,6 @@ module Merb::Template
       # Load the class file from path.
       load(path)
       
-      view_class_name = if Merb.env?(:development)
-        ::LplView.template_lookup[path]        
-      else
-        ::LplView.template_lookup[path] || 'Merb::Template::LplViewHandler::Failure'
-      end
-      
-      raise "LplView could not determine the class of the requested template: #{path}" if view_class_name.nil?
-      
       code = <<-CODE
         def #{name}(_lpl_view_locals={})
           @_engine = 'lpl_view'
@@ -39,11 +31,12 @@ module Merb::Template
           end
           
           assigns[:_template] = #{path.inspect}
+          view_class = ::LplView.template_lookup[ assigns[:_template] ] || Merb::Template::LplViewHandler::Failure
           
           view = if thrown_content?(:for_layout)
-            ::#{view_class_name}.new { |view| view << catch_content(:for_layout) }
+            view_class.new { |view| view << catch_content(:for_layout) }
           else
-            ::#{view_class_name}.new
+            view_class.new
           end
           
           view.assign(assigns.merge(_lpl_view_locals), self)

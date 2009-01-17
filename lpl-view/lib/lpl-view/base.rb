@@ -180,7 +180,7 @@ module LplView
     end
     
     def self.inherited(klass)
-      template_path = caller.first.sub(/:\d+$/, '')
+      template_path = File.expand_path(caller.first.sub(/:\d+$/, ''))
       if template_path =~ ::LplView::TEMPLATE_EXT_REGEXP
         ::LplView.template_lookup[template_path] = klass
       end

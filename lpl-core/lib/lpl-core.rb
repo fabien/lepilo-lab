@@ -12,7 +12,11 @@ if defined?(Merb::Plugins)
   require dirname / 'lpl-core' / 'support'
   require dirname / 'lpl-core' / 'proxy'
   require dirname / 'lpl-core' / 'behaviour'
-  require dirname / 'lpl-core' / 'extension'  
+  require dirname / 'lpl-core' / 'extension'
+  
+  # Load the base layouts so extensions can inherit from them
+  require dirname / '..' / 'app' / 'views' / 'layout' / 'base.html.rb'
+  require dirname / '..' / 'app' / 'views' / 'layout' / 'lpl_core.html.rb'
   
   # Register the Slice for the current host application
   Merb::Slices::register(__FILE__)
