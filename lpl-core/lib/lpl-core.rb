@@ -2,6 +2,7 @@ if defined?(Merb::Plugins)
 
   $:.unshift(dirname = File.dirname(__FILE__))
 
+  dependency 'lpl-view', '0.0.1', :immediate => true
   dependency 'merb-slices', '1.0.8', :immediate => true
   dependency 'merb-auth-slice-password', '1.0.8', :immediate => true
   

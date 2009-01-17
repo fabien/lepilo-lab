@@ -31,8 +31,7 @@ Merb::Router.prepare do
   # resources :posts
   
   namespace(LplCore[:prefix], :controller_prefix => nil) do
-    add_slice 'lpl-core' # needs to run first
-    add_slice 'awesome'
+    all_slices # register all slices within the LplCore namespace
     match('/').to(:controller => 'lpl_core/main', :action => 'index').name(:lpl_index)
   end
   

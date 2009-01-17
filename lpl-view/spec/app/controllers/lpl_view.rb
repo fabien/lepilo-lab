@@ -9,7 +9,7 @@ class LplViewSample < Merb::Controller
     @buttons = []
     @buttons << Button.new('Awesome', "#a-link")
     @buttons << Button.new('Excellent', "#a-link")
-    @buttons << LplView::Widget.new { |b| b.a('Runtime builder', :href => '#some-link') }
+    @buttons << LplView::Widget.new { |w| w.builder.a('Runtime builder', :href => '#some-link') }
     
     render
   end
@@ -24,7 +24,11 @@ class LplViewSample < Merb::Controller
   end
   
   def runtime
-    display widget { |builder| builder.h1 'Created at runtime' }
+    display widget { |w| w.builder.h1 'Created at runtime' }
+  end
+  
+  def partials
+    render
   end
   
   protected

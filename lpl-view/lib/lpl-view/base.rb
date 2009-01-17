@@ -162,10 +162,7 @@ module LplView
     
     def method_missing(method_name, *args, &block)
       if context.respond_to?(method_name)
-        self.class.send(:define_method, method_name) do
-          context.send(method_name, *args, &block)
-        end
-        send(method_name)
+        context.send(method_name, *args, &block)
       elsif assigns.include?(ivar = "@#{method_name}")
         instance_variable_get(ivar)
       elsif caller.first.match(/\.lpl$/)
