@@ -51,6 +51,12 @@ task :gemspec do
   end
 end
 
+desc "Install the gem during development"
+task :install_dev do
+  install_dir = File.expand_path(File.join(File.dirname(__FILE__), '..', 'lpl-app', 'gems'))
+  Merb::RakeHelper.install(GEM_NAME, :version => GEM_VERSION, :install_dir => install_dir)
+end
+
 require 'spec/rake/spectask'
 require 'merb-core/test/tasks/spectasks'
 desc 'Default: run spec examples'

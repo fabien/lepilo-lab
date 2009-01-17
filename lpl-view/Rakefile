@@ -43,6 +43,12 @@ task :uninstall do
   Merb::RakeHelper.uninstall(GEM_NAME, :version => GEM_VERSION)
 end
 
+desc "Install the gem during development"
+task :install_dev do
+  install_dir = File.expand_path(File.join(File.dirname(__FILE__), '..', 'lpl-app', 'gems'))
+  Merb::RakeHelper.install(GEM_NAME, :version => GEM_VERSION, :install_dir => install_dir)
+end
+
 desc "Create a gemspec file"
 task :gemspec do
   File.open("#{GEM_NAME}.gemspec", "w") do |file|
