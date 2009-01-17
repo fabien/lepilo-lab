@@ -305,6 +305,14 @@ div#lpl_core_shelf > div.header .icon img {
   height:24px;
 }
 
+div#lpl_core_shelf > div.header .loading {
+  position:absolute;
+  top:8px;
+  right:6px;
+  width:16px;
+  height:16px;
+}
+
 
 div#lpl_core_shelf > div.scroller {
   position:relative;
