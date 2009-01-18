@@ -11,7 +11,7 @@ Merb::Slices::config[:merb_auth_slice_password][:path_prefix] = 'auth'
 
 class User
   
-  attr_reader :login
+  attr_reader :id, :login
   
   def initialize(login)
     @login = login

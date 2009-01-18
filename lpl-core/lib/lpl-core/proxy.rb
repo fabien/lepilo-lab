@@ -59,6 +59,11 @@ module LplCore
       route.generate(args)
     end
     
+    def require_assets
+      self[:javascripts].each { |args| require_js(*args)  }
+      self[:stylesheets].each { |args| require_css(*args) }
+    end
+    
     def require_js(*js)
       js.flatten!
       options = js.last.is_a?(Hash) ? js.pop : {}

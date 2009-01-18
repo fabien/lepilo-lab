@@ -29,10 +29,7 @@ module LplCore
         end
 
         def require_core_assets
-          before do
-            ::LplCore[:javascripts].each { |args| core.require_js(*args)  }
-            ::LplCore[:stylesheets].each { |args| core.require_css(*args) }
-          end
+          before { core.require_assets }
         end
         
       end
