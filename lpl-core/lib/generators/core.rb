@@ -16,6 +16,8 @@ module Merb::Generators
     common_template :javascript,     'public/javascripts/master.js'
     common_template :stylesheet,     'public/stylesheets/master.css'
     
+    common_directory :images,        'public/images'
+    
     common_template :license,        'LICENSE'
     
     common_template :merbtasks,      'lib/%base_name%/merbtasks.rb'

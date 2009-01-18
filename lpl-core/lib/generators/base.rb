@@ -32,6 +32,14 @@ module Merb::Generators
       end
     end
     
+    def self.common_directory(name, source_dir)
+      common_base_dir = File.expand_path(File.dirname(__FILE__))
+      directory name do |d|
+        d.source = File.join(common_base_dir, 'templates', 'common', source_dir)
+        d.destination = source_dir
+      end
+    end
+    
   end
   
   add :lpl_extension, LplExtensionGenerator

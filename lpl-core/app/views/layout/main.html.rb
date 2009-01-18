@@ -4,8 +4,11 @@ module Views
       class Main < Views::LplCore::Layout::Base
  
         def render_header
-          builder.div(:class => 'icon') { |button| button.img(:src => '/slices/lpl-core/stylesheets/assets/lpl/icons/40x40_articles.png', :alt => 'articles icon') }
-              
+          core.extensions.each do |ext|
+            next unless ext.icon?
+            builder.div(:class => 'icon') { |button| button.img(:src => ext.icon, :alt => ext.name, :title => ext.name) }
+          end
+             
           builder.a('sidebar',    :id => 'toggle_sidebar',    :href => '#')
           builder.a('shelf',      :id => 'toggle_shelf',      :href => '#')
           builder.a('inspector',  :id => 'toggle_inspector',  :href => '#')

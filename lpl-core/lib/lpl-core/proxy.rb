@@ -15,6 +15,26 @@ module LplCore
       @info = @config[:info] || {}
     end
     
+    def extension(name)
+      Merb::Slices[name.to_s.camel_case]
+    end
+    
+    def extensions
+      @@extensions ||= begin
+        if config[:extensions].is_a?(Array)
+          # ordered by LplCore[:extensions] = [:ext_a, :ext_b]
+          config[:extensions].map { |name| extension(name) }.compact
+        else
+          # unordered - by load order
+          LplCore.extensions
+        end
+      end
+    end
+    
+    def [](key)
+      self.config[key]
+    end
+    
     def url(*args)
       opts = args.last.is_a?(Hash) ? args.pop : {}
       route_name = args[0].is_a?(Symbol) ? args.shift : :index      

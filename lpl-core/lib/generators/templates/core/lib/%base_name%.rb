@@ -19,6 +19,10 @@ if defined?(Merb::Plugins)
   # You can set the default slice route prefix here.
   Merb::Slices::config[:<%= symbol_name %>][:path_prefix] ||= '<%= base_name %>'
   
+  # Set the image to display in LplCore's layout header - using relative path;
+  # if not set it won't be shown in the interface
+  Merb::Slices::config[:<%= symbol_name %>][:icon] ||= 'header-icon.png'
+  
   # Some general settings/metadata
   Merb::Slices::config[:<%= symbol_name %>][:info] ||= {}
     
@@ -29,6 +33,14 @@ if defined?(Merb::Plugins)
     self.description = "<%= module_name %> is a chunky LplExtension!"
     self.version = "0.0.1"
     self.author = "Your name"
+    
+    def self.icon
+      ::<%= module_name %>.public_path_for(:image, self[:icon])
+    end
+    
+    def self.icon?
+      self.config.key?(:icon)
+    end
     
     # Stub classes loaded hook - runs before LoadClasses BootLoader
     # right after a slice's classes have been loaded internally.
