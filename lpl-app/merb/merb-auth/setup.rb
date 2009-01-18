@@ -14,6 +14,7 @@ class User
   attr_reader :id, :login
   
   def initialize(login)
+    @id = login
     @login = login
   end
   
