@@ -2,11 +2,6 @@ module Views
   module LplCore
     module Layout
       class Base < LplView::View
-        
-        def initialize(*args, &block)
-          @show_sidebar = @show_feedback = @show_inspector = @show_shelf = true
-          super
-        end
   
         def render
           doctype!
@@ -45,6 +40,11 @@ module Views
         
         protected
         
+        # Skip method_missing for this - core is always available.
+        def core
+          context.send(:core)
+        end
+        
         def insert_metadata
           builder.meta(:name => 'description',  :content => page_description)
           builder.meta(:name => 'keywords',     :content => page_keywords)
@@ -64,10 +64,10 @@ module Views
         end
         
         # Methods to implement to determine which parts of the layout are visible.
-        def show_sidebar?;    @show_sidebar;     end        
-        def show_feedback?;   @show_feedback;    end
-        def show_inspector?;  @show_inspector;   end
-        def show_shelf?;      @show_shelf;       end
+        def show_sidebar?;    core.show_sidebar;     end        
+        def show_feedback?;   core.show_feedback;    end
+        def show_inspector?;  core.show_inspector;   end
+        def show_shelf?;      core.show_shelf;       end
 
       end
     end

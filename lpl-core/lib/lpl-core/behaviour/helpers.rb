@@ -9,10 +9,6 @@ module LplCore
       attr_writer :page_title, :page_description, :page_keywords
       attr_writer :page_copyright, :page_author, :page_generator
       
-      # Layout sections can be enabled/disabled using these attributes
-      
-      attr_accessor :show_sidebar, :show_feedback, :show_inspector, :show_shelf
-      
       # Page identifiers for selective css and javascript behaviour
       
       def bodytag_id(prefix = '')

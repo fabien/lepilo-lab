@@ -9,10 +9,23 @@ module LplCore
     
     attr_reader :controller, :config, :info
     
+    # Layout sections can be enabled/disabled using show_section! and hide_section!
+    
+    [:sidebar, :feedback, :inspector, :shelf].each do |section|
+      class_eval <<-CODE
+        attr_accessor :show_#{section}
+        def show_#{section}!; @show_#{section} = true;   end;
+        def hide_#{section}!; @show_#{section} = false;  end;
+      CODE
+    end
+    
     def initialize(controller)
       @controller = controller
       @config = LplCore.config
       @info = @config[:info] || {}
+      
+      # Enable all layout sections by default
+      @show_sidebar = @show_feedback = @show_inspector = @show_shelf = true
     end
     
     def extension(name)

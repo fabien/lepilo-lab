@@ -23,20 +23,34 @@ module Views
   
         def render_shelf
           images = []
-          images << '/slices/lpl-core/stylesheets/assets/thumbnail-01.png'
-          images << '/slices/lpl-core/stylesheets/assets/lpl/icons/128x128_file.png'
+          images << core.stylesheet_path('assets/thumbnail-01.png')
+          images << core.stylesheet_path('assets/lpl/icons/128x128_file.png')
+          
+          icons = ['/slices/lpl-core/stylesheets/assets/lpl/icons/40x40_articles.png']
    
           builder.div(:class => 'border') { |border| border.div(:class => 'handle hor') }
-          builder.div(:class => 'content') do |content|
-      
-            images.each do |img|
-              content.div(:class => 'icon-container') do |container|
-                container.img(:src => img, :alt => 'icon')
-                container.text!('stuff blah.jpg')
-                container.div('1200 x 817, PNG', :class => 'metadata')
-              end
-            end            
-      
+          
+          builder.div(:class => 'header') do |header|
+            icons.each do |icon|
+              header.div(:class => 'icon') { |button|  button.img(:src => icon, :alt => 'icon', :title => 'icon') }
+            end
+            
+            header.input(:id => 'shelf_search', :name => 'shelf_search', :class => 'search', :type => 'text')
+            header.div(:id => 'shelf-ajax-search-indicator', :class => 'loading') do |div|
+              div.img(:src => core.stylesheet_path('assets/lpl/loading-small-bright.gif'), :alt => 'loading indicator', :title => 'loading')
+            end
+          end
+          
+          builder.div(:class => 'scroller') do |scroller|
+            scroller.div(:class => 'content') do |content|
+              images.each do |img|
+                content.div(:class => 'icon-container') do |container|
+                  container.img(:src => img, :alt => 'icon')
+                  container.text!('stuff blah.jpg')
+                  container.div('1200 x 817, PNG', :class => 'metadata')
+                end
+              end      
+            end
           end
         end
         
