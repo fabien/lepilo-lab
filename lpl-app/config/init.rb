@@ -16,8 +16,14 @@ Merb::Config.use do |c|
 end
  
 Merb::BootLoader.before_app_loads do
-  # This will get executed after dependencies have been loaded but before your app's classes have loaded.
+  
+  Merb::Plugins.config[:merb_slices][:search_path] = [Merb.root / "slices", Merb.root / "sofa"]
+  
+  # This option sets the url/path entry point for all slices - see router.rb
   LplCore[:prefix] = 'lepilo'
+  # List extension you want to enable here - they will appear in this order in the interface.
+  # In case an extension isn't found it will just be ignored, so it's safe to include
+  # any extension you migh have (as a dependency) in this list.
   LplCore[:extensions] = [:fooz, :awesome]
 end
  

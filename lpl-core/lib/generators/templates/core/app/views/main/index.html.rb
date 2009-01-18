@@ -1,7 +1,7 @@
 module Views
   module <%= module_name %>
     module Main      
-      class Index < LplView::View
+      class Index < Views::LplCore::Main::Base
         
         def render
           builder.h1 "#{slice.name} (#{slice.version})"

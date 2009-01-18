@@ -19,6 +19,9 @@ if defined?(Merb::Plugins)
   require dirname / '..' / 'app' / 'views' / 'layout' / 'base.html.rb'
   require dirname / '..' / 'app' / 'views' / 'layout' / 'main.html.rb'
   
+  # Load the base templates so extensions can inherit from them
+  require dirname / '..' / 'app' / 'views' / 'main' / 'base.html.rb'
+  
   # Register the Slice for the current host application
   Merb::Slices::register(__FILE__)
   
