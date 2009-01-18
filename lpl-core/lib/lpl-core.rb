@@ -17,7 +17,7 @@ if defined?(Merb::Plugins)
   
   # Load the base layouts so extensions can inherit from them
   require dirname / '..' / 'app' / 'views' / 'layout' / 'base.html.rb'
-  require dirname / '..' / 'app' / 'views' / 'layout' / 'lpl_core.html.rb'
+  require dirname / '..' / 'app' / 'views' / 'layout' / 'main.html.rb'
   
   # Register the Slice for the current host application
   Merb::Slices::register(__FILE__)
@@ -30,7 +30,7 @@ if defined?(Merb::Plugins)
   # :layout       - the layout to use; defaults to :lpl-core
   # :mirror       - which path component types to use on copy operations; defaults to all
   # :path_prefix  - what path to use in the slice's url
-  Merb::Slices::config[:lpl_core][:layout]      ||= :lpl_core
+  Merb::Slices::config[:lpl_core][:layout]      ||= :main
   Merb::Slices::config[:lpl_core][:path_prefix] ||= 'core'
   
   # List all core javascripts here - the array items are passed as args to core.require_js

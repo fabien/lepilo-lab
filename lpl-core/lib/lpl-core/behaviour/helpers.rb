@@ -9,6 +9,12 @@ module LplCore
       attr_writer :page_title, :page_description, :page_keywords
       attr_writer :page_copyright, :page_author, :page_generator
       
+      # Layout sections can be enabled/disabled using these attributes
+      
+      attr_accessor :show_sidebar, :show_feedback, :show_inspector, :show_shelf
+      
+      # Page identifiers for selective css and javascript behaviour
+      
       def bodytag_id(prefix = '')
         "#{prefix}#{controller_name.hyphenize}-#{action_name.hyphenize}"
       end
@@ -17,7 +23,7 @@ module LplCore
         "#{slice.name.hyphenize} #{controller_name.hyphenize}"
       end
       
-      # page head/metadata
+      # Page head/metadata
       
       def info
         @_info ||= core.info.merge(self.slice[:info] || {})
@@ -47,7 +53,7 @@ module LplCore
         @page_generator || info[:generator]
       end
       
-      # asset handling
+      # Asset handling
       
       def insert_css(string = nil, &block)
         if self.slice == LplCore
