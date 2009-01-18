@@ -8,7 +8,7 @@ lpl.layout = function() {
   //  Holds a reference to the Instance of lpl.layout
   self = this;
   var headerHeight = 54;
-  var shelfHeight = 200;
+  var shelfHeight = 250;
   var leftPanelWidth = 254;
   var rightPanelWidth = 304;
   var centerWidth;
@@ -72,14 +72,12 @@ lpl.layout = function() {
     //$("#lpl_core_feedback").height(1);
     
     $("#lpl_core_sidebar").css({"height": dH - 51});
-    $("#lpl_core_feedback").css({"left": $("#lpl_core_sidebar").width() + $(window).scrollLeft() + 1, "top": $(window).scrollTop() + headerHeight - 3});
+    $("#lpl_core_feedback").css({"left": $("#lpl_core_sidebar").width() + $(window).scrollLeft() + 1});
     $("#lpl_core_inspector").css({"height": dH - 51});
     
     widthDelta = wW - dW;
-    this.centerWidth = dW - $("#lpl_core_sidebar").width() - (wW - $("#lpl_core_inspector").offset().left) + widthDelta + 2;
     //$("#lpl_core_feedback").width(dW - $("#lpl_core_sidebar").width() - $("#lpl_core_inspector").width() - 2);
-    $("#lpl_core_feedback").width(this.centerWidth);
-    
+    $("#lpl_core_feedback").width(dW - $("#lpl_core_sidebar").width() - (wW - $("#lpl_core_inspector").offset().left) + widthDelta + 2);
     $("#lpl_core_main").css({"left": $("#lpl_core_sidebar").width() + 5, "top": headerHeight + $("#lpl_core_feedback").height(), "width": dW - $("#lpl_core_sidebar").width() - $("#lpl_core_inspector").width() - 10});
   };
   
@@ -124,10 +122,16 @@ lpl.layout = function() {
       shelfOpen = false;
       this.reLayout();
     }
+    this.reflowShelf();
+  };
+
+  this.reflowShelf = function() {
+    shelfContentItems = $("#lpl_core_shelf .icon-container").length + 1;
+    $("#lpl_core_shelf .content").width(shelfContentItems * ($("#lpl_core_shelf .icon-container:first").width() + 5) );
   };
 
   this.hideFlash = function() {
-    $("#lpl_flash").hide("slide", { direction: "up" }, 350, this.reLayout );
+    $("#lpl_flash").hide("slide", { direction: "up" }, 150, this.reLayout );
   }
   
   return this;
@@ -143,5 +147,7 @@ $(document).ready(function(){
   $(document).scroll(function() {
     lpl.app.layout.reLayout();
   });
+  
+  lpl.app.layout.reLayout();
   
 });

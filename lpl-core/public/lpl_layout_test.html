@@ -30,6 +30,21 @@
     
     <div id='lpl_core_main'>
       
+      <div class='buttons'>
+        <div class='lpl_btn_square'>
+          Article Settings
+          <span></span>
+        </div>
+        <div class='lpl_btn_square' onclick="var textAdd = lpl.base.popin({ caller: this, title: 'Add a Text Block to »Article 2«', retrieve: '/lepilo/text_containers/new', bury: '/lepilo/text_containers', params:'article_id=2&amp;formpartial=true' });">
+          Add Text
+          <span></span>
+        </div>
+        <div id='lpl_upload_button'>
+          Upload
+        </div>
+      </div>
+      
+      
       <ul class="lpl_content_list">
         <h1>Articles List</h1>
         <li>
@@ -98,25 +113,75 @@
 
         <form action='/lepilo/articles/2' method='post'>
           <input name='_method' type='hidden' value='put' />
-          <p>
+          
+          <div class="lpl_form_elements split2">
+
+            <div class="half">
+              <label for='article[title]'>Belongs to</label>
+              <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+            </div>
+
+            <div class="half">
+              <label for='article[title]'>Belongs to</label>
+              <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+            </div>
+
+          </div>
+          
+          <div class="lpl_form_elements">
             <label for='article[title]'>Belongs to</label>
             <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
-          </p>
-          <p>
+          </div>
+
+          <div class="lpl_form_elements split2">
+
+            <div class="half">
+              <label for='article[title]'>First Name</label>
+              <input type="text" name="some_name" value="Article 123" id="some_name">
+            </div>
+
+            <div class="half">
+              <label for='article[title]'>Family Name</label>
+              <input type="text" name="some_name" value="Article 456" id="some_name">
+            </div>
+
+          </div>
+
+          <div class="lpl_form_elements">
             <label for='article[title]'>Title</label>
             <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
-          </p>
-          <p>
+          </div>
+
+          <div class="lpl_form_elements">
             <label for='article[description]'>Description</label>
             <textarea name="article[description]" rows="4" id="article[description]">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
-          </p>
+          </div>
+
+          <div class="lpl_form_elements split2">
+
+            <div class="half">
+              <label for='article[title]'>First Name</label>
+              <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
+            </div>
+
+            <div class="half">
+              <label for='article[title]'>Belongs to</label>
+              <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+            </div>
+
+          </div>
+
           <div class='buttons right'>
             <div class='lpl_btn_square'>
               Update Article
               <span></span>
             </div>
           </div>
-          <input class='button' type='submit' value='Update Article' />
+
+          <div class="lpl_form_elements">
+            <input class='button' type='submit' value='Update Article' />
+          </div>
+
         </form>
 
       </div>
@@ -178,7 +243,7 @@
             // file_queued_handler : file_queued_function,
             
             // Button settings (as of SWFUploas 2.2, which adds Flash 10 support)
-            button_image_url : "/stylesheets/assets/lpl/upload-button.png",
+            button_image_url : "stylesheets/assets/lpl/upload-button.png",
             button_placeholder_id : "lpl_upload_button",
             button_width: 61,
             button_height: 27,
@@ -314,6 +379,7 @@
         </div>
         ZOMG SI TEH FAILZ!!1one<br/><br/>Fo' realz.
       </div>
+
     </div>
     <!-- #lpl_core_feedback END -->
     
@@ -321,6 +387,70 @@
       <h1 class='lpl_inspector'>
         for_inspector, thrown out of @controllers
       </h1>
+      
+      <form action='/lepilo/articles/2' method='post'>
+        
+        <input name='_method' type='hidden' value='put' />
+        
+        <div class="lpl_form_elements split2">
+
+          <div class="half">
+            <label for='article[title]'>Belongs to</label>
+            <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+          </div>
+
+          <div class="half">
+            <label for='article[title]'>Family Name</label>
+            <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
+          </div>
+
+        </div>
+        
+        <div class="lpl_form_elements">
+          <label for='article[title]'>Belongs to</label>
+          <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+        </div>
+
+        <div class="lpl_form_elements">
+          <label for='article[title]'>Title</label>
+          <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
+        </div>
+
+
+        <div class="lpl_form_elements">
+          <label for='article[description]'>Description</label>
+          <textarea name="article[description]" rows="4" id="article[description]">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
+        </div>
+
+        <div class="lpl_form_elements split2">
+
+          <div class="half">
+            <label for='article[title]'>First Name</label>
+            <input type="text" name="some_name" value="Some name" id="some_name">
+          </div>
+
+          <div class="half">
+            <label for='article[title]'>Belongs to</label>
+            <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+          </div>
+
+        </div>
+
+
+        <div class='buttons right'>
+          <div class='lpl_btn_square'>
+            Update Article
+            <span></span>
+          </div>
+        </div>
+
+        <div class="lpl_form_elements">
+          <input class='button' type='submit' value='Update Article' />
+        </div>
+
+      </form>
+      
+      
     </div>
     <!-- #lpl_core_inspector END -->
     
@@ -328,60 +458,139 @@
       <div class='border'>
         <div class='handle hor'></div>
       </div>
-      
-      <div class="content">
+
+      <div class='header'>
         
-        <div class="icon-container">
-          <div class="image">
-            <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
-          </div>
-          stuff blah .jpg
-          <div class="metadata">1200 x 817, PNG</div>
+        <div class="icon">
+          <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon">
         </div>
 
-        <div class="icon-container">
-          <div class="image">
-            <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
-          </div>
-          stuff blah .jpg
-          <div class="metadata">1200 x 817, PNG</div>
+        <div class="icon">
+          <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon">
         </div>
-
-        <div class="icon-container">
-          <div class="image">
-            <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" />
-          </div>
-          stuff blah .jpg
-          <div class="metadata">1200 x 817, PNG</div>
+        
+        <div class="icon active">
+          <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon">
         </div>
-
-        <div class="icon-container">
-          <div class="icon">
-            <img src="/stylesheets/assets/lpl/icons/128x128_file.png" alt="icon" />
-          </div>
-          PHAT file.cbr
-          <div class="metadata">876kb, unknown</div>
+        
+        <div class="icon">
+          <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon">
         </div>
-
-        <div class="icon-container">
-          <div class="image">
-            <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" />
-          </div>
-          some long ass name image from a windows XP user.jpg
-          <div class="metadata">640 x 480, BMP, uncompressed, fake metadata and such</div>
-        </div>
-
-        <div class="icon-container">
-          <div class="text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </div>
-          Short textblock part...
-          <div class="metadata">876 words</div>
+        
+        yada
+        
+        <input type="text" name="shelf_search" value="" id="shelf_search" class="search" />
+        
+        <div id="shelf-ajax-search-indicator" class="loading">
+          <img src="/stylesheets/assets/lpl/loading-small-bright.gif" alt="loading indicator">
         </div>
         
       </div>
+      <!-- #lpl_core_shelf .header END -->
+      
+      
+      <div class="scroller">
+        
+        <div class="content">
+      
+          <div class="icon-container">
+            <div class="image">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+            </div>
+            <div>stuff blah .jpg</div>
+            <div class="metadata">1200 x 817, PNG</div>
+          </div>
+
+
+
+          <div class="icon-container">
+            <div class="image">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+            </div>
+            <div>stuff blah .jpg</div>
+            <div class="metadata">1200 x 817, PNG</div>
+          </div>
+
+          <div class="icon-container">
+            <div class="image">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+            </div>
+            <div>stuff blah .jpg</div>
+            <div class="metadata">1200 x 817, PNG</div>
+          </div>
+
+          <div class="icon-container">
+            <div class="image">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+            </div>
+            <div>stuff blah .jpg</div>
+            <div class="metadata">1200 x 817, PNG</div>
+          </div>
+
+          <div class="icon-container">
+            <div class="image">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+            </div>
+            <div>stuff blah .jpg</div>
+            <div class="metadata">1200 x 817, PNG</div>
+          </div>
+
+          <div class="icon-container">
+            <div class="image">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+            </div>
+            <div>stuff blah .jpg</div>
+            <div class="metadata">1200 x 817, PNG</div>
+          </div>
+
+
+
+          <div class="icon-container">
+            <div class="image">
+              <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
+            </div>
+            <div>stuff blah .jpg</div>
+            <div class="metadata">1200 x 817, PNG</div>
+          </div>
+
+          <div class="icon-container">
+            <div class="image">
+              <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" />
+            </div>
+            <div>stuff blah .jpg</div>
+            <div class="metadata">1200 x 817, PNG</div>
+          </div>
+
+          <div class="icon-container">
+            <div class="icon">
+              <img src="/stylesheets/assets/lpl/icons/128x128_file.png" alt="icon" />
+            </div>
+            <div>PHAT file.cbr</div>
+            <div class="metadata">876kb, unknown</div>
+          </div>
+
+          <div class="icon-container">
+            <div class="image">
+              <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" />
+            </div>
+            <div>some long ass name image from a windows XP user.jpg</div>
+            <div class="metadata">640 x 480, BMP, uncompressed, fake metadata and such</div>
+          </div>
+
+          <div class="icon-container">
+            <div class="text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+            Short textblock part...
+            <div class="metadata">876 words</div>
+          </div>
+      
+        </div>
+        <!-- .conten -->
+      </div>
+      <!-- .scroller -->
     </div>
     <!-- #lpl_core_shelf END -->
     

@@ -262,12 +262,72 @@ div#lpl_core_shelf div.border div.handle.hor {
   background: transparent url(assets/lpl/handle-hor.png) repeat-x;
 }
 
-div#lpl_core_shelf > div.content {
+div#lpl_core_shelf > div.header {
+  position:relative;
+  top:10px;
+  height:34px;
+  background: transparent url(assets/lpl/button-headers-bg.png) repeat-x 0px -46px;
+  overflow:hidden;
+}
+
+div#lpl_core_shelf > div.header .icon {
+  position:relative;
+  float:left;
+  top:1px;
+  width:34px;
+  height:34px;
+  border-right: 1px solid rgba(0,0,0,0.25);
+  overflow:hidden;
+}
+
+div#lpl_core_shelf > div.header .icon:first-child {
+  margin-left:10px;
+  border-left: 1px solid rgba(0,0,0,0.25);
+}
+
+div#lpl_core_shelf > div.header .icon:hover {
+  background: transparent url(assets/lpl/button-headers-bg.png) repeat-x 0px -3px;
+}
+
+div#lpl_core_shelf > div.header .icon:active {
+  background: transparent url(assets/lpl/button-headers-bg.png) repeat-x 0px -91px;
+}
+
+div#lpl_core_shelf > div.header .icon.active {
+  background: transparent url(assets/lpl/button-headers-bg.png) repeat-x 0px -135px;
+}
+
+div#lpl_core_shelf > div.header .icon img {
+  position:relative;
+  top:4px;
+  left:4px;
+  width:24px;
+  height:24px;
+}
+
+div#lpl_core_shelf > div.header .loading {
+  position:absolute;
+  top:8px;
+  right:6px;
+  width:16px;
+  height:16px;
+}
+
+
+div#lpl_core_shelf > div.scroller {
   position:relative;
   top:11px;
+  left:0px;
+  height:205px;
+  width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+}
+
+div#lpl_core_shelf > div.scroller > div.content {
+  position:relative;
   height:190px;
-  overflow:auto;
-  /*background:rgba(0,0,0,0.25);*/
+  overflow:hidden;
 }
 
 div#lpl_core_shelf div.icon-container {
@@ -276,7 +336,7 @@ div#lpl_core_shelf div.icon-container {
   margin:5px 0 0 5px;
   padding:5px;
   width:128px;
-  height:175px;
+  height:170px;
   overflow:hidden;
   color:#fff;
   font-size:12px;
