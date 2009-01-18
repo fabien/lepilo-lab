@@ -27,8 +27,8 @@ module Views
           images << core.stylesheet_path('assets/lpl/icons/128x128_file.png')
           
           icons = ['/slices/lpl-core/stylesheets/assets/lpl/icons/40x40_articles.png']
-   
-          builder.div(:class => 'border') { |border| border.div(:class => 'handle hor') }
+          
+          builder.div(:class => 'border') { |border| border.div('', :class => 'handle hor') }
           
           builder.div(:class => 'header') do |header|
             icons.each do |icon|
