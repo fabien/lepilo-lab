@@ -1,6 +1,5 @@
 /* -------------------------------------------------------- */
 /*    lepilo CONTENT                                        */
-/*    (maybe the div#article stuff is not needed anymore?)  */
 /* -------------------------------------------------------- */
 
 div#lpl_core_main {
@@ -49,8 +48,9 @@ div.lpl_list_entry h3 {
 
 ul.lpl_content_list {
   position:relative;
-  padding:10px 0 10px 0;
-  margin:0 0 5px 0;
+  display:block;
+  padding:10px 0 48px 0;
+  margin:0 0 25px 0;
   background: #e7e8e7 url(/images/lpl/gradient-brighter.png) repeat-x;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -71,7 +71,7 @@ ul.lpl_content_list > li {
   overflow:hidden;
 }
 
-ul.lpl_content_list > li:nth-child(2) {
+ul.lpl_content_list > li:nth-child(3) {
   border-top:1px solid #ccc;
 }
 
