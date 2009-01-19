@@ -77,8 +77,12 @@ lpl.layout = function() {
     
     widthDelta = wW - dW;
     //$("#lpl_core_feedback").width(dW - $("#lpl_core_sidebar").width() - $("#lpl_core_inspector").width() - 2);
-    $("#lpl_core_feedback").width(dW - $("#lpl_core_sidebar").width() - (wW - $("#lpl_core_inspector").offset().left) + widthDelta + 2);
-    $("#lpl_core_main").css({"left": $("#lpl_core_sidebar").width() + 5, "top": headerHeight + $("#lpl_core_feedback").height(), "width": dW - $("#lpl_core_sidebar").width() - $("#lpl_core_inspector").width() - 10});
+    if($("#lpl_core_feedback").length == 1 && $("#lpl_core_inspector").length == 1) {
+      $("#lpl_core_feedback").width(dW - $("#lpl_core_sidebar").width() - (wW - $("#lpl_core_inspector").offset().left) + widthDelta + 2);
+    }
+    if($("#lpl_core_sidebar").length == 1) {
+      $("#lpl_core_main").css({"left": $("#lpl_core_sidebar").width() + 5, "top": headerHeight + $("#lpl_core_feedback").height(), "width": dW - $("#lpl_core_sidebar").width() - $("#lpl_core_inspector").width() - 10});
+    }
   };
   
   this.toggleInspector = function() {
