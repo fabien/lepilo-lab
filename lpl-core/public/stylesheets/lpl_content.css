@@ -71,7 +71,7 @@ ul.lpl_content_list > li {
   overflow:hidden;
 }
 
-ul.lpl_content_list > li:nth-child(2), ul.lpl_content_list > li:nth-child(3) {
+ul.lpl_content_list > li:nth-child(3) {
   border-top:1px solid #ccc;
 }
 
