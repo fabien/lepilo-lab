@@ -61,11 +61,15 @@ module Merb::Template
     module Mixin
       
       def widget(&block)
-        LplView::Widget.new(&block)
+        w = LplView::Widget.new(&block)
+        w.context = self
+        w
       end
       
       def view(&block)
-        LplView::View.new(&block)
+        v = LplView::View.new(&block)
+        v.context = self
+        v
       end
       
     end

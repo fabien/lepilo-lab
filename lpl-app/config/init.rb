@@ -24,7 +24,7 @@ Merb::BootLoader.before_app_loads do
   # List extension you want to enable here - they will appear in this order in the interface.
   # In case an extension isn't found it will just be ignored, so it's safe to include
   # any extension you migh have (as a dependency) in this list.
-  LplCore[:extensions] = [:fooz, :awesome]
+  LplCore[:extensions] = [:fooz, :awesome, :sofa_pages]
 end
  
 Merb::BootLoader.after_app_loads do

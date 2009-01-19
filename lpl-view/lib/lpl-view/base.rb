@@ -121,8 +121,12 @@ module LplView
     # This is the method you should override; you can take advantage
     # of rendering the block that has been passed at #initialize
     # by calling super from your subclassed #render method.
+    #
+    # You can also use yield to create a placeholder for method overrides;
+    # this can then be called using: super { ... }
     def render
       render_inner
+      yield if block_given?
     end
     
     # This method is called when method_missing can't find a suitable
