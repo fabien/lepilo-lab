@@ -41,7 +41,7 @@ if defined?(Merb::Plugins)
     javascripts = []
     javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery], { :bundle => :jquery }]
     javascripts << [%w[jquery.autogrow-textarea lowpro.jquery swfupload], { :bundle => :extensions }]
-    javascripts << [%w[lpl.app lpl.layout lpl.uploadrz], { :bundle => :lpl }]
+    javascripts << [%w[lpl.app lpl.layout lpl.modal lpl.uploadrz], { :bundle => :lpl }]
   end
   
   # List all core stylesheets here - the array items are passed as args to core.require_css

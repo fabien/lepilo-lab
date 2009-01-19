@@ -31,6 +31,79 @@ div.lpl_pop_in h1 {
 }
 
 /* -------------------------------------------------------- */
+/*    CONTENT LIST UI                                       */
+/*    Additional styles for the content lists               */
+/* -------------------------------------------------------- */
+
+ul.lpl_content_list > div.pagination {
+  position:absolute;
+  right:8px;
+  height:32px;
+}
+
+ul.lpl_content_list > div.pagination::-moz-selection{
+ background:transparent;
+}
+
+ul.lpl_content_list > div.pagination::selection {
+ background:transparent;
+}
+
+
+ul.lpl_content_list > div.pagination.top {
+  top:8px;
+}
+
+
+ul.lpl_content_list > div.pagination > div.canal {
+  position:relative;
+  top:6px;
+  right:6px;
+  height:32px;
+}
+
+.lpl_canal_32 {
+  position:relative;
+  height:30px;
+  margin:0px 15px -32px 0px;
+  background: transparent url(assets/lpl/canal.png) no-repeat 0px 0px;
+}
+
+.lpl_canal_32 > span {
+  position:relative;
+  display:block;
+  float:right;
+  top:0px;
+  right:-15px;
+  height:32px;
+  width:15px;
+  margin:0 0 0 -15px;
+  background: transparent url(assets/lpl/canal.png) no-repeat -585px 0px;
+}
+
+ul.lpl_content_list > div.pagination > div.page {
+  position:absolute;
+  top:-28px;
+  width:100%;
+  color:#ccc;
+  font-size:10px;
+  font-weight:bold;
+  text-align:center;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.75);
+}  
+
+ul.lpl_content_list > div.pagination.bottom {
+  position:absolute;
+  bottom:7px;
+  right:8px;
+  height:32px;
+}
+
+ul.lpl_content_list > div.pagination.bottom > div.page {
+  top:38px;
+}
+
+/* -------------------------------------------------------- */
 /*    FOLDERS LIST                                          */
 /*    Styles for a list of folders                          */
 /* -------------------------------------------------------- */
@@ -305,6 +378,14 @@ div#lpl_core_shelf > div.header .icon img {
   height:24px;
 }
 
+div#lpl_core_shelf > div.header .buttons {
+  position:absolute;
+  overflow:hidden;
+  top:1px;
+  left:200px;
+}
+
+
 div#lpl_core_shelf > div.header .loading {
   position:absolute;
   top:8px;
@@ -424,6 +505,32 @@ div#lpl_core_shelf div.icon-container div.metadata {
   color:#333;
   bottom:4px;
   right:5px;
+}
+
+/* -------------------------------------------------------- */
+/*    SIMPLE UI WIDGETS                                     */
+/*    simple markup widgets                                 */
+/* -------------------------------------------------------- */
+
+* > span.lpl_tooltip {
+  position:relative;
+  display:none;
+  top:10px;
+  left:-10px;
+  padding:3px;
+  font-size:10px;
+  line-height:12px;
+  background:#fff191;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+  overflow:hidden;
+  z-index:50000;
+}
+
+*:hover > span.lpl_tooltip {
+  display:inline;
 }
   
 /* -------------------------------------------------------- */

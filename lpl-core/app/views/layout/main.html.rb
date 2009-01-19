@@ -14,7 +14,7 @@ module Views
           builder.a('inspector',  :id => 'toggle_inspector',  :href => '#')
     
           builder.div(:class => 'lpl_right') do |right|
-            right.div(:class => 'lpl_btn_square red', :onclick => "window.location = '/logout'") do |button|
+            right.div(:class => 'lpl_btn_square red', :onclick => "window.location = '/lepilo/auth/logout'") do |button|
               button.text!('Log out')
               button.span ''
             end

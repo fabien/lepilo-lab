@@ -46,6 +46,13 @@
       
       
       <ul class="lpl_content_list">
+        <div class="pagination top">
+          <div class="page">123 of 896</div>
+          <div class="lpl_canal_32" style="width:44px"><span></span></div>
+          <div class="lpl_previous_round_24">previous</div>
+          <div class="lpl_next_round_24">next</div>
+        </div>
+        
         <h1>Articles List</h1>
         <li>
           <div class="reorder"></div>
@@ -104,6 +111,13 @@
             deserunt mollit anim id est laborum.
           </div>
         </li>
+
+        <div class="pagination bottom">
+          <div class="page">123 of 896</div>
+          <div class="lpl_canal_32" style="width:44px"><span></span></div>
+          <div class="lpl_previous_round_24">previous</div>
+          <div class="lpl_next_round_24">next</div>
+        </div>
 
       </ul>
       <!-- ul.lpl_content_list END-->
@@ -172,7 +186,7 @@
           </div>
 
           <div class='buttons right'>
-            <div class='lpl_btn_square'>
+            <div class='lpl_btn_basic'>
               Update Article
               <span></span>
             </div>
@@ -277,25 +291,70 @@
       <div class="icon active">
         <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon">
       </div>
-
-      <div >
-        
-        <a href="#" id="toggle_sidebar">sidebar</a> | 
-        <a href="#" id="toggle_shelf">shelf</a> | 
-        <a href="#" id="toggle_inspector">inspector</a>
-        
-        <div class='lpl_right'>
-          <div class='lpl_btn_square red' onclick="window.location = '/logout'">
-            Log out
-            <span></span>
-          </div>
+      
+      <div class="icons-toggle">
+        <div class="icon" id="toggle_sidebar">
+          <img src="/stylesheets/assets/lpl/icons/48x48_sidebar.png" alt="toggle sidebar">
         </div>
+
+        <div class="icon" id="toggle_shelf">
+          <img src="/stylesheets/assets/lpl/icons/48x48_shelf.png" alt="toggle shelf">
+        </div>
+
+        <div class="icon" id="toggle_inspector">
+          <img src="/stylesheets/assets/lpl/icons/48x48_inspector.png" alt="toggle inspector">
+        </div>
+
+        <div class="icon space"> </div>
+
+        <div class="icon logout" onclick="window.location = '/logout'"> </div>
+        
       </div>
+
     </div>
     <!-- #lpl_core_header_end -->
     
     <div id='lpl_core_sidebar'>
       
+      
+      <ul class="lpl_topics_container" style="margin:5px 2px 5px 2px">
+        <div class="title">
+          <div class="encapsulate">
+            blach
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="encapsulate">
+            <li class="topic">
+              <div class="encapsulate">
+                blach sad asd asd 
+                blach sad asd asd 
+              </div>
+            </li>
+
+            <li class="topic">
+              <div class="encapsulate">
+                blach
+              </div>
+            </li>
+
+            <li class="topic selected">
+              <div class="encapsulate">
+                blach
+              </div>
+            </li>
+
+            <li class="topic">
+              <div class="encapsulate">
+                blach
+              </div>
+            </li>
+          </div>
+        </div>
+      </ul>
+      
+      <br style="clear:both" />
       <h1 class='lpl_sidebar'>
         smart folders
       </h1>
@@ -335,8 +394,14 @@
           <ul onclick="window.location = '/lepilo/topics'">
             topics
           </ul>
-          <ul onclick="window.location = '/lepilo/articles'">
+          <ul class="open" onclick="window.location = '/lepilo/articles'">
             articles
+            <li> List item</li>
+            <ul class="open"> Another UList
+              <li> List item</li>
+              <li> List item</li>
+            </ul>
+            <ul> Yet Another UList</ul>
           </ul>
           <ul onclick="window.location = '/lepilo/media_resources'">
             media
@@ -438,7 +503,7 @@
 
 
         <div class='buttons right'>
-          <div class='lpl_btn_square'>
+          <div class='lpl_btn_basic'>
             Update Article
             <span></span>
           </div>
@@ -477,7 +542,31 @@
           <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon">
         </div>
         
-        yada
+        <div class="buttons">
+          
+          <div class='lpl_btn_white'>
+            Tag
+            <span></span>
+          </div>
+          
+          <div class='lpl_btn_white'>
+            Random filter here
+            <span></span>
+          </div>
+          
+          <div class='lpl_btn_white active'>
+            Active Filter
+            <span></span>
+          </div>
+
+          <div class='lpl_btn_white'>
+            Date
+            <span></span>
+          </div>
+          
+          
+          
+        </div>
         
         <input type="text" name="shelf_search" value="" id="shelf_search" class="search" />
         
