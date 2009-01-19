@@ -57,7 +57,6 @@ $(document).ready(function(){
   //$("textarea").autogrow();
   //$("ul.lpl_topics_container").attach(lpl.topic, {});
   
-  lpl.app.layout.reLayout();
   // A slightly delayed lpl.app.layout.reLayout call for Safari 
   $("#lpl_core_main").animate({opacity: 1.0}, 750, "linear", function(){ lpl.app.layout.reLayout(); });
 });
