@@ -2,9 +2,10 @@ if defined?(Merb::Plugins)
 
   $:.unshift(dirname = File.dirname(__FILE__))
 
+  dependency 'lpl-support', '0.0.1', :immediate => true
   dependency 'lpl-view', '0.0.1', :immediate => true
-  dependency 'merb-slices', '1.0.8', :immediate => true
-  dependency 'merb-auth-slice-password', '1.0.8', :immediate => true
+  dependency 'merb-slices', '>= 1.0.8', :immediate => true
+  dependency 'merb-auth-slice-password', '>= 1.0.8', :immediate => true
   
   Merb::Plugins.add_rakefiles "lpl-core/merbtasks", "lpl-core/slicetasks", "lpl-core/spectasks"
   
@@ -33,6 +34,7 @@ if defined?(Merb::Plugins)
   # :layout       - the layout to use; defaults to :lpl-core
   # :mirror       - which path component types to use on copy operations; defaults to all
   # :path_prefix  - what path to use in the slice's url
+  Merb::Slices::config[:lpl_core][:prefix]      ||= 'lepilo'
   Merb::Slices::config[:lpl_core][:layout]      ||= :main
   Merb::Slices::config[:lpl_core][:path_prefix] ||= 'core'
   

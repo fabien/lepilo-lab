@@ -22,15 +22,45 @@ Merb::Authentication.customize_default do
       provides :xml, :js, :json, :yaml
       case content_type
       when :html
-        core.require_assets
-        core.hide_sidebar!
-        core.hide_inspector!
-        core.hide_shelf!
-        render :layout => :base
+        if core.request?
+          render_core_exception :unauthenticated
+        else
+          render
+        end
       else
         basic_authentication.request!
         ""
       end
+    end
+    
+    # handle NotFound exceptions (404)
+    def not_found
+      # Check whether the request is made within lpl or simply at the site-level
+      if core.request?
+        render_core_exception :not_found
+      else
+        render :format => :html
+      end
+    end
+    
+    # handle NotAcceptable exceptions (406)
+    def not_acceptable
+      # Check whether the request is made within lpl or simply at the site-level
+      if core.request?
+        render_core_exception :not_acceptable
+      else
+        render :format => :html
+      end
+    end
+    
+    protected
+    
+    def render_core_exception(exception_action_name)
+      core.require_assets
+      core.hide_sidebar!
+      core.hide_inspector!
+      core.hide_shelf!
+      render :template => "exceptions/lpl_#{exception_action_name}", :layout => :exceptions
     end
     
   end

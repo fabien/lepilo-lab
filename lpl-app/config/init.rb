@@ -16,6 +16,7 @@ Merb::Config.use do |c|
 end
  
 Merb::BootLoader.before_app_loads do
+  Sofa::Storage[:default] = "http://localhost:5984/lpl-app" if Object.const_defined?(:Sofa)
   
   Merb::Plugins.config[:merb_slices][:search_path] = [Merb.root / "slices", Merb.root / "sofa"]
   
@@ -30,6 +31,21 @@ end
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
   
-  Sofa::Storage[:default] = "http://localhost:5984/lpl-app" if Object.const_defined?(:Sofa)
+  Merb::Slices.config[:sofa_pages][:archive_section] = 'archief'
   
+  if Object.const_defined?(:Sofa)
+    Sofa::Document.refresh_design_documents!
+    Sofa::Document.initialize_views!
+    
+    # %w[home bikes+parts bikeboutique informatie archief].each_with_index do |name, idx|
+    #   unless SofaPages::Section.fetch(name.urlify)
+    #     SofaPages::Section.new(:name => name, :position => idx + 1).save!
+    #   end
+    # end
+    
+  end
+  
+  
+  p Exceptions.send(:_template_roots)
+
 end

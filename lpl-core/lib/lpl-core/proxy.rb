@@ -28,6 +28,10 @@ module LplCore
       @show_sidebar = @show_feedback = @show_inspector = @show_shelf = true
     end
     
+    def request?
+      controller.request.uri =~ /^\/#{self[:prefix]}\//
+    end
+    
     def extension(name)
       Merb::Slices[name.to_s.camel_case]
     end
