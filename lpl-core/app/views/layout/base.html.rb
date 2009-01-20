@@ -7,7 +7,7 @@ module Views
           doctype!
           builder.html(:xmlns => "http://www.w3.org/1999/xhtml") do |html|
             html.head { render_head }
-            html.body { render_body }
+            html.body(:id => bodytag_id, :class => bodytag_classname) { render_body }
           end
         end
 

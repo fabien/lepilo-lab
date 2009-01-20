@@ -29,4 +29,7 @@ end
  
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
+  
+  Sofa::Storage[:default] = "http://localhost:5984/lpl-app" if Object.const_defined?(:Sofa)
+  
 end
