@@ -54,7 +54,8 @@ div#lpl_core_sidebar {
   width:254px;
   padding:0 4px 0 0;
   background: transparent url(assets/lpl/sidebar-bg.png) no-repeat top right;
-  overflow:auto;
+  overflow-x:hidden;
+  overflow-y:auto;
   z-index:26000;
 }
 
@@ -74,7 +75,8 @@ div#lpl_core_inspector {
   width:354px;
   padding:0 0 0 4px;
   background: transparent url(assets/lpl/sidebar-bg.png) no-repeat top left;
-  overflow:auto;
+  overflow-x:hidden;
+  overflow-y:auto;
   z-index:26000;
 }
 

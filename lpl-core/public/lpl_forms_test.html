@@ -62,56 +62,9 @@
           <div class="description">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-            deserunt mollit anim id est laborum.
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </div>
         </li>
-        
-        <li>
-          <div class="reorder"></div>
-          <div class="thumbnail">
-            <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
-          </div>
-          <div class="edit">preview | edit | delete</div>
-          <h2>Another Article</h2>
-          <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. 
-          </div>
-        </li>
-
-        <li>
-          <div class="reorder"></div>
-          <div class="edit">preview | edit | delete</div>
-          <h2>An Article Which Holds An Exceptionally Long Title</h2>
-          <div class="metadata"></div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. 
-          </div>
-        </li>
-
-          <li>
-          <div class="reorder"></div>
-          <div class="thumbnail">
-            <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
-          </div>
-          <div class="edit">preview | edit | delete</div>
-          <h2>Another Article</h2>
-          <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-            deserunt mollit anim id est laborum.
-          </div>
-        </li>
-
         <div class="pagination bottom">
           <div class="page">123 of 896</div>
           <div class="lpl_canal_32" style="width:44px"><span></span></div>
@@ -127,74 +80,52 @@
 
         <form action='/lepilo/articles/2' method='post'>
           <input name='_method' type='hidden' value='put' />
-          
-          <div class="lpl_form_elements split2">
+            
+            <table border="2" cellspacing="10" cellpadding="10" class="lpl_form">
+              <tr>
+                <th><label>Header</label></th>
+                <th><label>Header</label></th>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" name="some_name" value="Some name" id="some_name">
+                </td>
+                <td>
+                  <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+                </td>
+              </tr>
+              <tr>
+                <th><label>Header</label></th>
+                <th><label>Header</label></th>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" name="some_name" value="Some name" id="some_name">
+                </td>
+                <td>
+                  <input type="text" name="some_name" value="Some name" id="some_name">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" name="some_name" value="Some name" id="some_name">
+                </td>
+                <td>
+                  <textarea name="article[description]" rows="4" id="article[description]">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
+                </td>
+              </tr>
 
-            <div class="half">
-              <label for='article[title]'>Belongs to</label>
-              <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
-            </div>
+              <tr>
+                <td colspan="2">
+                  <textarea name="article[description]" rows="4" id="article[description]">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
+                </td>
+              </tr>
 
-            <div class="half">
-              <label for='article[title]'>Belongs to</label>
-              <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
-            </div>
-
-          </div>
-          
-          <div class="lpl_form_elements">
-            <label for='article[title]'>Belongs to</label>
-            <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
-          </div>
-
-          <div class="lpl_form_elements split2">
-
-            <div class="half">
-              <label for='article[title]'>First Name</label>
-              <input type="text" name="some_name" value="Article 123" id="some_name">
-            </div>
-
-            <div class="half">
-              <label for='article[title]'>Family Name</label>
-              <input type="text" name="some_name" value="Article 456" id="some_name">
-            </div>
-
-          </div>
-
-          <div class="lpl_form_elements">
-            <label for='article[title]'>Title</label>
-            <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
-          </div>
-
-          <div class="lpl_form_elements">
-            <label for='article[description]'>Description</label>
-            <textarea name="article[description]" rows="4" id="article[description]">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
-          </div>
-
-          <div class="lpl_form_elements split2">
-
-            <div class="half">
-              <label for='article[title]'>First Name</label>
-              <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
-            </div>
-
-            <div class="half">
-              <label for='article[title]'>Belongs to</label>
-              <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
-            </div>
-
-          </div>
-
-          <div class='buttons right'>
-            <div class='lpl_btn_basic'>
-              Update Article
-              <span></span>
-            </div>
-          </div>
-
-          <div class="lpl_form_elements">
-            <input class='button' type='submit' value='Update Article' />
-          </div>
+              <tr>
+                <td><input class='button' type='submit' value='Update Article' /></td>
+                <td></td>
+              </tr>
+            </table>
 
         </form>
 
@@ -365,20 +296,11 @@
             <li>topics</li>
           </ul>
           <ul>
-            <li>articles</li>
-          </ul>
-          <ul>
-            <li>media</li>
-          </ul>
-          <ul>
             <li class="active">text</li>
             
             <ul>
               <li>text</li>
             </ul>
-          </ul>
-          <ul>
-            <li>tags</li>
           </ul>
         </ul>
 
@@ -399,18 +321,11 @@
             <li> List item</li>
             <ul class="open"> Another UList
               <li> List item</li>
-              <li> List item</li>
             </ul>
             <ul> Yet Another UList</ul>
           </ul>
-          <ul onclick="window.location = '/lepilo/media_resources'">
-            media
-          </ul>
           <ul onclick="window.location = '/lepilo/text_containers'">
             text
-          </ul>
-          <ul onclick="window.location = '/lepilo/tags'">
-            tags
           </ul>
         </ul>
       </div>
@@ -454,64 +369,53 @@
       </h1>
       
       <form action='/lepilo/articles/2' method='post'>
-        
         <input name='_method' type='hidden' value='put' />
-        
-        <div class="lpl_form_elements split2">
+          
+          <table border="2" cellspacing="10" cellpadding="10" class="lpl_form">
+            <tr>
+              <th><label>Header</label></th>
+              <th><label>Header</label></th>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" name="some_name" value="Some name" id="some_name">
+              </td>
+              <td>
+                <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+              </td>
+            </tr>
+            <tr>
+              <th><label>Header</label></th>
+              <th><label>Header</label></th>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" name="some_name" value="Some name" id="some_name">
+              </td>
+              <td>
+                <input type="text" name="some_name" value="Some name" id="some_name">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" name="some_name" value="Some name" id="some_name">
+              </td>
+              <td>
+                <textarea name="article[description]" rows="4" id="article[description]">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
+              </td>
+            </tr>
 
-          <div class="half">
-            <label for='article[title]'>Belongs to</label>
-            <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
-          </div>
+            <tr>
+              <td colspan="2">
+                <textarea name="article[description]" rows="4" id="article[description]">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
+              </td>
+            </tr>
 
-          <div class="half">
-            <label for='article[title]'>Family Name</label>
-            <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
-          </div>
-
-        </div>
-        
-        <div class="lpl_form_elements">
-          <label for='article[title]'>Belongs to</label>
-          <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
-        </div>
-
-        <div class="lpl_form_elements">
-          <label for='article[title]'>Title</label>
-          <textarea id='article[title]' name='article[title]' rows='1'>Article 2</textarea>
-        </div>
-
-
-        <div class="lpl_form_elements">
-          <label for='article[description]'>Description</label>
-          <textarea name="article[description]" rows="4" id="article[description]">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
-        </div>
-
-        <div class="lpl_form_elements split2">
-
-          <div class="half">
-            <label for='article[title]'>First Name</label>
-            <input type="text" name="some_name" value="Some name" id="some_name">
-          </div>
-
-          <div class="half">
-            <label for='article[title]'>Belongs to</label>
-            <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
-          </div>
-
-        </div>
-
-
-        <div class='buttons right'>
-          <div class='lpl_btn_square'>
-            Update Article
-            <span></span>
-          </div>
-        </div>
-
-        <div class="lpl_form_elements">
-          <input class='button' type='submit' value='Update Article' />
-        </div>
+            <tr>
+              <td><input class='button' type='submit' value='Update Article' /></td>
+              <td></td>
+            </tr>
+          </table>
 
       </form>
       

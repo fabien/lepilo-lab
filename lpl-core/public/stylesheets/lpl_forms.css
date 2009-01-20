@@ -8,7 +8,7 @@ label {
   clear:both;
   font-size:11px;
   font-weight:bold;
-  margin:0 7px -2px 5px;
+  margin:0 2px -2px 0px;
   color:rgba(0, 0, 0, 0.75);
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
 }
@@ -18,15 +18,74 @@ textarea, input[type='text'], input[type='password'] {
   margin-left:auto;
   margin-right:auto;
   font-size:12px;
-  padding:2px;
   width:100%;
   background: #fff url(assets/lpl/gradient-inputs.png) repeat-x top left;
-  border: 2px solid #999;
+  border: 1px solid #777;
 }
 
 textarea:focus, input[type='text']:focus, input[type='password']:focus {
-  border: 2px solid #93c119;
+  border: 1px solid #93c119;
 }
+
+select {
+  min-width:50px;
+}
+
+
+/* -------------------------------------------------------- */
+/*    TABLE FORM CONTAINER                                  */
+/*    form containers styles                                */
+/* -------------------------------------------------------- */
+
+
+table.lpl_form {
+  position:relative;
+  width:100%;
+  padding:10px;
+  border:20px solid transparent;
+  border-collapse:collapse;
+}
+
+table.lpl_form th {
+  position:relative;
+  width:50%;
+  text-align:left;
+  border:10px solid transparent;
+  border-collapse:collapse;
+}
+
+table.lpl_form th > label {
+  font-size:12px;
+}
+
+table.lpl_form tr {
+  position:relative;
+  width:50%;
+  border-collapse:collapse;
+}
+
+table.lpl_form tr > td {
+  position:relative;
+  width:50%;
+  vertical-align:top;
+  border:10px solid transparent;
+  border-collapse:collapse;
+}
+
+table.lpl_form tr > td textarea, 
+table.lpl_form tr > td input[type='text'], 
+table.lpl_form tr > td input[type='password'] {
+  position:relative;
+  top:0px;
+  left:0px;
+  width:100%;
+}
+
+/* -------------------------------------------------------- */
+/*    DIV FORM CONTAINER                                    */
+/*    form containers styles                                */
+/* -------------------------------------------------------- */
+
 
 .form-container {
   position:relative;
@@ -88,6 +147,11 @@ textarea:focus, input[type='text']:focus, input[type='password']:focus {
 #lpl_core_inspector .lpl_form_elements select {
   width:100%;
 }
+
+#lpl_core_inspector table.lpl_form td select {
+  width:100%;
+}
+
 
 #lpl_core_inspector .lpl_form_elements .half {
   width:47%;
