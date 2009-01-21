@@ -135,7 +135,11 @@ class String #:nodoc:
   alias :to_ascii! :translit!
   
   def title_case
-    Extlib::Inflection.humanize(Extlib::Inflection.underscore(self)).gsub(/\b('?[a-z])/) { $1.capitalize }
+    Extlib::Inflection.humanize(self.underscore).gsub(/\b('?[a-z])/) { $1.capitalize }
+  end
+  
+  def underscore
+    Extlib::Inflection.underscore(self)
   end
   
   # sanitize string for url or filename usage
