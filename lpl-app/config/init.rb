@@ -44,8 +44,5 @@ Merb::BootLoader.after_app_loads do
     # end
     
   end
-  
-  
-  p Exceptions.send(:_template_roots)
 
 end

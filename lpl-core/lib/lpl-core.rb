@@ -41,15 +41,15 @@ if defined?(Merb::Plugins)
   # List all core javascripts here - the array items are passed as args to core.require_js
   Merb::Slices::config[:lpl_core][:javascripts] ||= begin
     javascripts = []
-    javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery], { :bundle => :jquery }]
-    javascripts << [%w[jquery.autogrow-textarea lowpro.jquery swfupload], { :bundle => :extensions }]
-    javascripts << [%w[lpl.app lpl.layout lpl.modal lpl.uploadrz], { :bundle => :lpl }]
+    javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery],  { :bundle => 'bundle.lpl.jquery' }]
+    javascripts << [%w[jquery.autogrow-textarea lowpro.jquery swfupload], { :bundle => 'bundle.lpl.extensions' }]
+    javascripts << [%w[lpl.app lpl.layout lpl.modal lpl.uploadrz], { :bundle => 'bundle.lpl' }]
   end
   
   # List all core stylesheets here - the array items are passed as args to core.require_css
   Merb::Slices::config[:lpl_core][:stylesheets] ||= begin
     stylesheets = []
-    stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl_modal], { :bundle => :lpl }]
+    stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl_modal], { :bundle => 'bundle.lpl' }]
   end
   
   # Some general settings/metadata
