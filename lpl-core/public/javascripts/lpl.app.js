@@ -3,14 +3,14 @@
 
 if (!lpl) var lpl = {};
 
-lpl.app = function() {
+lpl.app = {
   
-  popin = function (popinOptions) {
+  popin: function (popinOptions) {
     $("#lpl_inplace_ui").append("<div class='lpl_pop_in'><h1 class='title'></h1><div class='container'> Loading... </div> <div class='buttons'><div class='lpl_btn_square red cancelpopin'>Cancel<span></span></div><div class='lpl_right'><div class='lpl_btn_square green confirmpopin'>Save Text<span></span></div></div></div>    </div>");
     
     var realpopin = $(".lpl_pop_in:last-child").attachAndReturn(lpl.popin, popinOptions);
     return realpopin;
-  };
+  }
   
 };
 
@@ -24,15 +24,15 @@ lpl.app = function() {
 lpl.debug = {
 
   info: function (debugString) {
-    console.log("lepilo INFO: " + debugString);
+    console.log(" • • • lepilo INFO: " + debugString);
   },
 
   error: function (debugString) {
-    console.error("lepilo ERROR: " + debugString);
+    console.error(" • • • lepilo ERROR: " + debugString);
   },
 
   warning: function (debugString) {
-    console.warn("lepilo WARNING: " + debugString);
+    console.warn(" • • • lepilo WARNING: " + debugString);
   }
   
 };
@@ -57,6 +57,12 @@ $(document).ready(function(){
   //$("textarea").autogrow();
   //$("ul.lpl_topics_container").attach(lpl.topic, {});
   
+  // lpl.layout.reLayout();
   // A slightly delayed lpl.app.layout.reLayout call for Safari 
-  $("#lpl_core_main").animate({opacity: 1.0}, 750, "linear", function(){ lpl.app.layout.reLayout(); });
+  $("#lpl_core_main").animate({opacity: 1.0}, 500, "linear", function(){ lpl.layout.reLayout(); });
+  //$("#lpl_core_main").animate({opacity: 1.0}, 5000, "linear", function(){ lpl.layout.reLayout(); });
+});
+
+$(window).load(function() {
+  lpl.layout.reLayout();
 });

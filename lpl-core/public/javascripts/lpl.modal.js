@@ -1,5 +1,5 @@
-/*  • lpl modal              */
-/*    lepilo modal dialog    */
+/*  • lpl modal               */
+/*    lepilo modal dialog     */
 
 lpl.modal = $.klass({
   

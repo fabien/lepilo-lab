@@ -3,51 +3,45 @@
       lepilo application layout
 */
 
-lpl.layout = function() {
+lpl.layout = {
   
-  //  Holds a reference to the Instance of lpl.layout
-  self = this;
-  var headerHeight = 54;
-  var shelfHeight = 250;
-  var leftPanelWidth = 254;
-  var rightPanelWidth = 304;
-  var centerWidth;
-  var centerHeight;
-  
-  var sidebarOpen = true;
-  var inspectorOpen = true;
-  var shelfOpen = false;
+  lplViews: ["feedback", "sidebar", "inspector", "shelf"],
+  headerHeight: 54,
+  centerWidth: 0,
+  centerHeight: 0,
   
   /*  
       The layout elements to manage: 
       
-      div#lpl_core_sidebar      – Holds the lepilo modules
-      div#lpl_core_feedback    – Holds the content
-      div#lpl_core_inspector     – Holds the Inspector
-      div#lpl_core_shelf   – Holds the lepilo Content Library
+      div#lpl_core_sidebar      – Holds the lepilo modules/predefined searches
+      div#lpl_core_feedback     – Holds the Flash messages
+      div#lpl_core_inspector    – Holds the Inspector (metadata)
+      div#lpl_core_shelf        – Holds the lepilo Content Shelf
   */
   
-  this.init = function() {
-    this.reLayout();
+  init: function() {
     
-    $("#toggle_inspector").mouseup(function(a) {
-      lpl.app.layout.toggleInspector()
-    });
+    // Hide any view toggle buttons in Layout, will only enable them if the elements are indeed part of the DOM 
+    $("#lpl_core_header .icons-toggle > .icon.toggle").hide();
     
-    $("#toggle_sidebar").mouseup(function(a) {
-      lpl.app.layout.toggleSidebar()
-    });
+    // Initialize all the views – make sure the view's .js file is included (or that the class is there inside another .js file)
+    $.each(this.lplViews, function() { 
+      var currentView = this; 
 
-    $("#toggle_shelf").mouseup(function(a) {
-      lpl.app.layout.toggleShelf()
+      if ($("#lpl_core_" + currentView).is('*')) {
+        lpl.layout[ currentView ] = $("#lpl_core_" + currentView).attachAndReturn( lpl[ currentView ] )[0];
+        
+        // Initialize the toggle elements 
+        if ($("#toggle_" + currentView).is("*")) {
+          // show the toggle element
+          $("#toggle_" + currentView).show();
+          // attach the toggle function 
+          $("#toggle_" + currentView).data("view", currentView).mouseup(function(a) {
+            lpl.layout[ $(this).data("view") ].toggle();
+          });
+        }
+      }
     });
-
-    $("#close_flash").mouseup(function(a) {
-      lpl.app.layout.hideFlash()
-    });
-
-    $("#lpl_core_sidebar").width(leftPanelWidth);
-    $("#lpl_core_inspector").width(rightPanelWidth);
     
     // 
     // $("#cancel_layout").mouseup(function() {
@@ -56,102 +50,71 @@ lpl.layout = function() {
     //   self.cancel();
     // });
     // 
-  };
+  },
   
-  this.reLayout = function() {
-    //  Get the new document and window dimensions
+  reLayout: function() {
+    // Get the Sidebar and Inspector widths
+    sW = lpl.layout.sidebar   ? lpl.layout.sidebar.width() : 0;
+    iW = lpl.layout.inspector ? lpl.layout.inspector.width() : 0;
+    fH = lpl.layout.feedback  ? lpl.layout.feedback.height() : 0;
+    
+    // Make sure lpl_core_main is not extending the document, so the dW is later calculater correctly 
+    $("#lpl_core_main").css({"left": sW, "top": this.headerHeight + fH});
+    $("#lpl_core_main").width($(window).width() - sW - iW - 200);
+    
+    // Get the document and window dimensions
     var dW = $(document).width();
     var dH = $(document).height();
     var wW = $(window).width();
     var wH = $(window).height();
-    
-    //  Resize the layout elements according to their current settings
-    
-    //  Here's where the juggling starts;
-    //  
-    //$("#lpl_core_feedback").height(1);
-    
-    $("#lpl_core_sidebar").css({"height": dH - 51});
-    $("#lpl_core_feedback").css({"left": $("#lpl_core_sidebar").width() + $(window).scrollLeft() + 1});
-    $("#lpl_core_inspector").css({"height": dH - 51});
-    
     widthDelta = wW - dW;
-    //$("#lpl_core_feedback").width(dW - $("#lpl_core_sidebar").width() - $("#lpl_core_inspector").width() - 2);
-    if($("#lpl_core_feedback").length == 1 && $("#lpl_core_inspector").length == 1) {
-      $("#lpl_core_feedback").width(dW - $("#lpl_core_sidebar").width() - (wW - $("#lpl_core_inspector").offset().left) + widthDelta + 2);
+    
+    feedbackMargin = 0;
+    
+    // Do some resizing 
+    if (lpl.layout.sidebar) {
+      lpl.layout.sidebar.resize();
+      feedbackMargin++;
     }
-    if($("#lpl_core_sidebar").length == 1) {
-      $("#lpl_core_main").css({"left": $("#lpl_core_sidebar").width() + 5, "top": headerHeight + $("#lpl_core_feedback").height(), "width": dW - $("#lpl_core_sidebar").width() - $("#lpl_core_inspector").width() - 10});
+    
+    if (lpl.layout.inspector) {
+      lpl.layout.inspector.resize();
+      feedbackMargin++;
     }
-  };
-  
-  this.toggleInspector = function() {
-    if (!inspectorOpen) {
-      $("#lpl_core_inspector").css({ "overflow" : "auto" });
-      $("#lpl_core_inspector").width(rightPanelWidth);
-      inspectorOpen = true;
-      this.reLayout();
-    } else {
-      $("#lpl_core_inspector").css({ "overflow" : "hidden" });
-      $("#lpl_core_inspector").width(0);
-      inspectorOpen = false;
-      this.reLayout();
+    
+    if (lpl.layout.feedback) {
+      if (feedbackMargin == 0)
+        lpl.layout.feedback.resize({ "left": sW + 1, "width": dW - sW - iW - 2 });
+      if (feedbackMargin == 1)
+        lpl.layout.feedback.resize({ "left": sW + 3, "width": dW - sW - iW - 4 });
+      if (feedbackMargin == 2)
+        lpl.layout.feedback.resize({ "left": sW + 3, "width": dW - sW - iW - 6 });
     }
-  };
-
-  this.toggleSidebar = function() {
-    if (!sidebarOpen) {
-      $("#lpl_core_sidebar").css({ "overflow" : "auto" });
-      $("#lpl_core_sidebar").width(leftPanelWidth);
-      sidebarOpen = true;
-      this.reLayout();
-    } else {
-      $("#lpl_core_sidebar").css({ "overflow" : "hidden" });
-      $("#lpl_core_sidebar").width(0);
-      sidebarOpen = false;
-      this.reLayout();
-    }
-  };
-
-  this.toggleShelf = function() {
-    if (!shelfOpen) {
-      $("#lpl_core_shelf").css({ "overflow" : "hidden" });
-      $("#lpl_core_shelf").height(shelfHeight);
-      $("#lpl_core_shelf").width("100%");
-      shelfOpen = true;
-      this.reLayout();
-    } else {
-      $("#lpl_core_shelf").css({ "overflow" : "hidden" });
-      $("#lpl_core_shelf").height(10);
-      shelfOpen = false;
-      this.reLayout();
-    }
-    this.reflowShelf();
-  };
-
-  this.reflowShelf = function() {
-    shelfContentItems = $("#lpl_core_shelf .icon-container").length + 1;
-    $("#lpl_core_shelf .content").width(shelfContentItems * ($("#lpl_core_shelf .icon-container:first").width() + 5) );
-  };
-
-  this.hideFlash = function() {
-    $("#lpl_flash").hide("slide", { direction: "up" }, 150, this.reLayout );
+      
+    
+    $("#lpl_core_main").css({"width": dW - sW - iW - 20});
+    
+    // console.log("document width: " + dW);
+    // console.log("window width: " + wW);
+    // 
+    // console.log("#lpl_core_main width: " + $("#lpl_core_main").width());
+    // console.log("window width: " + wW);
   }
   
-  return this;
 };
 
-$(document).ready(function(){
-  lpl.app.layout = lpl.layout();
-  lpl.app.layout.init();
+//$(document).ready(function(){
+jQuery(function($) {
+  lpl.layout.init();
   
   $(window).resize(function() {
-    lpl.app.layout.reLayout();
-  });
-  $(document).scroll(function() {
-    lpl.app.layout.reLayout();
+    lpl.layout.reLayout();
   });
   
-  lpl.app.layout.reLayout();
+  // $(document).scroll(function() {
+  //   lpl.layout.reLayout();
+  //   lpl.layout.reLayout();
+  // });
   
+  lpl.layout.reLayout();
 });
