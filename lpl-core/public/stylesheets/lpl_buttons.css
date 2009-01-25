@@ -5,7 +5,7 @@
 
 /* gray */
 
-div.lpl_btn_basic {
+.lpl_btn_basic {
   outline:none;
   position:relative;
   float:left;
@@ -15,23 +15,25 @@ div.lpl_btn_basic {
   padding-left:20px;
   padding-right:5px;
   margin-right:20px;
+  color:#222;
   font-size:12px;
   line-height:28px;
   font-weight:bold;
+  text-decoration:none;
   text-shadow: 1px 1px 1px #ddd;
   background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -80px;
 }
 
-div.lpl_btn_basic::-moz-selection{
+.lpl_btn_basic::-moz-selection{
  background:transparent;
 }
 
-div.lpl_btn_basic::selection {
+.lpl_btn_basic::selection {
  background:transparent;
 }
 
 
-div.lpl_btn_basic span {
+.lpl_btn_basic span {
   position:absolute;
   float:right;
   top:0px;
@@ -42,87 +44,87 @@ div.lpl_btn_basic span {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -80px;
 }
 
-div.lpl_btn_basic:hover {
+.lpl_btn_basic:hover {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -40px;
 }
 
-div.lpl_btn_basic:hover span {
+.lpl_btn_basic:hover span {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -40px;
 }
 
 
-div.lpl_btn_basic:active {
+.lpl_btn_basic:active {
   line-height:30px;
   background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px 0px;
 }
 
-div.lpl_btn_basic:active span {
+.lpl_btn_basic:active span {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px 0px;
 }
 
 /* green */
 
-div.lpl_btn_basic.green {
+.lpl_btn_basic.green {
   text-shadow: 1px 1px 1px #cbe14a;
   background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -200px;
 }
 
-div.lpl_btn_basic.green span {
+.lpl_btn_basic.green span {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -200px;
 }
 
-div.lpl_btn_basic.green:hover {
+.lpl_btn_basic.green:hover {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -160px;
 }
 
-div.lpl_btn_basic.green:hover span {
+.lpl_btn_basic.green:hover span {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -160px;
 }
 
 
-div.lpl_btn_basic.green:active {
+.lpl_btn_basic.green:active {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -120px;
 }
 
-div.lpl_btn_basic.green:active span {
+.lpl_btn_basic.green:active span {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -120px;
 }
 
 /* red */
 
-div.lpl_btn_basic.red {
+.lpl_btn_basic.red {
   color:#fff;
   text-shadow: 1px 1px 1px #980a07;
   background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -320px;
 }
 
-div.lpl_btn_basic.red span {
+.lpl_btn_basic.red span {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -320px;
 }
 
-div.lpl_btn_basic.wide {
+.lpl_btn_basic.wide {
   text-align:center;
   width:150px;
 }
 
-div.lpl_btn_basic.right {
+.lpl_btn_basic.right {
   float:right;
 }
 
-div.lpl_btn_basic.red:hover {
+.lpl_btn_basic.red:hover {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -280px;
 }
 
-div.lpl_btn_basic.red:hover span {
+.lpl_btn_basic.red:hover span {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -280px;
 }
 
 
-div.lpl_btn_basic.red:active {
+.lpl_btn_basic.red:active {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat -15px -240px;
 }
 
-div.lpl_btn_basic.red:active span {
+.lpl_btn_basic.red:active span {
   background: transparent url(assets/lpl/capsule-button.png) no-repeat 0px -240px;
 }
 
@@ -134,7 +136,7 @@ div.lpl_btn_basic.red:active span {
 
 /* gray */
 
-div.lpl_btn_square {
+.lpl_btn_square {
   outline:none;
   position:relative;
   float:left;
@@ -144,27 +146,24 @@ div.lpl_btn_square {
   padding-left:15px;
   padding-right:1px;
   margin-right:15px;
+  color:#222;
   font-size:12px;
   line-height:26px;
   font-weight:bold;
   text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+  text-decoration:none;
   background: transparent url(assets/lpl/square-button.png) no-repeat -15px -10px;
 }
 
-div.lpl_btn_square a {
-  text-decoration:none;
-  color:#000;
-}
-
-div.lpl_btn_square::-moz-selection{
+.lpl_btn_square::-moz-selection{
  background:transparent;
 }
 
-div.lpl_btn_square::selection {
+.lpl_btn_square::selection {
  background:transparent;
 }
 
-div.lpl_btn_square span {
+.lpl_btn_square span {
   position:absolute;
   float:right;
   top:0px;
@@ -175,76 +174,76 @@ div.lpl_btn_square span {
   background: transparent url(assets/lpl/square-button.png) no-repeat 0px -10px;
 }
 
-div.lpl_btn_square:hover {
+.lpl_btn_square:hover {
   background: transparent url(assets/lpl/square-button.png) no-repeat -15px -50px;
 }
 
-div.lpl_btn_square:hover span {
+.lpl_btn_square:hover span {
   background: transparent url(assets/lpl/square-button.png) no-repeat 0px -50px;
 }
 
-div.lpl_btn_square:active {
+.lpl_btn_square:active {
   line-height:28px;
   background: transparent url(assets/lpl/square-button.png) no-repeat -15px -90px;
 }
 
-div.lpl_btn_square:active span {
+.lpl_btn_square:active span {
   background: transparent url(assets/lpl/square-button.png) no-repeat 0px -90px;
 }
 
 /* green */
 
-div.lpl_btn_square.green {
+.lpl_btn_square.green {
   text-shadow: 0px 1px 1px #cbe14a;
   background: transparent url(assets/lpl/square-button.png) no-repeat -15px -130px;
 }
 
-div.lpl_btn_square.green span {
+.lpl_btn_square.green span {
   background: transparent url(assets/lpl/square-button.png) no-repeat 0px -130px;
 }
 
-div.lpl_btn_square.green:hover {
+.lpl_btn_square.green:hover {
   background: transparent url(assets/lpl/square-button.png) no-repeat -15px -170px;
 }
 
-div.lpl_btn_square.green:hover span {
+.lpl_btn_square.green:hover span {
   background: transparent url(assets/lpl/square-button.png) no-repeat 0px -170px;
 }
 
-div.lpl_btn_square.green:active {
+.lpl_btn_square.green:active {
   background: transparent url(assets/lpl/square-button.png) no-repeat -15px -210px;
 }
 
-div.lpl_btn_square.green:active span {
+.lpl_btn_square.green:active span {
   background: transparent url(assets/lpl/square-button.png) no-repeat 0px -210px;
 }
 
 /* red */
 
-div.lpl_btn_square.red {
+.lpl_btn_square.red {
   color:#fff;
   text-shadow: 0px 1px 1px #980a07;
   background: transparent url(assets/lpl/square-button.png) no-repeat -15px -250px;
 }
 
-div.lpl_btn_square.red span {
+.lpl_btn_square.red span {
   background: transparent url(assets/lpl/square-button.png) no-repeat 0px -250px;
 }
 
-div.lpl_btn_square.red:hover {
+.lpl_btn_square.red:hover {
   background: transparent url(assets/lpl/square-button.png) no-repeat -15px -290px;
 }
 
-div.lpl_btn_square.red:hover span {
+.lpl_btn_square.red:hover span {
   background: transparent url(assets/lpl/square-button.png) no-repeat 0px -290px;
 }
 
 
-div.lpl_btn_square.red:active {
+.lpl_btn_square.red:active {
   background: transparent url(assets/lpl/square-button.png) no-repeat -15px -330px;
 }
 
-div.lpl_btn_square.red:active span {
+.lpl_btn_square.red:active span {
   background: transparent url(assets/lpl/square-button.png) no-repeat 0px -330px;
 }
 
@@ -519,7 +518,7 @@ ul.lpl_list_menu {
   min-width:100px;
   max-width:400px;
   z-index:20000;
-  background: #e7e8e7 url(assets/lpl/gradient-brighter.png) repeat-x;
+  background: #e1e2e1 url(assets/lpl/gradient-brighter.png) repeat-x;
   -webkit-border-radius: 7px;
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
   -moz-border-radius: 7px;
@@ -586,8 +585,9 @@ ul.lpl_list_menu li.selected:active {
 /* -------------------------------------------------------- */
 
 
-div.lpl_reload_round_24 {
+.lpl_reload_round_24 {
   position:absolute;
+  display:block;
   top:3px;
   right:30px;
   width:24px;
@@ -597,16 +597,17 @@ div.lpl_reload_round_24 {
   cursor:pointer;
 }
 
-div.lpl_reload_round_24:hover {
+.lpl_reload_round_24:hover {
   background: transparent url(assets/lpl/24x24-round-actions.png) repeat-x 0px -30px;
 }
 
-div.lpl_reload_round_24:active {
+.lpl_reload_round_24:active {
   background: transparent url(assets/lpl/24x24-round-actions.png) repeat-x 0px -60px;
 }
 
-div.lpl_previous_round_24 {
+.lpl_previous_round_24 {
   position:absolute;
+  display:block;
   top:3px;
   right:31px;
   width:24px;
@@ -616,17 +617,18 @@ div.lpl_previous_round_24 {
   cursor:pointer;
 }
 
-div.lpl_previous_round_24:hover {
+.lpl_previous_round_24:hover {
   background: transparent url(assets/lpl/24x24-round-actions.png) repeat-x -30px -30px;
 }
 
-div.lpl_previous_round_24:active {
+.lpl_previous_round_24:active {
   background: transparent url(assets/lpl/24x24-round-actions.png) repeat-x -30px -60px;
 }
 
 
-div.lpl_next_round_24 {
+.lpl_next_round_24 {
   position:absolute;
+  display:block;
   top:3px;
   right:3px;
   width:24px;
@@ -636,19 +638,19 @@ div.lpl_next_round_24 {
   cursor:pointer;
 }
 
-div.lpl_next_round_24:hover {
+.lpl_next_round_24:hover {
   background: transparent url(assets/lpl/24x24-round-actions.png) repeat-x -60px -30px;
 }
 
-div.lpl_next_round_24:active {
+.lpl_next_round_24:active {
   background: transparent url(assets/lpl/24x24-round-actions.png) repeat-x -60px -60px;
 }
 
-div.lpl_reload_round_24::-moz-selection, div.lpl_previous_round_24::-moz-selection, div.lpl_next_round_24::-moz-selection {
+.lpl_reload_round_24::-moz-selection, .lpl_previous_round_24::-moz-selection, .lpl_next_round_24::-moz-selection {
  background:transparent;
 }
 
-div.lpl_reload_round_24::selection, div.lpl_previous_round_24::selection, div.lpl_next_round_24::selection {
+.lpl_reload_round_24::selection, .lpl_previous_round_24::selection, .lpl_next_round_24::selection {
  background:transparent;
 }
 

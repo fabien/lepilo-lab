@@ -1,4 +1,27 @@
 /* -------------------------------------------------------- */
+/*    GENERIC SIDEBAR/INSPECTOR STYLES                      */
+/*    titles, separators, widgets, etc                      */
+/* -------------------------------------------------------- */
+
+h1.lpl_sidebar {
+  margin: 5px 15px 0 15px;
+  font-weight:bold;
+  font-size:12px;
+  text-align:right;
+  color:#333;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+h1.lpl_inspector {
+  margin: 5px 15px 0 10px;
+  font-weight:bold;
+  font-size:12px;
+  color:#333;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+
+/* -------------------------------------------------------- */
 /*    IN-PLACE POP-UP                                       */
 /*    Non-modal pop-ups for editing content                 */
 /* -------------------------------------------------------- */
@@ -35,27 +58,27 @@ div.lpl_pop_in h1 {
 /*    Additional styles for the content lists               */
 /* -------------------------------------------------------- */
 
-ul.lpl_content_list > div.pagination {
+.lpl_container_rounded > div.pagination {
   position:absolute;
   right:8px;
   height:32px;
 }
 
-ul.lpl_content_list > div.pagination::-moz-selection{
+.lpl_container_rounded > div.pagination::-moz-selection{
  background:transparent;
 }
 
-ul.lpl_content_list > div.pagination::selection {
+.lpl_container_rounded > div.pagination::selection {
  background:transparent;
 }
 
 
-ul.lpl_content_list > div.pagination.top {
+.lpl_container_rounded > div.pagination.top {
   top:8px;
 }
 
 
-ul.lpl_content_list > div.pagination > div.canal {
+.lpl_container_rounded > div.pagination > div.canal {
   position:relative;
   top:6px;
   right:6px;
@@ -81,7 +104,7 @@ ul.lpl_content_list > div.pagination > div.canal {
   background: transparent url(assets/lpl/canal.png) no-repeat -585px 0px;
 }
 
-ul.lpl_content_list > div.pagination > div.page {
+.lpl_container_rounded > div.pagination > div.page {
   position:absolute;
   top:-28px;
   width:100%;
@@ -92,156 +115,17 @@ ul.lpl_content_list > div.pagination > div.page {
   text-shadow: 0px 1px 1px rgba(0,0,0,0.75);
 }  
 
-ul.lpl_content_list > div.pagination.bottom {
+.lpl_container_rounded > div.pagination.bottom {
   position:absolute;
   bottom:7px;
   right:8px;
   height:32px;
 }
 
-ul.lpl_content_list > div.pagination.bottom > div.page {
+.lpl_container_rounded > div.pagination.bottom > div.page {
   top:38px;
 }
 
-/* -------------------------------------------------------- */
-/*    FOLDERS LIST                                          */
-/*    Styles for a list of folders                          */
-/* -------------------------------------------------------- */
-
-.lpl_sidebar_folders {
-  overflow:hidden;
-}
-
-.lpl_sidebar_folders ul.lpl_folders {
-}
-
-.lpl_sidebar_folders ul::-moz-selection, .lpl_sidebar_folders li::-moz-selection {
-  background:transparent;
-}
-
-.lpl_sidebar_folders ul::selection, .lpl_sidebar_folders li::selection {
-  background:transparent;
-}
-
-.lpl_sidebar_folders ul.lpl_folders li {
-  position:relative;
-  height:24px;
-  cursor: pointer;
-  padding:2px 0 2px 0;
-  font-size:12px;
-  font-weight:bold;
-  text-indent:35px;
-  line-height:24px;
-}
-
-.lpl_sidebar_folders ul.lpl_folders li:hover {
-  width:100%;
-  background:rgba(255, 255, 255, 0.25);
-}
-
-.lpl_sidebar_folders ul.lpl_folders li:active {
-  color:#fff;
-  text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
-  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
-}
-
-.lpl_sidebar_folders ul.lpl_folders li.active {
-  color:#fff;
-  text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
-  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px;
-}
-
-/* -------------------------------------------------------- */
-/*    TREE LIST                                             */
-/*    Styles for a general tree-like list                   */
-/* -------------------------------------------------------- */
-
-h1.lpl_sidebar {
-  margin: 5px 15px 0 15px;
-  font-weight:bold;
-  font-size:12px;
-  text-align:right;
-  color:#333;
-  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
-}
-
-h1.lpl_inspector {
-  margin: 5px 15px 0 10px;
-  font-weight:bold;
-  font-size:12px;
-  color:#333;
-  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
-}
-
-ul.lpl_tree {
-  font-size:12px;
-  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
-}
-
-ul.lpl_tree ul::-moz-selection{
- background:transparent;
-}
-
-ul.lpl_tree ul::selection {
- background:transparent;
-}
-
-
-ul.lpl_tree ul {
-  cursor: pointer;
-  padding:0 0 0 20px;
-  margin:0 0 5px 0;
-  background: transparent url(assets/lpl/list-closed.png) no-repeat 0px 4px;
-}
-
-ul.lpl_tree ul:hover {
-  background: rgba(0, 0, 0, 0.1) url(assets/lpl/list-closed.png) no-repeat 0px 4px;
-}
-
-ul.lpl_tree ul:active {
-  background: rgba(0, 0, 0, 0.1) url(assets/lpl/list-open.png) no-repeat 2px 2px;
-}
-
-ul.lpl_tree ul.open {
-  padding:0 0 5px 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(0, 0, 0, 0.05) url(assets/lpl/list-open.png) no-repeat 2px 2px;
-}
-
-ul.lpl_tree ul li, ul.lpl_tree ul.open li {
-  cursor: pointer;
-  margin:0 10px 2px -10px;
-  padding:0 0 0 30px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-}
-
-ul.lpl_tree ul li:hover, ul.lpl_tree ul.open li:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-ul.lpl_tree ul li:active, ul.lpl_tree ul.open li:active {
-  color:#fff;
-  background:#666 url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
-  text-shadow: 1px 1px 1px #333;
-  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
-  -moz-box-shadow: 0px 2px 1px rgba(255, 255, 255, 0.25);
-}
-
-ul.lpl_tree li.active {
-  color:#fff;
-  font-weight:bold;
-  background:#9bc019 url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px;
-  text-shadow: 1px 1px 1px #346700;
-  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
-  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25);
-}
-
-ul.lpl_tree li.active:hover, ul.lpl_tree ul.open li.active:hover {
-  background:#9bc019 url(assets/lpl/speed-stripes.png) repeat-x 0px -160px;
-  text-shadow: 1px 1px 1px #333;
-}
 
 /* -------------------------------------------------------- */
 /*    TAGS                                                  */
@@ -486,10 +370,13 @@ div#lpl_core_shelf div.icon-container div.metadata {
   top:0px;
   left:0px;
   padding:10px;
+  margin:0 0 5px 0;
   color:#fff;
   font-weight:bold;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.75);
   background:#41433f url(assets/lpl/gradient-info-medium.png) repeat-x;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 #lpl_flash.yay {
@@ -506,6 +393,85 @@ div#lpl_core_shelf div.icon-container div.metadata {
   bottom:4px;
   right:5px;
 }
+
+/* -------------------------------------------------------- */
+/*    20x20px ACTION LINKS                                  */
+/*    white icons on black bg                               */
+/* -------------------------------------------------------- */
+
+a.lpl_action_20 {
+  position:relative;
+  display:block;
+  float:left;
+  width:24px;
+  height:24px;
+  text-indent:-5000px;
+  background:rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+  -moz-box-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+}
+
+a.lpl_action_20.start {
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+}
+
+a.lpl_action_20.end {
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+}
+
+a.lpl_action_20.side {
+  width:15px;
+  cursor:ns-resize;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+}
+
+a.lpl_action_20:hover {
+  background:rgba(0,0,0,0.5);
+}
+
+a.lpl_action_20:active {
+  background:rgba(0,0,0,0.75);
+}
+
+a.lpl_action_20 span {
+  position:absolute;
+  display:block;
+  top:1px;
+  left:2px;
+  width:20px;
+  height:20px;
+}
+
+a.lpl_action_20.side span {
+  width:15px;
+  top:2px;
+}
+
+a.lpl_action_20.preview span {
+  background:transparent url(assets/lpl/icons/20x20-bw-icons.png) no-repeat 0px 0px;
+}
+
+a.lpl_action_20.edit span {
+  background:transparent url(assets/lpl/icons/20x20-bw-icons.png) no-repeat -20px 0px;
+}
+
+a.lpl_action_20.recycle span {
+  background:transparent url(assets/lpl/icons/20x20-bw-icons.png) no-repeat -60px 0px;
+}
+
+a.lpl_action_20.delete span {
+  background:transparent url(assets/lpl/icons/20x20-bw-icons.png) no-repeat -40px 0px;
+}
+
+a.lpl_action_20.reorder span {
+  background:transparent url(assets/lpl/icons/20x20-bw-icons.png) no-repeat -285px 0px;
+}
+
 
 /* -------------------------------------------------------- */
 /*    SIMPLE UI WIDGETS                                     */
