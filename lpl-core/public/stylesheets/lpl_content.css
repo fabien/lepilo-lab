@@ -6,7 +6,7 @@ div#lpl_core_main {
   position:absolute;
   top:62px;
   overflow:hidden;
-  padding-bottom:50px;
+  padding:10px 10px 50px 10px;
   overflow:hidden;
 }
 
@@ -46,33 +46,28 @@ div.lpl_list_entry h3 {
 /*    blocks in a list-like view                            */
 /* -------------------------------------------------------- */
 
-ul.lpl_content_list {
-  position:relative;
-  display:block;
-  padding:10px 0 48px 0;
-  margin:0 0 25px 0;
-  background: #e7e8e7 url(/images/lpl/gradient-brighter.png) repeat-x;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.5);
-}
-
-ul.lpl_content_list h1 {
+h1.lpl_content_list {
   color:#333;
   padding:5px 20px 5px 20px;
   text-shadow:0px 1px 0px rgba(255, 255, 255, 0.75);
 }
 
+ul.lpl_content_list {
+  position:relative;
+  display:block;
+  border-top:1px solid #ccc;
+}
+
+ul.lpl_content_list.paginated {
+  margin-bottom:40px;
+}
+
 ul.lpl_content_list > li {
   position:relative;
+  display:block;
   padding:10px 20px 10px 20px;
   border-bottom:1px solid #ccc;
   overflow:hidden;
-}
-
-ul.lpl_content_list > li:nth-child(3) {
-  border-top:1px solid #ccc;
 }
 
 ul.lpl_content_list > li h2 {
@@ -111,16 +106,12 @@ ul.lpl_content_list > li div.reorder {
   left:0px;
   width:15px;
   height:25px;
-  background:rgba(0,0,0,0.05);
   cursor:ns-resize;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomright: 5px;
+  display:none;
 }
 
-ul.lpl_content_list > li div.reorder:hover {
-  background:rgba(0,0,0,0.2);
+ul.lpl_content_list > li:hover div.reorder {
+  display:block;
 }
 
 ul.lpl_content_list > li div.edit {
@@ -132,13 +123,274 @@ ul.lpl_content_list > li div.edit {
   padding:0 5px 0 5px;
   font-size:11px;
   line-height:18px;
-  background:rgba(0,0,0,0.1);
-  -webkit-border-bottom-left-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
-  -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+  display:none;
+}
+
+ul.lpl_content_list > li:hover div.edit {
+  display:block;
+}
+
+/* -------------------------------------------------------- */
+/*    INSPECTOR LIST STYLES                                 */
+/*    Styles for list inside lpl_core_inspector             */
+/* -------------------------------------------------------- */
+
+ul.inspector_list {
+  position:relative;
+  display:block;
+  padding:2px 1px 0 1px;
+  background: transparent url(assets/lpl/sidebar-list-bg.png) no-repeat 0px -5px;
+}
+
+ul.inspector_list:after {
+  content:"";
+  position:relative;
+  display:block;
+  height:2px;
+  background: transparent url(assets/lpl/sidebar-list-bg.png) no-repeat 0px -3px;
+}
+
+ul.inspector_list > li {
+  display:block;
+  padding:0 5px 0 0;
+  background: #e1e2e1 url(assets/lpl/gradient-bright.png) repeat-x;
+  border-top:1px solid rgba(255,255,255,0.5);
+  border-bottom:1px solid rgba(0,0,0,0.15);
+  overflow:hidden;
+}
+
+ul.inspector_list > li .thumbnail {
+  position:relative;
+  float:left;
+  left:1px;
+  width:48px;
+  height:48px;
+  text-align:center;
+  margin:0 10px 1px 0;
+  background: transparent url(assets/lpl/48x48-img-bg.png) no-repeat;
+}
+
+ul.inspector_list > li .thumbnail > img {
+  max-height:48px;
+  max-width:48px;
+}
+
+ul.inspector_list > li .icon {
+  position:relative;
+  float:left;
+  left:1px;
+  width:24px;
+  height:24px;
+  margin:0 2px 1px 0;
+}
+
+ul.inspector_list > li .name {
+  position:relative;
+  padding:0 0 0 26px;
+  color:#666;
+  font-weight:bold;
+  font-size:12px;
+  text-shadow:0px 1px 0px rgba(255,255,255,0.5);
+}
+
+ul.inspector_list > li:hover .name {
+  color:#333;
+}
+
+ul.inspector_list > li .metadata {
+  position:relative;
+  padding:0 0 0 26px;
+  color:#999;
+  font-size:11px;
+  line-height:13px;
+  text-shadow:0px 1px 0px rgba(255,255,255,0.5);
+  margin:0 0 5px 0;
+}
+
+ul.inspector_list.thumbnails > li .metadata {
+  padding:0 0 0 58px;
+}
+
+ul.inspector_list > li:hover .metadata {
+  color:#666;
+}
+
+ul.inspector_list > li a {
+  text-decoration:none;
+  color:#333;
+}
+
+/* -------------------------------------------------------- */
+/*    FOLDERS LIST                                          */
+/*    Styles for a list of folders                          */
+/* -------------------------------------------------------- */
+
+ul.lpl_folders {
+  overflow:hidden;
+  border-top:1px solid rgba(0,0,0,0.1);
+}
+
+ul::-moz-selection, li::-moz-selection {
+  background:transparent;
+}
+
+ul::selection, li::selection {
+  background:transparent;
+}
+
+ul.lpl_folders li {
+  position:relative;
+  min-height:26px;
+  font-size:13px;
+  text-indent:30px;
+  line-height:26px;
+  cursor: pointer;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+ul.lpl_folders li.folder:hover {
+  background:rgba(255, 255, 255, 0.25);
+}
+
+ul.lpl_folders li.folder:active {
+  color:#fff;
+  text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
+  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
+}
+
+ul.lpl_folders li.folder.active {
+  color:#fff;
+  font-weight:bold;
+  text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
+  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px;
+  border-bottom:none;
+}
+
+ul.lpl_folders li ul li {
+  text-indent:50px;
+  border-bottom:none;
+  border-top:1px solid rgba(0,0,0,0.1);
+}
+
+/* green color variation */ 
+
+ul.lpl_folders.green {
+  background:#b7cb7f;
+  border-top:1px solid rgba(0,50,0,0.2);
+}
+
+ul.lpl_folders.green li {
+  border-bottom:1px solid rgba(0,50,0,0.1);
+}
+
+ul.lpl_folders.green li.folder:active {
+  color:#fff;
+  font-weight:bold;
+  text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
+  background: rgba(153,174,69,1);
+}
+
+ul.lpl_folders.green li.folder.active {
+  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px;
+}
+
+
+ul.lpl_folders.green li ul li {
+  text-indent:50px;
+  border-bottom:none;
+  border-top:1px solid rgba(0,50,0,0.1);
+}
+
+ul.lpl_folders li a, ul.lpl_folders li ul li a {
+  display:block;
+  color:#222;
+  text-decoration:none;
+}
+
+ul.lpl_folders li a:active, ul.lpl_folders li.folder.active a {
+  color:#fff;
+}
+
+/* -------------------------------------------------------- */
+/*    TREE LIST                                             */
+/*    Styles for a general tree-like list                   */
+/* -------------------------------------------------------- */
+
+ul.lpl_tree {
+  overflow:hidden;
+  margin:0 0 5px 0;
+  border-top:1px solid rgba(0,0,0,0.05);
+}
+
+ul.lpl_tree ul::-moz-selection, ul.lpl_tree li::-moz-selection {
+ background:transparent;
+}
+
+ul.lpl_tree ul::selection, ul.lpl_tree li::selection {
+ background:transparent;
+}
+
+ul.lpl_tree li {
+  min-height:20px;
+  font-size:13px;
+  text-indent:30px;
+  line-height:26px;
+  cursor: pointer;
+  border-top:1px solid rgba(255,255,255,0.25);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  background:transparent url(assets/lpl/topic-idle.png) no-repeat center right;
+}
+
+ul.lpl_tree li:hover {
+  background:#9bc019 url(assets/lpl/topic-hover.png) no-repeat center right;
+}
+
+ul.lpl_tree li:active {
+  color:#fff;
+  font-weight:bold;
+  background:#9bc019 url(assets/lpl/topic-down.png) no-repeat center right;
+  text-shadow: 1px 1px 1px #333;
+}
+
+ul.lpl_tree li.active {
+  color:#fff;
+  font-weight:bold;
+/*  background:#9bc019 url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px; */
+  background:#9bc019 url(assets/lpl/topic-selected.png) no-repeat center right;
+  text-shadow: 1px 1px 1px #346700;
+  border-top:1px solid rgba(0,0,0,0.05);
+  border-bottom:1px solid rgba(255,255,255,0.25);
+}
+
+ul.lpl_tree li.container {
+  text-indent:50px;
+  border-top:none;
+  border-bottom:none;
+}
+
+ul.lpl_tree li.container:hover {
+  background:none;
+}
+
+ul.lpl_tree li.container:active {
+  color:#333;
+  font-weight: normal;
+  text-shadow:none;
+  background:none;
+}
+
+ul.lpl_tree li ul li {
+  text-indent:40px;
+}
+
+ul.lpl_tree li a {
+  display:block;
+  color:#222;
+  text-decoration:none;
+}
+
+ul.lpl_tree li a:active, ul.lpl_tree li.active a {
+  color:#fff;
 }
 
 /* -------------------------------------------------------- */
@@ -149,12 +401,24 @@ ul.lpl_content_list > li div.edit {
 
 .lpl_container_rounded {
   position:relative;
-  padding:10px 0 10px 0;
-  background: #e7e8e7 url(/images/lpl/gradient-brighter.png) repeat-x;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.5);
+  padding:10px 0 5px 0;
+  margin:0 0 20px 0;
+  background: #e1e2e1 url(assets/lpl/gradient-brighter.png) repeat-x;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+#lpl_core_sidebar .lpl_container_rounded {
+  position:relative;
+  padding:10px 0 5px 0;
+  margin:5px 5px 10px 5px;
+  background: #e1e2e1 url(assets/lpl/gradient-brighter.png) repeat-x;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .lpl_container_inset {
@@ -163,8 +427,6 @@ ul.lpl_content_list > li div.edit {
   margin:5px;
   padding:5px 0 5px 0;
   clear:both;
-  /*background: #e7e8e7 url(/images/lpl/gradient-brighter.png) repeat-x;*/
-  /*border: 1px solid rgba(0, 0, 0, 0.2);*/
   background:rgba(0, 0, 0, 0.05);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-border-radius: 5px;
