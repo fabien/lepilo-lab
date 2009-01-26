@@ -1,6 +1,7 @@
 /* lepilo Header */
 
-#lpl_core_header div.icon {
+#lpl_core_header .icon {
+  display:block;
   margin:0 0 0 5px;
   position:relative;
   float:left;
@@ -12,24 +13,24 @@
   overflow:hidden;
 }
 
-#lpl_core_header div.icon:hover {
+#lpl_core_header .icon:hover {
   background:rgba(255,255,255,0.5);
 }
 
-#lpl_core_header div.icon:active {
+#lpl_core_header .icon:active {
   background:rgba(0,0,0,0.25);
 }
 
-#lpl_core_header div.icon.active {
+#lpl_core_header .icon.active {
   background:rgba(0,0,0,0.1);
 }
 
 
-#lpl_core_header div.icon::-moz-selection, #lpl_core_header > div.icons-toggle::-moz-selection, #lpl_core_header img::-moz-selection {
+#lpl_core_header .icon::-moz-selection, #lpl_core_header > div.icons-toggle::-moz-selection, #lpl_core_header img::-moz-selection {
   background:transparent;
 }
  
-#lpl_core_header div.icon::selection, #lpl_core_header > div.icons-toggle::selection, #lpl_core_header img::selection {
+#lpl_core_header .icon::selection, #lpl_core_header > div.icons-toggle::selection, #lpl_core_header img::selection {
   background:transparent;
 }
 
@@ -39,22 +40,22 @@
   right:0px;
 }
 
-#lpl_core_header div.icon.space,
-#lpl_core_header div.icon.space:hover,
-#lpl_core_header div.icon.space:active {
+#lpl_core_header .icon.space,
+#lpl_core_header .icon.space:hover,
+#lpl_core_header .icon.space:active {
   background: transparent;
   cursor: default;
 }
 
-#lpl_core_header div.icon.logout {
+#lpl_core_header .icon.logout {
   border-left:1px solid rgba(0,0,0,0.25);
   background: transparent url(assets/lpl/icons/48x48_off.png) no-repeat 0px 0px;
 }
 
-#lpl_core_header div.icon.logout:hover {
+#lpl_core_header .icon.logout:hover {
   background: rgba(255,255,255,0.5) url(assets/lpl/icons/48x48_off.png) no-repeat 0px 0px;
 }
 
-#lpl_core_header div.icon.logout:active {
+#lpl_core_header .icon.logout:active {
   background: rgba(0,0,0,0.15) url(assets/lpl/icons/48x48_off.png) no-repeat 0px -47px;
 }
