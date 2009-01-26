@@ -9,9 +9,17 @@ lpl.sidebar = $.klass({
   
   initialize: function() {
     
-    if ((this.currentWidth = this.element.width()) > 10) {
+    if ($.cookie('lpl_sidebar') == 'open') {
       this.open = true;
-    };
+      this.show();
+    } else if ($.cookie('lpl_sidebar') == 'closed') {
+      this.open = false;      
+      this.hide();
+    } else if (!$.cookie('lpl_sidebar')) {
+      if ((this.currentWidth = this.element.width()) > 10) {
+        this.open = true;
+      }
+    }
     
     return this;
   },
@@ -23,22 +31,33 @@ lpl.sidebar = $.klass({
   
   resize: function() {
     // window - header (51px) - sidebar padding-bottom (10px) - shelf border (8px)
-    this.element.css({"height": $(window).height() - 69});
+    this.element.css({'height': $(window).height() - 69});
+  },
+  
+  show: function() {
+    this.element.css({ 'overflow' : 'auto' });
+    this.element.width(this.openWidth);
+    this.currentWidth = this.element.width();
+    this.open = true;
+    $.cookie('lpl_sidebar', 'open');
+    lpl.layout.reLayout();
+  },
+  
+  hide: function() {
+    this.element.css({ 'overflow' : 'hidden' });
+    this.element.width(0);
+    this.currentWidth = this.element.width();
+    this.open = false;
+    $.cookie('lpl_sidebar', 'closed');
+    lpl.layout.reLayout();
   },
   
   toggle: function() {
     if (!this.open) {
-      this.element.css({ "overflow" : "auto" });
-      this.element.width(this.openWidth);
-      this.currentWidth = this.element.width();
-      this.open = true;
+      this.show();
     } else {
-      this.element.css({ "overflow" : "hidden" });
-      this.element.width(0);
-      this.currentWidth = this.element.width();
-      this.open = false;
+      this.hide();
     }
-    lpl.layout.reLayout();
   }
 
 });

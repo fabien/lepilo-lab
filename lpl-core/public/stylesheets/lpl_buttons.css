@@ -143,7 +143,7 @@
   cursor:pointer;
   top:0px;
   height:30px;
-  padding-left:15px;
+  padding-left:10px;
   padding-right:1px;
   margin-right:15px;
   color:#222;
@@ -152,7 +152,7 @@
   font-weight:bold;
   text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
   text-decoration:none;
-  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -10px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -20px -10px;
 }
 
 .lpl_btn_square::-moz-selection{
@@ -175,7 +175,7 @@
 }
 
 .lpl_btn_square:hover {
-  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -50px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -20px -50px;
 }
 
 .lpl_btn_square:hover span {
@@ -184,7 +184,7 @@
 
 .lpl_btn_square:active {
   line-height:28px;
-  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -90px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -20px -90px;
 }
 
 .lpl_btn_square:active span {
@@ -195,7 +195,7 @@
 
 .lpl_btn_square.green {
   text-shadow: 0px 1px 1px #cbe14a;
-  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -130px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -20px -130px;
 }
 
 .lpl_btn_square.green span {
@@ -203,7 +203,7 @@
 }
 
 .lpl_btn_square.green:hover {
-  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -170px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -20px -170px;
 }
 
 .lpl_btn_square.green:hover span {
@@ -211,7 +211,7 @@
 }
 
 .lpl_btn_square.green:active {
-  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -210px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -20px -210px;
 }
 
 .lpl_btn_square.green:active span {
@@ -223,7 +223,7 @@
 .lpl_btn_square.red {
   color:#fff;
   text-shadow: 0px 1px 1px #980a07;
-  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -250px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -20px -250px;
 }
 
 .lpl_btn_square.red span {
@@ -231,7 +231,7 @@
 }
 
 .lpl_btn_square.red:hover {
-  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -290px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -20px -290px;
 }
 
 .lpl_btn_square.red:hover span {
@@ -240,7 +240,7 @@
 
 
 .lpl_btn_square.red:active {
-  background: transparent url(assets/lpl/square-button.png) no-repeat -15px -330px;
+  background: transparent url(assets/lpl/square-button.png) no-repeat -20px -330px;
 }
 
 .lpl_btn_square.red:active span {

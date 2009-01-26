@@ -9,9 +9,17 @@ lpl.inspector = $.klass({
   
   initialize: function() {
     
-    if ((this.currentWidth = this.element.width()) > 10) {
+    if ($.cookie('lpl_inspector') == 'open') {
       this.open = true;
-    };
+      this.show();
+    } else if ($.cookie('lpl_inspector') == 'closed') {
+      this.open = false;      
+      this.hide();
+    } else if (!$.cookie('lpl_inspector')) {
+      if ((this.currentWidth = this.element.width()) > 10) {
+        this.open = true;
+      }
+    }
     
     return this;
   },
@@ -26,19 +34,30 @@ lpl.inspector = $.klass({
     this.element.css({"height": $(window).height() - 69});
   },
   
+  show: function() {
+    this.element.css({ "overflow" : "auto" });
+    this.element.width(this.openWidth);
+    this.currentWidth = this.element.width();
+    this.open = true;
+    $.cookie('lpl_inspector', 'open');
+    lpl.layout.reLayout();
+  },
+  
+  hide: function() {
+    this.element.css({ "overflow" : "hidden" });
+    this.element.width(0);
+    this.currentWidth = this.element.width();
+    this.open = false;
+    $.cookie('lpl_inspector', 'closed');
+    lpl.layout.reLayout();
+  },
+  
   toggle: function() {
     if (!this.open) {
-      this.element.css({ "overflow" : "auto" });
-      this.element.width(this.openWidth);
-      this.currentWidth = this.element.width();
-      this.open = true;
+      this.show();
     } else {
-      this.element.css({ "overflow" : "hidden" });
-      this.element.width(0);
-      this.currentWidth = this.element.width();
-      this.open = false;
+      this.hide();
     }
-    lpl.layout.reLayout();
   }
   
 });
