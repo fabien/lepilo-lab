@@ -10,27 +10,45 @@ lpl.shelf = $.klass({
   
   initialize: function() {
     
-    if ((this.viewHeight = this.element.height()) > 10) {
+    if ($.cookie('lpl_shelf') == 'open') {
       this.open = true;
-    };
+      this.show();
+    } else if ($.cookie('lpl_shelf') == 'closed') {
+      this.open = false;      
+      this.hide();
+    } else if (!$.cookie('lpl_shelf')) {
+      if ((this.viewHeight = this.element.height()) > 10) {
+        this.open = true;
+      }
+    }
     
     return this;
   },
   
+  show: function() {
+    this.element.css({ "overflow" : "hidden" });
+    this.element.height(this.openHeight);
+    this.element.width("100%");
+    this.height = this.element.height();
+    this.open = true;
+    $.cookie('lpl_shelf', 'open');
+    lpl.layout.reLayout();
+  },
+  
+  hide: function() {
+    this.element.css({ "overflow" : "hidden" });
+    this.element.height(10);
+    this.height = this.element.height();
+    this.open = false;
+    $.cookie('lpl_shelf', 'closed');
+    lpl.layout.reLayout();
+  },
+  
   toggle: function() {
     if (!this.open) {
-      this.element.css({ "overflow" : "hidden" });
-      this.element.height(this.openHeight);
-      this.element.width("100%");
-      this.height = this.element.height();
-      this.open = true;
-      lpl.layout.reLayout();
+      this.show();
     } else {
-      this.element.css({ "overflow" : "hidden" });
-      this.element.height(10);
-      this.height = this.element.height();
-      this.open = false;
-      lpl.layout.reLayout();
+      this.hide();
     }
   }
   
