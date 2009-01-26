@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>lepilo • content mingler</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.cookie.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.dimensions.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.livequery.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.autogrow-textarea.js"></script>
+    <script type="text/javascript" src="/javascripts/lowpro.jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/swfupload.js"></script>
+    
+    <script type="text/javascript" src="/javascripts/lpl.app.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.feedback.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.shelf.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.sidebar.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.inspector.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.layout.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.modal.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.uploadrz.js"></script>
+    
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/reset.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_base.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_ui.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_buttons.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_forms.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_content.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_header.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_footer.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_modal.css" />
+  </head>
+  <body>
+    
+    <div class='lpl_infopop uploader' id='lpl_uploadpop'>
+      <div class='content'>
+        <h1>Uploading files</h1>
+        <div class='file_cont'></div>
+        <div class='file'>
+          <h2>File 1</h2>
+          <div class='lpl_progress_bar_bg'>
+            <div class='lpl_progress_bar'></div>
+          </div>
+          <div class='info'>
+            asdasd
+          </div>
+        </div>
+        <div class='buttons'>
+          <div class='lpl_btn_basic red wide right' onclick='lpl.uploadrz.cancelUploads()'>
+            Cancel upload
+            <span></span>
+          </div>
+        </div>
+        <br class='clr' />
+      </div>
+    </div>
+    <!-- div#lpl_uploadpop END -->
+    
+    <script type='text/javascript'>
+      //<![CDATA[
+        var construct_params = null;
+      //]]>
+    </script>
+    
+    <script type='text/javascript'>
+      //<![CDATA[
+        var swfu;
+        
+        window.onload = function () {
+          $("#lpl_uploadpop").hide();
+          $("#lpl_uploadpop").css("top","150px");
+        
+          console.log("SWFUpload initialized");
+          swfu = new SWFUpload({
+            //debug: true
+            upload_url : "/lepilo/media_resources",
+            flash_url : "/swfs/swfupload_f10.swf",
+            file_size_limit : "10 MB",
+            file_types : "*.jpg;*.jpeg;*.gif;*.png;*.tif;*.tiff",
+            file_post_name : "media_resource[file]",
+            post_params: construct_params ? construct_params : "",
+            // swfupload_loaded_handler : swfupload_loaded_function,
+            // file_dialog_start_handler : file_dialog_start_function,
+            // file_queued_handler : file_queued_function,
+            
+            // Button settings (as of SWFUploas 2.2, which adds Flash 10 support)
+            button_image_url : "stylesheets/assets/lpl/upload-button.png",
+            button_placeholder_id : "lpl_upload_button",
+            button_width: 61,
+            button_height: 27,
+            button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+            // Moving on...
+            
+            file_queue_error_handler : lpl.uploadrz.fileQueueError,
+            file_dialog_complete_handler : lpl.uploadrz.fileDialogComplete,
+            upload_start_handler : lpl.uploadrz.uploadStarted,
+            upload_progress_handler : lpl.uploadrz.uploadProgress,
+            upload_error_handler : lpl.uploadrz.uploadError,
+            upload_success_handler : lpl.uploadrz.uploadSuccess,
+            upload_complete_handler : lpl.uploadrz.uploadComplete
+          });
+        };
+        
+        // console.log("boom!");
+      //]]>
+    </script>
+    <!-- SWFUpload END -->
+    
+    <div id='lpl_core_header' style="display:none">
+      <div class="icon">
+        <img src="/stylesheets/assets/lpl/icons/48x48_pages.png" alt="articles icon" />
+      </div>
+
+      <div class="icon">
+        <img src="/stylesheets/assets/lpl/icons/48x48_blog.png" alt="blog icon" />
+      </div>
+
+      <div class="icon">
+        <img src="/stylesheets/assets/lpl/icons/48x48_image.png" alt="image icon" />
+      </div>
+      
+      <div class="icon">
+        <img src="/stylesheets/assets/lpl/icons/48x48_bike.png" alt="bike icon" />
+      </div>
+
+      <div class="icons-toggle">
+        <div class="icon toggle" id="toggle_sidebar">
+          <img src="/stylesheets/assets/lpl/icons/48x48_sidebar.png" alt="toggle sidebar" />
+        </div>
+
+        <div class="icon toggle" id="toggle_shelf">
+          <img src="/stylesheets/assets/lpl/icons/48x48_shelf.png" alt="toggle shelf" />
+        </div>
+
+        <div class="icon toggle" id="toggle_inspector">
+          <img src="/stylesheets/assets/lpl/icons/48x48_inspector.png" alt="toggle inspector" />
+        </div>
+
+        <div class="icon space"> </div>
+
+        <div class="icon logout" onclick="window.location = '/logout'"> </div>
+        
+      </div>
+
+    </div>
+    <!-- #lpl_core_header_end -->
+    
+    <div id='lpl_modal'>
+      <div id='lpl_modal_dialog'>
+        <div class='info'>
+          <h1>
+            Hier kommen Infos rein
+          </h1>
+        </div>
+        <div class='content'>
+          doodles
+        </div>
+      </div>
+    </div>
+
+    <div id='lpl_core_main'>
+      
+      
+      <img src="/stylesheets/assets/lpl/error404.png" alt="404 – oops, not found!" class="lpl_error_title" />
+      
+      <div class="lpl_error_container">
+        
+        <h1>The requested Page was not found.</h1>
+        <p>
+          It seems that you wanted to access a resource/page that does not exist on the server. Our suggestions: 
+        </p>
+        <p>
+          Make sure you did not mistype the address (URL).
+        </p>
+        <p>
+          Use the back button and try the link which lead you here again – or write it down and alert your webmaster. 
+        </p>
+        <p>
+          Additionally, if there are any messages displayed below, copy them into the E-Mail to the webmaster. 
+        </p>
+        <p class="error">
+          <strong>Error #12975:</strong> something bad hapened! 
+        </p>
+        <p class="error">
+          <strong>Error #00175:</strong>It seems that you wanted to access a resource that does not exist. This is... awkward. 
+        </p>
+        <p class="last">
+          Thanks a bunch, we hope the rest of your experience here goes smoothly! 
+        </p>
+
+      </div>
+      <!-- .lpl_container_rounded END-->
+      
+    </div>
+    <!-- #lpl_core_main END -->
+    
+    
+  </body>
+</html>

@@ -395,6 +395,49 @@ div#lpl_core_shelf div.icon-container div.metadata {
 }
 
 /* -------------------------------------------------------- */
+/*    ERROR MESSAGE STYLES                                  */
+/*    Styles for the merb errors (404, 500, etc)            */
+/* -------------------------------------------------------- */
+
+img.lpl_error_title {
+  display:block;
+  margin:20px auto 0 auto;
+}
+
+div.lpl_error_container {
+  position:relative;
+  width:500px;
+  padding:10px 0 5px 0;
+  margin:20px auto 0 auto;
+  background: #ced0cf url(assets/lpl/gradient-bright.png) repeat-x;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+div.lpl_error_container h1 {
+  padding:5px 20px 5px 20px;
+  text-shadow:0px 1px 0px rgba(255,255,255,0.5);
+}
+
+div.lpl_error_container p {
+  padding:10px 20px 10px 20px;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+div.lpl_error_container p.error {
+  color:#fff;
+  text-shadow:0px 1px 1px rgba(0,0,0,0.5);
+  background:#c52e1f url(assets/lpl/gradient-fail.png) repeat-x;
+}
+
+div.lpl_error_container p.last {
+  margin-bottom:10px;
+  border-bottom:none;
+}
+
+/* -------------------------------------------------------- */
 /*    20x20px ACTION LINKS                                  */
 /*    white icons on black bg                               */
 /* -------------------------------------------------------- */
