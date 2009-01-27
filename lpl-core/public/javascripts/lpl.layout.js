@@ -6,7 +6,7 @@
 lpl.layout = {
   
   lplViews: ["feedback", "sidebar", "inspector", "shelf"],
-  headerHeight: 54,
+  headerHeight: 52,
   centerWidth: 0,
   centerHeight: 0,
   
