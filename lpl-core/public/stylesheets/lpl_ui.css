@@ -266,7 +266,7 @@ div#lpl_core_shelf > div.header .icon img {
 div#lpl_core_shelf > div.header .buttons {
   position:absolute;
   overflow:hidden;
-  top:1px;
+  top:6px;
   left:200px;
 }
 
