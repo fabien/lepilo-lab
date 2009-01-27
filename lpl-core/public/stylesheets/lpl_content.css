@@ -77,7 +77,7 @@ ul.lpl_content_list > li h2 a {
 }
 
 ul.lpl_content_list > li h2 a:hover {
-  color:#222;
+  color:#6da405;
   text-shadow:0px 1px 0px rgba(255,255,255,1);
 }
 
@@ -111,7 +111,7 @@ ul.lpl_content_list > li div.description {
 
 ul.lpl_content_list > li div.reorder {
   position:absolute;
-  top:5px;
+  top:8px;
   left:0px;
   width:15px;
   height:25px;

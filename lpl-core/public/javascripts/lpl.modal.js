@@ -5,6 +5,8 @@ lpl.modal = $.klass({
   
   initialize: function() {
     
+    this.center();
+    
     if ($(".login_form").length > 0) {
       //this.element.show("slide", { direction: "up" }, 500);
       $("#lpl_modal_dialog", this.element).hide();
@@ -35,12 +37,23 @@ lpl.modal = $.klass({
   
   cancelModal: function() {
     this.closeModal();
+  },
+  
+  center: function() {
+    windowHalf = $(window).width() / 2;
+    dialogWidth = $("#lpl_modal_dialog", this.element).width();
+    $("#lpl_modal_dialog", this.element).css({ left: windowHalf - (dialogWidth/2) });
   }
 });
 
 $(document).ready(function(){
   if (modals = $('#lpl_modal').attachAndReturn(lpl.modal)) {
     lpl.app.modal = modals[0];
-  }
+  };
+  
+  $(window).resize(function() {
+    lpl.app.modal.center();
+  });
+  
 });
 
