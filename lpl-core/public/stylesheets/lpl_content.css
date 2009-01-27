@@ -49,18 +49,18 @@ div.lpl_list_entry h3 {
 ul.lpl_content_list {
   position:relative;
   display:block;
-  border-top:1px solid #ccc;
 }
 
 ul.lpl_content_list.paginated {
   margin-bottom:40px;
+  border-bottom:1px solid #ccc;
 }
 
 ul.lpl_content_list > li {
   position:relative;
   display:block;
   padding:10px 20px 10px 20px;
-  border-bottom:1px solid #ccc;
+  border-top:1px solid #ccc;
   overflow:hidden;
 }
 
