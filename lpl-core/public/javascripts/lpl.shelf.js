@@ -26,7 +26,6 @@ lpl.shelf = $.klass({
   },
   
   show: function() {
-    this.element.css({ "overflow" : "hidden" });
     this.element.height(this.openHeight);
     this.element.width("100%");
     this.height = this.element.height();
