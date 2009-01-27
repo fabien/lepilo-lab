@@ -31,7 +31,7 @@ lpl.sidebar = $.klass({
   
   resize: function() {
     // window - header (51px) - sidebar padding-bottom (10px) - shelf border (8px)
-    this.element.css({'height': $(window).height() - 69});
+    this.element.css({'height': $(window).height() - 67});
   },
   
   show: function() {

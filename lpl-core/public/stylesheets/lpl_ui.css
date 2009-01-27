@@ -60,6 +60,7 @@ div.lpl_pop_in h1 {
 
 .lpl_container_rounded > div.pagination {
   position:absolute;
+  padding:0px;
   right:8px;
   height:32px;
 }
