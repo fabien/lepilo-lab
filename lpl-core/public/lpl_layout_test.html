@@ -193,18 +193,122 @@
       <h1 class='lpl_sidebar'>
         green folders
       </h1>
+      asdasda
+      <div class="lpl_list">
+        <ul>
+          <li>
+            <a href="/one" title="One">One</a>
+          </li>
+          <li class="container">
+            <ul>
+              <li class="active">
+                <a href="/one/nested/a" title="Nested One A">Nested One A</a>
+              </li>
+              <li>
+                <a href="/one/nested/b" title="Nested One B">Nested One B</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/two" title="Two">Two</a>
+          </li>
+          <li class="container">
+            <ul>
+              <li>
+                <a href="/two/nested/a" title="Nested Two A">Nested Two A</a>
+              </li>
+              <li>
+                <a href="/two/nested/b" title="Nested Two B">Nested Two B</a>
+              </li>
+              <li class="container">
+                <ul>
+                  <li class="active">
+                    <a href="/two/nested/a" title="Nested Two A">Sub-Nested Three A</a>
+                  </li>
+                  <li>
+                    <a href="/two/nested/b" title="Nested Two B">Sub-Nested Three B</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+with container classes on LIs holding ULs:
+      <div class="lpl_list rounded">
+        <ul>
+          <li>
+            <a href="/one" title="One">One</a>
+          </li>
+          <li class="container">
+            <ul>
+              <li>
+                <a href="/one/nested/a" title="Nested One A">Nested One A</a>
+              </li>
+              <li>
+                <a href="/one/nested/b" title="Nested One B">Nested One B</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/two" title="Two">Two</a>
+          </li>
+          <li class="container">
+            <ul>
+              <li>
+                <a href="/two/nested/a" title="Nested Two A">Nested Two A</a>
+              </li>
+              <li>
+                <a href="/two/nested/b" title="Nested Two B">Nested Two B</a>
+              </li>
+              <li class="container">
+                <ul>
+                  <li>
+                    <a href="/two/nested/a" title="Nested Two A">Sub-Nested Three A</a>
+                  </li>
+                  <li>
+                    <a href="/two/nested/b" title="Nested Two B">Sub-Nested Three B</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+asdasdd
 
-      <ul class='lpl_folders green'>
-        <li class="folder">Topics</li>
-        <li class="folder active">Articles</li>
-        <li>
-          <ul>
-            <li class="folder">New</li>
-            <li class="folder">Old</li>
-          </ul>
-        </li>
-        <li class="folder">Trash</li>
-      </ul>
+      <div class='lpl_list'>
+        <ul>
+          <li><a href="#">Media Link</a></li>
+          <li class="active"><a href="#">Active Link</a></li>
+          <li class="container">
+            <ul>
+              <li><a href="#">Link</a></li>
+              <li>none</li>
+            </ul>
+          </li>
+          <li class="folder">Text</li>
+          <li class="folder">Tags</li>
+        </ul>
+      </div>
+
+      <div class="lpl_list white_rounded">
+        <ul>
+          <li class="active"> List item</li>
+          <li class="active"><a href="#">Active Link</a></li>
+          <li class="container">
+            <ul>
+              <li>Subitem</li>
+
+              <li>Subitem</li>
+            </ul>
+          </li>
+          <li><a href="#">Linkie</a></li>
+          <li>List item</li>
+        </ul>
+      </div>
+
+
       <!-- FOLDERS END -->
       
       <h1 class='lpl_sidebar'>
@@ -230,7 +334,6 @@
         <div class='lpl_right'>
           <a class='lpl_btn_square' id="close_flash" href="#">
             Close
-            <span></span>
           </a>
         </div>
         ZOMG SI TEH FAILZ!!1one<br/><br/>Fo' realz.
@@ -505,15 +608,12 @@
       <div class='buttons'>
         <a class='lpl_btn_square' onclick="var textAdd = lpl.base.popin({ caller: this, title: 'Add a Text Block to »Article 2«', retrieve: '/lepilo/text_containers/new', bury: '/lepilo/text_containers', params:'article_id=2&amp;formpartial=true' });" href="#">
           Add Text
-          <span></span>
         </a>
         <a class='lpl_btn_square red' href="#">
           Article Settings
-          <span></span>
         </a>
         <a class='lpl_btn_square green' href="#">
           Article Settings
-          <span></span>
         </a>
         <a id='lpl_upload_button' href="#">
           Upload
@@ -531,7 +631,7 @@
           <a href="#" class="lpl_next_round_24">next</a>
         </div>
       
-        <h1 class="lpl_content_list">Articles List</h1>
+        <h1>Articles List</h1>
       
         <ul class="lpl_content_list paginated">
           <li>
@@ -588,10 +688,10 @@
               <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
               <a href="#" class="lpl_action_20 delete end">delete<span/></a>
             </div>
+            <h2>Another Article</h2>
             <div class="thumbnail">
               <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
             </div>
-            <h2>Another Article</h2>
             <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
             <div class="description">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 

@@ -43,6 +43,13 @@ lpl.debug = {
 
 $(document).ready(function(){
   
+  // Fix up the buttons 
+  $('.lpl_btn_square').append('<span></span>');
+  $('.lpl_action_20').append('<span></span>');
+  
+  $('div.edit a:first').addClass('start')
+  $('div.edit a:last').addClass('end')
+  
   //  Initialize the modal dialog
   //$('#lpl_modal').attach(lpl.modal);
   

@@ -35,7 +35,6 @@ lpl.sidebar = $.klass({
   },
   
   show: function() {
-    this.element.css({ 'overflow' : 'auto' });
     this.element.width(this.openWidth);
     this.currentWidth = this.element.width();
     this.open = true;
@@ -44,7 +43,6 @@ lpl.sidebar = $.klass({
   },
   
   hide: function() {
-    this.element.css({ 'overflow' : 'hidden' });
     this.element.width(0);
     this.currentWidth = this.element.width();
     this.open = false;
