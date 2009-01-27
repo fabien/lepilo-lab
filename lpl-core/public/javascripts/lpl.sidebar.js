@@ -38,7 +38,7 @@ lpl.sidebar = $.klass({
     this.element.width(this.openWidth);
     this.currentWidth = this.element.width();
     this.open = true;
-    $.cookie('lpl_sidebar', 'open');
+    $.cookie('lpl_sidebar', 'open', { expires: 30, path: '/'});
     lpl.layout.reLayout();
   },
   
@@ -46,7 +46,7 @@ lpl.sidebar = $.klass({
     this.element.width(0);
     this.currentWidth = this.element.width();
     this.open = false;
-    $.cookie('lpl_sidebar', 'closed');
+    $.cookie('lpl_sidebar', 'closed', { expires: 30, path: '/'});
     lpl.layout.reLayout();
   },
   
