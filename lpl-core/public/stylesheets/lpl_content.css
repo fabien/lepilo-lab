@@ -46,12 +46,6 @@ div.lpl_list_entry h3 {
 /*    blocks in a list-like view                            */
 /* -------------------------------------------------------- */
 
-h1.lpl_content_list {
-  color:#333;
-  padding:5px 20px 5px 20px;
-  text-shadow:0px 1px 0px rgba(255, 255, 255, 0.75);
-}
-
 ul.lpl_content_list {
   position:relative;
   display:block;
@@ -221,24 +215,24 @@ ul.inspector_list > li a {
 }
 
 /* -------------------------------------------------------- */
-/*    FOLDERS LIST                                          */
-/*    Styles for a list of folders                          */
+/*    SIMPLE LIST                                           */
+/*    Styles for a simple list                              */
 /* -------------------------------------------------------- */
 
-ul.lpl_folders {
+.lpl_list ul {
   overflow:hidden;
   border-top:1px solid rgba(0,0,0,0.1);
 }
 
-ul::-moz-selection, li::-moz-selection {
+.lpl_list ul::-moz-selection, .lpl_list li::-moz-selection {
   background:transparent;
 }
 
-ul::selection, li::selection {
+.lpl_list ul::selection, .lpl_list li::selection {
   background:transparent;
 }
 
-ul.lpl_folders li {
+.lpl_list ul li {
   position:relative;
   min-height:26px;
   font-size:13px;
@@ -248,17 +242,36 @@ ul.lpl_folders li {
   border-bottom:1px solid rgba(0,0,0,0.1);
 }
 
-ul.lpl_folders li.folder:hover {
+.lpl_list ul li a {
+  display:block;
+  color:#222;
+  text-decoration:none;
+}
+
+.lpl_list ul li a:active, .lpl_list ul li.active a {
+  color:#fff;
+}
+
+.lpl_list ul li:hover {
   background:rgba(255, 255, 255, 0.25);
 }
 
-ul.lpl_folders li.folder:active {
+.lpl_list ul li:active {
   color:#fff;
   text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
   background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
 }
 
-ul.lpl_folders li.folder.active {
+.lpl_list ul li.container:hover {
+  background:transparent;
+}
+
+.lpl_list ul li.container:active {
+  text-shadow:none;
+  background: transparent;
+}
+
+.lpl_list ul li.active {
   color:#fff;
   font-weight:bold;
   text-shadow:0px 1px 1px rgba(0, 0, 0, 0.75);
@@ -266,13 +279,65 @@ ul.lpl_folders li.folder.active {
   border-bottom:none;
 }
 
-ul.lpl_folders li ul li {
+.lpl_list ul li > ul {
+  border-bottom:none;
+  border-top:none;
+}
+
+.lpl_list ul li > ul li {
   text-indent:50px;
   border-bottom:none;
   border-top:1px solid rgba(0,0,0,0.1);
 }
 
+.lpl_list ul li > ul li:first-child {
+  border-top:none;
+}
+
+.lpl_list ul li > ul li > ul li {
+  text-indent:70px;
+}
+
+/* -------------------------------------------------------- */
+/*    ROUNDED LIST                                          */
+/*    Styles for a list in a rounded container              */
+/* -------------------------------------------------------- */
+
+.lpl_list.rounded {
+}
+
+.lpl_list.rounded ul {
+  position:relative;
+  padding:10px 0 5px 0;
+  margin:5px 5px 10px 5px;
+  background: #e1e2e1 url(assets/lpl/gradient-brighter.png) repeat-x;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  overflow:hidden;
+}
+
+.lpl_list.rounded ul > li {
+  min-height:20px;
+  font-size:13px;
+  text-indent:30px;
+  line-height:26px;
+  cursor: pointer;
+  border-top:1px solid rgba(255,255,255,0.25);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  background:transparent url(assets/lpl/topic-idle.png) no-repeat center right;
+}
+
+.lpl_list.rounded ul > li:first-child{
+  border-top:1px solid rgba(0,0,0,0.05);
+}
+
+
+
 /* green color variation */ 
+
+/*
 
 ul.lpl_folders.green {
   background:#b7cb7f;
@@ -310,6 +375,8 @@ ul.lpl_folders li a, ul.lpl_folders li ul li a {
 ul.lpl_folders li a:active, ul.lpl_folders li.folder.active a {
   color:#fff;
 }
+
+*/
 
 /* -------------------------------------------------------- */
 /*    TREE LIST                                             */
@@ -410,15 +477,10 @@ ul.lpl_tree li a:active, ul.lpl_tree li.active a {
   -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-#lpl_core_sidebar .lpl_container_rounded {
-  position:relative;
-  padding:10px 0 5px 0;
-  margin:5px 5px 10px 5px;
-  background: #e1e2e1 url(assets/lpl/gradient-brighter.png) repeat-x;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+.lpl_container_rounded h1 {
+  color:#333;
+  padding:5px 20px 5px 20px;
+  text-shadow:0px 1px 0px rgba(255, 255, 255, 0.75);
 }
 
 .lpl_container_inset {
