@@ -23,6 +23,12 @@ if defined?(Merb::Plugins)
   # if not set it won't be shown in the interface
   Merb::Slices::config[:<%= symbol_name %>][:icon] ||= 'header-icon.png'
   
+  # List all extension javascripts here - the array items are passed as args to require_js
+  Merb::Slices::config[:<%= symbol_name %>][:javascripts] ||= %w[master]
+
+  # List all extension stylesheets here - the array items are passed as args to require_css
+  Merb::Slices::config[:<%= symbol_name %>][:stylesheets] ||= %w[master]
+  
   # Some general settings/metadata
   Merb::Slices::config[:<%= symbol_name %>][:info] ||= {}
     
@@ -73,10 +79,8 @@ if defined?(Merb::Plugins)
     # @note prefix your named routes with :<%= symbol_name %>_
     #   to avoid potential conflicts with global named routes.
     def self.setup_router(scope)
-      # example of a named route
-      scope.match('/index(.:format)').to(:controller => 'main', :action => 'index').name(:index)
-      # the slice is mounted at /<%= base_name %> - note that it comes before default_routes
-      scope.match('/').to(:controller => 'main', :action => 'index').name(:home)
+      # a route named :index is mandatory for extensions that appear in the header
+      scope.match('(/index)(.:format)').to(:controller => 'main', :action => 'index').name(:index)
       # enable slice-level default routes by default
       scope.default_routes
     end

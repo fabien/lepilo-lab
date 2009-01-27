@@ -4,21 +4,8 @@ module Views
       class Main < Views::LplCore::Layout::Base
  
         def render_header
-          core.extensions.each do |ext|
-            next unless ext.icon?
-            builder.div(:class => 'icon') { |button| button.img(:src => ext.icon, :alt => ext.name, :title => ext.name) }
-          end
-             
-          builder.a('sidebar',    :id => 'toggle_sidebar',    :href => '#')
-          builder.a('shelf',      :id => 'toggle_shelf',      :href => '#')
-          builder.a('inspector',  :id => 'toggle_inspector',  :href => '#')
-    
-          builder.div(:class => 'lpl_right') do |right|
-            right.div(:class => 'lpl_btn_square red', :onclick => "window.location = '/lepilo/auth/logout'") do |button|
-              button.text!('Log out')
-              button.span ''
-            end
-          end
+          render_header_icons(core.extensions)
+          render_toggle_icons(:sidebar, :shelf, :inspector)
         end
   
         def render_shelf
@@ -51,6 +38,29 @@ module Views
                 end
               end      
             end
+          end
+        end
+        
+        protected
+        
+        def render_header_icons(*extensions)
+          extensions.flatten.each do |ext|
+            next unless ext.icon? # only show extensions that have a designated icon
+            builder.a(:href => slice_url(ext.identifier_sym, :index), :class => 'icon') do |button| 
+              button.img(:src => ext.icon, :alt => "#{ext.name} (v. #{ext.version})", :title => ext.description)
+            end
+          end
+        end
+        
+        def render_toggle_icons(*names)
+          builder.div(:class => 'icons-toggle') do |toggle|
+            names.flatten.each do |icon|
+              toggle.a(:id => "toggle_#{icon}", :class => 'icon toggle') do |div|
+                div.img(:src => core.stylesheet_path("assets/lpl/icons/48x48_#{icon}.png"), :alt => "toggle #{icon}")
+              end              
+            end
+            toggle.div('', :class => 'icon space')
+            toggle.a('logout', :href => slice_url(:merb_auth_slice_password, :logout), :class => 'icon logout')
           end
         end
         

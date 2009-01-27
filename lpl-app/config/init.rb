@@ -43,6 +43,14 @@ Merb::BootLoader.after_app_loads do
     #   end
     # end
     
+    # SofaPages::Root.new(:name => 'root').save!
+    
+    # root = SofaPages::Root.fetch('root')
+    # %w[home bikes+parts bikeboutique informatie archief].each do |name|
+    #  root.sections << SofaPages::Section.fetch(name.urlify)
+    # end
+    # p root.save!
+    
   end
 
 end

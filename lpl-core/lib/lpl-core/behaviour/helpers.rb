@@ -51,6 +51,20 @@ module LplCore
       
       # Asset handling
       
+      def require_slice_js(*js)
+        js.flatten!
+        options = js.last.is_a?(Hash) ? js.pop : {}
+        assets = js.map { |asset| javascript_path("#{asset}.js") }
+        require_js(*(assets << options))
+      end
+
+      def require_slice_css(*css)
+        css.flatten!
+        options = css.last.is_a?(Hash) ? css.pop : {}
+        assets = css.map { |asset| stylesheet_path("#{asset}.css") }
+        require_css(*(assets << options))
+      end
+      
       def insert_css(string = nil, &block)
         if self.slice == LplCore
           throw_content(:core_inline_css, string, &block)

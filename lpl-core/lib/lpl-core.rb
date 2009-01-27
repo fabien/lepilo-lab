@@ -15,6 +15,7 @@ if defined?(Merb::Plugins)
   require dirname / 'lpl-core' / 'proxy'
   require dirname / 'lpl-core' / 'behaviour'
   require dirname / 'lpl-core' / 'extension'
+  require dirname / 'lpl-core' / 'view_helpers'
   
   # Load the base layouts so extensions can inherit from them
   require dirname / '..' / 'app' / 'views' / 'layout' / 'base.html.rb'
@@ -22,6 +23,10 @@ if defined?(Merb::Plugins)
   
   # Load the base templates so extensions can inherit from them
   require dirname / '..' / 'app' / 'views' / 'main' / 'base.html.rb'
+  
+  # Mixin the view helpers for the base layout and template.
+  Views::LplCore::Layout::Base.send(:include, LplCore::ViewHelpers)
+  Views::LplCore::Main::Base.send(:include, LplCore::ViewHelpers)
   
   # Register the Slice for the current host application
   Merb::Slices::register(__FILE__)
@@ -41,9 +46,9 @@ if defined?(Merb::Plugins)
   # List all core javascripts here - the array items are passed as args to core.require_js
   Merb::Slices::config[:lpl_core][:javascripts] ||= begin
     javascripts = []
-    javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery],  { :bundle => 'bundle.lpl.jquery' }]
+    javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery jquery.json],  { :bundle => 'bundle.lpl.jquery' }]
     javascripts << [%w[jquery.autogrow-textarea lowpro.jquery swfupload], { :bundle => 'bundle.lpl.extensions' }]
-    javascripts << [%w[lpl.app lpl.inspector lpl.shelf lpl.sidebar lpl.feedback lpl.layout lpl.modal lpl.uploadrz], { :bundle => 'bundle.lpl' }]
+    javascripts << [%w[lpl.support lpl.app lpl.inspector lpl.shelf lpl.sidebar lpl.feedback lpl.layout lpl.modal lpl.uploadrz], { :bundle => 'bundle.lpl' }]
   end
   
   # List all core stylesheets here - the array items are passed as args to core.require_css
