@@ -135,8 +135,18 @@ ul.lpl_content_list > li div.actions {
   display:none;
 }
 
-ul.lpl_content_list li.lpl_drag div.actions { 
-  display: hidden;
+ul.lpl_content_list li.lpl_drag {
+  background:#b4b4b4;
+}
+
+ul.lpl_content_list li.lpl_target {
+  background:#d2d2d2;
+  opacity:0.65;
+}
+
+ul.lpl_content_list li.lpl_drag div.actions,
+ul.lpl_content_list li.lpl_drag:hover div.actions { 
+  display: none;
 }
 
 ul.lpl_content_list > li:hover div.actions {
