@@ -47,8 +47,8 @@ $(document).ready(function(){
   $('.lpl_btn_square').append('<span></span>');
   $('.lpl_action_20').append('<span></span>');
   
-  $('.edit').children('a:first-child').addClass('start');
-  $('.edit').children('a:last-child').addClass('end');
+  $('.actions').children('a:first-child').addClass('start');
+  $('.actions').children('a:last-child').addClass('end');
   
   //  Initialize the modal dialog
   //$('#lpl_modal').attach(lpl.modal);
