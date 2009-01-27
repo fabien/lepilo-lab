@@ -49,12 +49,14 @@ lpl.modal = $.klass({
 $(document).ready(function(){
   if (modals = $('#lpl_modal').attachAndReturn(lpl.modal)) {
     lpl.app.modal = modals[0];
-    
+  };
+
+  if (lpl.app.modal) {
     $(window).resize(function() {
       lpl.app.modal.center();
     });
-    
   };
+
   
 });
 
