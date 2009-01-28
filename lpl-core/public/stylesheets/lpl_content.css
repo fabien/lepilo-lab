@@ -180,6 +180,7 @@ ul.inspector_list > li {
   border-top:1px solid rgba(255,255,255,0.5);
   border-bottom:1px solid rgba(0,0,0,0.15);
   overflow:hidden;
+  clear:both;
 }
 
 ul.inspector_list > li .thumbnail {

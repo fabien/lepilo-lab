@@ -321,6 +321,11 @@ div#lpl_core_shelf div.icon-container:hover {
   -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
 }
 
+div#lpl_core_shelf div.icon-container:active {
+  border: 2px solid rgba(135,191,35,1);
+}
+
+
 div#lpl_core_shelf div.icon-container.selected {
   border: 2px solid rgba(135,191,35,1);
 }
@@ -527,6 +532,8 @@ a.lpl_action_20.reorder span {
 /*    simple markup widgets                                 */
 /* -------------------------------------------------------- */
 
+/* (x) closing button */
+
 .lpl_close {
   position:absolute;
   display:block;
@@ -547,28 +554,23 @@ a.lpl_action_20.reorder span {
   background:transparent url(assets/lpl/close-x.png) no-repeat -40px 0px;
 }
 
-.lpl_yay, .lpl_fail {
-
-}
-
 /* Drag and Drop styles*/
 
-.lpl_yay:hover {
-  -webkit-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
-  -moz-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
-}
-
-.lpl_yay:active {
+.lpl_yay {
   -webkit-box-shadow: 0px 1px 20px rgba(135,191,35,1), 0px 1px 10px rgba(135,191,35,1);
   -moz-box-shadow: 0px 1px 20px rgba(135,191,35,1), 0px 1px 10px rgba(135,191,35,1);
 }
 
-.lpl_fail:hover {
-  color:rgba(225,72,55,1);
+.lpl_fail {
   -webkit-box-shadow: 0px 1px 20px rgba(225,72,55,1), 0px 1px 10px rgba(225,72,55,1);
   -moz-box-shadow: 0px 1px 20px rgba(225,72,55,1), 0px 1px 10px rgba(225,72,55,1);
   /* red variations: 253,120,112; 225,72,55; 210,57,42 */
 }
+
+.lpl_dropable {
+  /* darn, need to find out how we call these styles :) */
+}
+
 
 * > span.lpl_tooltip {
   position:relative;
