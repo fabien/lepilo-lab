@@ -252,6 +252,10 @@
   text-align: center;
 }
 
+.lpl_btn_square.right {
+  float:right;
+}
+
 /* -------------------------------------------------------- */
 /*    WHITE BUTTON                                          */
 /*    as used in the shelf's header                         */
