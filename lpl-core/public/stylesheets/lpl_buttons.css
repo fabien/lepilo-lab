@@ -247,6 +247,11 @@
   background: transparent url(assets/lpl/square-button.png) no-repeat 0px -330px;
 }
 
+.lpl_btn_square.inspector {
+  width: 210px; 
+  text-align: center;
+}
+
 /* -------------------------------------------------------- */
 /*    WHITE BUTTON                                          */
 /*    as used in the shelf's header                         */
