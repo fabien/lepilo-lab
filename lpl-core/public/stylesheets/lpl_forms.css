@@ -31,7 +31,6 @@ select {
   min-width:50px;
 }
 
-
 /* -------------------------------------------------------- */
 /*    TABLE FORM CONTAINER                                  */
 /*    form containers styles                                */
@@ -173,6 +172,18 @@ table.lpl_form tr > td input[type='password'] {
   margin-left:auto;
   margin-right:0px;
 }
+
+
+textarea.invalid,
+select.invalid,
+input[type='text'].invalid, 
+input[type='password'].invalid{
+  border: 1px solid rgba(225,72,55,1);
+  -webkit-box-shadow: 0px 0px 3px rgba(225,72,55,1);
+  -moz-box-shadow: 0px 0px 3px rgba(225,72,55,1);
+  /* red variations: 253,120,112; 225,72,55; 210,57,42 */
+}
+
 
 /* -------------------------------------------------------- */
 /*    SEARCH INPUTS                                         */
