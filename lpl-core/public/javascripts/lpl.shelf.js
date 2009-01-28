@@ -5,7 +5,7 @@ lpl.shelf = $.klass({
   
   open: false,
   viewHeight: 0,
-  openHeight: 250,
+  openHeight: 255,
   height: 0,
   
   initialize: function() {
@@ -21,11 +21,11 @@ lpl.shelf = $.klass({
         this.open = true;
       }
     }
-    
     return this;
   },
   
   show: function() {
+    this.reflowShelf();
     this.element.height(this.openHeight);
     this.element.width("100%");
     this.height = this.element.height();
@@ -35,7 +35,6 @@ lpl.shelf = $.klass({
   },
   
   hide: function() {
-    this.element.css({ "overflow" : "hidden" });
     this.element.height(10);
     this.height = this.element.height();
     this.open = false;
@@ -49,6 +48,12 @@ lpl.shelf = $.klass({
     } else {
       this.hide();
     }
+  },
+  
+  reflowShelf: function() {
+    shelfContentItems = $(".icon-container", this.element).length + 1;
+    $(".content", this.element).width(shelfContentItems * ($(".icon-container:first", this.element).width() + 5) );
   }
+  
   
 });

@@ -284,7 +284,7 @@ div#lpl_core_shelf > div.scroller {
   position:relative;
   top:11px;
   left:0px;
-  height:205px;
+  height:210px;
   width:100%;
   overflow-x:auto;
   overflow-y:hidden;
@@ -310,14 +310,19 @@ div#lpl_core_shelf div.icon-container {
   font-weight:bold;
   text-shadow:0px 1px 1px rgba(0,0,0,0.75);
   text-align:center;
+  border: 2px solid rgba(0,0,0,0);
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
 }
 
 div#lpl_core_shelf div.icon-container:hover {
   background:rgba(0,0,0,0.25);
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
   -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.1);
   -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
+}
+
+div#lpl_core_shelf div.icon-container.selected {
+  border: 2px solid rgba(135,191,35,1);
 }
 
 div#lpl_core_shelf div.icon-container div.image {
@@ -540,6 +545,29 @@ a.lpl_action_20.reorder span {
 
 .lpl_close:active {
   background:transparent url(assets/lpl/close-x.png) no-repeat -40px 0px;
+}
+
+.lpl_yay, .lpl_fail {
+
+}
+
+/* Drag and Drop styles*/
+
+.lpl_yay:hover {
+  -webkit-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
+  -moz-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
+}
+
+.lpl_yay:active {
+  -webkit-box-shadow: 0px 1px 20px rgba(135,191,35,1), 0px 1px 10px rgba(135,191,35,1);
+  -moz-box-shadow: 0px 1px 20px rgba(135,191,35,1), 0px 1px 10px rgba(135,191,35,1);
+}
+
+.lpl_fail:hover {
+  color:rgba(225,72,55,1);
+  -webkit-box-shadow: 0px 1px 20px rgba(225,72,55,1), 0px 1px 10px rgba(225,72,55,1);
+  -moz-box-shadow: 0px 1px 20px rgba(225,72,55,1), 0px 1px 10px rgba(225,72,55,1);
+  /* red variations: 253,120,112; 225,72,55; 210,57,42 */
 }
 
 * > span.lpl_tooltip {
