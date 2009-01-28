@@ -21,6 +21,8 @@ lpl.shelf = $.klass({
         this.open = true;
       }
     }
+    
+    
     return this;
   },
   
@@ -35,6 +37,7 @@ lpl.shelf = $.klass({
   },
   
   hide: function() {
+    this.reflowShelf();
     this.element.height(10);
     this.height = this.element.height();
     this.open = false;
@@ -56,4 +59,10 @@ lpl.shelf = $.klass({
   }
   
   
+});
+
+$(window).load(function() {
+  if (lpl.layout.shelf) {
+    lpl.layout.shelf.reflowShelf();
+  }
 });
