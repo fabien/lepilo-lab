@@ -12,6 +12,8 @@ lpl.shelf = $.klass({
     
     this.reflowShelf();
     
+    $("inuput", this.element).hide();
+    
     if ($.cookie('lpl_shelf') == 'open') {
       this.open = true;
       this.show();
@@ -28,6 +30,7 @@ lpl.shelf = $.klass({
   },
   
   show: function() {
+    $("inuput", this.element).show();
     this.reflowShelf();
     this.element.height(this.openHeight);
     this.element.width("100%");
@@ -38,6 +41,7 @@ lpl.shelf = $.klass({
   },
   
   hide: function() {
+    $("inuput", this.element).hide();
     this.reflowShelf();
     this.element.height(10);
     this.height = this.element.height();
