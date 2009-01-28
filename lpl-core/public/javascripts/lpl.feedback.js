@@ -31,7 +31,7 @@ lpl.feedback = $.klass({
   },
   
   hideFlash: function() {
-    $("#lpl_flash", this.element).hide("slide", { direction: "up" }, 150, function() {
+    $("#lpl_flash", this.element).hide("slide", { direction: "up" }, 300, function() {
       lpl.layout.reLayout();
     });
   },
