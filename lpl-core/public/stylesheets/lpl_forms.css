@@ -184,6 +184,12 @@ input[type='password'].invalid{
   /* red variations: 253,120,112; 225,72,55; 210,57,42 */
 }
 
+label.invalid {
+  color:rgb(210,57,42);
+  -webkit-box-shadow: 0px 1px 0px rgba(255,255,255,0.75);
+  -moz-box-shadow: 0px 1px 0px rgba(255,255,255,0.75);
+  
+}
 
 /* -------------------------------------------------------- */
 /*    SEARCH INPUTS                                         */
