@@ -254,3 +254,11 @@ br.clr {
 .isDragged {
 /*  border: 2px solid rgba(166, 226, 46, 1);*/
 }
+
+*::-moz-selection {
+  background:transparent;
+}
+
+*::selection {
+  background:transparent;
+}
