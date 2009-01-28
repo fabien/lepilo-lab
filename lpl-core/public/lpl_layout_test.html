@@ -20,6 +20,8 @@
     <script type="text/javascript" src="/javascripts/lpl.layout.js"></script>
     <script type="text/javascript" src="/javascripts/lpl.modal.js"></script>
     <script type="text/javascript" src="/javascripts/lpl.uploadrz.js"></script>
+    <!-- JS file with experiments: -->
+    <script type="text/javascript" src="/javascripts/lpl.lab.js"></script>
     
     <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/reset.css" />
     <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_base.css" />
@@ -33,763 +35,765 @@
   </head>
   <body>
     
-    <div class='lpl_infopop uploader' id='lpl_uploadpop'>
-      <div class='content'>
-        <h1>Uploading files</h1>
-        <div class='file_cont'></div>
-        <div class='file'>
-          <h2>File 1</h2>
-          <div class='lpl_progress_bar_bg'>
-            <div class='lpl_progress_bar'></div>
-          </div>
-          <div class='info'>
-            asdasd
-          </div>
-        </div>
-        <div class='buttons'>
-          <div class='lpl_btn_basic red wide right' onclick='lpl.uploadrz.cancelUploads()'>
-            Cancel upload
-            <span></span>
-          </div>
-        </div>
-        <br class='clr' />
-      </div>
-    </div>
-    <!-- div#lpl_uploadpop END -->
+    <div id="container">
     
-    <script type='text/javascript'>
-      //<![CDATA[
-        var construct_params = null;
-      //]]>
-    </script>
-    
-    <script type='text/javascript'>
-      //<![CDATA[
-        var swfu;
-        
-        window.onload = function () {
-          $("#lpl_uploadpop").hide();
-          $("#lpl_uploadpop").css("top","150px");
-        
-          console.log("SWFUpload initialized");
-          swfu = new SWFUpload({
-            //debug: true
-            upload_url : "/lepilo/media_resources",
-            flash_url : "/swfs/swfupload_f10.swf",
-            file_size_limit : "10 MB",
-            file_types : "*.jpg;*.jpeg;*.gif;*.png;*.tif;*.tiff",
-            file_post_name : "media_resource[file]",
-            post_params: construct_params ? construct_params : "",
-            // swfupload_loaded_handler : swfupload_loaded_function,
-            // file_dialog_start_handler : file_dialog_start_function,
-            // file_queued_handler : file_queued_function,
-            
-            // Button settings (as of SWFUploas 2.2, which adds Flash 10 support)
-            button_image_url : "stylesheets/assets/lpl/upload-button.png",
-            button_placeholder_id : "lpl_upload_button",
-            button_width: 61,
-            button_height: 27,
-            button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
-            // Moving on...
-            
-            file_queue_error_handler : lpl.uploadrz.fileQueueError,
-            file_dialog_complete_handler : lpl.uploadrz.fileDialogComplete,
-            upload_start_handler : lpl.uploadrz.uploadStarted,
-            upload_progress_handler : lpl.uploadrz.uploadProgress,
-            upload_error_handler : lpl.uploadrz.uploadError,
-            upload_success_handler : lpl.uploadrz.uploadSuccess,
-            upload_complete_handler : lpl.uploadrz.uploadComplete
-          });
-        };
-        
-        // console.log("boom!");
-      //]]>
-    </script>
-    <!-- SWFUpload END -->
-    
-    <div id='lpl_inplace_ui'>
-    </div>
-    <!-- #lpl_inplace_ui (unused) END -->
-    
-    <div id='lpl_core_header'>
-      <a href="#" class="icon">
-        <img src="/stylesheets/assets/lpl/icons/48x48_pages.png" alt="articles icon" />
-      </a>
-
-      <a href="#" class="icon">
-        <img src="/stylesheets/assets/lpl/icons/48x48_blog.png" alt="blog icon" />
-      </a>
-
-      <a href="#" class="icon">
-        <img src="/stylesheets/assets/lpl/icons/48x48_lpl.png" alt="image icon" />
-      </a>
-      
-      <a href="#" class="icon">
-        <img src="/stylesheets/assets/lpl/icons/48x48_bike.png" alt="bike icon" />
-      </a>
-
-      <div class="icons-toggle">
-        <a href="#" class="icon toggle" id="toggle_sidebar">
-          <img src="/stylesheets/assets/lpl/icons/48x48_sidebar.png" alt="toggle sidebar" />
-        </a>
-
-        <a href="#" class="icon toggle" id="toggle_shelf">
-          <img src="/stylesheets/assets/lpl/icons/48x48_shelf.png" alt="toggle shelf" />
-        </a>
-
-        <a href="#" class="icon toggle" id="toggle_inspector">
-          <img src="/stylesheets/assets/lpl/icons/48x48_inspector.png" alt="toggle inspector" />
-        </a>
-
-        <a href="#" class="icon space"> </a>
-
-        <a href="#" class="icon logout"> </a>
-        
-      </div>
-
-    </div>
-    <!-- #lpl_core_header_end -->
-    
-    <div id='lpl_core_sidebar'>
-      
-      <h1 class='lpl_sidebar'>
-        div.lpl_list UL
-      </h1>
-
-      <div class="lpl_list">
-        <ul>
-          <li>
-            <a href="/one" title="One">One</a>
-          </li>
-          <li class="container">
-            <ul>
-              <li class="active">
-                <a href="/one/nested/a" title="Nested One A">Nested One A</a>
-              </li>
-              <li>
-                <a href="/one/nested/b" title="Nested One B">Nested One B</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="/two" title="Two">Two</a>
-          </li>
-          <li class="container">
-            <ul>
-              <li>
-                <a href="/two/nested/a" title="Nested Two A">Nested Two A</a>
-              </li>
-              <li>
-                <a href="/two/nested/b" title="Nested Two B">Nested Two B</a>
-              </li>
-              <li class="container">
-                <ul>
-                  <li>
-                    <a href="/two/nested/a" title="Nested Two A">Sub-Nested Three A</a>
-                  </li>
-                  <li>
-                    <a href="/two/nested/b" title="Nested Two B">Sub-Nested Three B</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <h1 class='lpl_sidebar'>
-        div.lpl_list.rounded UL
-      </h1>
-
-      <div class="lpl_list rounded">
-        <ul>
-          <li>
-            <a href="/one" title="One">One</a>
-          </li>
-          <li class="container">
-            <ul>
-              <li>
-                <a href="/one/nested/a" title="Nested One A">Nested One A</a>
-              </li>
-              <li class="active">
-                <a href="/one/nested/b" title="Nested One B">Nested One B</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="/two" title="Two">Two</a>
-          </li>
-          <li class="container">
-            <ul>
-              <li>
-                <a href="/two/nested/a" title="Nested Two A">Nested Two A</a>
-              </li>
-              <li>
-                <a href="/two/nested/b" title="Nested Two B">Nested Two B</a>
-              </li>
-              <li class="container">
-                <ul>
-                  <li>
-                    <a href="/two/nested/a" title="Nested Two A">Sub-Nested Three A</a>
-                  </li>
-                  <li>
-                    <a href="/two/nested/b" title="Nested Two B">Sub-Nested Three B</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <!-- FOLDERS END -->
-      
-      <h1 class='lpl_sidebar'>
-        tags
-      </h1>
-      <div class='lpl_container_inset'>
-        <div class='lpl_list'>
-          <div class='lpl_tag plain'>
-            lulz
-          </div>
-          <div class='lpl_tag plain'>
-            A longer kind of Tag
-          </div>
-        </div>
-      </div>
-      <!-- TAGS END -->
-      
-    </div>
-    <!-- #lpl_core_sidebar END -->
-    
-    <div id='lpl_core_feedback'>
-      <div id="lpl_flash" class="fail">
-        <a href="#" id="close_flash" class="lpl_close">close flash message</a>
-        <p>
-          ZOMG SI TEH FAILZ!!1one<br/>
-          <br/>
-          Fo' realz.
-        </p>
-      </div>
-    </div>
-    <!-- #lpl_core_feedback END -->
-    
-    <div id='lpl_core_inspector'>
-      <h1 class='lpl_inspector'>
-        fancy image list
-      </h1>
-      
-      <ul class="inspector_list thumbnails">
-        <li>
-          <div class="thumbnail">
-            <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
-          </div>
-          <div class="name">Lorem ipsum blah blah</div>
-          <div class="metadata">Lorem ipsum blah blah</div>
-        </li>
-        <li>
-          <div class="thumbnail">
-            <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" style=";" />
-          </div>
-          <div class="name"><a href="#">Lorem ipsum Linkie</a></div>
-          <div class="metadata">Lorem ipsum blah blah</div>
-        </li>
-        <li>
-          <div class="thumbnail">
-            <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" style="max-height:48px;max-width:48px;" />
-          </div>
-          <div class="name">Lorem ipsum blah blah</div>
-          <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah</div>
-        </li>
-        <li>
-          <div class="thumbnail">
-            <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
-          </div>
-          <div class="name">Lorem ipsum blah blah</div>
-          <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
-        </li>
-        <li>
-          <div class="thumbnail">
-            <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
-          </div>
-          <div class="name">Lorem ipsum blah blah</div>
-          <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
-        </li>
-        <li>
-          <div class="thumbnail">
-            <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
-          </div>
-          <div class="name">Lorem ipsum blah blah</div>
-          <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
-        </li>
-      </ul>
-      
-      <h1 class='lpl_inspector'>
-        fancy list
-      </h1>
-      
-      <ul class="inspector_list">
-        <li>
-          <div class="icon">
-          </div>
-          <div class="name">Lorem ipsum blah blah</div>
-          <div class="metadata">Lorem ipsum blah blah</div>
-        </li>
-        <li>
-          <div class="icon">
-          </div>
-          <div class="name">Lorem ipsum blah blah</div>
-          <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
-        </li>
-        <li>
-          <div class="icon">
-          </div>
-          <div class="name"><a href="#">Lorem ipsum Linkie</a></div>
-          <div class="metadata">Lorem ipsum blah blah</div>
-        </li>
-        <li>
-          <div class="icon">
-          </div>
-          <div class="name">Lorem ipsum blah blah</div>
-          <div class="metadata">Lorem ipsum blah blah</div>
-        </li>
-      </ul>
-      
-    </div>
-    <!-- #lpl_core_inspector END -->
-    
-    <div id='lpl_core_shelf'>
-      <div class='border'>
-        <div class='handle hor'></div>
-      </div>
-
-      <div class='header'>
-        
-        <div class="icon">
-          <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon" />
-        </div>
-
-        <div class="icon">
-          <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon" />
-        </div>
-        
-        <div class="icon active">
-          <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon" />
-        </div>
-        
-        <div class="icon">
-          <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon" />
-        </div>
-        
-        <div class="buttons">
-            
-          <div class='lpl_btn_white'>
-            Tag
-            <span></span>
-          </div>
-          
-          <div class='lpl_btn_white'>
-            Random filter here
-            <span></span>
-          </div>
-          
-          <div class='lpl_btn_white active'>
-            Active Filter
-            <span></span>
-          </div>
-
-          <div class='lpl_btn_white'>
-            Date
-            <span></span>
-          </div>
-          
-          
-          
-        </div>
-        
-        <input type="text" name="shelf_search" value="" id="shelf_search" class="search" />
-        
-        <div id="shelf-ajax-search-indicator" class="loading">
-          <img src="/stylesheets/assets/lpl/loading-small-bright.gif" alt="loading indicator" />
-        </div>
-        
-      </div>
-      <!-- #lpl_core_shelf .header END -->
-      
-      
-      <div class="scroller">
-        
-        <div class="content">
-      
-          <div class="icon-container">
-            <div class="image">
-              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
-            </div>
-            <div>stuff blah .jpg</div>
-            <div class="metadata">1200 x 817, PNG</div>
-          </div>
-
-
-
-          <div class="icon-container selected">
-            <div class="image">
-              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
-            </div>
-            <div>stuff blah .jpg</div>
-            <div class="metadata">1200 x 817, PNG</div>
-          </div>
-
-          <div class="icon-container">
-            <div class="image">
-              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
-            </div>
-            <div>stuff blah .jpg</div>
-            <div class="metadata">1200 x 817, PNG</div>
-          </div>
-
-          <div class="icon-container">
-            <div class="image">
-              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
-            </div>
-            <div>stuff blah .jpg</div>
-            <div class="metadata">1200 x 817, PNG</div>
-          </div>
-
-          <div class="icon-container">
-            <div class="image">
-              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
-            </div>
-            <div>stuff blah .jpg</div>
-            <div class="metadata">1200 x 817, PNG</div>
-          </div>
-
-          <div class="icon-container">
-            <div class="image">
-              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
-            </div>
-            <div>stuff blah .jpg</div>
-            <div class="metadata">1200 x 817, PNG</div>
-          </div>
-
-
-
-          <div class="icon-container">
-            <div class="image">
-              <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
-            </div>
-            <div>stuff blah .jpg</div>
-            <div class="metadata">1200 x 817, PNG</div>
-          </div>
-
-          <div class="icon-container">
-            <div class="image">
-              <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" />
-            </div>
-            <div>stuff blah .jpg</div>
-            <div class="metadata">1200 x 817, PNG</div>
-          </div>
-
-          <div class="icon-container">
-            <div class="icon">
-              <img src="/stylesheets/assets/lpl/icons/128x128_file.png" alt="icon" />
-            </div>
-            <div>PHAT file.cbr</div>
-            <div class="metadata">876kb, unknown</div>
-          </div>
-
-          <div class="icon-container">
-            <div class="image">
-              <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" />
-            </div>
-            <div>some long ass name image from a windows XP user.jpg</div>
-            <div class="metadata">640 x 480, BMP, uncompressed, fake metadata and such</div>
-          </div>
-
-          <div class="icon-container">
-            <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </div>
-            Short textblock part...
-            <div class="metadata">876 words</div>
-          </div>
-      
-        </div>
-        <!-- .conten -->
-      </div>
-      <!-- .scroller -->
-    </div>
-    <!-- #lpl_core_shelf END -->
-
-    <!-- use class="login_form" someplace to trigger the modal -->    
-    <div id='lpl_modal'>
-      <div id='lpl_modal_dialog'>
-        <div class='info'> 
-          <h1>
-            Hier kommen Infos rein
-          </h1>
-        </div>
+      <div class='lpl_infopop uploader' id='lpl_uploadpop'>
         <div class='content'>
-          doodles
+          <h1>Uploading files</h1>
+          <div class='file_cont'></div>
+          <div class='file'>
+            <h2>File 1</h2>
+            <div class='lpl_progress_bar_bg'>
+              <div class='lpl_progress_bar'></div>
+            </div>
+            <div class='info'>
+              asdasd
+            </div>
+          </div>
+          <div class='buttons'>
+            <div class='lpl_btn_basic red wide right' onclick='lpl.uploadrz.cancelUploads()'>
+              Cancel upload
+              <span></span>
+            </div>
+          </div>
+          <br class='clr' />
         </div>
       </div>
-    </div>
-    <!-- #lpl_modal END -->
-
-    <div id='lpl_core_main'>
-      
-      <div class='buttons'>
-        <a class='lpl_btn_square' onclick="var textAdd = lpl.base.popin({ caller: this, title: 'Add a Text Block to »Article 2«', retrieve: '/lepilo/text_containers/new', bury: '/lepilo/text_containers', params:'article_id=2&amp;formpartial=true' });" href="#">
-          Add Text
-        </a>
-        <a class='lpl_btn_square red' href="#">
-          Article Settings
-        </a>
-        <a class='lpl_btn_square green' href="#">
-          Article Settings
-        </a>
-        <a id='lpl_upload_button' href="#">
-          Upload
-        </a>
-      </div>
-      
-      
-      <!-- PAGINATED LIST -->
-      <div class="lpl_container_rounded lpl_yay" id="first_list">
-      
-        <div class="pagination top">
-          <div class="page">123 of 896</div>
-          <div class="lpl_canal_32" style="width:44px"><span></span></div>
-          <a href="#" class="lpl_previous_round_24">previous</a>
-          <a href="#" class="lpl_next_round_24">next</a>
-        </div>
-      
-        <h1>Articles List</h1>
-      
-        <ul class="lpl_content_list paginated">
-          <li>
-            <div class="reorder">
-              <a href="#" class="lpl_action_20 reorder side">move<span/></a>
-            </div>
-            <div class="actions">
-              <a href="#" class="lpl_action_20 preview">preview<span/></a>
-              <a href="#" class="lpl_action_20 edit">edit<span/></a>
-              <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
-              <a href="#" class="lpl_action_20 delete">delete<span/></a>
-            </div>
-            <h2>Article Name</h2>
-            <div class="metadata">24.01.2009 | by: Samo Korosec | Posted in: Random Aricles</div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-              deserunt mollit anim id est laborum.
-            </div>
-          </li>
-
-          <li>
-            <div class="reorder">
-              <a href="#" class="lpl_action_20 reorder side">move<span/></a>
-            </div>
-            <div class="actions">
-              <a href="#" class="lpl_action_20 preview">preview<span/></a>
-              <a href="#" class="lpl_action_20 edit">edit<span/></a>
-              <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
-              <a href="#" class="lpl_action_20 delete">delete<span/></a>
-            </div>
-            <h2>Article Name</h2>
-            <div class="metadata">24.01.2009 | by: Samo Korosec | Posted in: Random Aricles</div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-              deserunt mollit anim id est laborum.
-            </div>
-          </li>
+      <!-- div#lpl_uploadpop END -->
+    
+      <script type='text/javascript'>
+        //<![CDATA[
+          var construct_params = null;
+        //]]>
+      </script>
+    
+      <script type='text/javascript'>
+        //<![CDATA[
+          var swfu;
         
-          <li>
-            <div class="reorder">
-              <a href="#" class="lpl_action_20 reorder side">move<span/></a>
-            </div>
-            <div class="actions">
-              <a href="#" class="lpl_action_20 preview">preview<span/></a>
-              <a href="#" class="lpl_action_20 edit">edit<span/></a>
-              <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
-              <a href="#" class="lpl_action_20 delete">delete<span/></a>
-            </div>
-            <h2>Another Article</h2>
-            <div class="thumbnail">
-              <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
-            </div>
-            <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. 
-            </div>
-          </li>
-        </ul>
-        <!-- ul.lpl_content_list END-->
+          window.onload = function () {
+            $("#lpl_uploadpop").hide();
+            $("#lpl_uploadpop").css("top","150px");
+        
+            console.log("SWFUpload initialized");
+            swfu = new SWFUpload({
+              //debug: true
+              upload_url : "/lepilo/media_resources",
+              flash_url : "/swfs/swfupload_f10.swf",
+              file_size_limit : "10 MB",
+              file_types : "*.jpg;*.jpeg;*.gif;*.png;*.tif;*.tiff",
+              file_post_name : "media_resource[file]",
+              post_params: construct_params ? construct_params : "",
+              // swfupload_loaded_handler : swfupload_loaded_function,
+              // file_dialog_start_handler : file_dialog_start_function,
+              // file_queued_handler : file_queued_function,
+            
+              // Button settings (as of SWFUploas 2.2, which adds Flash 10 support)
+              button_image_url : "stylesheets/assets/lpl/upload-button.png",
+              button_placeholder_id : "lpl_upload_button",
+              button_width: 61,
+              button_height: 27,
+              button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+              // Moving on...
+            
+              file_queue_error_handler : lpl.uploadrz.fileQueueError,
+              file_dialog_complete_handler : lpl.uploadrz.fileDialogComplete,
+              upload_start_handler : lpl.uploadrz.uploadStarted,
+              upload_progress_handler : lpl.uploadrz.uploadProgress,
+              upload_error_handler : lpl.uploadrz.uploadError,
+              upload_success_handler : lpl.uploadrz.uploadSuccess,
+              upload_complete_handler : lpl.uploadrz.uploadComplete
+            });
+          };
+        
+          // console.log("boom!");
+        //]]>
+      </script>
+      <!-- SWFUpload END -->
+    
+      <div id='lpl_inplace_ui'>
+      </div>
+      <!-- #lpl_inplace_ui (unused) END -->
+    
+      <div id='lpl_core_header'>
+        <a href="#" class="icon">
+          <img src="/stylesheets/assets/lpl/icons/48x48_pages.png" alt="articles icon" />
+        </a>
 
-        <div class="pagination bottom">
-          <div class="page">123 of 896</div>
-          <div class="lpl_canal_32" style="width:44px"><span></span></div>
-          <a href="#" class="lpl_previous_round_24">previous</a>
-          <a href="#" class="lpl_next_round_24">next</a>
+        <a href="#" class="icon">
+          <img src="/stylesheets/assets/lpl/icons/48x48_blog.png" alt="blog icon" />
+        </a>
+
+        <a href="#" class="icon">
+          <img src="/stylesheets/assets/lpl/icons/48x48_lpl.png" alt="image icon" />
+        </a>
+      
+        <a href="#" class="icon">
+          <img src="/stylesheets/assets/lpl/icons/48x48_bike.png" alt="bike icon" />
+        </a>
+
+        <div class="icons-toggle">
+          <a href="#" class="icon toggle" id="toggle_sidebar">
+            <img src="/stylesheets/assets/lpl/icons/48x48_sidebar.png" alt="toggle sidebar" />
+          </a>
+
+          <a href="#" class="icon toggle" id="toggle_shelf">
+            <img src="/stylesheets/assets/lpl/icons/48x48_shelf.png" alt="toggle shelf" />
+          </a>
+
+          <a href="#" class="icon toggle" id="toggle_inspector">
+            <img src="/stylesheets/assets/lpl/icons/48x48_inspector.png" alt="toggle inspector" />
+          </a>
+
+          <a href="#" class="icon space"> </a>
+
+          <a href="#" class="icon logout"> </a>
+        
         </div>
 
       </div>
-      <!-- .lpl_container_rounded END-->
+      <!-- #lpl_core_header_end -->
+    
+      <div id='lpl_core_sidebar'>
       
-      <!-- NON PAGINATED LIST -->
-      <div class="lpl_container_rounded lpl_fail">
-      
-        <h1 class="lpl_content_list">Articles List</h1>
-      
-        <ul class="lpl_content_list">
+        <h1 class='lpl_sidebar'>
+          div.lpl_list UL
+        </h1>
 
-          <li>
-            <div class="reorder">
-              <a href="#" class="lpl_action_20 reorder side">move<span/></a>
-            </div>
-            <div class="actions">
-              <a href="#" class="lpl_action_20 preview">preview<span/></a>
-              <a href="#" class="lpl_action_20 edit">edit<span/></a>
-              <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
-            </div>
-            <h2><a href="#">An Article Which Holds An Exceptionally Long Title</a></h2>
-            <div class="metadata"></div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. 
-            </div>
-          </li>
+        <div class="lpl_list">
+          <ul>
+            <li>
+              <a href="/one" title="One">One</a>
+            </li>
+            <li class="container">
+              <ul>
+                <li class="active">
+                  <a href="/one/nested/a" title="Nested One A">Nested One A</a>
+                </li>
+                <li>
+                  <a href="/one/nested/b" title="Nested One B">Nested One B</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/two" title="Two">Two</a>
+            </li>
+            <li class="container">
+              <ul>
+                <li>
+                  <a href="/two/nested/a" title="Nested Two A">Nested Two A</a>
+                </li>
+                <li>
+                  <a href="/two/nested/b" title="Nested Two B">Nested Two B</a>
+                </li>
+                <li class="container">
+                  <ul>
+                    <li>
+                      <a href="/two/nested/a" title="Nested Two A">Sub-Nested Three A</a>
+                    </li>
+                    <li>
+                      <a href="/two/nested/b" title="Nested Two B">Sub-Nested Three B</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
 
-          <li>
-            <div class="reorder">
-              <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+        <h1 class='lpl_sidebar'>
+          div.lpl_list.rounded UL
+        </h1>
+
+        <div class="lpl_list rounded">
+          <ul>
+            <li>
+              <a href="/one" title="One">One</a>
+            </li>
+            <li class="container">
+              <ul>
+                <li>
+                  <a href="/one/nested/a" title="Nested One A">Nested One A</a>
+                </li>
+                <li class="active">
+                  <a href="/one/nested/b" title="Nested One B">Nested One B</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/two" title="Two">Two</a>
+            </li>
+            <li class="container">
+              <ul>
+                <li>
+                  <a href="/two/nested/a" title="Nested Two A">Nested Two A</a>
+                </li>
+                <li>
+                  <a href="/two/nested/b" title="Nested Two B">Nested Two B</a>
+                </li>
+                <li class="container">
+                  <ul>
+                    <li>
+                      <a href="/two/nested/a" title="Nested Two A">Sub-Nested Three A</a>
+                    </li>
+                    <li>
+                      <a href="/two/nested/b" title="Nested Two B">Sub-Nested Three B</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FOLDERS END -->
+      
+        <h1 class='lpl_sidebar'>
+          tags
+        </h1>
+        <div class='lpl_container_inset'>
+          <div class='lpl_list'>
+            <div class='lpl_tag plain'>
+              lulz
             </div>
-            <div class="actions">
-              <a href="#" class="lpl_action_20 preview">preview<span/></a>
-              <a href="#" class="lpl_action_20 edit">edit<span/></a>
-              <a href="#" class="lpl_action_20 delete">recycle<span/></a>
+            <div class='lpl_tag plain'>
+              A longer kind of Tag
             </div>
-            <div class="thumbnail">
-              <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
-            </div>
-            <h2>Another Article</h2>
-            <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-              deserunt mollit anim id est laborum.
-            </div>
-          </li>
-        
-        </ul>
-        <!-- ul.lpl_content_list END-->
+          </div>
+        </div>
+        <!-- TAGS END -->
+      
       </div>
-      <!-- .lpl_container_rounded END-->
-      
-      <!-- DIV-BASED FORMS -->
-      <div class="lpl_container_rounded">
-
-        <form action='/lepilo/articles/2' method='post'>
+      <!-- #lpl_core_sidebar END -->
+    
+      <div id='lpl_core_feedback'>
+        <div id="lpl_flash" class="fail">
+          <a href="#" id="close_flash" class="lpl_close">close flash message</a>
           <p>
-            <input name='_method' type='hidden' value='put' />
+            ZOMG SI TEH FAILZ!!1one<br/>
+            <br/>
+            Fo' realz.
           </p>
-          
-          <div class="lpl_form_elements split2">
+        </div>
+      </div>
+      <!-- #lpl_core_feedback END -->
+    
+      <div id='lpl_core_inspector'>
+        <h1 class='lpl_inspector'>
+          fancy image list
+        </h1>
+      
+        <ul class="inspector_list thumbnails">
+          <li>
+            <div class="thumbnail">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="thumbnail">
+              <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" style=";" />
+            </div>
+            <div class="name"><a href="#">Lorem ipsum Linkie</a></div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="thumbnail">
+              <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" style="max-height:48px;max-width:48px;" />
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah</div>
+          </li>
+          <li>
+            <div class="thumbnail">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="thumbnail">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="thumbnail">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
+          </li>
+        </ul>
+      
+        <h1 class='lpl_inspector'>
+          fancy list
+        </h1>
+      
+        <ul class="inspector_list">
+          <li>
+            <div class="icon">
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="icon">
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="icon">
+            </div>
+            <div class="name"><a href="#">Lorem ipsum Linkie</a></div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="icon">
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+        </ul>
+      
+      </div>
+      <!-- #lpl_core_inspector END -->
+    
+      <div id='lpl_core_shelf'>
+        <div class='border'>
+          <div class='handle hor'></div>
+        </div>
 
-            <div class="half">
+        <div class='header'>
+        
+          <div class="icon">
+            <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon" />
+          </div>
+
+          <div class="icon">
+            <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon" />
+          </div>
+        
+          <div class="icon active">
+            <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon" />
+          </div>
+        
+          <div class="icon">
+            <img src="/stylesheets/assets/lpl/icons/40x40_articles.png" alt="articles icon" />
+          </div>
+        
+          <div class="buttons">
+            
+            <div class='lpl_btn_white'>
+              Tag
+              <span></span>
+            </div>
+          
+            <div class='lpl_btn_white'>
+              Random filter here
+              <span></span>
+            </div>
+          
+            <div class='lpl_btn_white active'>
+              Active Filter
+              <span></span>
+            </div>
+
+            <div class='lpl_btn_white'>
+              Date
+              <span></span>
+            </div>
+          
+          
+          
+          </div>
+        
+          <input type="text" name="shelf_search" value="" id="shelf_search" class="search" />
+        
+          <div id="shelf-ajax-search-indicator" class="loading">
+            <img src="/stylesheets/assets/lpl/loading-small-bright.gif" alt="loading indicator" />
+          </div>
+        
+        </div>
+        <!-- #lpl_core_shelf .header END -->
+      
+      
+        <div class="scroller">
+        
+          <div class="content">
+          
+            <div class="icon-container">
+              <div class="image">
+                <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+              </div>
+              <div>stuff blah .jpg</div>
+              <div class="metadata">1200 x 817, PNG</div>
+            </div>
+
+
+            <div class="icon-container selected">
+              <div class="image">
+                <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+              </div>
+              <div>stuff blah .jpg</div>
+              <div class="metadata">1200 x 817, PNG</div>
+            </div>
+
+            <div class="icon-container">
+              <div class="image">
+                <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+              </div>
+              <div>stuff blah .jpg</div>
+              <div class="metadata">1200 x 817, PNG</div>
+            </div>
+
+            <div class="icon-container">
+              <div class="image">
+                <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+              </div>
+              <div>stuff blah .jpg</div>
+              <div class="metadata">1200 x 817, PNG</div>
+            </div>
+
+            <div class="icon-container">
+              <div class="image">
+                <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+              </div>
+              <div>stuff blah .jpg</div>
+              <div class="metadata">1200 x 817, PNG</div>
+            </div>
+
+            <div class="icon-container">
+              <div class="image">
+                <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+              </div>
+              <div>stuff blah .jpg</div>
+              <div class="metadata">1200 x 817, PNG</div>
+            </div>
+
+
+
+            <div class="icon-container">
+              <div class="image">
+                <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
+              </div>
+              <div>stuff blah .jpg</div>
+              <div class="metadata">1200 x 817, PNG</div>
+            </div>
+
+            <div class="icon-container">
+              <div class="image">
+                <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" />
+              </div>
+              <div>stuff blah .jpg</div>
+              <div class="metadata">1200 x 817, PNG</div>
+            </div>
+
+            <div class="icon-container">
+              <div class="icon">
+                <img src="/stylesheets/assets/lpl/icons/128x128_file.png" alt="icon" />
+              </div>
+              <div>PHAT file.cbr</div>
+              <div class="metadata">876kb, unknown</div>
+            </div>
+
+            <div class="icon-container">
+              <div class="image">
+                <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" />
+              </div>
+              <div>some long ass name image from a windows XP user.jpg</div>
+              <div class="metadata">640 x 480, BMP, uncompressed, fake metadata and such</div>
+            </div>
+
+            <div class="icon-container">
+              <div class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </div>
+              Short textblock part...
+              <div class="metadata">876 words</div>
+            </div>
+      
+          </div>
+          <!-- .conten -->
+        </div>
+        <!-- .scroller -->
+      </div>
+      <!-- #lpl_core_shelf END -->
+
+      <!-- use class="login_form" someplace to trigger the modal -->    
+      <div id='lpl_modal'>
+        <div id='lpl_modal_dialog'>
+          <div class='info'> 
+            <h1>
+              Hier kommen Infos rein
+            </h1>
+          </div>
+          <div class='content'>
+            doodles
+          </div>
+        </div>
+      </div>
+      <!-- #lpl_modal END -->
+
+      <div id='lpl_core_main'>
+      
+        <div class='buttons'>
+          <a class='lpl_btn_square' onclick="var textAdd = lpl.base.popin({ caller: this, title: 'Add a Text Block to »Article 2«', retrieve: '/lepilo/text_containers/new', bury: '/lepilo/text_containers', params:'article_id=2&amp;formpartial=true' });" href="#">
+            Add Text
+          </a>
+          <a class='lpl_btn_square red' href="#">
+            Article Settings
+          </a>
+          <a class='lpl_btn_square green' href="#">
+            Article Settings
+          </a>
+          <a id='lpl_upload_button' href="#">
+            Upload
+          </a>
+        </div>
+      
+      
+        <!-- PAGINATED LIST -->
+        <div class="lpl_container_rounded lpl_yay" id="first_list">
+      
+          <div class="pagination top">
+            <div class="page">123 of 896</div>
+            <div class="lpl_canal_32" style="width:44px"><span></span></div>
+            <a href="#" class="lpl_previous_round_24">previous</a>
+            <a href="#" class="lpl_next_round_24">next</a>
+          </div>
+      
+          <h1>Articles List</h1>
+      
+          <ul class="lpl_content_list paginated">
+            <li>
+              <div class="reorder">
+                <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+              </div>
+              <div class="actions">
+                <a href="#" class="lpl_action_20 preview">preview<span/></a>
+                <a href="#" class="lpl_action_20 edit">edit<span/></a>
+                <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
+                <a href="#" class="lpl_action_20 delete">delete<span/></a>
+              </div>
+              <h2>Article Name</h2>
+              <div class="metadata">24.01.2009 | by: Samo Korosec | Posted in: Random Aricles</div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum.
+              </div>
+            </li>
+
+            <li>
+              <div class="reorder">
+                <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+              </div>
+              <div class="actions">
+                <a href="#" class="lpl_action_20 preview">preview<span/></a>
+                <a href="#" class="lpl_action_20 edit">edit<span/></a>
+                <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
+                <a href="#" class="lpl_action_20 delete">delete<span/></a>
+              </div>
+              <h2>Article Name</h2>
+              <div class="metadata">24.01.2009 | by: Samo Korosec | Posted in: Random Aricles</div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum.
+              </div>
+            </li>
+        
+            <li>
+              <div class="reorder">
+                <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+              </div>
+              <div class="actions">
+                <a href="#" class="lpl_action_20 preview">preview<span/></a>
+                <a href="#" class="lpl_action_20 edit">edit<span/></a>
+                <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
+                <a href="#" class="lpl_action_20 delete">delete<span/></a>
+              </div>
+              <h2>Another Article</h2>
+              <div class="thumbnail">
+                <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
+              </div>
+              <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. 
+              </div>
+            </li>
+          </ul>
+          <!-- ul.lpl_content_list END-->
+
+          <div class="pagination bottom">
+            <div class="page">123 of 896</div>
+            <div class="lpl_canal_32" style="width:44px"><span></span></div>
+            <a href="#" class="lpl_previous_round_24">previous</a>
+            <a href="#" class="lpl_next_round_24">next</a>
+          </div>
+
+        </div>
+        <!-- .lpl_container_rounded END-->
+      
+        <!-- NON PAGINATED LIST -->
+        <div class="lpl_container_rounded lpl_fail">
+      
+          <h1 class="lpl_content_list">Articles List</h1>
+      
+          <ul class="lpl_content_list">
+
+            <li>
+              <div class="reorder">
+                <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+              </div>
+              <div class="actions">
+                <a href="#" class="lpl_action_20 preview">preview<span/></a>
+                <a href="#" class="lpl_action_20 edit">edit<span/></a>
+                <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
+              </div>
+              <h2><a href="#">An Article Which Holds An Exceptionally Long Title</a></h2>
+              <div class="metadata"></div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. 
+              </div>
+            </li>
+
+            <li>
+              <div class="reorder">
+                <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+              </div>
+              <div class="actions">
+                <a href="#" class="lpl_action_20 preview">preview<span/></a>
+                <a href="#" class="lpl_action_20 edit">edit<span/></a>
+                <a href="#" class="lpl_action_20 delete">recycle<span/></a>
+              </div>
+              <div class="thumbnail">
+                <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
+              </div>
+              <h2>Another Article</h2>
+              <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum.
+              </div>
+            </li>
+        
+          </ul>
+          <!-- ul.lpl_content_list END-->
+        </div>
+        <!-- .lpl_container_rounded END-->
+      
+        <!-- DIV-BASED FORMS -->
+        <div class="lpl_container_rounded">
+
+          <form action='/lepilo/articles/2' method='post'>
+            <p>
+              <input name='_method' type='hidden' value='put' />
+            </p>
+          
+            <div class="lpl_form_elements split2">
+
+              <div class="half">
+                <label for='article_title'>Belongs to</label>
+                <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+              </div>
+
+              <div class="half">
+                <label for='article_title'>Belongs to</label>
+                <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+              </div>
+
+            </div>
+          
+            <div class="lpl_form_elements">
               <label for='article_title'>Belongs to</label>
               <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
             </div>
 
-            <div class="half">
-              <label for='article_title'>Belongs to</label>
-              <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+            <div class="lpl_form_elements split2">
+
+              <div class="half">
+                <label for='article_title'>First Name</label>
+                <input type="text" name="some_name" value="Article 123"  />
+              </div>
+
+              <div class="half">
+                <label for='article_title'>Family Name</label>
+                <input type="text" name="some_name" value="Article 456"  />
+              </div>
+
             </div>
 
-          </div>
-          
-          <div class="lpl_form_elements">
-            <label for='article_title'>Belongs to</label>
-            <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
-          </div>
-
-          <div class="lpl_form_elements split2">
-
-            <div class="half">
-              <label for='article_title'>First Name</label>
-              <input type="text" name="some_name" value="Article 123"  />
-            </div>
-
-            <div class="half">
-              <label for='article_title'>Family Name</label>
-              <input type="text" name="some_name" value="Article 456"  />
-            </div>
-
-          </div>
-
-          <div class="lpl_form_elements">
-            <label for='article_title'>Title</label>
-            <textarea name='article[title]' rows='1' cols="10">Article 2</textarea>
-          </div>
-
-          <div class="lpl_form_elements">
-            <label for='article_description'>Description</label>
-            <textarea name="article[description]" rows="4" cols="10">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
-          </div>
-
-          <div class="lpl_form_elements split2">
-
-            <div class="half">
-              <label for='article_title'>First Name</label>
+            <div class="lpl_form_elements">
+              <label for='article_title'>Title</label>
               <textarea name='article[title]' rows='1' cols="10">Article 2</textarea>
             </div>
 
-            <div class="half">
-              <label for='article_title'>Belongs to</label>
-              <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+            <div class="lpl_form_elements">
+              <label for='article_description'>Description</label>
+              <textarea name="article[description]" rows="4" cols="10">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
             </div>
 
-          </div>
+            <div class="lpl_form_elements split2">
 
-          <div class='buttons right'>
-            <a class='lpl_btn_basic' href="#">
-              Update Article
-              <span></span>
-            </a>
-            <a class='lpl_btn_basic red' href="#">
-              Update Article
-              <span/>
-            </a>
-            <a class='lpl_btn_basic green' href="#">
-              Update Article
-              <span/>
-            </a>
-          </div>
+              <div class="half">
+                <label for='article_title'>First Name</label>
+                <textarea name='article[title]' rows='1' cols="10">Article 2</textarea>
+              </div>
 
-          <div class="lpl_form_elements">
-            <input class='button' type='submit' value='Update Article' />
-          </div>
+              <div class="half">
+                <label for='article_title'>Belongs to</label>
+                <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+              </div>
 
-        </form>
+            </div>
 
-      </div>
-      <!-- div.lpl_container_rounded END -->
+            <div class='buttons right'>
+              <a class='lpl_btn_basic' href="#">
+                Update Article
+                <span></span>
+              </a>
+              <a class='lpl_btn_basic red' href="#">
+                Update Article
+                <span/>
+              </a>
+              <a class='lpl_btn_basic green' href="#">
+                Update Article
+                <span/>
+              </a>
+            </div>
+
+            <div class="lpl_form_elements">
+              <input class='button' type='submit' value='Update Article' />
+            </div>
+
+          </form>
+
+        </div>
+        <!-- div.lpl_container_rounded END -->
       
+      </div>
+      <!-- #lpl_core_main END -->
     </div>
-    <!-- #lpl_core_main END -->
-    
+    <!-- #container END -->
     
   </body>
 </html>

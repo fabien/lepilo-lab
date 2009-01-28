@@ -10,6 +10,8 @@ lpl.shelf = $.klass({
   
   initialize: function() {
     
+    this.reflowShelf();
+    
     if ($.cookie('lpl_shelf') == 'open') {
       this.open = true;
       this.show();
@@ -21,7 +23,6 @@ lpl.shelf = $.klass({
         this.open = true;
       }
     }
-    
     
     return this;
   },
@@ -55,7 +56,9 @@ lpl.shelf = $.klass({
   
   reflowShelf: function() {
     shelfContentItems = $(".icon-container", this.element).length + 1;
-    $(".content", this.element).width(shelfContentItems * ($(".icon-container:first", this.element).width() + 5) );
+    newWidth = shelfContentItems * ($(".icon-container:first", this.element).width() + 5);
+    $(".content", this.element).width(newWidth);
+    return newWidth;
   }
   
   

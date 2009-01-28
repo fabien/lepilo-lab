@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>lepilo • content mingler</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+    
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/reset.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_base.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_ui.css" />
+  </head>
+  <body>
+    
+    <div id="container" style="position:relative;width:800px;height:600px;border:1px solid #ccc;overflow:hidden">
+    
+      <div class="icon-container">
+        <div class="image">
+          <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" />
+        </div>
+        <div>stuff blah .jpg</div>
+        <div class="metadata">1200 x 817, PNG</div>
+      </div>
+    
+    </div>
+    <!-- #container END -->
+    
+    <script type="text/javascript" charset="utf-8">
+      
+      $("#container .icon-container").draggable({ 
+        revert: true,
+        distance: 50,
+        helper: "clone",
+        start: function(event) { 
+          var stuff = event; 
+          $('.ui-draggable:last').addClass("lpl_dragged");
+        }
+      });
+      
+    </script>
+    
+  </body>
+</html>

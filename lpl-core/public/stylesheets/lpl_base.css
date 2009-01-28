@@ -96,7 +96,6 @@ div#lpl_core_shelf {
   height:10px;
   background: transparent url(assets/lpl/shelf-bg.png) repeat-x top;
   z-index:27000;
-  overflow:hidden;
 }
 
 div#lpl_inplace_ui {

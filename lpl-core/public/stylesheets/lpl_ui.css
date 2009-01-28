@@ -196,6 +196,14 @@ div.lpl_tag.plain.active {
 /*    Shelf Styles                                          */
 /* -------------------------------------------------------- */
 
+div#lpl_core_shelf::-moz-selection, div#lpl_core_shelf *::-moz-selection {
+ background:transparent;
+}
+
+div#lpl_core_shelf::selection, div#lpl_core_shelf *::selection {
+ background:transparent;
+}
+
 div#lpl_core_shelf div.border {
   position:absolute;
   top:4px;
@@ -293,10 +301,9 @@ div#lpl_core_shelf > div.scroller {
 div#lpl_core_shelf > div.scroller > div.content {
   position:relative;
   height:190px;
-  overflow:hidden;
 }
 
-div#lpl_core_shelf div.icon-container {
+div.icon-container {
   position:relative;
   float:left;
   margin:5px 0 0 5px;
@@ -315,35 +322,49 @@ div#lpl_core_shelf div.icon-container {
   -webkit-border-radius: 7px;
 }
 
-div#lpl_core_shelf div.icon-container:hover {
+div.icon-container::-moz-selection, div.icon-container *::-moz-selection {
+ background:transparent;
+}
+
+div.icon-container::selection, div.icon-container *::selection {
+ background:transparent;
+}
+
+div.icon-container:hover {
+  cursor:pointer;
   background:rgba(0,0,0,0.25);
   -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.1);
   -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
 }
 
-div#lpl_core_shelf div.icon-container:active {
+div.icon-container:active {
   border: 2px solid rgba(135,191,35,1);
 }
 
 
-div#lpl_core_shelf div.icon-container.selected {
+div.icon-container.selected {
   border: 2px solid rgba(135,191,35,1);
 }
 
-div#lpl_core_shelf div.icon-container div.image {
+div.icon-container.lpl_dragged {
+  background: rgba(0,0,0,0.50);
+  border: 2px solid rgba(135,191,35,1);
+}
+
+div.icon-container div.image {
   position:relative;
   height:135px;
   text-align:center;
 }
 
-div#lpl_core_shelf div.icon-container div.image img {
+div.icon-container div.image img {
   display:block;
   margin:0 auto 0 auto;
   -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
-div#lpl_core_shelf div.icon-container div.text {
+div.icon-container div.text {
   position:relative;
   height:123px;
   margin:0 0 4px 0;
@@ -361,7 +382,7 @@ div#lpl_core_shelf div.icon-container div.text {
   -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
-div#lpl_core_shelf div.icon-container div.metadata {
+div.icon-container div.metadata {
   position:relative;
   color:#b5d63e;
   margin:0;
@@ -556,6 +577,10 @@ a.lpl_action_20.reorder span {
 
 /* Drag and Drop styles*/
 
+.lpl_dragged {
+  z-index:50000;
+}
+
 .lpl_yay {
   -webkit-box-shadow: 0px 1px 20px rgba(135,191,35,1), 0px 1px 10px rgba(135,191,35,1);
   -moz-box-shadow: 0px 1px 20px rgba(135,191,35,1), 0px 1px 10px rgba(135,191,35,1);
@@ -567,7 +592,9 @@ a.lpl_action_20.reorder span {
   /* red variations: 253,120,112; 225,72,55; 210,57,42 */
 }
 
-.lpl_dropable {
+.lpl_recieve {
+  -webkit-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
+  -moz-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
   /* darn, need to find out how we call these styles :) */
 }
 
