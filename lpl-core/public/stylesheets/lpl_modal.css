@@ -31,38 +31,28 @@ div#lpl_core_modal_dialog {
   overflow:hidden;
 }
 
-div#lpl_core_modal_dialog div.info {
+div#lpl_core_modal_dialog h1.info {
   height:40px;
+  text-align:center;
+  font-size:18px;
+  line-height:38px;
+  font-weight:bold;
+  color:#fff;
+  text-shadow: 1px 1px 1px #222;
   background: transparent url(assets/lpl/gradient-info-medium.png) repeat-x top center;
   overflow:hidden;
 }
 
-div#lpl_core_modal_dialog div.info h1 {
-  margin:8px 0 0 0;
-  text-align:center;
-  font-size:18px;
-  font-weight:bold;
+div#lpl_core_modal_dialog h1.info.fail {
   color:#fff;
-  text-shadow: 1px 1px 1px #222;
-}
-
-div#lpl_core_modal_dialog div.info.fail {
+  text-shadow: 1px 1px 1px #980a07;
   background: transparent url(assets/lpl/gradient-fail.png) repeat-x top center;
 }
 
-div#lpl_core_modal_dialog div.info.fail h1 {
-  color:#fff;
-  text-shadow: 1px 1px 1px #980a07;
-}
-
-
-div#lpl_core_modal_dialog div.info.yay {
-  background: transparent url(assets/lpl/gradient-yay.png) repeat-x top center;
-}
-
-div#lpl_core_modal_dialog div.info.yay h1 {
+div#lpl_core_modal_dialog h1.info.yay {
   color:#fff;
   text-shadow: 1px 1px 1px #3b811a;
+  background: transparent url(assets/lpl/gradient-yay.png) repeat-x top center;
 }
 
 

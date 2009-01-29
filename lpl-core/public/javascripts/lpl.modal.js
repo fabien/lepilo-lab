@@ -32,14 +32,17 @@ lpl.modal = $.klass({
     
     $(".info", this.element).removeClass("yay").removeClass("fail");
     
-    if(options.title)
+    if(options.title) {
       $(".info h1").html(options.title);
+    }
       
-    if (options.type == "yay")   
+    if (options.type == "yay") {
       $(".info", this.element).addClass("yay");
+    }
     
-    if (options.type == "fail")   
+    if (options.type == "fail") {
       $(".info", this.element).addClass("fail");
+    }
     
     this.fetch(this.fetchURL);
     this.openModal();
@@ -55,7 +58,7 @@ lpl.modal = $.klass({
       method: "get", url: this.fetchURL, data: this.sendParams, 
       beforeSend: function() {
         //this.popinContent.html(lpl.snippets.processing.gray);
-        $("#lpl_core_modal_dialog .content", this.element).html(lpl.snippets.processing.gray);
+        //$("#lpl_core_modal_dialog .content", this.element).html(lpl.snippets.processing.gray);
         $("#lpl_core_modal_dialog .msg", this.element).html(lpl.messages.success)
       },
       complete: function() {
@@ -72,8 +75,12 @@ lpl.modal = $.klass({
 
   },
   
-  putContent: function(bah) {
-    $(".content", this.element).html(bah);
+  putContent: function(content) {
+    $(".content", this.element).html(content);
+  },
+  
+  putMessage: function(message) {
+    $(".msg", this.element).html(message);
   },
   
   openModal: function() {
@@ -84,8 +91,8 @@ lpl.modal = $.klass({
   },
   
   closeModal: function() {
-    $('#lpl_core_modal_dialog .content').slideUp(500);
-    $('#lpl_core_modal').fadeOut(750);
+    $('.content', this.element).slideUp(500);
+    $(this.element).fadeOut(750);
   },
   
   cancelModal: function() {
