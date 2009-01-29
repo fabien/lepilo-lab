@@ -55,7 +55,7 @@ if defined?(Merb::Plugins)
   # List all core stylesheets here - the array items are passed as args to core.require_css
   Merb::Slices::config[:lpl_core][:stylesheets] ||= begin
     stylesheets = []
-    stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl lpl_markdown], { :bundle => 'bundle.lpl' }]
+    stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl_modal lpl_markdown], { :bundle => 'bundle.lpl' }]
     stylesheets << [%w[markitup/skins/markitup/style markitup/sets/markdown/style], { :bundle => 'bundle.markdown' }]
   end
   
