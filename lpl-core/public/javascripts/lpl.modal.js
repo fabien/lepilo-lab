@@ -68,7 +68,8 @@ lpl.modal = $.klass({
       },
       success: function(html){
         //$(".content").show("slow");
-        $("#lpl_core_modal_dialog .msg", this.element).html(lpl.snippets.processing.gray)
+        //$("#lpl_core_modal_dialog .msg", this.element).html(lpl.snippets.processing.gray)
+        $("#lpl_core_modal_dialog .msg", this.element).html("")
         $("#lpl_core_modal_dialog .content", this.element).html(html).show("slide", { direction: "up" }, 350);
       } 
     });
