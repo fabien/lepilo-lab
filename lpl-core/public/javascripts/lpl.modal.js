@@ -53,6 +53,7 @@ lpl.modal = $.klass({
   }),
   
   fetch: function(url) {
+    this.center();
     // popin content loaded via AJAX
     $.ajax({ 
       method: "get", url: this.fetchURL, data: this.sendParams, 
@@ -60,16 +61,18 @@ lpl.modal = $.klass({
         //this.popinContent.html(lpl.snippets.processing.gray);
         //$("#lpl_core_modal_dialog .content", this.element).html(lpl.snippets.processing.gray);
         $("#lpl_core_modal_dialog .msg", this.element).html(lpl.snippets.processing.gray)
+        $("#lpl_core_modal_dialog .msg", this.element).show();
       },
       complete: function() {
         //$(".loading", this.element).hide("blind", { direction: "vertical" }, 150);
         //$(".container .loading", this.element).hide("blind", { direction: "vertical" }, 150);
-        $("#lpl_core_modal_dialog .msg", this.element).html(lpl.messages.success)
+        //$("#lpl_core_modal_dialog .msg", this.element).html(lpl.messages.success);
+        $("#lpl_core_modal_dialog .msg", this.element).show();
       },
       success: function(html){
         //$(".content").show("slow");
         //$("#lpl_core_modal_dialog .msg", this.element).html(lpl.snippets.processing.gray)
-        $("#lpl_core_modal_dialog .msg", this.element).html("")
+        $("#lpl_core_modal_dialog .msg", this.element).hide();
         $("#lpl_core_modal_dialog .content", this.element).html(html).show("slide", { direction: "up" }, 350);
       } 
     });
