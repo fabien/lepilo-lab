@@ -30,6 +30,17 @@ lpl.feedback = $.klass({
     if (options.width)  {   this.element.css({ "width": options.width });    }
   },
   
+  showFlash: function(text, type) {
+    var html = '<div id="lpl_flash" class="' + (type || 'yay') + '">'
+    html += '<a id="close_flash" class="lpl_close" href="#" title="close message">close</a>';
+    html += '<p>' + text + '</p>';
+    html += '</div>';
+    this.element.html(html);
+    $("#lpl_flash", this.element).show("slide", { direction: "up" }, 300, function() {
+      lpl.layout.reLayout();
+    });
+  },
+  
   hideFlash: function() {
     $("#lpl_flash", this.element).hide("slide", { direction: "up" }, 300, function() {
       lpl.layout.reLayout();

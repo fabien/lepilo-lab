@@ -119,6 +119,10 @@ class String #:nodoc:
     self.original_downcase.tr(INT_CHARS_UPPER, INT_CHARS_LOWER)
   end
   
+  def simple_format
+    '<p>' + self.gsub(/\r\n?/, "\n").gsub(/\n\n+/, "</p>\n\n<p>").gsub(/([^\n]\n)(?=[^\n])/, '\1<br />') + '</p>'
+  end
+  
   # Flickr style splitting of a string: tag1 tag2 "tag 3 has spaces" tag4
   def split_as_tags
     split(/"(.+?)"|\s+/).reject { |s| s.empty? }

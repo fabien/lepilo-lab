@@ -21,11 +21,19 @@ jQuery.extend({
 			dataType: "json",
 			contentType: 'application/json'
 		});
+	},
+	
+	currentUrl: function() {
+	  return (window.location.protocol + "//" + window.location.host + window.location.pathname).replace(/\/$/, '');
 	}
 	
 });
 
 jQuery.fn.extend({
+  
+  reverse: function() {
+  	return this.pushStack(this.get().reverse(), arguments);
+  },
   
   sort: function() { 
     return this.pushStack(jQuery.makeArray([].sort.apply(this, arguments))); 
@@ -38,6 +46,27 @@ jQuery.fn.extend({
       if(idx_a == idx_b) return 0;
       return (idx_a > idx_b ? 1 : -1);
     }).appendTo(this).end();
+  },
+  
+  markdown: function() {
+    var converter = new Showdown.converter();
+    return this.each(function() {
+      $(this).html('<div class="lpl_markdown">' + converter.makeHtml($(this).text()) + '</div>');
+    });
+  },
+  
+  unselectable: function() {
+    return this.each(function() {
+      $(this).attr('unselectable', 'on').css({ MozUserSelect: 'none', KhtmlUserSelect: 'none' });
+    });
+  },
+  
+  flashClass: function(className, duration) {
+    return this.each(function() {
+      var ref = $(this);
+      ref.addClass(className);
+      setTimeout(function() { ref.removeClass(className); }, duration || 500);
+    });
   }
   
 });

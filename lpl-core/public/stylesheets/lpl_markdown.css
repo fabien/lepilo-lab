@@ -1,0 +1,365 @@
+/*** reset ***/
+
+.lpl_markdown html, .lpl_markdown body, .lpl_markdown div, .lpl_markdown span, .lpl_markdown applet, .lpl_markdown object, .lpl_markdown iframe,
+.lpl_markdown h1, .lpl_markdown h2, .lpl_markdown h3, .lpl_markdown h4, .lpl_markdown h5, .lpl_markdown h6, .lpl_markdown p, .lpl_markdown blockquote, .lpl_markdown pre,
+.lpl_markdown a, .lpl_markdown abbr, .lpl_markdown acronym, .lpl_markdown address, .lpl_markdown big, .lpl_markdown cite, .lpl_markdown code,
+.lpl_markdown del, .lpl_markdown dfn, .lpl_markdown em, .lpl_markdown font, .lpl_markdown img, .lpl_markdown ins, .lpl_markdown kbd, .lpl_markdown q, .lpl_markdown s, .lpl_markdown samp,
+.lpl_markdown small, .lpl_markdown strike, .lpl_markdown strong, .lpl_markdown sub, .lpl_markdown sup, .lpl_markdown tt, .lpl_markdown var,
+.lpl_markdown b, .lpl_markdown u, .lpl_markdown i, .lpl_markdown center,
+.lpl_markdown dl, .lpl_markdown dt, .lpl_markdown dd, .lpl_markdown ol, .lpl_markdown ul, .lpl_markdown li,
+.lpl_markdown fieldset, .lpl_markdown form, .lpl_markdown label, .lpl_markdown legend,
+.lpl_markdown table, .lpl_markdown caption, .lpl_markdown tbody, .lpl_markdown tfoot, .lpl_markdown thead, .lpl_markdown tr, .lpl_markdown th, .lpl_markdown td {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  font-size: 100% !important;
+  vertical-align: baseline !important;
+  background: transparent !important;
+  width: auto !important;
+  text-align: left !important;
+  text-shadow: none !important;
+}
+.lpl_markdown body {
+  line-height: 1 !important;
+}
+.lpl_markdown ol, .lpl_markdown ul {
+  list-style: none !important;
+}
+.lpl_markdown blockquote, .lpl_markdown q {
+  quotes: none !important;
+}
+.lpl_markdown blockquote:before, .lpl_markdown blockquote:after,
+.lpl_markdown q:before, .lpl_markdown q:after {
+  content: '' !important;
+  content: none !important;
+}
+.lpl_markdown :focus {
+  outline: 0 !important;
+}
+.lpl_markdown ins {
+  text-decoration: none !important;
+}
+.lpl_markdown del {
+  text-decoration: line-through !important;
+}
+.lpl_markdown table {
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+
+/*** content styling ***/
+
+.lpl_markdown
+{
+	line-height:1.6em !important;
+}
+
+.lpl_markdown a
+{
+	text-decoration:underline !important;
+}
+
+.lpl_markdown strong,.lpl_markdown th,.lpl_markdown thead td,.lpl_markdown h1,.lpl_markdown h2,.lpl_markdown h3,.lpl_markdown h4,.lpl_markdown h5,.lpl_markdown h6,.lpl_markdown dt
+{
+	font-weight:bold !important;
+}
+
+.lpl_markdown cite,.lpl_markdown em,.lpl_markdown dfn
+{
+	font-style:italic !important;
+}
+
+.lpl_markdown code,.lpl_markdown kbd,.lpl_markdown samp,.lpl_markdown pre,.lpl_markdown tt,.lpl_markdown var
+{
+	font-size:100% !important;
+	font-family:mono-space,monospace !important;
+}
+
+.lpl_markdown pre
+{
+	white-space:pre !important;
+}
+
+.lpl_markdown pre *
+{
+	font-size:100% !important;
+	white-space:pre !important;
+}
+
+.lpl_markdown del
+{
+	text-decoration:line-through !important;
+}
+
+.lpl_markdown ins,.lpl_markdown dfn
+{
+	border-bottom:1px solid black !important;
+}
+
+.lpl_markdown small,.lpl_markdown sup,.lpl_markdown sub
+{
+	font-size:85% !important;
+}
+
+.lpl_markdown big
+{
+	font-size:125% !important;
+	line-height:80% !important;
+}
+
+.lpl_markdown abbr,.lpl_markdown acronym
+{
+	text-transform:uppercase !important;
+	font-size:85% !important;
+	letter-spacing:.1em !important;
+}
+
+.lpl_markdown abbr[title],.lpl_markdown acronym[title],.lpl_markdown dfn[title]
+{
+	cursor:help !important;
+	border-bottom:1px dotted black !important;
+}
+
+.lpl_markdown sup
+{
+	vertical-align:super !important;
+}
+
+.lpl_markdown sub
+{
+	vertical-align:sub !important;
+}
+
+.lpl_markdown blockquote
+{
+	padding-left:2.2em !important;
+}
+
+.lpl_markdown .dquo
+{
+	margin-left:-.55em !important;
+}
+
+.lpl_markdown :lang(af),.lpl_markdown :lang(nl),.lpl_markdown :lang(pl)
+{
+	quotes:'\201E' '\201D' '\201A' '\2019' !important;
+}
+
+.lpl_markdown :lang(bg),.lpl_markdown :lang(cs),.lpl_markdown :lang(de),.lpl_markdown :lang(is),.lpl_markdown :lang(lt),.lpl_markdown :lang(sk),.lpl_markdown :lang(sr),.lpl_markdown :lang(ro)
+{
+	quotes:'\201E' '\201C' '\201A' '\2018' !important;
+}
+
+.lpl_markdown :lang(da),.lpl_markdown :lang(hr)
+{
+	quotes:'\00BB' '\00AB' '\203A' '\2039' !important;
+}
+
+.lpl_markdown :lang(el),.lpl_markdown :lang(es),.lpl_markdown :lang(sq),.lpl_markdown :lang(tr)
+{
+	quotes:'\00AB' '\00BB' '\2039' '\203A' !important;
+}
+
+.lpl_markdown :lang(en-GB)
+{
+	quotes:'\2018' '\2019' '\201C' '\201D' !important;
+}
+
+.lpl_markdown :lang(fi),.lpl_markdown :lang(sv)
+{
+	quotes:'\201D' '\201D' '\2019' '\2019' !important;
+}
+
+.lpl_markdown :lang(fr)
+{
+	quotes:'\ab\2005' '\2005\bb' '\2039\2005' '\2005\203a' !important;
+}
+
+.lpl_markdown *[lang|='en'] q:before
+{
+	content:'\201C' !important;
+}
+
+.lpl_markdown *[lang|='en'] q:after
+{
+	content:'\201D' !important;
+}
+
+.lpl_markdown *[lang|='en'] q q:before
+{
+	content:'\2018' !important;
+}
+
+.lpl_markdown *[lang|='en'] q q:after
+{
+	content:'\2019' !important;
+}
+
+.lpl_markdown input,.lpl_markdown select,.lpl_markdown button
+{
+	cursor:pointer !important;
+}
+
+.lpl_markdown input[type='text'],.lpl_markdown input[type='password']
+{
+	cursor:text !important;
+}
+
+.lpl_markdown input[type='hidden']
+{
+	display:none !important;
+}
+
+.lpl_markdown h1
+{
+	font-size:1.6em !important;
+	line-height:1 !important;
+	margin:1em 0 .5em !important;
+}
+
+.lpl_markdown h2
+{
+	font-size:1.5em !important;
+	line-height:1 !important;
+	margin:1.07em 0 .535em !important;
+}
+
+.lpl_markdown h3
+{
+	font-size:1.4em !important;
+	line-height:1 !important;
+	margin:1.14em 0 .57em !important;
+}
+
+.lpl_markdown h4
+{
+	font-size:1.3em !important;
+	line-height:1 !important;
+	margin:1.23em 0 .615em !important;
+}
+
+.lpl_markdown h5
+{
+	font-size:1.2em !important;
+	line-height:1 !important;
+	margin:1.33em 0 .67em !important;
+}
+
+.lpl_markdown h6
+{
+	font-size:1em !important;
+	line-height:1 !important;
+	margin:1.6em 0 .8em !important;
+}
+
+.lpl_markdown hr
+{
+	display:block !important;
+	background:black !important;
+	color:black !important;
+	width:100% !important;
+	height:1px !important;
+	border:none !important;
+}
+
+.lpl_markdown ul
+{
+	list-style:disc outside !important;
+}
+
+.lpl_markdown ol
+{
+	list-style:decimal outside !important;
+}
+
+.lpl_markdown table
+{
+	border-collapse:collapse !important;
+}
+
+.lpl_markdown hr,.lpl_markdown p,.lpl_markdown ul,.lpl_markdown ol,.lpl_markdown dl,.lpl_markdown pre, .lpl_markdown address,.lpl_markdown table,.lpl_markdown form
+{
+	margin-bottom:1.6em !important;
+}
+
+.lpl_markdown p+p
+{
+	margin-top:-.8em !important;
+}
+
+.lpl_markdown fieldset
+{
+	margin:1.6em 0 !important;
+	padding:1.6em !important;
+}
+
+/* \*/
+
+.lpl_markdown legend
+{
+	padding-left:.8em !important;
+	padding-right:.8em !important;
+}
+
+.lpl_markdown fieldset>*:first-child
+{
+	margin-top:0 !important;
+}
+
+.lpl_markdown textarea,.lpl_markdown input[type='text']
+{
+	padding:.1em .2em !important;
+}
+
+.lpl_markdown input
+{
+	padding:.2em .1em !important;
+}
+
+.lpl_markdown select
+{
+	padding:.2em .1em 0 !important;
+}
+
+.lpl_markdown select[multiple]
+{
+	margin-bottom:.8em !important;
+}
+
+.lpl_markdown option
+{
+	padding:0 .4em .1em !important;
+}
+
+.lpl_markdown button
+{
+	padding:.3em .5em !important;
+}
+
+.lpl_markdown input[type='radio']
+{
+	position:relative !important;
+	bottom:-.2em !important;
+}
+
+.lpl_markdown dt
+{
+	margin-top:.8em !important;
+	margin-bottom:.4em !important;
+}
+
+.lpl_markdown ul,.lpl_markdown ol
+{
+	margin-left:2.2em !important;
+}
+
+.lpl_markdown caption,.lpl_markdown form div
+{
+	padding-bottom:.8em !important;
+}
+
+.lpl_markdown ul ul,content ol ul,.lpl_markdown ul ol,content ol ol
+{
+	margin-bottom:0 !important;
+}

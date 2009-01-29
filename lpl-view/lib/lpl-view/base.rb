@@ -29,12 +29,12 @@ module LplView
     # Appending to this object will append raw String values or the
     # result of :to_html calls - if available, builder will be adjusted
     # to respect the current indentation level.
-    def concat(obj)
+    def concat(obj, indent = false)
       if obj.respond_to?(:to_html)
         obj.builder.level = builder.level if obj.respond_to?(:builder)
         builder << obj.to_html
       else
-        builder << indent(obj.to_s)
+        builder << (indent ? indent(obj.to_s) : obj.to_s)
       end
     end
     alias :<< :concat

@@ -9,25 +9,29 @@ module LplCore
     
     # Core layout helpers 
     
-    def sidebar_title(title)
-      builder.h1(title, :class => 'lpl_sidebar')
+    def sidebar_title(title, attrs = {})
+      builder.h1(title, attrs.merge(:class => attrs[:class] ? "lpl_sidebar #{attrs[:class]}" : "lpl_sidebar"))
     end
     
-    def sidebar_tree(links, options = {})
-      sidebar_list(links, options.merge(:class => 'rounded'))
+    def sidebar_tree(links, attrs = {})
+      sidebar_list(links, attrs.merge(:class => 'rounded'))
     end
     
-    def sidebar_folders(links, options = {})
-      sidebar_list(links, options.merge(:class => 'folder'))
+    def sidebar_folders(links, attrs = {})
+      sidebar_list(links, attrs.merge(:class => 'folder'))
     end
     
-    def sidebar_list(links, options = {})
-      sidebar_title(options[:title]) if options[:title]
-      builder.div(:class => options[:class] ? "lpl_list #{options[:class]}" : "lpl_list") do |div|
+    def sidebar_list(links, attrs = {})
+      sidebar_title(attrs[:title]) if attrs[:title]
+      builder.div(attrs.merge(:class => attrs[:class] ? "lpl_list #{attrs[:class]}" : "lpl_list")) do |div|
         div.ul do |ul|
           links.each { |l| sidebar_list_item(l) }          
         end
       end   
+    end
+    
+    def inspector_title(title, attrs = {})
+      builder.h1(title, attrs.merge(:class => attrs[:class] ? "lpl_inspector #{attrs[:class]}" : "lpl_inspector"))
     end
     
     # Main content helpers
@@ -143,8 +147,12 @@ module LplCore
         builder.div(mdata.join(' | '), :class => 'metadata') unless mdata.empty?
       end
       
-      def description(string)
-        builder.div(string, :class => 'description')
+      def description(string = nil, &block)
+        if block_given?
+          builder.div(:class => 'description', &block)
+        else
+          builder.div(string, :class => 'description')
+        end
       end
       
       # Helper method.

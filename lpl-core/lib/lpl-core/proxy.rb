@@ -16,6 +16,17 @@ module LplCore
         attr_accessor :show_#{section}
         def show_#{section}!; @show_#{section} = true;   end;
         def hide_#{section}!; @show_#{section} = false;  end;
+        def open_#{section}!;  set_cookie('lpl_#{section}', 'open', 30);   end;
+        def close_#{section}!; set_cookie('lpl_#{section}', 'closed', 30); end;
+      CODE
+    end
+    
+    # Layout sections can be opened/closed using open_section! and close_section!
+    
+    [:sidebar, :inspector, :shelf].each do |section|
+      class_eval <<-CODE
+        def open_#{section}!;  set_cookie('lpl_#{section}', 'open', 30);   end;
+        def close_#{section}!; set_cookie('lpl_#{section}', 'closed', 30); end;
       CODE
     end
     

@@ -7,6 +7,16 @@ module Views
           render_header_icons(core.extensions)
           render_toggle_icons(:sidebar, :shelf, :inspector)
         end
+        
+        def render_feedback
+          unless message.empty?
+            msg_type = message[:failure] || message[:warning] ? 'fail' : 'yay'   
+            builder.div(:id => 'lpl_flash', :class => msg_type) do |feedback|
+              feedback.a('close', :href => '#', :title => 'close message', :id => 'close_flash', :class => 'lpl_close')
+              feedback.p(message[:success] || message[:failure] || message[:warning] || message[:notice])
+            end
+          end
+        end
   
         def render_shelf
           images = []

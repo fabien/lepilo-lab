@@ -49,12 +49,14 @@ if defined?(Merb::Plugins)
     javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery jquery.json],  { :bundle => 'bundle.lpl.jquery' }]
     javascripts << [%w[jquery.autogrow-textarea lowpro.jquery swfupload], { :bundle => 'bundle.lpl.extensions' }]
     javascripts << [%w[lpl.support lpl.app lpl.inspector lpl.shelf lpl.sidebar lpl.feedback lpl.layout lpl.modal lpl.uploadrz], { :bundle => 'bundle.lpl' }]
+    javascripts << [%w[showdown markitup/jquery.markitup markitup/sets/markdown], { :bundle => 'bundle.markdown' }]
   end
   
   # List all core stylesheets here - the array items are passed as args to core.require_css
   Merb::Slices::config[:lpl_core][:stylesheets] ||= begin
     stylesheets = []
-    stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl_modal], { :bundle => 'bundle.lpl' }]
+    stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl_modal lpl_markdown], { :bundle => 'bundle.lpl' }]
+    stylesheets << [%w[markitup/skins/markitup/style markitup/sets/markdown/style], { :bundle => 'bundle.markdown' }]
   end
   
   # Some general settings/metadata
