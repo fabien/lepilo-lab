@@ -9,8 +9,6 @@ lpl.modal = $.klass({
   
   initialize: function() {
     
-    this.center();
-    
     if ($(".login_form").length > 0) {
       //this.element.show("slide", { direction: "up" }, 500);
       $("#lpl_core_modal_dialog", this.element).hide();
@@ -92,6 +90,8 @@ lpl.modal = $.klass({
     this.element.hide().css({ top: "0px" }).fadeIn(750, function () {
       $("#lpl_core_modal_dialog", this.element).show("slide", { direction: "up" }, 350);
     });
+    
+    this.center();
   },
   
   closeModal: function() {
