@@ -67,7 +67,7 @@ lpl.modal = $.klass({
         //$(".loading", this.element).hide("blind", { direction: "vertical" }, 150);
         //$(".container .loading", this.element).hide("blind", { direction: "vertical" }, 150);
         //$("#lpl_core_modal_dialog .msg", this.element).html(lpl.messages.success);
-        $("#lpl_core_modal_dialog .msg", this.element).show();
+        //$("#lpl_core_modal_dialog .msg", this.element).show();
       },
       success: function(html){
         //$(".content").show("slow");
