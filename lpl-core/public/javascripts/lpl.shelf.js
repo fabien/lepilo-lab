@@ -20,7 +20,7 @@ lpl.shelf = $.klass({
     } else if ($.cookie('lpl_shelf') == 'closed') {
       this.open = false;      
       this.hide();
-    } else if (!$.cookie('lpl_shelf')) {
+    } else {
       if ((this.viewHeight = this.element.height()) > 10) {
         this.open = true;
       }

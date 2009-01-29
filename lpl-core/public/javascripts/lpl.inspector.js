@@ -15,7 +15,7 @@ lpl.inspector = $.klass({
     } else if ($.cookie('lpl_inspector') == 'closed') {
       this.open = false;      
       this.hide();
-    } else if (!$.cookie('lpl_inspector')) {
+    } else {
       if ((this.currentWidth = this.element.width()) > 10) {
         this.open = true;
       }
@@ -38,7 +38,7 @@ lpl.inspector = $.klass({
     this.element.width(this.openWidth);
     this.currentWidth = this.element.width();
     this.open = true;
-    $.cookie('lpl_inspector', 'open', { path: "/"});
+    $.cookie('lpl_inspector', 'open', { expires: 30, path: "/"});
     lpl.layout.reLayout();
   },
   
@@ -46,7 +46,7 @@ lpl.inspector = $.klass({
     this.element.width(0);
     this.currentWidth = this.element.width();
     this.open = false;
-    $.cookie('lpl_inspector', 'closed', { path: "/"});
+    $.cookie('lpl_inspector', 'closed', { expires: 30, path: "/"});
     lpl.layout.reLayout();
   },
   

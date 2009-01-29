@@ -15,7 +15,7 @@ lpl.sidebar = $.klass({
     } else if ($.cookie('lpl_sidebar') == 'closed') {
       this.open = false;      
       this.hide();
-    } else if (!$.cookie('lpl_sidebar')) {
+    } else {
       if ((this.currentWidth = this.element.width()) > 10) {
         this.open = true;
       }
