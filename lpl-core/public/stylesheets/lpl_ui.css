@@ -592,10 +592,9 @@ a.lpl_action_20.reorder span {
   /* red variations: 253,120,112; 225,72,55; 210,57,42 */
 }
 
-.lpl_recieve {
+.lpl_target {
   -webkit-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
   -moz-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
-  /* darn, need to find out how we call these styles :) */
 }
 
 .lpl_error {
