@@ -51,6 +51,14 @@ module Views
           end
         end
         
+        def render_modal
+          builder.div(:id => 'lpl_core_modal_dialog') do |dialog|
+            dialog.h1('')
+            dialog.div('', :class => 'msg')
+            dialog.div('', :class => 'content')
+          end         
+        end
+        
         protected
         
         def render_header_icons(*extensions)

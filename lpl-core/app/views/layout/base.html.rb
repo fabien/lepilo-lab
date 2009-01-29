@@ -27,6 +27,7 @@ module Views
             container.div(:id => 'lpl_core_feedback')   { render_feedback   } if show_feedback?
             container.div(:id => 'lpl_core_inspector')  { render_inspector  } if show_inspector?
             container.div(:id => 'lpl_core_shelf')      { render_shelf      } if show_shelf?
+            container.div(:id => 'lpl_core_modal')      { render_modal      }
           end
         end
         
@@ -37,6 +38,7 @@ module Views
         def render_feedback;            end
         def render_inspector;           end
         def render_shelf;               end
+        def render_modal;               end
         
         protected
         
@@ -68,7 +70,7 @@ module Views
         def show_feedback?;   core.show_feedback;    end
         def show_inspector?;  core.show_inspector;   end
         def show_shelf?;      core.show_shelf;       end
-
+        
       end
     end
   end
