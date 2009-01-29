@@ -48,7 +48,7 @@ if defined?(Merb::Plugins)
     javascripts = []
     javascripts << [%w[jquery jquery-ui jquery.cookie jquery.livequery jquery.json],  { :bundle => 'bundle.lpl.jquery' }]
     javascripts << [%w[jquery.autogrow-textarea lowpro.jquery swfupload], { :bundle => 'bundle.lpl.extensions' }]
-    javascripts << [%w[lpl.support lpl.app lpl.inspector lpl.shelf lpl.sidebar lpl.feedback lpl.layout lpl.modal lpl.uploadrz], { :bundle => 'bundle.lpl' }]
+    javascripts << [%w[lpl.support lpl.app lpl.snippets lpl.inspector lpl.shelf lpl.sidebar lpl.feedback lpl.layout lpl.modal lpl.uploadrz], { :bundle => 'bundle.lpl' }]
     javascripts << [%w[showdown markitup/jquery.markitup markitup/sets/markdown], { :bundle => 'bundle.markdown' }]
   end
   
