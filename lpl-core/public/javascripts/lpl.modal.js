@@ -59,7 +59,7 @@ lpl.modal = $.klass({
       beforeSend: function() {
         //this.popinContent.html(lpl.snippets.processing.gray);
         //$("#lpl_core_modal_dialog .content", this.element).html(lpl.snippets.processing.gray);
-        $("#lpl_core_modal_dialog .msg", this.element).html(lpl.messages.success)
+        $("#lpl_core_modal_dialog .msg", this.element).html(lpl.snippets.processing.gray)
       },
       complete: function() {
         //$(".loading", this.element).hide("blind", { direction: "vertical" }, 150);
