@@ -111,6 +111,12 @@ jQuery(function($) {
     lpl.layout.reLayout();
   });
   
+  $.fn.unselectable = function() {
+    return this.each(function() {
+      $(this).attr('unselectable', 'on').css({ MozUserSelect: 'none', KhtmlUserSelect: 'none' })
+    });
+  }
+  
   // $(document).scroll(function() {
   //   lpl.layout.reLayout();
   //   lpl.layout.reLayout();
