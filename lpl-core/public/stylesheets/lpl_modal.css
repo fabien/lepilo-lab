@@ -11,23 +11,29 @@ div#lpl_modal {
   width:100%;
   height:100%;
   text-align:center;
-  background: transparent url(assets/lpl/black-50alpha.png) repeat;
-  z-index:30000;
+  background: rgba(0,0,0,0.75);
+  z-index:50001;
 }
 
 div#lpl_modal_dialog {
   position:relative;
   width:524px;
   text-align:left;
-  background: transparent url(assets/lpl/modal-dialog.png) no-repeat bottom center;
-  z-index:30001;
+  background: rgb(232,232,232) url(assets/lpl/gradient-medium.png) repeat-x bottom center;
+  z-index:50002;
+  -webkit-box-shadow: 0px 3px 20px rgba(0,0,0,0.75), 0px 1px 5px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 3px 20px rgba(0,0,0,0.75), 0px 1px 5px rgba(0,0,0,0.25);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  -webkit-border-bottom-left-radius: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  -moz-border-radius-bottomright: 15px;
   overflow:hidden;
 }
 
 div#lpl_modal_dialog div.info {
   height:40px;
-  background: transparent url(assets/lpl/modal-dialog.png) no-repeat -22px 0px;
-  margin:0 22px 10px 22px;
+  background: transparent url(assets/lpl/gradient-info-medium.png) repeat-x top center;
   overflow:hidden;
 }
 
@@ -41,7 +47,7 @@ div#lpl_modal_dialog div.info h1 {
 }
 
 div#lpl_modal_dialog div.info.fail {
-  background: transparent url(assets/lpl/modal-dialog.png) no-repeat -22px -50px;
+  background: transparent url(assets/lpl/gradient-fail.png) repeat-x top center;
 }
 
 div#lpl_modal_dialog div.info.fail h1 {
@@ -51,7 +57,7 @@ div#lpl_modal_dialog div.info.fail h1 {
 
 
 div#lpl_modal_dialog div.info.yay {
-  background: transparent url(assets/lpl/modal-dialog.png) no-repeat -22px -100px;
+  background: transparent url(assets/lpl/gradient-yay.png) repeat-x top center;
 }
 
 div#lpl_modal_dialog div.info.yay h1 {
@@ -60,8 +66,8 @@ div#lpl_modal_dialog div.info.yay h1 {
 }
 
 
-div#lpl_modal_dialog div.content   {
-  margin:20px 40px 40px 40px;
+div#lpl_modal_dialog div.content {
+  margin:10px 0 10px 0;
 }
 
 div#lpl_modal_dialog div.confirm {
