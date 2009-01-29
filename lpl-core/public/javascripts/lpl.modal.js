@@ -13,10 +13,10 @@ lpl.modal = $.klass({
       //this.element.show("slide", { direction: "up" }, 500);
       $("#lpl_core_modal_dialog", this.element).hide();
       this.element.hide().css({ top: "0px" }).fadeIn(750, function () {
-        $(".info", this.element).addClass("fail");
+        $("h1", this.element).addClass("fail");
         $("#lpl_core_modal_dialog", this.element).show("slide", { direction: "up" }, 350);
       });
-      $(".info h1").html("Unauthorized access: please log in");
+      $("h1", this.element).html("Unauthorized access: please log in");
     } else {
       this.closeModal();
     }
@@ -28,18 +28,21 @@ lpl.modal = $.klass({
     this.fetchURL = options.url;
     this.sendParams = options.params;
     
-    $(".info", this.element).removeClass("yay").removeClass("fail");
-    
     if(options.title) {
-      $(".info h1").html(options.title);
-    }
+      $("h1", this.element).removeClass("yay").removeClass("fail");
+      $("h1", this.element).show();
+      $("h1", this.element).html(options.title);
+
+      if (options.type == "yay") {
+        $("h1", this.element).addClass("yay");
+      }
+
+      if (options.type == "fail") {
+        $("h1", this.element).addClass("fail");
+      }
       
-    if (options.type == "yay") {
-      $(".info", this.element).addClass("yay");
-    }
-    
-    if (options.type == "fail") {
-      $(".info", this.element).addClass("fail");
+    } else {
+      $("h1", this.element).hide();
     }
     
     this.fetch(this.fetchURL);

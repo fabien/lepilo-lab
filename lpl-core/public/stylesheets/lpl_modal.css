@@ -32,11 +32,9 @@ div#lpl_core_modal_dialog {
 }
 
 div#lpl_core_modal_dialog h1 {
-  margin:0;
-}
-
-div#lpl_core_modal_dialog h1.info {
+  display:block;
   height:40px;
+  margin:0;
   text-align:center;
   font-size:18px;
   line-height:38px;
@@ -47,13 +45,13 @@ div#lpl_core_modal_dialog h1.info {
   overflow:hidden;
 }
 
-div#lpl_core_modal_dialog h1.info.fail {
+div#lpl_core_modal_dialog h1.fail {
   color:#fff;
   text-shadow: 1px 1px 1px #980a07;
   background: transparent url(assets/lpl/gradient-fail.png) repeat-x top center;
 }
 
-div#lpl_core_modal_dialog h1.info.yay {
+div#lpl_core_modal_dialog h1.yay {
   color:#fff;
   text-shadow: 1px 1px 1px #3b811a;
   background: transparent url(assets/lpl/gradient-yay.png) repeat-x top center;
