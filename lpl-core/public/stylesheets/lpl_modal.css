@@ -31,6 +31,10 @@ div#lpl_core_modal_dialog {
   overflow:hidden;
 }
 
+div#lpl_core_modal_dialog h1 {
+  margin:0;
+}
+
 div#lpl_core_modal_dialog h1.info {
   height:40px;
   text-align:center;
