@@ -36,7 +36,7 @@ lpl.shelf = $.klass({
     this.element.width("100%");
     this.height = this.element.height();
     this.open = true;
-    $.cookie('lpl_shelf', 'open', { expires: 30, path: "/"});
+    $.cookie('lpl_shelf', 'open', { path: "/"});
     lpl.layout.reLayout();
   },
   
@@ -46,7 +46,7 @@ lpl.shelf = $.klass({
     this.element.height(10);
     this.height = this.element.height();
     this.open = false;
-    $.cookie('lpl_shelf', 'closed', { expires: 30, path: "/"});
+    $.cookie('lpl_shelf', 'closed', { path: "/"});
     lpl.layout.reLayout();
   },
   
