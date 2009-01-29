@@ -58,7 +58,7 @@ $(document).ready(function(){
   $('.actions').children('a:last-child').addClass('end');
   
   //  Initialize the modal dialog
-  //$('#lpl_modal').attach(lpl.modal);
+  //$('#lpl_core_modal').attach(lpl.modal);
   
   //  Test the pop-in
   //$('.lpl_pop_in').attach(lpl.popin);

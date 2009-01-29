@@ -4,7 +4,7 @@
 /*    and overlays the content                              */
 /* -------------------------------------------------------- */
 
-div#lpl_modal {
+div#lpl_core_modal {
   position:fixed;
   left:0px;
   top:-5000px;
@@ -15,7 +15,7 @@ div#lpl_modal {
   z-index:50001;
 }
 
-div#lpl_modal_dialog {
+div#lpl_core_modal_dialog {
   position:relative;
   width:524px;
   text-align:left;
@@ -31,13 +31,13 @@ div#lpl_modal_dialog {
   overflow:hidden;
 }
 
-div#lpl_modal_dialog div.info {
+div#lpl_core_modal_dialog div.info {
   height:40px;
   background: transparent url(assets/lpl/gradient-info-medium.png) repeat-x top center;
   overflow:hidden;
 }
 
-div#lpl_modal_dialog div.info h1 {
+div#lpl_core_modal_dialog div.info h1 {
   margin:8px 0 0 0;
   text-align:center;
   font-size:18px;
@@ -46,31 +46,31 @@ div#lpl_modal_dialog div.info h1 {
   text-shadow: 1px 1px 1px #222;
 }
 
-div#lpl_modal_dialog div.info.fail {
+div#lpl_core_modal_dialog div.info.fail {
   background: transparent url(assets/lpl/gradient-fail.png) repeat-x top center;
 }
 
-div#lpl_modal_dialog div.info.fail h1 {
+div#lpl_core_modal_dialog div.info.fail h1 {
   color:#fff;
   text-shadow: 1px 1px 1px #980a07;
 }
 
 
-div#lpl_modal_dialog div.info.yay {
+div#lpl_core_modal_dialog div.info.yay {
   background: transparent url(assets/lpl/gradient-yay.png) repeat-x top center;
 }
 
-div#lpl_modal_dialog div.info.yay h1 {
+div#lpl_core_modal_dialog div.info.yay h1 {
   color:#fff;
   text-shadow: 1px 1px 1px #3b811a;
 }
 
 
-div#lpl_modal_dialog div.content {
+div#lpl_core_modal_dialog div.content {
   margin:10px 0 10px 0;
 }
 
-div#lpl_modal_dialog div.confirm {
+div#lpl_core_modal_dialog div.confirm {
   position:relative;
   height:25px;
   margin:10px 10px 0 10px;
