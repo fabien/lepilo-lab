@@ -5,6 +5,11 @@ if (!lpl) var lpl = {};
 
 lpl.app = {
   
+  initialize: function() {
+    // Put lepilo initialization stuff here
+    lpl.messages = lpl.snippets.messages["en"];
+  },
+  
   popin: function (popinOptions) {
     $("#lpl_inplace_ui").append("<div class='lpl_pop_in'><h1 class='title'></h1><div class='container'> Loading... </div> <div class='buttons'><div class='lpl_btn_square red cancelpopin'>Cancel<span></span></div><div class='lpl_right'><div class='lpl_btn_square green confirmpopin'>Save Text<span></span></div></div></div>    </div>");
     
@@ -42,6 +47,8 @@ lpl.debug = {
 /*                              */
 
 $(document).ready(function(){
+  
+  lpl.app.initialize();
   
   // Fix up the buttons 
   $('.lpl_btn_square').append('<span></span>');
