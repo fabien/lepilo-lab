@@ -28,7 +28,7 @@ lpl.modal = $.klass({
     this.fetchURL = options.url;
     this.sendParams = options.params;
     
-    if(options.title) {
+    if(options.title != "") {
       $("h1", this.element).removeClass("yay").removeClass("fail");
       $("h1", this.element).show();
       $("h1", this.element).html(options.title);
@@ -45,7 +45,9 @@ lpl.modal = $.klass({
       $("h1", this.element).hide();
     }
     
-    this.fetch(this.fetchURL);
+    if (this.fetchURL && this.fetchURL != "") {
+      this.fetch(this.fetchURL);
+    }
     this.openModal();
   },
   
@@ -74,7 +76,7 @@ lpl.modal = $.klass({
         //$(".content").show("slow");
         //$("#lpl_core_modal_dialog .msg", this.element).html(lpl.snippets.processing.gray)
         $("#lpl_core_modal_dialog .msg", this.element).hide();
-        $("#lpl_core_modal_dialog .content", this.element).html(html).show("slide", { direction: "up" }, 350);
+        $("#lpl_core_modal_dialog .content", this.element).html(html);
       } 
     });
 
@@ -89,12 +91,13 @@ lpl.modal = $.klass({
   },
   
   openModal: function() {
+    this.center();
+
     $("#lpl_core_modal_dialog", this.element).hide();
     this.element.hide().css({ top: "0px" }).fadeIn(750, function () {
-      $("#lpl_core_modal_dialog", this.element).show("slide", { direction: "up" }, 350);
+      $(".content", this.element).show();
+      $("#lpl_core_modal_dialog", this.element).show("slide", { direction: "up" }, 500);
     });
-    
-    this.center();
   },
   
   closeModal: function() {
@@ -107,6 +110,10 @@ lpl.modal = $.klass({
   },
   
   resize: function(options) {
+    if (options.width > $(document).width()) {
+      options.width = $(document).width() - 20;
+    }
+    
     newWidth = options.width || $('#lpl_core_modal_dialog', this.element).width();
     newPosition = ($(document).width() / 2) - (newWidth / 2);
     $("#lpl_core_modal_dialog", this.element).animate({ width: newWidth, left: newPosition }, 500);

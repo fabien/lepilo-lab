@@ -169,15 +169,24 @@
             <li class="container">
               <ul>
                 <li class="active">
-                  <a href="/one/nested/a" title="Nested One A">Nested One A</a>
+                  <a href="/one/nested/a" title="Nested One A">
+                    <img src="/stylesheets/assets/lpl/icons/24x24_folder.png" alt="list icon" />
+                    Nested One A
+                  </a>
                 </li>
                 <li>
-                  <a href="/one/nested/b" title="Nested One B">Nested One B</a>
+                  <a href="/one/nested/b" title="Nested One B">
+                    <img src="/stylesheets/assets/lpl/icons/24x24_folder.png" alt="list icon" />
+                    Nested One B
+                  </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="/two" title="Two">Two</a>
+              <a href="/two" title="Two">
+                <img src="/stylesheets/assets/lpl/icons/24x24_folder.png" alt="list icon" />
+                Two
+              </a>
             </li>
             <li class="container">
               <ul>
@@ -185,12 +194,18 @@
                   <a href="/two/nested/a" title="Nested Two A">Nested Two A</a>
                 </li>
                 <li>
-                  <a href="/two/nested/b" title="Nested Two B">Nested Two B</a>
+                  <a href="/two/nested/b" title="Nested Two B">
+                    <img src="/stylesheets/assets/lpl/icons/24x24_smart-folder.png" alt="list icon" />
+                    Nested Two B
+                  </a>
                 </li>
                 <li class="container">
                   <ul>
                     <li>
-                      <a href="/two/nested/a" title="Nested Two A">Sub-Nested Three A</a>
+                      <a href="/two/nested/a" title="Nested Two A">
+                        <img src="/stylesheets/assets/lpl/icons/24x24_smart-folder.png" alt="list icon" />
+                        Sub-Nested Three A
+                      </a>
                     </li>
                     <li>
                       <a href="/two/nested/b" title="Nested Two B">Sub-Nested Three B</a>
@@ -336,27 +351,51 @@
         <ul class="inspector_list">
           <li>
             <div class="icon">
+              <img src="/stylesheets/assets/lpl/icons/24x24_image.png" alt="list icon" />
             </div>
             <div class="name">Lorem ipsum blah blah</div>
             <div class="metadata">Lorem ipsum blah blah</div>
           </li>
           <li>
             <div class="icon">
+              <img src="/stylesheets/assets/lpl/icons/24x24_folder.png" alt="list icon" />
             </div>
             <div class="name">Lorem ipsum blah blah</div>
             <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
           </li>
           <li>
             <div class="icon">
+              <img src="/stylesheets/assets/lpl/icons/24x24_file.png" alt="list icon" />
             </div>
             <div class="name"><a href="#">Lorem ipsum Linkie</a></div>
             <div class="metadata">Lorem ipsum blah blah</div>
           </li>
           <li>
             <div class="icon">
+              <img src="/stylesheets/assets/lpl/icons/24x24_sound.png" alt="list icon" />
             </div>
             <div class="name">Lorem ipsum blah blah</div>
             <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="icon">
+              <img src="/stylesheets/assets/lpl/icons/24x24_smart-folder.png" alt="list icon" />
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="icon">
+              <img src="/stylesheets/assets/lpl/icons/24x24_pdf.png" alt="list icon" />
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="icon">
+              <img src="/stylesheets/assets/lpl/icons/24x24_article.png" alt="list icon" />
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
           </li>
         </ul>
       
@@ -532,11 +571,44 @@
           <h1 class='info'>
             Hier kommen Infos rein
           </h1>
-          <div class='msg'>
-            Ey Messidsch
-          </div>
+          <div class='msg'></div>
+          
           <div class='content'>
-            Ze Kontint
+
+            <hr/>
+            <div class='file_upload'>
+              
+              <img src="/stylesheets/assets/lpl/icons/48x48_upload.png" alt="icon" class="icon" />
+              
+              <h2>lolroflcopter.jpg</h2>
+              <div class='lpl_progress_bar_bg'>
+                <div class='lpl_progress_bar' style="width:35%"></div>
+              </div>
+              <div class='info'>
+                Uploaded 2,348 of 97,836 Bytes
+              </div>
+            </div>
+            <hr/>
+
+            <div class='file_upload'>
+              
+              <img src="/stylesheets/assets/lpl/icons/48x48_upload.png" alt="icon" class="icon" />
+              
+              <h2>lolroflcopter.jpg</h2>
+              <div class='lpl_progress_bar_bg'>
+                <div class='lpl_progress_bar' style="width:75%"></div>
+              </div>
+              <div class='info'>
+                Uploaded 2,348 of 97,836 Bytes
+              </div>
+            </div>
+            <hr/>
+
+            <div class="buttons lpl_right">
+              <a class='lpl_btn_square red cancelmodal' href="#">
+                Cancel upload
+              </a>
+            </div>
           </div>
         </div>
       </div>

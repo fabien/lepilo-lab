@@ -337,6 +337,14 @@ ul.inspector_list > li.empty { /* based on .metadata */
   text-indent:70px;
 }
 
+.lpl_list li > a > img {
+  display:inline;
+  position:relative;
+  left:-26px;
+  margin:0 -28px -8px 0;
+  clear:none;
+}
+
 /* -------------------------------------------------------- */
 /*    ROUNDED LIST                                          */
 /*    Styles for a list in a rounded container              */

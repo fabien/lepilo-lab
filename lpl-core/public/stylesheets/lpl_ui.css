@@ -547,6 +547,41 @@ a.lpl_action_20.reorder span {
   background:transparent url(assets/lpl/icons/20x20-bw-icons.png) no-repeat -285px 0px;
 }
 
+/* -------------------------------------------------------- */
+/*    FILE UPLOAD WIDGET                                    */
+/*    A container for File Uploads                          */
+/* -------------------------------------------------------- */
+
+.file_upload {
+  display:block;
+  position:relative;
+}
+
+.file_upload .icon {
+  display:block;
+  float:right;
+}
+
+.file_upload h2 {
+  color:#333;
+  margin:0px 10px 0 10px;
+  padding:15px 0 0 0;
+  font-size:20px;
+  text-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+}
+
+.file_upload .lpl_progress_bar_bg {
+  width:auto;
+  clear:both;
+}
+
+.file_upload .info {
+  display:block;
+  margin:0px 10px 5px 10px;
+  color:#666;
+  font-size:12px;
+  text-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+}
 
 /* -------------------------------------------------------- */
 /*    SIMPLE UI WIDGETS                                     */
@@ -584,17 +619,20 @@ a.lpl_action_20.reorder span {
 .lpl_yay {
   -webkit-box-shadow: 0px 1px 20px rgba(135,191,35,1), 0px 1px 10px rgba(135,191,35,1);
   -moz-box-shadow: 0px 1px 20px rgba(135,191,35,1), 0px 1px 10px rgba(135,191,35,1);
+  z-index: 1000;
 }
 
 .lpl_fail {
   -webkit-box-shadow: 0px 1px 20px rgba(225,72,55,1), 0px 1px 10px rgba(225,72,55,1);
   -moz-box-shadow: 0px 1px 20px rgba(225,72,55,1), 0px 1px 10px rgba(225,72,55,1);
   /* red variations: 253,120,112; 225,72,55; 210,57,42 */
+  z-index: 1000;
 }
 
 .lpl_target {
   -webkit-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
   -moz-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
+  z-index: 1000;
 }
 
 .lpl_error {
@@ -808,6 +846,7 @@ div.lpl_progress_bar_bg {
   margin-bottom:10px;
   height:15px;
   background: transparent url(assets/lpl/progress-bg.png) repeat-x center left;
+  border-bottom: 1px solid rgba(255,255,255,0.75);
   overflow:hidden;
 }
 
