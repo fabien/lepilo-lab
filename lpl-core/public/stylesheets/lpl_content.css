@@ -279,8 +279,12 @@ ul.inspector_list > li.pdf > div.icon {
   background: transparent url(assets/lpl/icons/24x24_pdf.png) no-repeat;
 }
 
-ul.inspector_list > li.sound > div.icon {
-  background: transparent url(assets/lpl/icons/24x24_sound.png) no-repeat;
+ul.inspector_list > li.audio > div.icon {
+  background: transparent url(assets/lpl/icons/24x24_audio.png) no-repeat;
+}
+
+ul.inspector_list > li.archive > div.icon {
+  background: transparent url(assets/lpl/icons/24x24_archive.png) no-repeat;
 }
 
 
@@ -411,8 +415,13 @@ ul.inspector_list > li.sound > div.icon {
   background-repeat: no-repeat;
 }
 
-.lpl_list li.sound > a {
-  background-image: url(assets/lpl/icons/24x24_sound.png);
+.lpl_list li.audio > a {
+  background-image: url(assets/lpl/icons/24x24_audio.png);
+  background-repeat: no-repeat;
+}
+
+.lpl_list li.archive > a {
+  background-image: url(assets/lpl/icons/24x24_archive.png);
   background-repeat: no-repeat;
 }
 
