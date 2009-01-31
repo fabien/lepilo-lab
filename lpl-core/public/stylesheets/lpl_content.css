@@ -253,6 +253,12 @@ ul.inspector_list > li.empty { /* based on .metadata */
   text-shadow:0px 1px 0px rgba(255,255,255,0.5);
 }
 
+ul.inspector_list > li .reorder {
+  cursor:ns-resize;
+  position: relative;
+  z-index: 500;
+}
+
 /* icons */
 
 ul.inspector_list > li.folder > div.icon {
