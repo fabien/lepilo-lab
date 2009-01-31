@@ -9,27 +9,65 @@
 
 Merb::Slices::config[:merb_auth_slice_password][:path_prefix] = 'auth'
 
-class User
+# The following is a bare-bones/stub User model that reads users from a YAML file.
+# Just provide your own User model and backend-storage and remove the code
+# within the following if/else block - see merb-auth-slice-password for info.
+#
+# The initial format of entries in Merb.root / system / users.yml is as follows:
+#
+# - login: lepilo
+#   password: sekrit
+#
+# The first time the users file is encountered it will encrypt the passwords.
+
+if File.exists?(USERS_FILE = Merb.root / 'system' / 'users.yml')
+
+  class User
+
+    attr_accessor :id, :login, :password, :crypted_password, :salt
   
-  attr_reader :id, :login
+    def initialize(data)
+      @login            = @id = data['login']
+      @salt             = data['salt']
+      @password         = data['password']
+      @crypted_password = data['crypted_password']
+      self.encrypt_password
+    end
+    
+    def new_record?
+      @crypted_password.blank?
+    end
+    
+    def data
+      { 'login' => login, 'crypted_password' => crypted_password, 'salt' => salt }
+    end
   
-  def initialize(login)
-    @id = login
-    @login = login
+    def self.get(id)
+      self.all.find { |user| user.id == id }
+    end
+    
+    def self.authenticate(login, password)
+      @u = get(login)
+      @u && @u.authenticated?(password) ? @u : nil
+    end
+  
+    def self.all
+      @@users ||= begin
+        users = YAML.load_file(USERS_FILE).map { |u| self.new(u) }
+        File.open(USERS_FILE, 'w+') { |f| f.write(YAML.dump(users.map { |u| u.data })) }
+        users.each { |u| u.password = nil }
+        users
+      end 
+    end
+  
   end
-  
-  def self.get(id)
-    self.new('foo')
-  end
-  
-  def self.authenticate(login, password)
-    self.new(login)
-  end
-  
+
 end
 
+# The following is the default merb-auth setup.
+
 begin
-  # Sets the default class ofr authentication.  This is primarily used for 
+  # Sets the default class for authentication.  This is primarily used for 
   # Plugins and the default strategies
   Merb::Authentication.user_class = User 
   
@@ -62,4 +100,3 @@ rescue
 
     TEXT
 end
-

@@ -4,26 +4,26 @@ module LplCore
     # Common UI elements
   
     def square_button(label, attrs = {})
-      builder.a(label, attrs.merge(:class => (attrs[:class] ? "lpl_btn_square #{attrs[:class]}" : "lpl_btn_square")))
+      builder.a(label, attrs.add_html_class("lpl_btn_square"))
     end
     
     # Core layout helpers 
     
     def sidebar_title(title, attrs = {})
-      builder.h1(title, attrs.merge(:class => attrs[:class] ? "lpl_sidebar #{attrs[:class]}" : "lpl_sidebar"))
+      builder.h1(title, attrs.add_html_class("lpl_sidebar"))
     end
     
     def sidebar_tree(links, attrs = {})
-      sidebar_list(links, attrs.merge(:class => 'rounded'))
+      sidebar_list(links, attrs.add_html_class("rounded"))
     end
     
     def sidebar_folders(links, attrs = {})
-      sidebar_list(links, attrs.merge(:class => 'folder'))
+      sidebar_list(links, attrs.add_html_class("folder"))
     end
     
     def sidebar_list(links, attrs = {})
       sidebar_title(attrs[:title]) if attrs[:title]
-      builder.div(attrs.merge(:class => attrs[:class] ? "lpl_list #{attrs[:class]}" : "lpl_list")) do |div|
+      builder.div(attrs.add_html_class("lpl_list")) do |div|
         div.ul do |ul|
           links.each { |l| sidebar_list_item(l) }          
         end
@@ -31,22 +31,20 @@ module LplCore
     end
     
     def inspector_title(title, attrs = {})
-      builder.h1(title, attrs.merge(:class => attrs[:class] ? "lpl_inspector #{attrs[:class]}" : "lpl_inspector"))
+      builder.h1(title, attrs.add_html_class("lpl_inspector"))
     end
     
     # Main content helpers
     
     def rounded_container(attrs = {}, &block)
-      attrs[:class] = (attrs[:class] ? "lpl_container_rounded #{attrs[:class]}" : "lpl_container_rounded")
-      builder.div(attrs) do |container|
+      builder.div(attrs.add_html_class("lpl_container_rounded")) do |container|
         yield container if block_given?
       end
     end
     
     def content_list(items, attrs = {}, &block)
-      attrs[:class] = (attrs[:class] ? "lpl_content_list #{attrs[:class]}" : "lpl_content_list")
       list_proxy = ContentListProxy.new(self)
-      builder.ul(attrs) do |list|
+      builder.ul(attrs.add_html_class("lpl_content_list")) do |list|
         items.each_with_index do |item, idx|
           item_id = item[:id] rescue idx.to_s
           list_attrs = {}
@@ -59,8 +57,7 @@ module LplCore
     end
     
     def pagination(status, prev_link = '#prev', next_link = '#next', attrs = {})
-      attrs[:class] = (attrs[:class] ? "pagination #{attrs[:class]}" : "pagination")
-      builder.div(attrs) do |pag|
+      builder.div(attrs.add_html_class("pagination")) do |pag|
         pag.div(status, :class => 'page')
         pag.div(:class => 'lpl_canal_32', :style => 'width:44px') { |d| d.span('') }
         pag.a('previous', :href => prev_link, :class => 'lpl_previous_round_24') if prev_link
@@ -73,7 +70,8 @@ module LplCore
     def sidebar_list_item(link)
       label = link[:label] || ''
       description = link[:description] || label
-      li_attrs = link[:active] ? { :class => 'active' } : {}          
+      li_attrs = link[:attrs] || {}
+      li_attrs = li_attrs.add_html_class('active') if link[:active]
       # add the link to the opened <ul>
       if link[:url].blank?
         builder.li(label, li_attrs.merge(:title => description))
@@ -121,8 +119,7 @@ module LplCore
       
       def action(name, attrs = {})
         # name is one of: preview, edit, recycle or delete
-        attrs[:class] = (attrs[:class] ? "lpl_action_20 #{name} #{attrs[:class]}" : "lpl_action_20 #{name}")
-        builder.a(name.to_s, attrs)
+        builder.a(name.to_s, attrs.add_html_class("lpl_action_20 #{name}"))
       end
       
       def title(string, link_attrs = {})

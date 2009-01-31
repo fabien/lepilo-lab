@@ -620,6 +620,7 @@ a.lpl_action_20.reorder span {
   -webkit-box-shadow: 0px 1px 20px rgba(135,191,35,1), 0px 1px 10px rgba(135,191,35,1);
   -moz-box-shadow: 0px 1px 20px rgba(135,191,35,1), 0px 1px 10px rgba(135,191,35,1);
   z-index: 1000;
+  position: relative;
 }
 
 .lpl_fail {
@@ -627,12 +628,14 @@ a.lpl_action_20.reorder span {
   -moz-box-shadow: 0px 1px 20px rgba(225,72,55,1), 0px 1px 10px rgba(225,72,55,1);
   /* red variations: 253,120,112; 225,72,55; 210,57,42 */
   z-index: 1000;
+  position: relative;
 }
 
 .lpl_target {
   -webkit-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
   -moz-box-shadow: 0px 1px 20px rgba(200,200,200,1), 0px 1px 10px rgba(200,200,200,1);
   z-index: 1000;
+  position: relative;
 }
 
 .lpl_error {

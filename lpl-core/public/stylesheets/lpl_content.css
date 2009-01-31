@@ -253,37 +253,42 @@ ul.inspector_list > li.empty { /* based on .metadata */
   text-shadow:0px 1px 0px rgba(255,255,255,0.5);
 }
 
-/* icons */
+/* icons on the list level - defaults */
 
+ul.inspector_list.folder > li > div.icon,
 ul.inspector_list > li.folder > div.icon {
   background: transparent url(assets/lpl/icons/24x24_folder.png) no-repeat;
 }
 
+ul.inspector_list.smart-folder > li > div.icon,
 ul.inspector_list > li.smart-folder > div.icon {
   background: transparent url(assets/lpl/icons/24x24_smart-folder.png) no-repeat;
 }
 
+ul.inspector_list.article > li > div.icon,
 ul.inspector_list > li.article > div.icon {
   background: transparent url(assets/lpl/icons/24x24_article.png) no-repeat;
 }
 
+ul.inspector_list.file > li > div.icon,
 ul.inspector_list > li.file > div.icon {
   background: transparent url(assets/lpl/icons/24x24_file.png) no-repeat;
 }
 
+ul.inspector_list.image > li > div.icon,
 ul.inspector_list > li.image > div.icon {
   background: transparent url(assets/lpl/icons/24x24_image.png) no-repeat;
 }
 
-ul.inspector_list > li.pdf > div.icon {
+ul.inspector_list.pdf > li > div.icon,
+ul.inspector_list > li.pdf > div.icon  {
   background: transparent url(assets/lpl/icons/24x24_pdf.png) no-repeat;
 }
 
+ul.inspector_list.sound > li > div.icon,
 ul.inspector_list > li.sound > div.icon {
   background: transparent url(assets/lpl/icons/24x24_sound.png) no-repeat;
 }
-
-
 
 /* -------------------------------------------------------- */
 /*    SIMPLE LIST                                           */
@@ -379,57 +384,49 @@ ul.inspector_list > li.sound > div.icon {
   clear:none;
 }
 
-/* using a bg image based on the class of the LI */
+/* using a bg image based on the class of the UL down to the LI */
 
+.lpl_list.folder > li > a,
 .lpl_list li.folder > a {
   background-image: url(assets/lpl/icons/24x24_folder.png);
   background-repeat: no-repeat;
 }
 
+.lpl_list.smart-folder > li > a,
 .lpl_list li.smart-folder > a {
   background-image: url(assets/lpl/icons/24x24_smart-folder.png);
   background-repeat: no-repeat;
 }
 
+.lpl_list.article > li > a,
 .lpl_list li.article > a {
   background-image: url(assets/lpl/icons/24x24_article.png);
   background-repeat: no-repeat;
 }
 
+.lpl_list.file > li > a,
 .lpl_list li.file > a {
   background-image: url(assets/lpl/icons/24x24_file.png);
   background-repeat: no-repeat;
 }
 
+.lpl_list.image > li > a,
 .lpl_list li.image > a {
   background-image: url(assets/lpl/icons/24x24_image.png);
   background-repeat: no-repeat;
 }
 
+.lpl_list.pdf > li > a,
 .lpl_list li.pdf > a {
   background-image: url(assets/lpl/icons/24x24_pdf.png);
   background-repeat: no-repeat;
 }
 
+.lpl_list.sound > li > a,
 .lpl_list li.sound > a {
   background-image: url(assets/lpl/icons/24x24_sound.png);
   background-repeat: no-repeat;
 }
-
-/* positioning the icon */
-
-.lpl_list > ul li > a {
-  background-position: 4px 1px;
-}
-
-.lpl_list > ul li > ul li > a {
-  background-position: 26px 1px;
-}
-
-.lpl_list > ul li > ul li > ul li > a {
-  background-position: 44px 1px;
-}
-
 
 /* -------------------------------------------------------- */
 /*    ROUNDED LIST                                          */
