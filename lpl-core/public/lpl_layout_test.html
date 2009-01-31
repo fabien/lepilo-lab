@@ -149,6 +149,14 @@
           <img src="/stylesheets/assets/lpl/icons/48x48_smart-folder.png" alt="smart folder icon" />
         </a>
 
+        <a href="#" class="icon">
+          <img src="/stylesheets/assets/lpl/icons/48x48_trash.png" alt="trash icon" />
+        </a>
+
+        <a href="#" class="icon">
+          <img src="/stylesheets/assets/lpl/icons/48x48_trash-grey.png" alt="grey trash icon" />
+        </a>
+
         <div class="icons-toggle">
           <a href="#" class="icon toggle" id="toggle_sidebar">
             <img src="/stylesheets/assets/lpl/icons/48x48_sidebar.png" alt="toggle sidebar" />
@@ -223,9 +231,22 @@
                     <li>
                       <a href="/two/nested/b" title="Nested Two B">Sub-Nested Three B</a>
                     </li>
+                    <li class="archive">
+                      <a href="/two/nested/b" title="Nested Two B">Archive</a>
+                    </li>
                   </ul>
                 </li>
               </ul>
+            </li>
+            <li class="trash">
+              <a href="/two" title="Two">
+                Trash
+              </a>
+            </li>
+            <li class="trash-grey">
+              <a href="/two" title="Two">
+                Grey Trash
+              </a>
             </li>
           </ul>
         </div>
@@ -334,27 +355,6 @@
             <div class="name">Lorem ipsum blah blah</div>
             <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah</div>
           </li>
-          <li>
-            <div class="thumbnail">
-              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
-            </div>
-            <div class="name">Lorem ipsum blah blah</div>
-            <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
-          </li>
-          <li>
-            <div class="thumbnail">
-              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
-            </div>
-            <div class="name">Lorem ipsum blah blah</div>
-            <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
-          </li>
-          <li>
-            <div class="thumbnail">
-              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
-            </div>
-            <div class="name">Lorem ipsum blah blah</div>
-            <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
-          </li>
         </ul>
       
         <h1 class='lpl_inspector'>
@@ -402,6 +402,11 @@
             <div class="icon">
             </div>
             <div class="name">Lorem ipsum blah blah</div>
+          </li>
+          <li class="archive">
+            <div class="icon">
+            </div>
+            <div class="name">Archive</div>
           </li>
         </ul>
       
