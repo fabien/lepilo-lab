@@ -33,6 +33,7 @@ module Merb::Template
               Kernel.load(assigns[:_template])
             rescue => e
               Merb.logger.warn(Merb.exception(e))
+              ::LplView.template_lookup[ assigns[:_template] ] = Merb::Template::LplViewHandler::Failure
             end
             unless view_class = ::LplView.template_lookup[ assigns[:_template] ]
               view_class = Merb::Template::LplViewHandler::Failure
