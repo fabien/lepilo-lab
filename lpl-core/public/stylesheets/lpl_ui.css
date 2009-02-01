@@ -436,6 +436,15 @@ img.lpl_error_title {
   margin:20px auto 0 auto;
 }
 
+h1.lpl_not_found_404{
+  position:relative;
+  margin:0 auto 0 auto;
+  width:480px;
+  height:60px;
+  text-indent:-5000px;
+  background: transparent url(assets/lpl/error404.png) no-repeat;
+}
+
 div.lpl_error_container {
   position:relative;
   width:500px;
