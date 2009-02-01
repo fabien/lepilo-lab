@@ -601,6 +601,16 @@
             </div>
             <hr/>
 
+            <div class="login">
+              <input type="hidden" name="_method" value="PUT" />
+              <div class="formRow">
+                <label>Login name: <input type="text" name="<%= @login_param.to_s %>" value="" id="<%= @login_param.to_s %>"></label>
+              </div> <!-- close: formRow -->
+              <div class="formRow">
+                <label>Password:<input type="password" name="<%= @password_param.to_s %>" value="" id="<%= @password_param.to_s %>"></label>
+              </div> <!-- close: formRow -->
+            </div>
+
             <div class='file_upload'>
               
               <img src="/stylesheets/assets/lpl/icons/48x48_upload.png" alt="icon" class="icon" />

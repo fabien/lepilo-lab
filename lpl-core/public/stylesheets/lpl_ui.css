@@ -552,6 +552,12 @@ a.lpl_action_20.reorder span {
 /*    A container for File Uploads                          */
 /* -------------------------------------------------------- */
 
+div.login {
+  display:block;
+  position:relative;
+  padding:0 20px 0 20px;
+}
+
 .file_upload {
   display:block;
   position:relative;

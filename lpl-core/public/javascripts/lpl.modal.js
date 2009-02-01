@@ -8,7 +8,9 @@ lpl.modal = $.klass({
   sendParams: "",
   
   initialize: function() {
-    
+
+    this.center();
+
     if ($(".login_form").length > 0) {
       //this.element.show("slide", { direction: "up" }, 500);
       $("#lpl_core_modal_dialog", this.element).hide();
@@ -56,7 +58,7 @@ lpl.modal = $.klass({
   }),
   
   fetch: function(url) {
-    this.center();
+    
     // popin content loaded via AJAX
     $.ajax({ 
       method: "get", url: this.fetchURL, data: this.sendParams, 
@@ -91,7 +93,7 @@ lpl.modal = $.klass({
   },
   
   openModal: function() {
-    this.center();
+    //this.center();
 
     $("#lpl_core_modal_dialog", this.element).hide();
     this.element.hide().css({ top: "0px" }).fadeIn(750, function () {

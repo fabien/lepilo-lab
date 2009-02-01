@@ -30,5 +30,5 @@ $(document).ready(function(){
 
 $(window).load(function() {
   lpl.app.modal.show({ url: "", title: "Uploading File(s)" });
-  lpl.app.modal.center();
+  //lpl.app.modal.center();
 });
