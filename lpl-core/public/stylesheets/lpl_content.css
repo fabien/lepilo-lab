@@ -253,7 +253,14 @@ ul.inspector_list > li.empty { /* based on .metadata */
   text-shadow:0px 1px 0px rgba(255,255,255,0.5);
 }
 
-/* icons on the list level - defaults */
+
+/* icons for inspector_list - with list-based defaults */
+
+ul.inspector_list > li .reorder {
+  cursor:ns-resize;
+  position: relative;
+  z-index: 500;
+}
 
 ul.inspector_list.folder > li > div.icon,
 ul.inspector_list > li.folder > div.icon {
@@ -285,9 +292,24 @@ ul.inspector_list > li.pdf > div.icon  {
   background: transparent url(assets/lpl/icons/24x24_pdf.png) no-repeat;
 }
 
-ul.inspector_list.sound > li > div.icon,
-ul.inspector_list > li.sound > div.icon {
-  background: transparent url(assets/lpl/icons/24x24_sound.png) no-repeat;
+ul.inspector_list.audio > li > div.icon,
+ul.inspector_list > li.audio > div.icon {
+  background: transparent url(assets/lpl/icons/24x24_audio.png) no-repeat;
+}
+
+ul.inspector_list.archive > li > div.icon,
+ul.inspector_list > li.archive > div.icon {
+  background: transparent url(assets/lpl/icons/24x24_archive.png) no-repeat;
+}
+
+ul.inspector_list.trash > li > div.icon,
+ul.inspector_list > li.trash > div.icon {
+  background: transparent url(assets/lpl/icons/24x24_trash.png) no-repeat;
+}
+
+ul.inspector_list.trash-grey > li > div.icon,
+ul.inspector_list > li.trash-grey > div.icon {
+  background: transparent url(assets/lpl/icons/24x24_trash-grey.png) no-repeat;
 }
 
 /* -------------------------------------------------------- */
@@ -422,9 +444,27 @@ ul.inspector_list > li.sound > div.icon {
   background-repeat: no-repeat;
 }
 
-.lpl_list.sound > li > a,
-.lpl_list li.sound > a {
-  background-image: url(assets/lpl/icons/24x24_sound.png);
+.lpl_list.audio > li > a,
+.lpl_list li.audio > a {
+  background-image: url(assets/lpl/icons/24x24_audio.png);
+  background-repeat: no-repeat;
+}
+
+.lpl_list.archive > li > a,
+.lpl_list li.archive > a {
+  background-image: url(assets/lpl/icons/24x24_archive.png);
+  background-repeat: no-repeat;
+}
+
+.lpl_list.trash > li > a,
+.lpl_list li.trash > a {
+  background-image: url(assets/lpl/icons/24x24_trash.png);
+  background-repeat: no-repeat;
+}
+
+.lpl_list.trash-grey > li > a,
+.lpl_list li.trash-grey > a {
+  background-image: url(assets/lpl/icons/24x24_trash-grey.png);
   background-repeat: no-repeat;
 }
 
