@@ -1,6 +1,6 @@
 module LplView
   
-  TEMPLATE_EXT_REGEXP = /(\.(html|xml|json|js|text))?\.rb$/
+  TEMPLATE_EXT_REGEXP = /(\.(html|xml|json|js|text))?\.lrb$/
   
   def self.template_lookup
     @@template_lookup ||= {}

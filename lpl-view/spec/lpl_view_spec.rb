@@ -13,7 +13,7 @@ describe "LplView" do
   end
   
   it "should be able to :halt rendering of View templates" do
-    template = File.expand_path(File.dirname(__FILE__) / 'app' / 'views' / 'lpl_view_sample' / 'halt.html.rb')
+    template = File.expand_path(File.dirname(__FILE__) / 'app' / 'views' / 'lpl_view_sample' / 'halt.html.lrb')
     c = dispatch_to(LplViewSample, :halt)
     c.body.should == "FAIL! Say whut?! (at #{template})"
   end

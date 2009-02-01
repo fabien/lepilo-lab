@@ -67,6 +67,15 @@ jQuery.fn.extend({
       ref.addClass(className);
       setTimeout(function() { ref.removeClass(className); }, duration || 500);
     });
+  },
+  
+  urlify: function() {
+    this.filter(':text').each(function() {
+      $(this).keyup(function(e) {  
+         if(e.keyCode != 109) { $(this).val(urlify($(this).val())); }
+      });
+    });
+    return this;
   }
   
 });

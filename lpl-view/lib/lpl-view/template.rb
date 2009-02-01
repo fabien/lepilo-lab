@@ -1,7 +1,7 @@
 module Merb::Template
   class LplViewHandler
 
-    # Defines a method for calling a specific Erector class.
+    # Defines a method for calling a specific View class.
     #
     # ==== Parameters
     # path<String>:: Path to the template file.
@@ -12,35 +12,33 @@ module Merb::Template
     def self.compile_template(io, name, locals, mod)
       path = File.expand_path(io.path)
       
-      path_parts = path.split('/')
-      path_views_idx = path_parts.index('views') + 1
-      
-      relative_path_parts = path_parts[path_views_idx, path_parts.length - path_views_idx]
-      is_partial = relative_path_parts.last =~ /^_/
-      
-      # Load the class file from path.
-      load(path)
+      # Load the class file from path
+      Kernel.load(path)
       
       code = <<-CODE
         def #{name}(_lpl_view_locals={})
           @_engine = 'lpl_view'
-          
+
           assigns = instance_variables.inject({}) do |hash, name|
             hash[name.tr('@', '')] = instance_variable_get(name)
             hash
           end
-          
+        
           assigns[:_template] = #{path.inspect}
           view_class = ::LplView.template_lookup[ assigns[:_template] ] || Merb::Template::LplViewHandler::Failure
+          
+          if view_class == Merb::Template::LplViewHandler::Failure
+            Merb.logger.debug("Unknown template class: \#{assigns[:_template]}")
+          end
           
           view = if thrown_content?(:for_layout)
             view_class.new { |view| view << catch_content(:for_layout) }
           else
             view_class.new
           end
-          
+        
           view.assign(assigns.merge(_lpl_view_locals), self)
-          
+        
           case content_type
           when :html then view.to_html
           when :xml  then view.to_xml
@@ -51,10 +49,10 @@ module Merb::Template
           end    
         end
       CODE
-            
+          
       method = mod.is_a?(Module) ? :module_eval : :instance_eval
       mod.send(method, code)
-      
+    
       name
     end
   
@@ -74,7 +72,7 @@ module Merb::Template
       
     end
     
-    Merb::Template.register_extensions(self, %w[rb]) 
+    Merb::Template.register_extensions(self, %w[lrb]) 
     
     class Failure < LplView::Widget
       

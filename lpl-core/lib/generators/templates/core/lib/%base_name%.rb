@@ -1,6 +1,6 @@
 if defined?(Merb::Plugins)
 
-  $:.unshift File.dirname(__FILE__)
+  $:.unshift(dirname = File.dirname(__FILE__))
 
   dependency 'merb-slices', :immediate => true
   dependency 'lpl-core',    :immediate => true
@@ -9,6 +9,9 @@ if defined?(Merb::Plugins)
 
   # Register a namespace for the views.
   Object.make_module("Views::<%= module_name %>")
+  
+  # Load the primary layout view.
+  load dirname / '..' / 'app' / 'views' / 'layout' / '<% symbol_name %>.html.lrb'
 
   # Register the Slice for the current host application
   Merb::Slices::register(__FILE__)

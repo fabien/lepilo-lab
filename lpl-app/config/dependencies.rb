@@ -15,5 +15,6 @@ dependency "merb-exceptions", merb_gems_version
 lpl_gems_version = "0.0.1"
 
 dependency "lpl-core", lpl_gems_version
+dependency "graphics-slice"
 
 dependency "sofa-document"

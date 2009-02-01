@@ -33,6 +33,8 @@ Merb::Router.prepare do
   namespace(LplCore[:prefix], :controller_prefix => nil) { all_slices }
   match("/#{LplCore[:prefix]}").to(:controller => 'lpl_core/main', :action => 'index').name(:lpl_index)
   
+  add_slice(:GraphicsSlice, :path => 'media')
+  
   # This is the default route for /:controller/:action/:id
   # This is fine for most cases.  If you're heavily using resource-based
   # routes, you may want to comment/remove this line to prevent
