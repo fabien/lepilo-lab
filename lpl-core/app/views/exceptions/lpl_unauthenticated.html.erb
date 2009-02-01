@@ -1,14 +1,10 @@
 <div id="lpl_core_modal">
-
   <div id="lpl_core_modal_dialog">
     <div class="info">
-      <h1>Login (LplCore)</h1>
+      <h1>Welcome</h1>
     </div>
-  
     <div class="content">
       <div>
-      
-        <%= error_messages_for session.authentication %>
         <% @login_param = Merb::Authentication::Strategies::Basic::Base.login_param %>
         <% @password_param = Merb::Authentication::Strategies::Basic::Base.password_param %>
         <form action="<%= slice_url(:merb_auth_slice_password, :perform_login) %>" method="POST" accept-charset="utf-8" class="login_form">
@@ -24,9 +20,6 @@
           </div> <!-- close: formRow -->
         </form>
       </div>
-    
     </div>
-
   </div>
-
 </div>

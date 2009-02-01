@@ -40,7 +40,7 @@ module LplCore
     end
     
     def request?
-      controller.request.uri =~ /^\/#{self[:prefix]}\//
+      controller.request.uri =~ /^\/#{self[:prefix]}\/?/
     end
     
     def extension(name)
