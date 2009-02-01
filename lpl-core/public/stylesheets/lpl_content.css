@@ -732,6 +732,10 @@ ul.lpl_tree li a:active, ul.lpl_tree li.active a {
   padding:20px;
 }
 
+.lpl_container_rounded > div.fullwidth {
+  padding:0px;
+}
+
 .lpl_container_rounded .buttons { 
   padding: 10px 20px 5px 20px;
 }
