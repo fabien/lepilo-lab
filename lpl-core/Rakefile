@@ -27,6 +27,8 @@ spec = Gem::Specification.new do |s|
   s.add_dependency('merb-auth-slice-password', '>= 1.0.8.1')
   s.add_dependency('lpl-view', '>= 0.0.1')
   s.add_dependency('lpl-support', '>= 0.0.1')
+  s.add_dependency('transfigr', '>= 0.1.0')
+  s.add_dependency('rdiscount', '>= 1.3.1.1')
   s.require_path = 'lib'
   s.files = %w(LICENSE README Rakefile TODO Generators) + Dir.glob("{lib,spec,app,public}/**/*")
 end

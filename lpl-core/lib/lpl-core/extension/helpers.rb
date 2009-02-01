@@ -6,7 +6,6 @@ module LplCore
     # related to the view.
   
     def self.included(base)
-      puts "LplCore::ExtensionHelpers mixed into #{base}"
     end
    
   end

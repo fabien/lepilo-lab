@@ -7,6 +7,7 @@ if defined?(Merb::Plugins)
   
   Merb::Plugins.add_rakefiles "<%= base_name %>/merbtasks", "<%= base_name %>/extensiontasks", "<%= base_name %>/spectasks"
 
+  # Register a namespace for the views.
   Object.make_module("Views::<%= module_name %>")
 
   # Register the Slice for the current host application

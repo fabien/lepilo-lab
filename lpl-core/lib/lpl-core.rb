@@ -9,13 +9,19 @@ if defined?(Merb::Plugins)
   
   Merb::Plugins.add_rakefiles "lpl-core/merbtasks", "lpl-core/slicetasks", "lpl-core/spectasks"
   
+  # Register a namespace for the views.
   Object.make_module("Views::LplCore")
   
+  # Load specific LplSupport functionality.
+  require 'lpl-support' / 'merb' / 'controller' / 'mixins' / 'response_handling'
+  
+  # Load essential LplCore classes.
   require dirname / 'lpl-core' / 'support'
   require dirname / 'lpl-core' / 'proxy'
   require dirname / 'lpl-core' / 'behaviour'
   require dirname / 'lpl-core' / 'extension'
   require dirname / 'lpl-core' / 'view_helpers'
+  require dirname / 'lpl-core' / 'transfigr'
   
   # Load the base layouts so extensions can inherit from them
   require dirname / '..' / 'app' / 'views' / 'layout' / 'base.html.rb'
