@@ -24,11 +24,11 @@ if defined?(Merb::Plugins)
   require dirname / 'lpl-core' / 'transfigr'
   
   # Load the base layouts so extensions can inherit from them
-  require dirname / '..' / 'app' / 'views' / 'layout' / 'base.html.rb'
-  require dirname / '..' / 'app' / 'views' / 'layout' / 'main.html.rb'
+  load dirname / '..' / 'app' / 'views' / 'layout' / 'base.html.lrb'
+  load dirname / '..' / 'app' / 'views' / 'layout' / 'main.html.lrb'
   
   # Load the base templates so extensions can inherit from them
-  require dirname / '..' / 'app' / 'views' / 'main' / 'base.html.rb'
+  load dirname / '..' / 'app' / 'views' / 'main' / 'base.html.lrb'
   
   # Mixin the view helpers for the base layout and template.
   Views::LplCore::Layout::Base.send(:include, LplCore::ViewHelpers)
