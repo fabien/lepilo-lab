@@ -1,3 +1,5 @@
+load File.dirname(__FILE__) / 'base.html.lrb'
+
 module Views
   module LplCore
     module Main      

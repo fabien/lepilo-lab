@@ -11,9 +11,10 @@ module Merb::Template
     #   The class or module wherein this method should be defined.
     def self.compile_template(io, name, locals, mod)
       path = File.expand_path(io.path)
-      
+      return if File.basename(path).index('%')
+
       # Load the class file from path
-      Kernel.load(path)
+      # Kernel.load(path)
       
       code = <<-CODE
         def #{name}(_lpl_view_locals={})
@@ -25,10 +26,21 @@ module Merb::Template
           end
         
           assigns[:_template] = #{path.inspect}
-          view_class = ::LplView.template_lookup[ assigns[:_template] ] || Merb::Template::LplViewHandler::Failure
+          view_class = ::LplView.template_lookup[ assigns[:_template] ]
+          
+          if view_class.blank?
+            begin
+              Kernel.load(assigns[:_template])
+            rescue => e
+              Merb.logger.warn(Merb.exception(e))
+            end
+            unless view_class = ::LplView.template_lookup[ assigns[:_template] ]
+              view_class = Merb::Template::LplViewHandler::Failure
+            end
+          end
           
           if view_class == Merb::Template::LplViewHandler::Failure
-            Merb.logger.debug("Unknown template class: \#{assigns[:_template]}")
+            Merb.logger.warn("Unknown template class: \#{assigns[:_template]}")
           end
           
           view = if thrown_content?(:for_layout)
