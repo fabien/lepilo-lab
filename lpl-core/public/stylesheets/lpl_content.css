@@ -468,6 +468,20 @@ ul.inspector_list > li.trash-grey > div.icon {
   background-repeat: no-repeat;
 }
 
+/* positioning the icon */
+ 
+.lpl_list > ul li > a {
+  background-position: 4px 1px;
+}
+ 
+.lpl_list > ul li > ul li > a {
+  background-position: 26px 1px;
+}
+ 
+.lpl_list > ul li > ul li > ul li > a {
+  background-position: 44px 1px;
+}
+
 /* -------------------------------------------------------- */
 /*    ROUNDED LIST                                          */
 /*    Styles for a list in a rounded container              */
