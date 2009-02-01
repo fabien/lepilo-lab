@@ -556,6 +556,15 @@ a.lpl_action_20.reorder span {
   background:transparent url(assets/lpl/icons/20x20-bw-icons.png) no-repeat -285px 0px;
 }
 
+.lpl_icon_20.black.back {
+  position:relative;
+  display:block;
+  top:2px;
+  width:20px;
+  height:20px;
+  background:transparent url(assets/lpl/icons/20x20-bw-icons.png) no-repeat -300px -20px;
+}
+
 /* -------------------------------------------------------- */
 /*    FILE UPLOAD WIDGET                                    */
 /*    A container for File Uploads                          */
