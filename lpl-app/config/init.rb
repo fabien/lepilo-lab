@@ -28,26 +28,10 @@ end
  
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
-  
-  Merb::Slices.config[:sofa_pages][:archive_section] = 'archief'
-  
+    
   if Object.const_defined?(:Sofa)
-    Sofa::Document.refresh_design_documents!
-    Sofa::Document.initialize_views!
-    
-    # %w[home bikes+parts bikeboutique informatie archief].each_with_index do |name, idx|
-    #   unless SofaPages::Section.fetch(name.urlify)
-    #     SofaPages::Section.new(:name => name, :position => idx + 1).save!
-    #   end
-    # end
-    
-    # SofaPages::Root.new(:name => 'root').save!
-    
-    # root = SofaPages::Root.fetch('root')
-    # %w[home bikes+parts bikeboutique informatie archief].each do |name|
-    #  root.sections << SofaPages::Section.fetch(name.urlify)
-    # end
-    # p root.save!
+    Merb::Slices::config[:sofa_pages][:sections] = %w[home nieuws]
+    Merb::Slices.config[:sofa_pages][:archive_section] = 'archief'
   end
 
 end
