@@ -11,7 +11,7 @@ if defined?(Merb::Plugins)
   Object.make_module("Views::<%= module_name %>")
   
   # Load the primary layout view.
-  load dirname / '..' / 'app' / 'views' / 'layout' / '<% symbol_name %>.html.lrb'
+  load dirname / '..' / 'app' / 'views' / 'layout' / '<%= symbol_name %>.html.lrb'
 
   # Register the Slice for the current host application
   Merb::Slices::register(__FILE__)

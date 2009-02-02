@@ -4,8 +4,12 @@ module Views
       class Index < Views::LplCore::Main::Base
         
         def render
-          builder.h1 "#{slice.name} (#{slice.version})"
-          builder.p slice.description
+          rounded_container do |container|
+            container.h1 "#{slice.name} (#{slice.version})"
+            container.div do |div|
+              div.p slice.description
+            end
+          end
         end
         
       end      

@@ -11,7 +11,7 @@ module Merb::Generators
       File.join(File.dirname(__FILE__), 'templates', 'core')
     end
     
-    glob!
+    glob!(nil, template_extensions = %w(rb css js erb lrb html yml Rakefile TODO LICENSE README))
     
     common_template :javascript,     'public/javascripts/master.js'
     common_template :stylesheet,     'public/stylesheets/master.css'
