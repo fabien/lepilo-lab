@@ -29,6 +29,8 @@ $(document).ready(function(){
 });
 
 $(window).load(function() {
-  lpl.app.modal.show({ url: "", title: "Uploading File(s)" });
-  //lpl.app.modal.center();
+  if (lpl.app.modal) {
+    lpl.app.modal.show({ url: "", title: "Uploading File(s)" });
+    //lpl.app.modal.center();
+  }
 });

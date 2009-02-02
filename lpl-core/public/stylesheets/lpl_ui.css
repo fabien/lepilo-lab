@@ -870,8 +870,8 @@ div.lpl_progress_bar_bg {
   position:relative;
   margin-left:auto;
   margin-right:auto;
-  margin-bottom:10px;
-  height:15px;
+  margin-bottom:5px;
+  height:8px;
   background: transparent url(assets/lpl/progress-bg.png) repeat-x center left;
   border-bottom: 1px solid rgba(255,255,255,0.75);
   overflow:hidden;

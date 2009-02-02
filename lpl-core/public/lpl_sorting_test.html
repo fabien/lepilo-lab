@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>lepilo • content mingler</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.cookie.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.dimensions.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.livequery.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.autogrow-textarea.js"></script>
+    <script type="text/javascript" src="/javascripts/lowpro.jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/swfupload.js"></script>
+    
+    <script type="text/javascript" src="/javascripts/lpl.app.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.snippets.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.inspector.js"></script>
+    <script type="text/javascript" src="/javascripts/lpl.layout.js"></script>
+    <!-- JS file with experiments: -->
+    <script type="text/javascript" src="/javascripts/lpl.lab.js"></script>
+    
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/reset.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_base.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_ui.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_buttons.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_forms.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_content.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_header.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_footer.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_modal.css" />
+  </head>
+  <body>
+    
+    <div id="container">
+    
+      <div id='lpl_core_inspector'>
+        <h1 class='lpl_inspector'>
+          fancy image list
+        </h1>
+      
+        <ul class="inspector_list thumbnails">
+          <li>
+            <div class="thumbnail">
+              <img src="/stylesheets/assets/thumbnail-01.png" alt="icon" style="max-height:48px;max-width:48px;" />
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="thumbnail">
+              <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" style=";" />
+            </div>
+            <div class="name"><a href="#">Lorem ipsum Linkie</a></div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li>
+            <div class="thumbnail">
+              <img src="/stylesheets/assets/thumbnail-03.png" alt="icon" style="max-height:48px;max-width:48px;" />
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah</div>
+          </li>
+        </ul>
+      
+        <h1 class='lpl_inspector'>
+          fancy list
+        </h1>
+      
+        <ul class="inspector_list">
+          <li class="folder">
+            <div class="icon">
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li class="smart-folder">
+            <div class="icon">
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah Lorem ipsum blah blah Lorem ipsum blah blah</div>
+          </li>
+          <li class="article">
+            <div class="icon">
+            </div>
+            <div class="name"><a href="#">Lorem ipsum Linkie</a></div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li class="file">
+            <div class="icon">
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li class="pdf">
+            <div class="icon">
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li class="audio">
+            <div class="icon">
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+            <div class="metadata">Lorem ipsum blah blah</div>
+          </li>
+          <li class="image">
+            <div class="icon">
+            </div>
+            <div class="name">Lorem ipsum blah blah</div>
+          </li>
+          <li class="archive">
+            <div class="icon">
+            </div>
+            <div class="name">Archive</div>
+          </li>
+        </ul>
+      
+      </div>
+      <!-- #lpl_core_inspector END -->
+    
+      <div id='lpl_core_main'>
+      
+        <div class='buttons'>
+          <a class='lpl_btn_square' onclick="var textAdd = lpl.base.popin({ caller: this, title: 'Add a Text Block to »Article 2«', retrieve: '/lepilo/text_containers/new', bury: '/lepilo/text_containers', params:'article_id=2&amp;formpartial=true' });" href="#">
+            Add Text
+          </a>
+          <a class='lpl_btn_square red' href="#">
+            Article Settings
+          </a>
+          <a class='lpl_btn_square' href="#">
+            <div class="lpl_icon_20 black back"></div>
+          </a>
+        </div>
+      
+      
+        <!-- PAGINATED LIST -->
+        
+        
+        <div class="lpl_container_inset lpl_centered"> 
+          <img class="lpl_shadow" src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
+          <p class="lpl_white_text">name</p>
+        </div>
+        
+        <div class=" lpl_yay lpl_container_rounded" id="first_list">
+      
+          <div class="pagination top">
+            <div class="page">123 of 896</div>
+            <div class="lpl_canal_32" style="width:44px"><span></span></div>
+            <a href="#" class="lpl_previous_round_24">previous</a>
+            <a href="#" class="lpl_next_round_24">next</a>
+          </div>
+      
+          <h1>Articles List</h1>
+      
+          <ul class="lpl_content_list paginated">
+            <li>
+              <div class="reorder">
+                <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+              </div>
+              <div class="actions">
+                <a href="#" class="lpl_action_20 preview">preview<span/></a>
+                <a href="#" class="lpl_action_20 edit">edit<span/></a>
+                <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
+                <a href="#" class="lpl_action_20 delete">delete<span/></a>
+              </div>
+              <h2>Article Name</h2>
+              <div class="metadata">24.01.2009 | by: Samo Korosec | Posted in: Random Aricles</div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum.
+              </div>
+            </li>
+
+            <li>
+              <div class="reorder">
+                <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+              </div>
+              <div class="actions">
+                <a href="#" class="lpl_action_20 preview">preview<span/></a>
+                <a href="#" class="lpl_action_20 edit">edit<span/></a>
+                <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
+                <a href="#" class="lpl_action_20 delete">delete<span/></a>
+              </div>
+              <h2>Article Name</h2>
+              <div class="metadata">24.01.2009 | by: Samo Korosec | Posted in: Random Aricles</div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum.
+              </div>
+            </li>
+        
+            <li>
+              <div class="reorder">
+                <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+              </div>
+              <div class="actions">
+                <a href="#" class="lpl_action_20 preview">preview<span/></a>
+                <a href="#" class="lpl_action_20 edit">edit<span/></a>
+                <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
+                <a href="#" class="lpl_action_20 delete">delete<span/></a>
+              </div>
+              <h2>Another Article</h2>
+              <div class="thumbnail">
+                <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
+              </div>
+              <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. 
+              </div>
+            </li>
+          </ul>
+          <!-- ul.lpl_content_list END-->
+
+          <div class="pagination bottom">
+            <div class="page">123 of 896</div>
+            <div class="lpl_canal_32" style="width:44px"><span></span></div>
+            <a href="#" class="lpl_previous_round_24">previous</a>
+            <a href="#" class="lpl_next_round_24">next</a>
+          </div>
+
+        </div>
+        <!-- .lpl_container_rounded END-->
+      
+        <!-- NON PAGINATED LIST -->
+        <div class="lpl_container_rounded lpl_fail">
+      
+          <h1 class="lpl_content_list">Articles List</h1>
+      
+          <ul class="lpl_content_list">
+
+            <li>
+              <div class="reorder">
+                <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+              </div>
+              <div class="actions">
+                <a href="#" class="lpl_action_20 preview">preview<span/></a>
+                <a href="#" class="lpl_action_20 edit">edit<span/></a>
+                <a href="#" class="lpl_action_20 recycle">recycle<span/></a>
+              </div>
+              <h2><a href="#">An Article Which Holds An Exceptionally Long Title</a></h2>
+              <div class="metadata"></div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. 
+              </div>
+            </li>
+
+            <li>
+              <div class="reorder">
+                <a href="#" class="lpl_action_20 reorder side">move<span/></a>
+              </div>
+              <div class="actions">
+                <a href="#" class="lpl_action_20 preview">preview<span/></a>
+                <a href="#" class="lpl_action_20 edit">edit<span/></a>
+                <a href="#" class="lpl_action_20 delete">recycle<span/></a>
+              </div>
+              <div class="thumbnail">
+                <img src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
+              </div>
+              <h2>Another Article</h2>
+              <div class="metadata">18.01.2009 | by: Fabien Franzen | Posted in: Non-Random Aricles</div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum.
+              </div>
+            </li>
+        
+          </ul>
+          <!-- ul.lpl_content_list END-->
+        </div>
+        <!-- .lpl_container_rounded END-->
+      
+        <!-- DIV-BASED FORMS -->
+        <div class="lpl_container_rounded">
+
+          <form action='/lepilo/articles/2' method='post'>
+            <p>
+              <input name='_method' type='hidden' value='put' />
+            </p>
+          
+            <div class="lpl_form_elements split2">
+
+              <div class="half">
+                <label for='article_title'>Belongs to</label>
+                <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+              </div>
+
+              <div class="half">
+                <label for='article_title'>Belongs to</label>
+                <select name="article[topic]" class="invalid"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+              </div>
+
+            </div>
+          
+            <div class="lpl_form_elements">
+              <label for='article_title'>Belongs to</label>
+              <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+            </div>
+
+            <div class="lpl_form_elements split2">
+
+              <div class="half">
+                <label for='article_title' class="invalid">First Name</label>
+                <input type="text" name="some_name" value="Article 123" class="invalid" />
+              </div>
+
+              <div class="half">
+                <label for='article_title'>Family Name</label>
+                <input type="text" name="some_name" value="Article 456"  />
+              </div>
+
+            </div>
+
+            <div class="lpl_form_elements">
+              <label for='article_title'>Title</label>
+              <textarea name='article[title]' rows='1' cols="10">Article 2</textarea>
+            </div>
+
+            <div class="lpl_form_elements">
+              <label for='article_description'>Description</label>
+              <textarea name="article[description]" rows="4" cols="10">w00t? &#x000A;- changed topic to Topic 1&#x000A;- changed topic back to Topic 2&#x000A;- changed to Topic 3...&#x000A;- trying, again, to link with 1 topic only</textarea>
+            </div>
+
+            <div class="lpl_form_elements split2">
+
+              <div class="half">
+                <label for='article_title'>First Name</label>
+                <textarea name='article[title]' rows='1' cols="10">Article 2</textarea>
+              </div>
+
+              <div class="half">
+                <label for='article_title'>Belongs to</label>
+                <select name="article[topic]"><option value="">Select parent topic</option><option value="1">root</option><option value="2">Topic 1</option><option selected="selected" value="3">Topic 2</option><option value="4">Topic 3</option><option value="5">Topic 1.1</option><option value="6">Topic 1.2</option><option value="7">Topic 1.2.beta</option><option value="8">A very zomg xboex hueg subtopic nizzle</option><option value="9">asdasdasd</option></select>
+              </div>
+
+            </div>
+
+            <div class='buttons right'>
+              <a class='lpl_btn_basic' href="#">
+                Update Article
+                <span></span>
+              </a>
+              <a class='lpl_btn_basic red' href="#">
+                Update Article
+                <span/>
+              </a>
+              <a class='lpl_btn_basic green' href="#">
+                Update Article
+                <span/>
+              </a>
+            </div>
+
+            <div class="lpl_form_elements">
+              <input class='button' type='submit' value='Update Article' />
+            </div>
+
+          </form>
+
+        </div>
+        <!-- div.lpl_container_rounded END -->
+      
+      </div>
+      <!-- #lpl_core_main END -->
+    </div>
+    <!-- #container END -->
+    
+  </body>
+</html>
