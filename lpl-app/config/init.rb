@@ -32,6 +32,15 @@ Merb::BootLoader.after_app_loads do
   if Object.const_defined?(:Sofa)
     Merb::Slices::config[:sofa_pages][:sections] = %w[home nieuws]
     Merb::Slices.config[:sofa_pages][:archive_section] = 'archief'
+    
+    Date::DEFAULT_FORMATTING.replace '%d-%m-%Y'
+    Time::DEFAULT_FORMATTING.replace '%d-%m-%Y %H:%M:%S'
+    DateTime::DEFAULT_FORMATTING.replace '%d-%m-%Y %H:%M:%S'
   end
 
+
+  # Enable JS and CSS compression/bundling.
+  require 'lpl-support/util/cssmin'; require 'lpl-support/util/jsmin'
+  Merb::Assets::JavascriptAssetBundler.add_callback { |filename| Jsmin.new(File.read(filename)).write(filename)  if File.exists?(filename) }
+  Merb::Assets::StylesheetAssetBundler.add_callback { |filename| Cssmin.new(File.read(filename)).write(filename) if File.exists?(filename) }
 end

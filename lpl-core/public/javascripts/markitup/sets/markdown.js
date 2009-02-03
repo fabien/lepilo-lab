@@ -11,7 +11,8 @@
 // Feel free to add more tags
 // -------------------------------------------------------------------
 mySettings = {
-	previewParserPath:	'',
+	previewTemplatePath:	'/slices/lpl-core/javascripts/markitup/templates/preview.html',
+	previewInWindow: 'width=800, height=600, resizable=yes, scrollbars=yes',
 	onShiftEnter:		{keepDefault:false, openWith:'\n\n'},
 	markupSet: [
 		{name:'First Level Heading', key:'1', placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
