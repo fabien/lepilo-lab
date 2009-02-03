@@ -74,11 +74,15 @@ if defined?(Merb::Plugins)
   Merb::Slices::config[:lpl_core][:info][:author]       ||= "Samo Korosec - Fabien Franzen"
   Merb::Slices::config[:lpl_core][:info][:generator]    ||= Merb::Slices::config[:lpl_core][:info][:title]
   
+  # Set the image to display in LplCore's layout header - using relative path;
+  # if not set it won't be shown in the interface
+  Merb::Slices::config[:lpl_core][:icon] ||= 'header-icon.png'
+  
   # All Slice code is expected to be namespaced inside a module
   module LplCore
     
     # Slice metadata
-    self.description = "LplCore is a chunky Merb slice!"
+    self.description = "A slice-based framework with a highly customizeable UI."
     self.version = "0.0.1"
     self.author = "Samo Korosec - Fabien Franzen"
     
@@ -109,10 +113,8 @@ if defined?(Merb::Plugins)
     # @note prefix your named routes with :lpl_core_
     #   to avoid potential conflicts with global named routes.
     def self.setup_router(scope)
-      # example of a named route
-      scope.match('/index(.:format)').to(:controller => 'main', :action => 'index').name(:index)
-      # the slice is mounted at /lpl-core - note that it comes before default_routes
-      scope.match('/').to(:controller => 'main', :action => 'index').name(:home)
+      # a route named :index is mandatory for extensions that appear in the header
+      scope.match('(/index)(.:format)').to(:controller => 'main', :action => 'index').name(:index)      
       # enable slice-level default routes by default
       scope.default_routes
     end
@@ -137,6 +139,16 @@ if defined?(Merb::Plugins)
     # Extension deactivation hook - triggered by Merb::Slices.deactivate(extension)
     def self.deactivate_extension(extension)
       self.extensions.delete(extension)
+    end
+    
+    # Return a header icon for this slice.
+    def self.icon
+      self.public_path_for(:image, self[:icon])
+    end
+    
+    # Check wether a header icon is set - if not, it won't be shown.
+    def self.icon?
+      self.config.key?(:icon)
     end
     
   end

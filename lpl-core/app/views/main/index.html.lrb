@@ -6,7 +6,12 @@ module Views
       class Index < Views::LplCore::Main::Base
         
         def render
-          builder.h1 "Hello From #{self.class.name}"
+          super
+          core.extensions.each do |ext|
+            next unless ext.respond_to?(:dashboard_widget)
+            widget = ext.dashboard_widget(self)
+            self << widget if widget.is_a?(LplView::Base)            
+          end          
         end
         
       end      

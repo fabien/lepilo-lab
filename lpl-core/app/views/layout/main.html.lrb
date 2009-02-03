@@ -4,6 +4,7 @@ module Views
       class Main < Views::LplCore::Layout::Base
  
         def render_header
+          render_core_icon
           render_header_icons(core.extensions)
           render_toggle_icons(:sidebar, :shelf, :inspector)
         end
@@ -36,6 +37,12 @@ module Views
         end
         
         protected
+        
+        def render_core_icon
+          builder.a(:href => core.url, :class => 'core icon') do |button| 
+            button.img(:src => ::LplCore.icon, :alt => "#{::LplCore.name} (v. #{::LplCore.version})", :title => ::LplCore.description)
+          end
+        end
         
         def render_header_icons(*extensions)
           extensions.flatten.each do |ext|

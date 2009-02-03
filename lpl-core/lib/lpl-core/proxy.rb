@@ -64,6 +64,7 @@ module LplCore
     end
     
     def url(*args)
+      return "/#{LplCore[:prefix]}" if args.empty?
       opts = args.last.is_a?(Hash) ? args.pop : {}
       route_name = args[0].is_a?(Symbol) ? args.shift : :index      
       routes = Merb::Slices.named_routes[:lpl_core]

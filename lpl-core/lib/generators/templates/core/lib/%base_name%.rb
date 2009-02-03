@@ -44,14 +44,6 @@ if defined?(Merb::Plugins)
     self.version = "0.0.1"
     self.author = "Your name"
     
-    def self.icon
-      ::<%= module_name %>.public_path_for(:image, self[:icon])
-    end
-    
-    def self.icon?
-      self.config.key?(:icon)
-    end
-    
     # Stub classes loaded hook - runs before LoadClasses BootLoader
     # right after a slice's classes have been loaded internally.
     def self.loaded
@@ -87,6 +79,29 @@ if defined?(Merb::Plugins)
       scope.match('(/index)(.:format)').to(:controller => 'main', :action => 'index').name(:index)
       # enable slice-level default routes by default
       scope.default_routes
+    end
+    
+    # Return a lpl widget object for rendering this extension in the core dashboard page.
+    # If this method hasn't been defined, it will just be skipped from display.
+    def self.dashboard_widget(view)
+      view.rounded_container(:id => '<%= symbol_name %>_extension', :class => 'lpl_extension') do |container|
+        container.h1 { |h| 
+          h.a("#{<%= module_name %>.name} (#{<%= module_name %>.version})", 
+            :href  => view.slice_url(:<%= symbol_name %>, :index), 
+            :title => "(c) #{<%= module_name %>.author}")
+        }
+        container.div { |div| div.p <%= module_name %>.description }
+      end
+    end
+    
+    # Return a header icon for this slice.
+    def self.icon
+      self.public_path_for(:image, self[:icon])
+    end
+    
+    # Check wether a header icon is set - if not, it won't be shown.
+    def self.icon?
+      self.config.key?(:icon)
     end
     
   end
