@@ -20,10 +20,10 @@ Merb::BootLoader.before_app_loads do
     
   # This option sets the url/path entry point for all slices - see router.rb
   LplCore[:prefix] = 'lepilo'
-  # List extension you want to enable here - they will appear in this order in the interface.
+  # List extensions you want to enable here - they will appear in this order in the interface.
   # In case an extension isn't found it will just be ignored, so it's safe to include
   # any extension you migh have (as a dependency) in this list.
-  LplCore[:extensions] = [:fooz, :awesome, :sofa_pages]
+  LplCore[:extensions] = [:sofa_pages, :awesome]
 end
  
 Merb::BootLoader.after_app_loads do
