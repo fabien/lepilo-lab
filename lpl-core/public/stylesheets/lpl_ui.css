@@ -133,38 +133,40 @@ div.lpl_pop_in h1 {
 /*    Styles for Tags                                       */
 /* -------------------------------------------------------- */
 
-div.lpl_tag {
+.lpl_tag {
   position:relative;
   float:left;
-  margin:1px 10px 2px 3px;
-  padding:0 0 0 20px;
-  font-size:13px;
+  height:32px;
+  margin:1px 10px 0px 0px;
+  padding:0 0 0 7px;
+  color:#333;
+  font-size:12px;
   font-weight:bold;
-  height:26px;
-  color:#fff;
-  text-shadow: 1px 1px 1px rgba(0, 75, 0, 0.9);
+  line-height:34px;
+  text-decoration:none;
+  text-shadow: 0px 1px 0px rgba(255,255,150,0.75);
   background: transparent url(assets/lpl/tag-bg.png) no-repeat;
 }
 
-div.lpl_tag::-moz-selection{
+.lpl_tag::-moz-selection{
  background:transparent;
 }
 
-div.lpl_tag::selection {
+.lpl_tag::selection {
  background:transparent;
 }
 
-div.lpl_tag span {
+.lpl_tag span {
   position:absolute;
   float:right;
   top:0px;
   right:0px;
-  width:15px;
-  height:26px;
-  margin-right:-15px;
+  width:7px;
+  height:32px;
+  margin-right:-7px;
   background: transparent url(assets/lpl/tag-bg.png) no-repeat top right;
 }
-div.lpl_tag.plain {
+.lpl_tag.plain {
   position:relative;
   float:left;
   margin:2px 0px 3px 5px;
@@ -182,11 +184,12 @@ div.lpl_tag.plain {
   background:#666 url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
 }
 
-div.lpl_tag.plain span {
+.lpl_tag.plain span {
   display:none;
 }
 
-div.lpl_tag.plain.active {
+.lpl_tag.plain.active,
+.lpl_tag.plain:active {
   text-shadow: 1px 1px 1px rgba(0, 75, 0, 0.75);
   background:#9bc019 url(assets/lpl/speed-stripesi.png) repeat-x 0px -10px;
 }

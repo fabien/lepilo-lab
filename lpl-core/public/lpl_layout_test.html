@@ -2,12 +2,23 @@
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
     <title>lepilo • content mingler</title>
+    
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/reset.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_base.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_ui.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_buttons.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_forms.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_content.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_header.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_footer.css" />
+    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_modal.css" />
+    
     <script type="text/javascript" src="/javascripts/jquery.js"></script>
     <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
-    <script type="text/javascript" src="/javascripts/jquery.cookie.pack.js"></script>
-    <script type="text/javascript" src="/javascripts/jquery.dimensions.pack.js"></script>
-    <script type="text/javascript" src="/javascripts/jquery.livequery.pack.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.dimensions.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.livequery.js"></script>
     <script type="text/javascript" src="/javascripts/jquery.autogrow-textarea.js"></script>
     <script type="text/javascript" src="/javascripts/lowpro.jquery.js"></script>
     <script type="text/javascript" src="/javascripts/swfupload.js"></script>
@@ -23,16 +34,6 @@
     <script type="text/javascript" src="/javascripts/lpl.uploadrz.js"></script>
     <!-- JS file with experiments: -->
     <script type="text/javascript" src="/javascripts/lpl.lab.js"></script>
-    
-    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/reset.css" />
-    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_base.css" />
-    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_ui.css" />
-    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_buttons.css" />
-    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_forms.css" />
-    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_content.css" />
-    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_header.css" />
-    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_footer.css" />
-    <link charset="utf-8" type="text/css" media="screen" rel="Stylesheet" href="/stylesheets/lpl_modal.css" />
   </head>
   <body>
     
@@ -653,13 +654,20 @@
         </div>
       
       
-        <!-- PAGINATED LIST -->
         
+        <span class="lpl_tag">Some tag</span>
+        <span class="lpl_tag">lepilo</span>
+        <span class="lpl_tag">sofa</span>
+
+        <a href="#" class="lpl_tag plain"> Linked plain Tag</a>
+        <a href="#" class="lpl_tag plain active"> Linked plain Tag .active</a>
         
         <div class="lpl_container_inset lpl_centered"> 
           <img class="lpl_shadow" src="/stylesheets/assets/thumbnail-02.png" alt="icon" />
           <p class="lpl_white_text">name</p>
         </div>
+        
+        <!-- PAGINATED LIST -->
         
         <div class=" lpl_yay lpl_container_rounded" id="first_list">
       
@@ -685,6 +693,12 @@
               </div>
               <h2>Article Name</h2>
               <div class="metadata">24.01.2009 | by: Samo Korosec | Posted in: Random Aricles</div>
+              <span class="lpl_tag">Some tag</span>
+              <span class="lpl_tag">A different tag</span>
+              <span class="lpl_tag">Tag</span>
+              <span class="lpl_tag">A quite longer Tag name than usual</span>
+              <span class="lpl_tag">lepilo</span>
+              <span class="lpl_tag">sofa</span>
               <div class="description">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 

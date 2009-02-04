@@ -53,6 +53,7 @@ $(document).ready(function(){
   // Fix up the buttons 
   $('.lpl_btn_square').append('<span></span>');
   $('.lpl_action_20').append('<span></span>');
+  $('.lpl_tag').append('<span></span>');
   
   $('.actions').children('a:first-child').addClass('start');
   $('.actions').children('a:last-child').addClass('end');
