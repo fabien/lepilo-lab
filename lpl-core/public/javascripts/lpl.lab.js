@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 $(window).load(function() {
   if (lpl.app.modal) {
-    lpl.app.modal.show({ url: "", title: "Uploading File(s)" });
+    lpl.app.modal.show({ url: "", title: "" });
     //lpl.app.modal.center();
   }
 });

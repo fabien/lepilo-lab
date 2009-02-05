@@ -584,12 +584,18 @@
       <div id='lpl_core_modal'>
         <div id='lpl_core_modal_dialog'>
           <h1 class='info'>
-            Hier kommen Infos rein
+
           </h1>
           <div class='msg'></div>
           
+          <img src="/images/login.jpg" alt="login splash screen" />
+          
           <div class='content'>
-
+            
+            <!-- 
+              
+              File progress layout
+              
             <hr/>
             <div class='file_upload'>
               
@@ -603,17 +609,26 @@
                 Uploaded 2,348 of 97,836 Bytes
               </div>
             </div>
-            <hr/>
-
+            
+            -->
+            
             <div class="login">
-              <input type="hidden" name="_method" value="PUT" />
-              <div class="formRow">
-                <label>Login name: <input type="text" name="<%= @login_param.to_s %>" value="" id="<%= @login_param.to_s %>"></label>
-              </div> <!-- close: formRow -->
-              <div class="formRow">
-                <label>Password:<input type="password" name="<%= @password_param.to_s %>" value="" id="<%= @password_param.to_s %>"></label>
-              </div> <!-- close: formRow -->
+              <form action='/login' method='post'>
+                <input type="hidden" name="_method" value="PUT" />
+                <div class="formRow">
+                  <label>Login name: <input type="text" name="<%= @login_param.to_s %>" value="" id="<%= @login_param.to_s %>"></label>
+                </div> <!-- close: formRow -->
+                <div class="formRow">
+                  <label>Password:<input type="password" name="<%= @password_param.to_s %>" value="" id="<%= @password_param.to_s %>"></label>
+                </div> <!-- close: formRow -->
+              </form>
             </div>
+
+
+            <!-- 
+              
+              File progress layout
+              
 
             <div class='file_upload'>
               
@@ -627,12 +642,20 @@
                 Uploaded 2,348 of 97,836 Bytes
               </div>
             </div>
+            
+            -->
+            
             <hr/>
-
-            <div class="buttons lpl_right">
-              <a class='lpl_btn_square red cancelmodal' href="#">
-                Cancel upload
+            
+            <div class="buttons">
+              <a class='lpl_btn_square red cancelmodal' href="http://www.google.com">
+                I got lost! Help!
               </a>
+              
+              <a class='lpl_btn_square green right submitform' href="#">
+                Login
+              </a>
+              
             </div>
           </div>
         </div>

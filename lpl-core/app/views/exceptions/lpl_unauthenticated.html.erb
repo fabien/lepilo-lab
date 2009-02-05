@@ -1,14 +1,14 @@
 <div id="lpl_core_modal">
   <div id="lpl_core_modal_dialog">
     <div class="info">
-      <h1>Welcome</h1>
+      <h1></h1>
     </div>
+    <img src="/images/login.jpg" alt="login splash screen" />
     <div class="content">
       <div>
         <% @login_param = Merb::Authentication::Strategies::Basic::Base.login_param %>
         <% @password_param = Merb::Authentication::Strategies::Basic::Base.password_param %>
         <form action="<%= slice_url(:merb_auth_slice_password, :perform_login) %>" method="POST" accept-charset="utf-8" class="login_form">
-          <hr/>
           <div class="login">
             <input type="hidden" name="_method" value="PUT" />
             <div class="formRow">
@@ -20,9 +20,14 @@
           </div>
           <!-- close: formRow -->
           <hr/>
-          <div class="buttons.right">
-            <input type="submit" name="Submit" value="Log In" id="Submit">
-          </div> <!-- close: formRow -->
+          <div class="buttons">
+            <a class='lpl_btn_square red cancelmodal' href="http://www.google.com">
+              I got lost! Help!
+            </a>
+            <a class='lpl_btn_square green right submitform' href="#">
+              Login
+            </a>
+          </div>
         </form>
       </div>
     </div>

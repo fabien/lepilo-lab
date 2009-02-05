@@ -54,7 +54,8 @@ lpl.modal = $.klass({
   },
   
   onmouseup: $.delegate({
-    '.cancelmodal' : function(e){  this.cancelModal();  }
+    '.cancelmodal' : function(e){  this.cancelModal();  },
+    '.submitform' : function(e){  this.submitForm();  }
   }),
   
   fetch: function(url) {
@@ -82,6 +83,10 @@ lpl.modal = $.klass({
       } 
     });
 
+  },
+  
+  submitForm: function() {
+    $("form", this.element).submit();
   },
   
   putContent: function(content) {
