@@ -153,7 +153,7 @@ div.lpl_pop_in h1 {
   font-weight:bold;
   line-height:34px;
   text-decoration:none;
-  text-shadow: 0px 1px 0px rgba(255,255,150,0.75);
+  text-shadow: 0px 1px 0px rgba(255,255,250,0.5);
   background: transparent url(assets/lpl/tag-bg.png) no-repeat;
 }
 
@@ -175,6 +175,23 @@ div.lpl_pop_in h1 {
   margin-right:-7px;
   background: transparent url(assets/lpl/tag-bg.png) no-repeat top right;
 }
+
+.lpl_tag.active,
+.lpl_tag:active {
+  text-shadow: 0px 1px 0px rgba(255,255,150,0.75);
+  background: transparent url(assets/lpl/tag-bg.png) no-repeat 0px -32px;
+}
+
+.lpl_tag.active span,
+.lpl_tag:active span {
+  background: transparent url(assets/lpl/tag-bg.png) no-repeat -393px -32px;
+}
+
+.lpl_tag a {
+  color:#333;
+  text-decoration:none;
+}
+
 .lpl_tag.plain {
   position:relative;
   float:left;
