@@ -210,7 +210,7 @@ ul.inspector_list > li .icon {
 
 ul.inspector_list > li .name {
   position:relative;
-  padding:0 0 0 26px;
+  padding:2px 0 0 26px;
   color:#666;
   font-weight:bold;
   font-size:12px;
