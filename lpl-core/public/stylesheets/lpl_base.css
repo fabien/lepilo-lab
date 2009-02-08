@@ -64,12 +64,10 @@ div#lpl_core_sidebar {
   background: #ced0cf url(assets/lpl/gradient-bright.png) repeat-x;
   overflow-x:hidden;
   overflow-y:auto;
-  padding:0 0 15px 0;
   z-index:26000;
   -webkit-box-shadow: 2px 3px 5px rgba(0,0,0,0.5);
   -moz-box-shadow: 2px 3px 5px rgba(0,0,0,0.5);
   border: 1px solid rgba(255,255,255,0.25);
-  border-bottom:10px solid #ced0cf;
 }
 
 div#lpl_core_feedback {
@@ -88,12 +86,10 @@ div#lpl_core_inspector {
   background: #ced0cf url(assets/lpl/gradient-bright.png) repeat-x;
   overflow-x:hidden;
   overflow-y:auto;
-  padding:0 0 15px 0;
   z-index:26000;
   -webkit-box-shadow: -2px 3px 5px rgba(0,0,0,0.5);
   -moz-box-shadow: -2px 3px 5px rgba(0,0,0,0.5);
   border: 1px solid rgba(255,255,255,0.25);
-  border-bottom:10px solid #ced0cf;
 }
 
 div#lpl_core_shelf {
@@ -224,6 +220,10 @@ br.clr {
 
 .lpl_centered {
   text-align:center;
+}
+
+.lpl_20_height {
+  height:20px;
 }
 
 .lpl_white_text {
