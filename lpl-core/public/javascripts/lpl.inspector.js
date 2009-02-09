@@ -30,8 +30,8 @@ lpl.inspector = $.klass({
   },
   
   resize: function() {
-    // window - header (51px) - inspector padding-bottom (10px) - shelf border (8px)
-    this.element.css({"height": $(window).height() - 62});
+    // window - header (51px) - shelf border (~4px)
+    this.element.height($(window).height() - 55);
   },
   
   show: function() {

@@ -55,6 +55,10 @@ $(document).ready(function(){
   $('.lpl_action_20').append('<span></span>');
   $('.lpl_tag').append('<span></span>');
   
+  // Make sure there's a "padding" inside the sidebar/inspector (as normal padding gets ignored)
+  $('#lpl_core_sidebar').append('<div class="lpl_40_height"></div>');
+  $('#lpl_core_inspector').append('<div class="lpl_40_height"></div>');
+  
   $('.actions').children('a:first-child').addClass('start');
   $('.actions').children('a:last-child').addClass('end');
   
