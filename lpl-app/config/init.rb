@@ -17,13 +17,15 @@ end
  
 Merb::BootLoader.before_app_loads do
   Sofa::Storage[:default] = "http://localhost:5984/lpl-app" if Object.const_defined?(:Sofa)
-    
+  
   # This option sets the url/path entry point for all slices - see router.rb
   LplCore[:prefix] = 'lepilo'
   # List extensions you want to enable here - they will appear in this order in the interface.
   # In case an extension isn't found it will just be ignored, so it's safe to include
   # any extension you migh have (as a dependency) in this list.
   LplCore[:extensions] = [:sofa_pages, :awesome]
+  # Check "lepilo" for development slices of smoofles
+  Merb::Plugins.config[:merb_slices][:search_path] = [Merb.root / "slices", Merb.root / "lepilo"]
 end
  
 Merb::BootLoader.after_app_loads do
