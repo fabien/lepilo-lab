@@ -155,6 +155,125 @@
       </div>
       <!-- div.lpl_container_rounded END -->
       
+      <div class="lpl_container_rounded">
+        <h1 title="post-identifier (e5276c0943991c7fa74f1acbb6ff1e46)">Post : Voluptatum totam aut quo...</h1>
+        <form action="/lepilo/pages/sections/blog/e5276c0943991c7fa74f1acbb6ff1e46" class="sofa" method="post" enctype="application/x-www-form-urlencoded" id="document">
+          <dl class="sofa lpl_content" id="document_container">
+            <dt>
+              <label class="required" for="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_title">Title</label>
+
+            </dt>
+            <dd>
+              <input type="text" class="form_elem string required" value="Voluptatum totam aut quo cupiditate illo eius eos." name="document[title]" id="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_title"/>
+            </dd>
+            <dt>
+              <label for="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_intro">Intro</label>
+            </dt>
+            <dd>
+
+              <textarea class="form_elem string sofa_types_text" name="document[intro]" cols="40" rows="10" id="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_intro"></textarea>
+            </dd>
+            <dt>
+              <label class="required" for="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_content">Content</label>
+            </dt>
+            <dd>
+              <textarea class="form_elem string sofa_types_html required" name="document[content]" cols="40" rows="10" id="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_content">&lt;p&gt;&lt;em&gt;Dignissimos suscipit perferendis praesentium aut velit&lt;/em&gt;. Eius quia non a sit suscipit unde. Odit consequatur saepe delectus nesciunt.Cupiditate sapiente sed libero necessitatibus dignissimos quis. Rerum sed et illo minima quis. Nemo modi dolores animi atque sint omnis fuga.&lt;/p&gt;</textarea>
+
+            </dd>
+            <dt>
+              <label for="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_tags">Tags</label>
+            </dt>
+            <dd>
+              <ul class="form_elem array sofa_pages_blog_post_tags_collection enum select_multiple" id="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_tags">
+                <li>
+                  <input type="checkbox" name="document[tags][]" value="news" id="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_tags_0"/>
+
+                  <label for="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_tags_0">News</label>
+                </li>
+                <li class="checked">
+                  <input type="checkbox" name="document[tags][]" value="information" id="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_tags_1" checked="checked"/>
+                  <label for="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_tags_1">Information</label>
+                </li>
+              </ul>
+            </dd>
+
+            <dt class="nested">
+      Metadata      </dt>
+            <dd class="nested">
+              <dl class="sofa lpl_content nested" id="document_container_metadata">
+                <dt>
+                  <label for="sofa_pages_meta_data_metadata_description">Description</label>
+                </dt>
+                <dd>
+
+                  <textarea class="form_elem string sofa_types_text" name="document[metadata][description]" cols="40" rows="10" id="sofa_pages_meta_data_metadata_description"></textarea>
+                </dd>
+                <dt>
+                  <label for="sofa_pages_meta_data_metadata_keywords">Keywords</label>
+                </dt>
+                <dd>
+                  <textarea class="form_elem string sofa_types_text" name="document[metadata][keywords]" cols="40" rows="10" id="sofa_pages_meta_data_metadata_keywords"></textarea>
+
+                </dd>
+              </dl>
+            </dd>
+            <dt>
+              <label for="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_published">Published</label>
+            </dt>
+            <dd>
+              <input type="checkbox" class="form_elem boolean sofa_types_boolean" value="yes" name="document[published]" id="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_published" checked="checked"/>
+
+            </dd>
+            <dt>
+              <label for="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_publication_date">Publication date</label>
+            </dt>
+            <dd>
+              <input type="text" class="form_elem string date" value="2009-02-21" name="document[publication_date]" id="sofa_pages_blog_post_e5276c0943991c7fa74f1acbb6ff1e46_publication_date"/>
+            </dd>
+          </dl>
+
+          <input type="hidden" name="_method" value="put"/>
+          <dl class="lpl_content" id="doc_links">
+            <dt>
+              <label>Links</label>
+            </dt>
+            <dd>
+              <table class="array three-col">
+                <tr>
+
+                  <th>URL</th>
+                  <th>Label</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td class="col-a">
+                    <input type="text" class="col-a" name="document[raw_links][url][]" value=""/>
+
+                  </td>
+                  <td class="col-b">
+                    <input type="text" class="col-b" name="document[raw_links][label][]" value=""/>
+                  </td>
+                  <td class="col-c">
+                    <input type="text" class="col-c" name="document[raw_links][description][]" value=""/>
+                  </td>
+                </tr>
+              </table>
+
+            </dd>
+          </dl>
+          <input type="hidden" name="type_identifier" value="blog-post"/>
+          <input type="submit" value="Update"/>
+        </form>
+        <hr/>
+        <div class="buttons">
+          <a class="lpl_btn_square" href="#doc_links" id="toggle_doc_links" title="Manage links">Show links</a>
+
+          <a onclick="$('form#document').submit(); return true" class="green right lpl_btn_square" title="Update this Post">Update</a>
+          <a class="right lpl_btn_square" href="/lepilo/pages/sections/blog/e5276c0943991c7fa74f1acbb6ff1e46" title="Cancel this operation">Cancel</a>
+        </div>
+      </div>
+      
+      
     </div>
     <!-- #lpl_core_main END -->
     

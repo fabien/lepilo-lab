@@ -99,13 +99,13 @@ jQuery.fn.extend({
       
   	  /* Insert dynamic variables/content into document */
     	/* IE needs stylesheet to be written inline */
-    	documentTemplate = ($.browser.msie) ? 
+    	var templateContent = ($.browser.msie) ? 
     		documentTemplate.replace(/INSERT:STYLESHEET:END/, '<link rel="stylesheet" type="text/css" href="' + stylesheet + '"></link>') :
     		documentTemplate.replace(/INSERT:STYLESHEET:END/, "");
 
-    	documentTemplate = documentTemplate.replace(/INSERT:CONTENT:END/, $(this).html());
+    	templateContent = templateContent.replace(/INSERT:CONTENT:END/, $(this).html());
     	iframe.contentWindow.document.open();
-    	iframe.contentWindow.document.write(documentTemplate);
+    	iframe.contentWindow.document.write(templateContent);
     	iframe.contentWindow.document.close();
 
     	if (!$.browser.msie) { // possible deprecation issue - see jQuery 1.3
