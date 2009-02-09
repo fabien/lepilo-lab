@@ -63,7 +63,7 @@ if defined?(Merb::Plugins)
     stylesheets = []
     stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl_modal lpl_markdown], { :bundle => 'bundle.lpl.app' }]
     stylesheets << [%w[markitup/skins/markitup/style markitup/sets/markdown/style], { :bundle => 'bundle.markdown' }]
-    stylesheets << [%w[theme/ui.datepicker]]
+    stylesheets << [%w[theme/ui.core theme/ui.theme theme/ui.datepicker], { :bundle => 'bundle.jquery.ui' }]
   end
   
   # Some general settings/metadata
