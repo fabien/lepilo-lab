@@ -14,9 +14,12 @@ lpl.modal = $.klass({
     if ($(".login_form").length > 0) {
       //this.element.show("slide", { direction: "up" }, 500);
       $("#lpl_core_modal_dialog", this.element).hide();
+      $("input[type=submit]", this.element).hide();    
       this.element.hide().css({ top: "0px" }).fadeIn(750, function () {
         $("h1", this.element).addClass("fail");
-        $("#lpl_core_modal_dialog", this.element).show("slide", { direction: "up" }, 350);
+        $("#lpl_core_modal_dialog", this.element).show("slide", { direction: "up" }, 350, function() {
+          $("input:visible", this.element).eq(0).focus();  
+        });        
       });
       $("h1", this.element).html("Unauthorized access: please log in");
     } else {
@@ -55,7 +58,7 @@ lpl.modal = $.klass({
   
   onmouseup: $.delegate({
     '.cancelmodal' : function(e){  this.cancelModal();  },
-    '.submitform' : function(e){  this.submitForm();  }
+    '.submitform'  : function(e){  this.submitForm();   }
   }),
   
   fetch: function(url) {
@@ -146,4 +149,3 @@ $(document).ready(function(){
 
   
 });
-

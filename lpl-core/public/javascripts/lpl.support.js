@@ -71,8 +71,9 @@ jQuery.fn.extend({
   
   urlify: function() {
     this.filter(':text').each(function() {
-      $(this).keyup(function(e) {  
-         if(e.keyCode != 109) { $(this).val(urlify($(this).val())); }
+      $(this).keyup(function(e) {
+        var value = $(this).val();
+        if(value.charAt(value.length - 1) != '-') { $(this).val(urlify($(this).val())); }
       });
     });
     return this;

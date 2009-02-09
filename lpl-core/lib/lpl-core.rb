@@ -78,6 +78,9 @@ if defined?(Merb::Plugins)
   # if not set it won't be shown in the interface
   Merb::Slices::config[:lpl_core][:icon] ||= 'header-icon.png'
   
+  # Set the image to display in the login modal window - using relative path
+  Merb::Slices::config[:lpl_core][:login_image] ||= 'login.jpg'
+  
   # All Slice code is expected to be namespaced inside a module
   module LplCore
     

@@ -58,7 +58,7 @@ module LplCore
     
     def pagination(status, prev_link = '#prev', next_link = '#next', attrs = {})
       builder.div(attrs.add_html_class("pagination")) do |pag|
-        pag.div(status, :class => 'page')
+        pag.div(status, :class => 'page') unless status.blank?
         pag.div(:class => 'lpl_canal_32', :style => 'width:44px') { |d| d.span('') }
         pag.a('previous', :href => prev_link, :class => 'lpl_previous_round_24') if prev_link
         pag.a('next',     :href => next_link, :class => 'lpl_next_round_24')     if next_link

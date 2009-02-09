@@ -17,6 +17,7 @@ Merb::Slices::config[:merb_auth_slice_password][:path_prefix] = 'auth'
 #
 # - login: lepilo
 #   password: sekrit
+#   admin: true
 #
 # The first time the users file is encountered it will encrypt the passwords.
 
@@ -24,13 +25,14 @@ if File.exists?(USERS_FILE = Merb.root / 'system' / 'users.yml')
 
   class User
 
-    attr_accessor :id, :login, :password, :crypted_password, :salt
+    attr_accessor :id, :login, :password, :crypted_password, :salt, :admin
   
     def initialize(data)
       @login            = @id = data['login']
       @salt             = data['salt']
       @password         = data['password']
       @crypted_password = data['crypted_password']
+      @admin            = data['admin']
       self.encrypt_password
     end
     
@@ -38,8 +40,12 @@ if File.exists?(USERS_FILE = Merb.root / 'system' / 'users.yml')
       @crypted_password.blank?
     end
     
+    def admin?
+      @admin == true
+    end
+    
     def data
-      { 'login' => login, 'crypted_password' => crypted_password, 'salt' => salt }
+      { 'login' => login, 'crypted_password' => crypted_password, 'salt' => salt, 'admin' => admin? }
     end
   
     def self.get(id)

@@ -16,6 +16,10 @@ module LplCore
         @_core ||= LplCore::Proxy.new(self)
       end
       
+      def append_query_params(qp)
+        request.path + '?' + request.send(:query_params).merge(qp).to_params
+      end
+      
       module ClassMethods
         
         def core
