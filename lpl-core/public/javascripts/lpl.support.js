@@ -77,6 +77,47 @@ jQuery.fn.extend({
       });
     });
     return this;
+  },
+  
+  iframed: function(stylesheet) {
+  	var documentTemplate = '\
+  		<html>\
+  			<head>\
+  				INSERT:STYLESHEET:END\
+  			</head>\
+  			<body id="iframeBody" class="content">\
+  				INSERT:CONTENT:END\
+  			</body>\
+  		</html>\
+  	';
+  	
+  	return this.each(function() {
+      var container = document.createElement("div");
+      var iframe = document.createElement("iframe");
+      $(container).attr('class', $(this).attr('class')).addClass('iframed').append(iframe);
+      $(this).replaceWith(container);
+      
+  	  /* Insert dynamic variables/content into document */
+    	/* IE needs stylesheet to be written inline */
+    	documentTemplate = ($.browser.msie) ? 
+    		documentTemplate.replace(/INSERT:STYLESHEET:END/, '<link rel="stylesheet" type="text/css" href="' + stylesheet + '"></link>') :
+    		documentTemplate.replace(/INSERT:STYLESHEET:END/, "");
+
+    	documentTemplate = documentTemplate.replace(/INSERT:CONTENT:END/, $(this).html());
+    	iframe.contentWindow.document.open();
+    	iframe.contentWindow.document.write(documentTemplate);
+    	iframe.contentWindow.document.close();
+
+    	if (!$.browser.msie) { // possible deprecation issue - see jQuery 1.3
+    		$(iframe.contentWindow.document).find('head').append(
+    			$(iframe.contentWindow.document.createElement("link")).attr({
+    				"rel" : "stylesheet",
+    				"type" : "text/css",
+    				"href" : stylesheet
+    			})
+    		);
+    	}
+    });
   }
   
 });
