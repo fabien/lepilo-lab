@@ -1,0 +1,21 @@
+@import url(content.css);
+
+.content.ueditor h1, 
+.content.ueditor h2, 
+.content.ueditor h3, 
+.content.ueditor h4, 
+.content.ueditor h5, 
+.content.ueditor h6
+{
+  background: rgba(150,200,255,0.25);
+  padding: 3px;
+}
+
+.content.ueditor p,
+.content.ueditor ul,
+.content.ueditor ol,
+.content.ueditor blockquote
+{
+  background: rgba(230,235,240,0.5);
+  padding: 3px;
+}
