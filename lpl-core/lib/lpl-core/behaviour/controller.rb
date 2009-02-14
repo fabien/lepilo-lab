@@ -28,12 +28,12 @@ module LplCore
         
         protected
         
-        def require_authentication
-          before :ensure_authenticated
+        def require_authentication(opts = {})
+          before(:ensure_authenticated, opts)
         end
 
-        def require_core_assets
-          before { core.require_assets }
+        def require_core_assets(opts = {})
+          before(nil, opts) { core.require_assets }
         end
         
       end
