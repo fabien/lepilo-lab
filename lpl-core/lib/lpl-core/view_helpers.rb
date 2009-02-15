@@ -134,7 +134,11 @@ module LplCore
       
       def thumbnail(src, attrs = {})
         builder.div(:class => 'thumbnail') do |tn|
-          tn.img(attrs.merge(:src => src))
+          if href = attrs.delete(:href)
+            tn.a(attrs.only(:title).merge(:href => href)) { |a| a.img(attrs.merge(:src => src)) }
+          else
+            tn.img(attrs.merge(:src => src))
+          end
         end          
       end
       alias :icon :thumbnail
