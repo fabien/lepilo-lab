@@ -5,6 +5,20 @@ Array.prototype.index = function(val) {
   return null;
 }
 
+function wopen(url, name, w, h) {
+  w += 32; h += 96;
+  wleft = (screen.width - w) / 2;
+  wtop = (screen.height - h) / 2;
+  var win = window.open(url, name,
+    'width=' + w + ', height=' + h + ', ' +
+    'left=' + wleft + ', top=' + wtop + ', ' + 
+    'location=no, menubar=no, status=no, toolbar=no, scrollbars=yes, resizable=yes');
+  win.resizeTo(w, h);
+  win.moveTo(wleft, wtop);
+  win.focus();
+  return win;
+}
+
 jQuery.extend({
 	
 	postJSON: function( url, data, callback) {
