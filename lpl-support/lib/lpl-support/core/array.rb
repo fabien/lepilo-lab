@@ -3,6 +3,23 @@ class Array
   module PaginationMethods
     attr_accessor :total, :page, :pages, :per_page, :offset
     attr_accessor :prev_url, :next_url
+    
+    def prev_page
+      self.page - 1
+    end
+    
+    def prev_page?
+      self.page > 1
+    end
+    
+    def next_page
+      self.page + 1
+    end
+    
+    def next_page?
+      self.page < self.pages
+    end
+    
   end
   
   def paginate(page = 1, per_page = 5)
@@ -17,7 +34,11 @@ class Array
     elsif self.offset < 0
       self.offset = 0
     end
-    self.slice!(self.offset, self.per_page)
+    self.slice(self.offset, self.per_page)
+  end
+  
+  def paginate!(page = 1, per_page = 5)
+    self.replace(paginate(page, per_page))
   end
   
 end
