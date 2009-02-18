@@ -6,6 +6,7 @@ module LplCore
       # LplCore::Extension's Application controller. It contains functionality
       # that's usually related to the view.
       
+      attr_writer :full_page_title # overrides page_title completely
       attr_writer :page_title, :page_description, :page_keywords
       attr_writer :page_copyright, :page_author, :page_generator
       
@@ -26,7 +27,7 @@ module LplCore
       end
       
       def page_title
-        (Array(info[:title]) + Array(@page_title)).flatten.compact.join(' • ')
+        @full_page_title || (Array(info[:title]) + Array(@page_title)).flatten.compact.join(' • ')
       end
       
       def page_description

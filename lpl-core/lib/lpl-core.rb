@@ -42,12 +42,14 @@ if defined?(Merb::Plugins)
   # the main application layout or no layout at all if needed.
   # 
   # Configuration options:
-  # :layout       - the layout to use; defaults to :lpl-core
-  # :mirror       - which path component types to use on copy operations; defaults to all
-  # :path_prefix  - what path to use in the slice's url
+  # :layout             - the layout to use; defaults to :lpl-core
+  # :mirror             - which path component types to use on copy operations; defaults to all
+  # :path_prefix        - what path to use in the slice's url
+  # :exceptions_layout  - which layout to use for the Exceptions controller
   Merb::Slices::config[:lpl_core][:prefix]      ||= 'lepilo'
   Merb::Slices::config[:lpl_core][:layout]      ||= :main
   Merb::Slices::config[:lpl_core][:path_prefix] ||= 'core'
+  Merb::Slices::config[:lpl_core][:exceptions_layout] ||= :application
   
   # List all core javascripts here - the array items are passed as args to core.require_js
   Merb::Slices::config[:lpl_core][:javascripts] ||= begin

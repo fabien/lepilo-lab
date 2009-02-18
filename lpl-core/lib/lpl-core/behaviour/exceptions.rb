@@ -15,42 +15,38 @@ Merb::Authentication.customize_default do
     include LplCore::Behaviour::Controller
     include LplCore::Behaviour::Helpers
         
-    controller_for_slice LplCore, :layout => :application
+    controller_for_slice LplCore, :layout => LplCore[:exceptions_layout] || :application
+    
+    alias :app_unauthenticated :unauthenticated
     
     # handle Unauthenticated exceptions from merb-auth
     def unauthenticated
+      return app_unauthenticated unless core.request?
+      
       provides :xml, :js, :json, :yaml
       case content_type
       when :html
-        if core.request?
-          render_core_exception :unauthenticated
-        else
-          render
-        end
+        render_core_exception :unauthenticated
       else
         basic_authentication.request!
         ""
       end
     end
     
+    alias :app_not_found :not_found
+    
     # handle NotFound exceptions (404)
     def not_found
-      # Check whether the request is made within lpl or simply at the site-level
-      if core.request?
-        render_core_exception :not_found
-      else
-        render :format => :html
-      end
+      return app_not_found unless core.request?
+      render_core_exception :not_found
     end
+    
+    alias :app_not_acceptable :not_acceptable
     
     # handle NotAcceptable exceptions (406)
     def not_acceptable
-      # Check whether the request is made within lpl or simply at the site-level
-      if core.request?
-        render_core_exception :not_acceptable
-      else
-        render :format => :html
-      end
+      return app_not_acceptable unless core.request?
+      render_core_exception :not_acceptable
     end
     
     protected
