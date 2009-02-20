@@ -13,6 +13,7 @@ if defined?(Merb::Plugins)
   Object.make_module("Views::LplCore")
   
   # Load specific LplSupport functionality.
+  require 'lpl-support' / 'merb' / 'controller' / 'mixins' / 'support'
   require 'lpl-support' / 'merb' / 'controller' / 'mixins' / 'response_handling'
   
   # Load essential LplCore classes.

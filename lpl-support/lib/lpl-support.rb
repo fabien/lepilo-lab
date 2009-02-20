@@ -13,5 +13,7 @@ module LplSupport
   
 end
 
+Object.make_module("LplSupport::Merb::Controller::Mixins")
+
 $:.unshift File.dirname(__FILE__)
 require 'lpl-support/core' # other parts are optional - require them explicitly

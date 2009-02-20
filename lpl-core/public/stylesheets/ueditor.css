@@ -88,6 +88,12 @@
 	height: 200px;
 	border: none;
 }
+.uEditor.short .uEditorIframe {
+	height: 75px;
+}
+.uEditor.long .uEditorIframe {
+	height: 400px;
+}
 .uEditor textarea.uEditorTextarea
 {
 	clear: both;
