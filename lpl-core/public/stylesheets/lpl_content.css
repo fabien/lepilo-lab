@@ -390,7 +390,7 @@ ul.inspector_list > li.calendar > div.icon {
   border-bottom:none;
 }
 
-.lpl_list ul li.purple {
+.lpl_list ul li.smart-folder.active {
   color:#fff;
   font-weight:bold;
   text-shadow:0px 1px 1px rgba(0,0,0,0.75);
@@ -398,13 +398,18 @@ ul.inspector_list > li.calendar > div.icon {
   border-bottom:none;
 }
 
-.lpl_list ul li.purple a {
+.lpl_list ul li.smart-folder.active a {
   color:#fff;
 }
 
-.lpl_list ul li.purple:active {
+.lpl_list ul li.smart-folder.active:hover {
+  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -370px;
+}
+
+.lpl_list ul li.smart-folder.active:active {
   background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -350px;
 }
+
 
 .lpl_list ul li > ul {
   border-bottom:none;
