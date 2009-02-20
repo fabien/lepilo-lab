@@ -367,8 +367,9 @@ ul.inspector_list > li.calendar > div.icon {
 
 .lpl_list ul li:active {
   color:#fff;
+  font-weight:bold;
   text-shadow:0px 1px 1px rgba(0,0,0,0.75);
-  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -160px;
+  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px;
 }
 
 .lpl_list ul li.container:hover {
@@ -377,6 +378,7 @@ ul.inspector_list > li.calendar > div.icon {
 
 .lpl_list ul li.container:active {
   text-shadow:none;
+  font-weight:normal;
   background: transparent;
 }
 
@@ -384,8 +386,24 @@ ul.inspector_list > li.calendar > div.icon {
   color:#fff;
   font-weight:bold;
   text-shadow:0px 1px 1px rgba(0,0,0,0.75);
-  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px 0px;
+  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -500px;
   border-bottom:none;
+}
+
+.lpl_list ul li.purple {
+  color:#fff;
+  font-weight:bold;
+  text-shadow:0px 1px 1px rgba(0,0,0,0.75);
+  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -360px;
+  border-bottom:none;
+}
+
+.lpl_list ul li.purple a {
+  color:#fff;
+}
+
+.lpl_list ul li.purple:active {
+  background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -350px;
 }
 
 .lpl_list ul li > ul {
