@@ -406,6 +406,7 @@ ul.inspector_list > li.calendar > div.icon {
   background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -370px;
 }
 
+.lpl_list ul li.smart-folder:active,
 .lpl_list ul li.smart-folder.active:active {
   background: transparent url(assets/lpl/speed-stripesi.png) repeat-x 0px -350px;
 }
