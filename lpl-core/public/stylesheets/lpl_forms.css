@@ -213,3 +213,180 @@ input[type='text'].search {
   top:5px;
   right:25px;
 }
+
+
+/* -------------------------------------------------------- */
+/*    DL, DD, DT FORM STYLES                                */
+/*    form containers styles                                */
+/* -------------------------------------------------------- */
+
+div.lpl_dl {}
+ 
+div.lpl_dl h2,
+dt.nested {
+  font-weight: bold;
+  color:#191919;
+  font-size: 14px;
+  text-shadow: 0px 1px 0px #fff;
+}
+ 
+div.lpl_dl h2 {
+  width: 90px;
+  text-align: right;
+  margin-left: 20px;
+}
+ 
+dl.lpl_content {
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
+ 
+dl.lpl_content dt {
+  float: left;
+  clear: left;
+  width: 90px;
+  text-align: right;
+  font-weight: bold;
+  color:#333;
+  font-size: 12px;
+  text-shadow: 0px 1px 0px #fff;
+  padding: 0 20px 10px 0;
+  line-height: 14px;
+}
+ 
+dl.lpl_content dd {
+  padding: 0 5px 10px 0;
+  overflow: hidden;
+  line-height: 14px;
+}
+ 
+dl.lpl_content dd.overset {
+  overflow: auto;
+  margin-bottom: 10px;
+  max-height: 200px;
+}
+ 
+dl.lpl_content dd {
+  margin: 0;
+}
+ 
+dl.lpl_content dd.overset div.lpl_markdown {
+  padding: 1px 10px 10px 0;
+}
+ 
+dl.lpl_content dd.overset > div {
+  padding: 1px 10px 10px 0;
+}
+ 
+form dl.lpl_content dt {
+  padding-top: 3px;
+}
+ 
+dl.lpl_content.lpl_error p + p {
+  margin-bottom: 5px;
+}
+ 
+form dl.lpl_content dd input[type='checkbox'] {
+  margin-left: 0;
+}
+ 
+form dl.lpl_content dd textarea {
+  height: 100px;
+}
+ 
+form dl.lpl_content dd ul.select_multiple {
+  overflow: hidden;
+}
+ 
+form dl.lpl_content dd ul.select_multiple > li {
+  display: block;
+  line-height: 20px;
+  height: 20px;
+  float: left;
+  margin-top: 0.18em;
+  width: 16ex;
+  margin-right: 30px;
+}
+ 
+form dl.lpl_content dd ul.select_multiple > li > label {
+  display: inline;
+  padding: 0;
+  position: relative;
+  top: -0.18em;
+}
+ 
+form dl.lpl_content dd ul.select_multiple > li > input {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+ 
+form dl.lpl_content input.date {
+  float: left;
+  width: 12ex;
+  margin-right: 10px;
+}
+ 
+form dl.lpl_content dt.nested {
+  padding-top: 10px;
+}
+ 
+dl.lpl_content dd.nested dl.lpl_content {
+  padding: 10px 0 0 0;
+}
+ 
+dl.lpl_content dd.nested dl.lpl_content dt {
+  float: none;
+  width: auto;
+  text-align: left;
+}
+ 
+dl.lpl_content dd.nested dl.lpl_content dd {
+  overflow: none;
+  
+}
+ 
+dl.lpl_content dd.nested dl.lpl_content dd textarea {
+  padding-right: 1px;
+}
+ 
+ 
+.lpl_content table {
+  width: 100%;
+}
+ 
+.lpl_content table th { /* merge with lpl label style */
+  color:rgba(0, 0, 0, 0.75);
+  font-size:11px;
+  font-weight:bold;
+  text-shadow:0 1px 0 rgba(255, 255, 255, 0.75);
+}
+ 
+.lpl_content table.three-col tr td {
+  padding: 0 0 10px 0;
+}
+ 
+.lpl_content table.three-col td.col-a {
+  padding-right: 10px;
+  width: 33%;
+}
+ 
+.lpl_content table.three-col td.col-b {
+  padding: 0 10px;
+  width: 33%;
+}
+ 
+.lpl_content table.three-col td.col-c {
+ padding-left: 10px;
+ width: 33%;
+}
+ 
+form {
+  overflow: hidden;
+}
+ 
+input[type=submit] {
+  border: 1px solid black;
+  margin: 0 20px 10px 0;
+  float: right;
+}
