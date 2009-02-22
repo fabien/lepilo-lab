@@ -9,6 +9,8 @@
 {
   background: rgba(150,200,255,0.25);
   padding: 3px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
 }
 
 .content.ueditor p,
@@ -18,4 +20,6 @@
 {
   background: rgba(230,235,240,0.5);
   padding: 3px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
 }
