@@ -7,7 +7,9 @@
 .content.ueditor h5, 
 .content.ueditor h6
 {
-  background: rgba(150,200,255,0.25);
+  background-color: rgba(150,200,255,0.25);
+  background-position: 100% 0;
+  background-repeat: no-repeat;
   padding: 3px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -18,8 +20,49 @@
 .content.ueditor ol,
 .content.ueditor blockquote
 {
-  background: rgba(230,235,240,0.5);
+  background-color: rgba(70,140,200,0.10);
+  background-position: 100% 0;
+  background-repeat: no-repeat;
   padding: 3px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
+}
+
+.content.ueditor h1 { 
+  background-color: rgba(155,15,20,0.25); 
+  background-image: url(ueditor/lbl-h1.png); 
+}
+.content.ueditor h2 {
+  background-color: rgba(235,95,15,0.25);
+  background-image: url(ueditor/lbl-h2.png);
+} 
+.content.ueditor h3 {
+  background-color: rgba(180,165,0,0.25);
+  background-image: url(ueditor/lbl-h3.png);
+} 
+.content.ueditor h4 {
+  background-color: rgba(75,105,15,0.25);
+  background-image: url(ueditor/lbl-h4.png); 
+} 
+.content.ueditor h5 {
+  background-color: rgba(95,85,155,0.25);
+  background-image: url(ueditor/lbl-h5.png); 
+} 
+.content.ueditor h6 {
+  background-color: rgba(0,75,125,0.25);
+  background-image: url(ueditor/lbl-h6.png); 
+}
+
+.content.ueditor p { 
+  background-image: url(ueditor/lbl-p.png);
+}
+.content.ueditor ul,
+.content.ueditor ol {
+  background-color: rgba(150,190,15,0.20);
+}
+.content.ueditor blockquote { 
+  background-image: url(ueditor/lbl-blockquote.png);
+}
+.content.ueditor code { 
+  background-image: url(ueditor/lbl-pre.png);
 }
