@@ -65,7 +65,7 @@ if defined?(Merb::Plugins)
   Merb::Slices::config[:lpl_core][:stylesheets] ||= begin
     stylesheets = []
     stylesheets << [%w[reset lpl_base lpl_ui lpl_buttons lpl_forms lpl_content lpl_header lpl_footer lpl_modal lpl_markdown], { :bundle => '/slices/lpl-core/stylesheets/bundle.lpl.app' }]
-    stylesheets << [%w[theme/ui.core theme/ui.theme theme/ui.datepicker], { :bundle => '/slices/lpl-core/stylesheets/bundle.jquery.ui' }]
+    stylesheets << [%w[theme/ui.core theme/ui.theme theme/ui.datepicker]]
     stylesheets << [%w[ueditor]]
   end
   
